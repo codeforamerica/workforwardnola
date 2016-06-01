@@ -1,6 +1,186 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 body {
-  background-color: red;
-  background-image: -webkit-linear-gradient(bottom, red, orange);
-  background-image: linear-gradient(to top,red, orange); }
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+  margin: 0;
+  padding: 0; }
+  body::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+h1, h2, h3, p {
+  margin: 0; }
+
+h1 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+  text-align: center; }
+  @media screen and (min-width: 48em) {
+    h1 {
+      font-size: 2.4em;
+      text-align: left; } }
+
+h2 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4em;
+  margin-bottom: 0.9em;
+  text-align: center; }
+  @media screen and (min-width: 48em) {
+    h2 {
+      font-size: 1.4em;
+      text-align: left; } }
+
+h3 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.3em;
+  margin-bottom: 0.4em; }
+
+p, li {
+  color: #333;
+  line-height: 1.5em;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.05em;
+  font-weight: 300;
+  line-height: 1.4em; }
+
+p {
+  margin-bottom: 1.5em; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style-type: none; }
+
+a:link, a:visited, a:active {
+  color: #477dca;
+  text-decoration: none; }
+
+a:hover {
+  border-bottom: 1px solid #477dca; }
+
+hr {
+  width: 3em;
+  border-bottom: 1px solid #EEE;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0; }
+
+.centered {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2em; }
+
+#heading {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/diagonal-noise.png"), linear-gradient(180deg, #363636, #1a1a1a), center no-repeat #363636 scroll;
+  width: 100%;
+  min-height: 18em;
+  padding: 2em 0 0 0;
+  text-align: center; }
+  #heading h1 {
+    color: white;
+    margin: 0 0 0.5em 0;
+    padding-bottom: 0.5em; }
+  #heading h2 {
+    color: white;
+    margin-bottom: 1.5em; }
+
+#successStory .centered {
+  min-height: 23em;
+  padding: 2em; }
+  @media screen and (min-width: 62em) {
+    #successStory .centered {
+      background-position: left;
+      background-size: cover;
+      justify-content: flex-end; } }
+  #successStory .centered img {
+    min-width: 255px;
+    border-radius: 50%;
+    margin: 0 auto 1.5em;
+    display: block; }
+    @media screen and (min-width: 62em) {
+      #successStory .centered img {
+        float: left;
+        margin: 1em 0 0 3em; } }
+  #successStory .centered .ss-content {
+    max-width: 35em;
+    text-align: center;
+    margin: 0 auto; }
+    @media screen and (min-width: 62em) {
+      #successStory .centered .ss-content {
+        text-align: left;
+        float: right; } }
+    #successStory .centered .ss-content h1 {
+      font-weight: 2em; }
+    #successStory .centered .ss-content ul {
+      max-width: 350px;
+      padding: .3em 0;
+      margin: 0 auto; }
+      @media screen and (min-width: 62em) {
+        #successStory .centered .ss-content ul {
+          margin: 0; } }
+    #successStory .centered .ss-content li {
+      color: #333;
+      padding: .1em 0;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.2); }
+      #successStory .centered .ss-content li:first-child {
+        padding-top: 0; }
+      #successStory .centered .ss-content li:last-child {
+        border-bottom: 0; }
+      @media screen and (min-width: 62em) {
+        #successStory .centered .ss-content li {
+          border-bottom: 0; } }
+
+#firstSteps {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/diagonal-noise.png"), linear-gradient(180deg, #f1f1f1, #d5d5d5), center no-repeat #f1f1f1 scroll; }
+  #firstSteps ul {
+    margin-left: 15px;
+    counter-reset: section; }
+    @media screen and (min-width: 48em) {
+      #firstSteps ul {
+        margin-left: 55px; } }
+  #firstSteps li {
+    padding: 12px 0 0 16px;
+    position: relative; }
+    #firstSteps li:before {
+      counter-increment: section;
+      content: counter(section);
+      text-align: center;
+      font-weight: 500;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      margin: 0 5px 0 0;
+      border-radius: 50%;
+      background-color: #fff;
+      position: absolute;
+      left: -16px; }
+
+#job1Info #map_canvas {
+  height: 400px;
+  width: 100%; }
+#job1Info #map_canvas img {
+  max-width: none; }
+#job1Info #map_canvas .content {
+  padding: 0 0.5em 1em 0.5em;
+  display: block; }
+#job1Info #map_canvas h1 {
+  font-size: 2em; }
+#job1Info #map_canvas #bodyContent p {
+  font-size: 1.1em;
+  margin: 2px 0; }
 
 /*# sourceMappingURL=main.css.map */
