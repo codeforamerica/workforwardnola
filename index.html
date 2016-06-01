@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+<body>
   <head>
     <title>Work Forward NOLA</title>
     <link rel="stylesheet" href="assets/style/main.css/main.css" />
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -14,14 +17,98 @@
       ga('send', 'pageview');
     </script>
 
-  <body>
-    <h1>Work Forward NOLA</h1>
+    <section id="heading">
+      <div class="centered">
+        <h1>Find success in your job search</h1>
+        <h2>Your neighbors have found successful careers and so can you.<br />Take your first step today.</h2>
+      </div>
+    </section>
 
+    <section id="successStory">
+      <div class="centered">
+        <div class="ss-content">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/49db8c0f2f8066c2c3a275781503fe3303a1a9fc/source/images/placeholder.png" alt="Logo Image" class="ss-image">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni modi doloremque excepturi laudantium maxime explicabo cumque deleniti voluptate deserunt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="firstSteps">
+      <div class="centered">
+        <h1>Visit the Job1 center to get started!</h1>
+        <h2>Take these 4 steps to get the most out of your visit.</h2>
+        <ol>
+          <li>Block out 2-3 hours of time for your visit</li>
+          <li>Register for HiRE on the Louisiana Works website
+              <ol><li>>> Follow these step-by-step instructions</li></ol>
+          </li>
+          <li>Bring a state issued ID or Driver's License</li>
+          <li>When you arrive, ask about training and employment opportunities</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="job1Info">
+      <div class="centered">
+        <div id="map_canvas"></div>
+      </div>
+    </section>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
-      window.intercomSettings = {
-        app_id: "keo75jgl"
-      };
+      var bittersMap = (function () {
+        var myLatlng = new google.maps.LatLng(59.342457, 18.057340),
+            mapCenter = new google.maps.LatLng(59.340458, 18.057340),
+            mapCanvas = document.getElementById('map_canvas'),
+            mapOptions = {
+              center: mapCenter,
+              zoom: 13,
+              scrollwheel: false,
+              draggable: true,
+              disableDefaultUI: true,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+            map = new google.maps.Map(mapCanvas, mapOptions),
+            contentString =
+              '<div id="content">'+
+              '<div id="siteNotice">'+
+              '</div>'+
+              '<h1 id="firstHeading" class="firstHeading">thoughtbot</h1>'+
+              '<div id="bodyContent"'+
+              '<p>Sveavägen 98</p>'+
+              '</div>'+
+              '</div>',
+            infowindow = new google.maps.InfoWindow({
+              content: contentString,
+              maxWidth: 300
+            }),
+            marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map,
+              title: 'thoughtbot (Sweden)'
+            });
+
+        return {
+          init: function () {
+            map.set('styles', [{
+              featureType: 'landscape',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#ffff00' },
+                { saturation: 30 },
+                { lightness: 10}
+              ]}
+            ]);
+
+            google.maps.event.addListener(marker, 'click', function () {
+              infowindow.open(map,marker);
+            });
+          }
+        };
+      }());
+
+      bittersMap.init();
     </script>
-    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/keo75jgl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>  </head>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/keo75jgl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
   </body>
 </html>

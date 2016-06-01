@@ -1,6 +1,113 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 body {
-  background-color: red;
-  background-image: -webkit-linear-gradient(bottom, red, orange);
-  background-image: linear-gradient(to top,red, orange); }
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+  margin: 0;
+  padding: 0; }
+  body::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+h1, h2, h3, p {
+  margin: 0; }
+
+h1 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 0.5em; }
+  @media screen and (min-width: 40em) {
+    h1 {
+      font-size: 2.4em; } }
+
+h2 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4em;
+  margin-bottom: 0.9em; }
+  @media screen and (min-width: 40em) {
+    h2 {
+      font-size: 1.4em; } }
+
+h3 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.3em;
+  margin-bottom: 0.4em; }
+
+p {
+  color: #333;
+  line-height: 1.5em;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.05em;
+  font-weight: 300;
+  line-height: 1.4em;
+  margin-bottom: 1.5em; }
+  p span {
+    font-family: "Varela Round", sans-serif;
+    font-size: 0.8em;
+    text-transform: uppercase; }
+
+a {
+  color: #477dca;
+  text-decoration: none; }
+
+hr {
+  width: 3em;
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0; }
+
+.centered {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2em; }
+
+#heading {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"), linear-gradient(10deg, #0A120D, #162C4C), no-repeat #162C4C scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 20em; }
+  #heading h1 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    margin: 0 0 0.5em 0;
+    padding-bottom: 0.5em; }
+  #heading h2 {
+    color: white;
+    margin-bottom: 1.5em; }
+
+#successStory .centered {
+  align-items: center;
+  background: image-url("background-image.png");
+  background-position: right;
+  background-size: none;
+  display: flex;
+  justify-content: center;
+  min-height: 25em;
+  padding: 2em; }
+  @media screen and (min-width: 53.75em) {
+    #successStory .centered {
+      background-position: left;
+      background-size: cover;
+      justify-content: flex-end; } }
+  #successStory .centered .ss-content {
+    max-width: 20em;
+    text-align: center; }
+    @media screen and (min-width: 53.75em) {
+      #successStory .centered .ss-content {
+        text-align: left; } }
+  #successStory .centered .ss-image {
+    margin: auto; }
 
 /*# sourceMappingURL=main.css.map */
