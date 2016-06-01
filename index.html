@@ -26,9 +26,15 @@
 
     <section id="successStory">
       <div class="centered">
+        <img src="assets/images/rhonda.jpg" alt="Profile Picture for Rhonda" title="Profile Picture for Rhonda" />
         <div class="ss-content">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/49db8c0f2f8066c2c3a275781503fe3303a1a9fc/source/images/placeholder.png" alt="Logo Image" class="ss-image">
+          <h3>"I've taken 4 classes with the City so far...I did start at the bottom, but that's ok. I know I had to get there and show people what I'm capable of and show them that my incarceration doesn't lessen my abilities and diminish what I'm capable of."</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni modi doloremque excepturi laudantium maxime explicabo cumque deleniti voluptate deserunt.</p>
+          <ul>
+            <li><b>Title:</b> Office Assistant</li>
+            <li><b>Salary:</b> $10.14/Hour &amp; Benefits</li>
+            <li><b>Training &amp; Job Search:</b> 3 Months</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -37,14 +43,14 @@
       <div class="centered">
         <h1>Visit the Job1 center to get started!</h1>
         <h2>Take these 4 steps to get the most out of your visit.</h2>
-        <ol>
+        <ul>
           <li>Block out 2-3 hours of time for your visit</li>
-          <li>Register for HiRE on the Louisiana Works website
-              <ol><li>>> Follow these step-by-step instructions</li></ol>
+          <li><a href="https://www.louisianaworks.net/hire/loginintro.asp?blnStartHere=True" target="_blank" title="Registration page for Louisiana Workforce Commission">Register for HiRE on the Louisiana Works website</a>
+              <br />>> Need help? <a href="" target="_blank" title="Instructions for registering on Louisiana Workforce Commision website">Follow these step-by-step instructions</a>
           </li>
           <li>Bring a state issued ID or Driver's License</li>
           <li>When you arrive, ask about training and employment opportunities</li>
-        </ol>
+        </ul>
       </div>
     </section>
 
@@ -54,11 +60,11 @@
       </div>
     </section>
 
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>
     <script>
       var bittersMap = (function () {
-        var myLatlng = new google.maps.LatLng(59.342457, 18.057340),
-            mapCenter = new google.maps.LatLng(59.340458, 18.057340),
+        var myLatlng = new google.maps.LatLng(29.964648, -90.100143),
+            mapCenter = new google.maps.LatLng(29.964648, -90.100143),
             mapCanvas = document.getElementById('map_canvas'),
             mapOptions = {
               center: mapCenter,
@@ -73,9 +79,11 @@
               '<div id="content">'+
               '<div id="siteNotice">'+
               '</div>'+
-              '<h1 id="firstHeading" class="firstHeading">thoughtbot</h1>'+
-              '<div id="bodyContent"'+
-              '<p>Sveavägen 98</p>'+
+              '<h1>Job1</h1>'+
+              '<div id="bodyContent">'+
+              '<p>Mon-Fri, 8AM - 5PM</p>'+
+              '<p>3400 Tulane Ave, New Orleans, LA 70119</p>'+
+              '<p>(504) 658-4500</p>'+
               '</div>'+
               '</div>',
             infowindow = new google.maps.InfoWindow({
@@ -85,7 +93,7 @@
             marker = new google.maps.Marker({
               position: myLatlng,
               map: map,
-              title: 'thoughtbot (Sweden)'
+              title: 'Job1'
             });
 
         return {

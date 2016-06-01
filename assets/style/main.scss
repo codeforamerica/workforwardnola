@@ -10,21 +10,130 @@ $base-line-height: 1.5em !default;
 $base-spacing: 1.5em !default;
 
 $action-color: #477dca !default;
+$action-color-light: #ecf2f9;
 $dark-gray: #333 !default;
-$light-gray: #ddd !default;
+$light-gray: #EEE !default;
 $base-font-color: $dark-gray !default;
 $heading-text-color: white;
 $heading-background-top: #162C4C;
 $heading-background-bottom: #0A120D;
 $gradient-angle: 10deg;
 $heading-image: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png";
+$textureH-top-background: lighten($dark-gray, 1%);
+$textureH-bottom-background: darken($dark-gray, 10%);
+$textureFS-top-background: lighten($light-gray, 1%);
+$textureFS-bottom-background: darken($light-gray, 10%);
 
-$medium-screen: 40em !default;
-$large-screen: 53.75em !default;
+$medium-screen: 48em !default;
+$large-screen: 62em !default;
 
 $centered-background: darken(gray, 40%);
 $centered-backside-background: darken($centered-background, 10%);
 
+$round-radius: 50%;
+
+@mixin texture($gradient-angle, $bg-color-1, $bg-color-2, $texture-number, $inverted) { $texture-list:
+  "paper.png"             // Fabric and paper
+  "rice_paper.png"
+  "noise_lines.png"
+  "fabric_plaid.png"
+  "first_aid_kit.png"
+  "texturetastic_gray.png"
+  "lil_fiber.png"
+  "tex2res5.png"
+  "skin_side_up.png"
+  "light_noise_diagonal.png"
+  "chruch.png"
+  "45degreee_fabric.png"
+  "bgnoise_lg.png"
+  "little_pluses.png"
+  "squairy_light.png"
+  "white_texture.png"
+  "binding_light.png"
+  "double_lined.png"      // Grid, mesh and squares
+  "grid.png"
+  "absurdidad.png"
+  "grid_noise.png"
+  "fancy_deboss.png"
+  "graphy.png"
+  "noise_pattern_with_crosslines.png"
+  "old_mathematics.png"
+  "ps_neutral.png"
+  "subtle_freckles.png"
+  "wavegrid.png"
+  "az_subtle.png"
+  "tiny_grid.png"
+  "wavegrid.png"
+  "gridme.png"
+  "noisy_grid.png"
+  "subtlenet2.png"
+  "white_carbon.png"
+  "lghtmesh.png"
+  "p5.png"                 // Dots
+  "worn_dots.png"
+  "subtle_dots.png"
+  "brillant.png"
+  "farmer.png"
+  "retina_dust.png"        // Lines
+  "pinstripe.png"
+  "line_horizontal1.png"
+  "line_horizontal2.png"
+  "linen.png"
+  "vintage_speckles.png"   // Patina and irregular
+  "subtle_grunge.png"
+  "old_wall.png"
+  "brushed.png"
+  "stucco.png"
+  "mooning.png"
+  "husk.png"
+  "concrete_wall_2.png"
+  "noisy.png"
+  "concrete_wall_3.png"
+  "subtle_surface.png"
+  "dust.png"
+  "light_alu.png"
+  "corrugation.png"
+  "kindajean.png"           // Diagonal
+  "line_diagonal1.png"
+  "line_diagonal2.png"
+  "groovepaper.png"
+  "brushed_alu.png"
+  "rough_diagonal.png"
+  "diagonal-noise.png"
+  "cross_scratches.png"
+  "striped_lens.png"
+  "debut_light.png"
+  "diagonal_waves.png"    // Special
+  "honey_im_subtle.png"
+  "pw_maze_white.png"
+  "subtle_zebra_3d.png"
+  "white_wave.png"
+  "circles.png"
+  "crosses.png"
+  "grilled.png"
+  "pw_pattern.png"
+  "struckaxiom.png"
+  "vichy.png"
+  "wavecut.png"
+  "whitey.png"
+  "cream_pixels.png"
+  "grey.png"
+  "shinedotted.png"
+  "stacked_circles.png"
+  "noisy_grid_simple.png";
+
+  @if ($inverted == 1) {
+    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/#{nth($texture-list, $texture-number)}"),
+                linear-gradient($gradient-angle, $bg-color-1, $bg-color-2),
+                center no-repeat $bg-color-1 scroll;
+  }
+
+  @else {
+    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/#{nth($texture-list, $texture-number)}"),
+                linear-gradient($gradient-angle, $bg-color-1, $bg-color-2),
+                center no-repeat $bg-color-1 scroll;
+  }
+}
 
 // Main //
 body{
@@ -42,9 +151,11 @@ h1 {
   font-family: $sans-serif-2;
   font-size: 1.8em;
   margin-bottom: 0.5em;
+  text-align: center;
 
   @include media($medium-screen) {
     font-size: 2.4em;
+    text-align: left;
   }
 }
 h2 {
@@ -53,9 +164,11 @@ h2 {
   font-weight: 400;
   line-height: 1.4em;
   margin-bottom: 0.9em;
+  text-align: center;
 
   @include media($medium-screen) {
     font-size: 1.4em;
+    text-align: left;
   }
 }
 h3 {
@@ -65,25 +178,25 @@ h3 {
   line-height: 1.3em;
   margin-bottom: 0.4em;
 }
-p {
+p, li {
   color: $base-font-color;
   line-height: $base-line-height;
   font-family: $sans-serif;
   font-size: 1.05em;
   font-weight: 300;
   line-height: 1.4em;
-  margin-bottom: 1.5em;
-
-  span {
-    font-family: $sans-serif-2;
-    font-size: 0.8em;
-    text-transform: uppercase;
-  }
 }
-a {
+p { margin-bottom: 1.5em; }
+ul{
+  margin: 0;
+  padding: 0;
+}
+li{ list-style-type: none; }
+a:link, a:visited, a:active {
   color: $action-color;
   text-decoration: none;
 }
+a:hover{ border-bottom: 1px solid $action-color; }
 
 
 // Design Elements //
@@ -104,16 +217,13 @@ hr {
   padding: 2em;
 }
 #heading {
-  background: url($heading-image),
-              linear-gradient($gradient-angle, $heading-background-bottom, $heading-background-top),
-              no-repeat $heading-background-top scroll;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include texture(180deg, $textureH-top-background, $textureH-bottom-background, 67, 1);
   width: 100%;
-  min-height: 20em;
+  min-height: 18em;
+  padding: 2em 0 0 0;
+  text-align: center;
 
   h1 {
-    border-bottom: 1px solid transparentize($heading-text-color, 0.7);
     color: $heading-text-color;
     margin: 0 0 0.5em 0;
     padding-bottom: 0.5em;
@@ -125,33 +235,102 @@ hr {
   }
 }
 
-#successStory .centered {
-  $large-screen: 50em !default;
-  align-items: center;
-  background: image-url("background-image.png");
-  background-position: right;
-  background-size: none;
-  display: flex;
-  justify-content: center;
-  min-height: 25em;
-  padding: 2em;
+#successStory {
 
-  @include media($large-screen) {
-    background-position: left;
-    background-size: cover;
-    justify-content: flex-end;
-  }
-
-  .ss-content {
-    max-width: 20em;
-    text-align: center;
+  .centered {
+    $large-screen: 50em !default;
+    min-height: 23em;
+    padding: 2em;
 
     @include media($large-screen) {
-      text-align: left;
+      background-position: left;
+      background-size: cover;
+      justify-content: flex-end;
+    }
+
+    img {
+      min-width: 255px;
+      border-radius: $round-radius;
+      margin: 0 auto 1.5em;
+      display: block;
+
+      @include media($large-screen) {
+        float: left;
+        margin: 1em 0 0 3em;
+      }
+    }
+    .ss-content {
+      max-width: 35em;
+      text-align: center;
+      margin: 0 auto;
+
+      @include media($large-screen) {
+        text-align: left;
+        float: right;
+      }
+      h1 { font-weight: 2em; }
+      ul{
+        max-width:350px;
+        padding: .3em 0;
+        margin: 0 auto;
+        @include media($large-screen) { margin: 0; }
+      }
+      li {
+         color: $base-font-color;
+         padding: .1em 0;
+         border-bottom: 1px solid transparentize($base-font-color, 0.8);
+
+         &:first-child { padding-top: 0; }
+         &:last-child { border-bottom: 0; }
+
+         @include media($large-screen) {
+            border-bottom: 0;
+         }
+       }
     }
   }
+}
+#firstSteps{
+  @include texture(180deg, $textureFS-top-background, $textureFS-bottom-background, 67, 1);
 
-  .ss-image {
-    margin: auto;
+  ul{
+    margin-left:15px;
+    counter-reset: section;
+    @include media($medium-screen) { margin-left: 55px; }
+  }
+  li{
+    padding: 12px 0 0 16px;
+    position: relative;
+
+    &:before{
+       counter-increment: section;
+       content: counter(section);
+       text-align: center;
+       font-weight: 500;
+       display: inline-block;
+       width: 25px;
+       height: 25px;
+       margin: 0 5px 0 0;
+       border-radius: $round-radius;
+       background-color: #fff;
+       position: absolute;
+       left: -16px;
+    }
+  }
+}
+#job1Info {
+  #map_canvas {
+    height: 400px;
+    width: 100%;
+  }
+
+  #map_canvas img { max-width: none; } // to prevent UI control bug
+
+  #map_canvas .content { padding: 0 0.5em 1em 0.5em; display: block; }
+
+  #map_canvas h1 { font-size: 2em; }
+  #map_canvas #bodyContent p {
+    font-size: 1.1em;
+    margin: 2px 0;
   }
 }
