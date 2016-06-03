@@ -4,6 +4,11 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+  clear: both; }
+
 body {
   font-family: "Nunito", sans-serif;
   text-align: left;
@@ -22,7 +27,7 @@ h1 {
   font-size: 1.8em;
   margin-bottom: 0.5em;
   text-align: center; }
-  @media screen and (min-width: 48em) {
+  @media screen and (min-width: 62em) {
     h1 {
       font-size: 2.4em;
       text-align: left; } }
@@ -34,23 +39,27 @@ h2 {
   line-height: 1.4em;
   margin-bottom: 0.9em;
   text-align: center; }
-  @media screen and (min-width: 48em) {
+  @media screen and (min-width: 62em) {
     h2 {
       font-size: 1.4em;
       text-align: left; } }
 
 h3 {
   font-family: "Varela Round", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 400;
   line-height: 1.3em;
-  margin-bottom: 0.4em; }
+  margin: 0.6em 0; }
+  @media screen and (min-width: 62em) {
+    h3 {
+      font-size: 1.2em;
+      text-align: left; } }
 
 p, li {
   color: #333;
   line-height: 1.5em;
   font-family: "Nunito", sans-serif;
-  font-size: 1.05em;
+  font-size: 1em;
   font-weight: 300;
   line-height: 1.4em; }
 
@@ -72,8 +81,7 @@ a:hover {
   border-bottom: 1px solid #477dca; }
 
 hr {
-  width: 3em;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #EFEFEF;
   border-left: 0;
   border-right: 0;
   border-top: 0;
@@ -85,11 +93,11 @@ hr {
   padding: 2em; }
 
 #heading {
-  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/diagonal-noise.png"), linear-gradient(180deg, #363636, #1a1a1a), center no-repeat #363636 scroll;
   width: 100%;
-  min-height: 18em;
   padding: 2em 0 0 0;
-  text-align: center; }
+  text-align: center;
+  background: #333 url("../../images/new-orleans.jpg") no-repeat right center;
+  background-size: cover; }
   #heading h1 {
     color: white;
     margin: 0 0 0.5em 0;
@@ -101,7 +109,7 @@ hr {
 #successStory .centered {
   min-height: 23em;
   padding: 2em; }
-  @media screen and (min-width: 62em) {
+  @media screen and (min-width: 48em) {
     #successStory .centered {
       background-position: left;
       background-size: cover;
@@ -125,33 +133,53 @@ hr {
         float: right; } }
     #successStory .centered .ss-content h1 {
       font-weight: 2em; }
-    #successStory .centered .ss-content ul {
-      max-width: 350px;
-      padding: .3em 0;
-      margin: 0 auto; }
-      @media screen and (min-width: 62em) {
-        #successStory .centered .ss-content ul {
-          margin: 0; } }
-    #successStory .centered .ss-content li {
-      color: #333;
-      padding: .1em 0;
-      border-bottom: 1px solid rgba(51, 51, 51, 0.2); }
-      #successStory .centered .ss-content li:first-child {
-        padding-top: 0; }
-      #successStory .centered .ss-content li:last-child {
-        border-bottom: 0; }
-      @media screen and (min-width: 62em) {
-        #successStory .centered .ss-content li {
-          border-bottom: 0; } }
+  #successStory .centered ul {
+    max-width: 300px;
+    text-align: center;
+    padding: .3em 0;
+    margin: 0 auto;
+    background-color: #c7d8ef;
+    border-radius: 10px; }
+    @media screen and (min-width: 62em) {
+      #successStory .centered ul {
+        width: 100%;
+        max-width: 100%;
+        margin: 0; } }
+  #successStory .centered li {
+    color: #333;
+    display: block;
+    padding: .3em 0;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2); }
+    #successStory .centered li:first-child {
+      padding-top: 0; }
+    #successStory .centered li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0; }
+    @media screen and (min-width: 62em) {
+      #successStory .centered li {
+        display: inline-block;
+        padding: .5em 1em;
+        border-bottom: 0;
+        border-right: 1px solid rgba(51, 51, 51, 0.2); }
+        #successStory .centered li:first-child {
+          padding-top: .5em;
+          padding-left: 0; }
+        #successStory .centered li:last-child {
+          padding-right: 0;
+          border-right: 0; } }
 
 #firstSteps {
-  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/diagonal-noise.png"), linear-gradient(180deg, #f1f1f1, #d5d5d5), center no-repeat #f1f1f1 scroll; }
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/diagonal-noise.png"), linear-gradient(180deg, #f2f2f2, #e2e2e2), center no-repeat #f2f2f2 scroll; }
   #firstSteps ul {
-    margin-left: 15px;
-    counter-reset: section; }
-    @media screen and (min-width: 48em) {
+    counter-reset: section;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto; }
+    @media screen and (min-width: 62em) {
       #firstSteps ul {
-        margin-left: 55px; } }
+        width: 100%;
+        margin-left: 15px;
+        margin-right: 15px; } }
   #firstSteps li {
     padding: 12px 0 0 16px;
     position: relative; }

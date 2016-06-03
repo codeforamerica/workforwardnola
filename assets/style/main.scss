@@ -10,19 +10,17 @@ $base-line-height: 1.5em !default;
 $base-spacing: 1.5em !default;
 
 $action-color: #477dca !default;
-$action-color-light: #ecf2f9;
+$action-color-light: #c7d8ef;
 $dark-gray: #333 !default;
-$light-gray: #EEE !default;
+$light-gray: #EFEFEF !default;
 $base-font-color: $dark-gray !default;
 $heading-text-color: white;
 $heading-background-top: #162C4C;
 $heading-background-bottom: #0A120D;
 $gradient-angle: 10deg;
-$heading-image: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png";
-$textureH-top-background: lighten($dark-gray, 1%);
-$textureH-bottom-background: darken($dark-gray, 10%);
+$heading-image: "../../images/new-orleans.jpg";
 $textureFS-top-background: lighten($light-gray, 1%);
-$textureFS-bottom-background: darken($light-gray, 10%);
+$textureFS-bottom-background: darken($light-gray, 5%);
 
 $medium-screen: 48em !default;
 $large-screen: 62em !default;
@@ -134,6 +132,12 @@ $round-radius: 50%;
                 center no-repeat $bg-color-1 scroll;
   }
 }
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+  clear: both;
+}
+
 
 // Main //
 body{
@@ -153,7 +157,7 @@ h1 {
   margin-bottom: 0.5em;
   text-align: center;
 
-  @include media($medium-screen) {
+  @include media($large-screen) {
     font-size: 2.4em;
     text-align: left;
   }
@@ -166,23 +170,28 @@ h2 {
   margin-bottom: 0.9em;
   text-align: center;
 
-  @include media($medium-screen) {
+  @include media($large-screen) {
     font-size: 1.4em;
     text-align: left;
   }
 }
 h3 {
   font-family: $sans-serif-2;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 400;
   line-height: 1.3em;
-  margin-bottom: 0.4em;
+  margin: 0.6em 0;
+
+  @include media($large-screen) {
+    font-size: 1.2em;
+    text-align: left;
+  }
 }
 p, li {
   color: $base-font-color;
   line-height: $base-line-height;
   font-family: $sans-serif;
-  font-size: 1.05em;
+  font-size: 1em;
   font-weight: 300;
   line-height: 1.4em;
 }
@@ -201,7 +210,6 @@ a:hover{ border-bottom: 1px solid $action-color; }
 
 // Design Elements //
 hr {
-  width: 3em;
   border-bottom: 1px solid $light-gray;
   border-left: 0;
   border-right: 0;
@@ -217,11 +225,11 @@ hr {
   padding: 2em;
 }
 #heading {
-  @include texture(180deg, $textureH-top-background, $textureH-bottom-background, 67, 1);
   width: 100%;
-  min-height: 18em;
   padding: 2em 0 0 0;
   text-align: center;
+  background: $dark-gray url($heading-image) no-repeat right center;
+  background-size: cover;
 
   h1 {
     color: $heading-text-color;
@@ -242,7 +250,7 @@ hr {
     min-height: 23em;
     padding: 2em;
 
-    @include media($large-screen) {
+    @include media($medium-screen) {
       background-position: left;
       background-size: cover;
       justify-content: flex-end;
@@ -269,34 +277,54 @@ hr {
         float: right;
       }
       h1 { font-weight: 2em; }
-      ul{
-        max-width:350px;
-        padding: .3em 0;
-        margin: 0 auto;
-        @include media($large-screen) { margin: 0; }
-      }
-      li {
-         color: $base-font-color;
-         padding: .1em 0;
-         border-bottom: 1px solid transparentize($base-font-color, 0.8);
-
-         &:first-child { padding-top: 0; }
-         &:last-child { border-bottom: 0; }
-
-         @include media($large-screen) {
-            border-bottom: 0;
-         }
-       }
     }
+
+    ul{
+      max-width: 300px;
+      text-align: center;
+      padding: .3em 0;
+      margin: 0 auto;
+      background-color:$action-color-light;
+      border-radius: 10px;
+
+      @include media($large-screen) {
+        width: 100%;
+        max-width:100%;
+        margin: 0;
+      }
+    }
+    li {
+       color: $base-font-color;
+       display: block;
+       padding: .3em 0;
+       border-bottom: 1px solid transparentize($base-font-color, 0.8);
+       &:first-child { padding-top: 0; }
+       &:last-child { padding-bottom: 0; border-bottom: 0; }
+
+       @include media($large-screen) {
+          display: inline-block;
+          padding: .5em 1em;
+          border-bottom: 0;
+          border-right: 1px solid transparentize($base-font-color, 0.8);
+          &:first-child { padding-top: .5em; padding-left: 0; }
+          &:last-child { padding-right: 0; border-right: 0; }
+       }
+     }
   }
 }
 #firstSteps{
   @include texture(180deg, $textureFS-top-background, $textureFS-bottom-background, 67, 1);
 
   ul{
-    margin-left:15px;
     counter-reset: section;
-    @include media($medium-screen) { margin-left: 55px; }
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    @include media($large-screen) {
+      width: 100%;
+      margin-left:15px;
+      margin-right:15px;
+    }
   }
   li{
     padding: 12px 0 0 16px;
