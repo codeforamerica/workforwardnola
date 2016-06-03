@@ -99,9 +99,16 @@ hr {
   background: #333 url("../../images/new-orleans.jpg") no-repeat right center;
   background-size: cover; }
   #heading h1 {
+    font-size: 2.5em;
     color: white;
     margin: 0 0 0.5em 0;
     padding-bottom: 0.5em; }
+    @media screen and (min-width: 48em) {
+      #heading h1 {
+        font-size: 3em; } }
+    @media screen and (min-width: 62em) {
+      #heading h1 {
+        font-size: 3.5em; } }
   #heading h2 {
     color: white;
     margin-bottom: 1.5em; }
