@@ -92,6 +92,19 @@ hr {
   margin: 0 auto;
   padding: 2em; }
 
+#global-alert {
+  text-align: center;
+  padding: 4px 0; }
+  #global-alert span {
+    width: 10px;
+    height: 5px;
+    color: #fff;
+    padding: 0 3px 0 7px;
+    background-color: #477dca;
+    border-radius: 50%; }
+  #global-alert a:hover {
+    border-bottom: 0; }
+
 #heading {
   width: 100%;
   padding: 2em 0 0 0;
@@ -217,5 +230,10 @@ hr {
 #job1Info #map_canvas #bodyContent p {
   font-size: 1.1em;
   margin: 2px 0; }
+
+footer {
+  border-top: 3px solid #EFEFEF; }
+  footer p {
+    margin-bottom: .5em; }
 
 /*# sourceMappingURL=main.css.map */
