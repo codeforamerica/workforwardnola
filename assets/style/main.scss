@@ -224,6 +224,20 @@ hr {
   margin: 0 auto;
   padding: 2em;
 }
+#global-alert{
+  text-align: center;
+  padding: 4px 0;
+
+  span {
+    width: 10px;
+    height: 5px;
+    color: #fff;
+    padding: 0 3px 0 7px;
+    background-color: $action-color;
+    border-radius: $round-radius;
+  }
+  a:hover{ border-bottom: 0; }
+}
 #heading {
   width: 100%;
   padding: 2em 0 0 0;
@@ -365,4 +379,9 @@ hr {
     font-size: 1.1em;
     margin: 2px 0;
   }
+}
+footer{
+  border-top: 3px solid $light-gray;
+
+  p { margin-bottom: .5em; }
 }
