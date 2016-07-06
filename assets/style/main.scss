@@ -365,6 +365,10 @@ hr {
   }
 }
 #job1Info {
+  p {
+    font-weight: bold;
+    text-align: center;
+  }
   #map_canvas {
     height: 400px;
     width: 100%;
@@ -376,6 +380,8 @@ hr {
 
   #map_canvas h1 { font-size: 2em; }
   #map_canvas #bodyContent p {
+    text-align: left;
+    font-weight: normal;
     font-size: 1.1em;
     margin: 2px 0;
   }
