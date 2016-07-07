@@ -4,6 +4,222 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+.basic-button,
+.basic-button-primary,
+.basic-button:visited,
+.basic-button-primary:visited,
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+[type="image"] {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  -webkit-font-smoothing: antialiased;
+  appearance: none;
+  background-color: #477dca;
+  border: 0;
+  border-radius: 0.1875rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  outline: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%; }
+  @media screen and (min-width: 481px) {
+    .basic-button,
+    .basic-button-primary,
+    .basic-button:visited,
+    .basic-button-primary:visited,
+    button,
+    [type="button"],
+    [type="submit"],
+    [type="reset"],
+    [type="image"] {
+      width: auto; } }
+  .basic-button:hover, .basic-button.basic-button-hover,
+  .basic-button-primary:hover,
+  .basic-button-primary.basic-button-hover,
+  .basic-button:visited:hover,
+  .basic-button:visited.basic-button-hover,
+  .basic-button-primary:visited:hover,
+  .basic-button-primary:visited.basic-button-hover,
+  button:hover,
+  button.basic-button-hover,
+  [type="button"]:hover,
+  [type="button"].basic-button-hover,
+  [type="submit"]:hover,
+  [type="submit"].basic-button-hover,
+  [type="reset"]:hover,
+  [type="reset"].basic-button-hover,
+  [type="image"]:hover,
+  [type="image"].basic-button-hover {
+    background-color: #205493;
+    border-bottom: 0;
+    color: #fff;
+    text-decoration: none; }
+  .basic-button:focus, .basic-button.basic-button-focus,
+  .basic-button-primary:focus,
+  .basic-button-primary.basic-button-focus,
+  .basic-button:visited:focus,
+  .basic-button:visited.basic-button-focus,
+  .basic-button-primary:visited:focus,
+  .basic-button-primary:visited.basic-button-focus,
+  button:focus,
+  button.basic-button-focus,
+  [type="button"]:focus,
+  [type="button"].basic-button-focus,
+  [type="submit"]:focus,
+  [type="submit"].basic-button-focus,
+  [type="reset"]:focus,
+  [type="reset"].basic-button-focus,
+  [type="image"]:focus,
+  [type="image"].basic-button-focus {
+    box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf; }
+  .basic-button:active, .basic-button.basic-button-active,
+  .basic-button-primary:active,
+  .basic-button-primary.basic-button-active,
+  .basic-button:visited:active,
+  .basic-button:visited.basic-button-active,
+  .basic-button-primary:visited:active,
+  .basic-button-primary:visited.basic-button-active,
+  button:active,
+  button.basic-button-active,
+  [type="button"]:active,
+  [type="button"].basic-button-active,
+  [type="submit"]:active,
+  [type="submit"].basic-button-active,
+  [type="reset"]:active,
+  [type="reset"].basic-button-active,
+  [type="image"]:active,
+  [type="image"].basic-button-active {
+    background-color: #205493; }
+  .basic-button.basic-button-outline,
+  .basic-button-primary.basic-button-outline,
+  .basic-button:visited.basic-button-outline,
+  .basic-button-primary:visited.basic-button-outline,
+  button.basic-button-outline,
+  [type="button"].basic-button-outline,
+  [type="submit"].basic-button-outline,
+  [type="reset"].basic-button-outline,
+  [type="image"].basic-button-outline {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 2px #477dca;
+    color: #477dca; }
+    .basic-button.basic-button-outline:hover, .basic-button.basic-button-outline.basic-button-hover,
+    .basic-button-primary.basic-button-outline:hover,
+    .basic-button-primary.basic-button-outline.basic-button-hover,
+    .basic-button:visited.basic-button-outline:hover,
+    .basic-button:visited.basic-button-outline.basic-button-hover,
+    .basic-button-primary:visited.basic-button-outline:hover,
+    .basic-button-primary:visited.basic-button-outline.basic-button-hover,
+    button.basic-button-outline:hover,
+    button.basic-button-outline.basic-button-hover,
+    [type="button"].basic-button-outline:hover,
+    [type="button"].basic-button-outline.basic-button-hover,
+    [type="submit"].basic-button-outline:hover,
+    [type="submit"].basic-button-outline.basic-button-hover,
+    [type="reset"].basic-button-outline:hover,
+    [type="reset"].basic-button-outline.basic-button-hover,
+    [type="image"].basic-button-outline:hover,
+    [type="image"].basic-button-outline.basic-button-hover {
+      box-shadow: inset 0 0 0 2px #205493;
+      color: #205493; }
+    .basic-button.basic-button-outline:active, .basic-button.basic-button-outline.basic-button-active,
+    .basic-button-primary.basic-button-outline:active,
+    .basic-button-primary.basic-button-outline.basic-button-active,
+    .basic-button:visited.basic-button-outline:active,
+    .basic-button:visited.basic-button-outline.basic-button-active,
+    .basic-button-primary:visited.basic-button-outline:active,
+    .basic-button-primary:visited.basic-button-outline.basic-button-active,
+    button.basic-button-outline:active,
+    button.basic-button-outline.basic-button-active,
+    [type="button"].basic-button-outline:active,
+    [type="button"].basic-button-outline.basic-button-active,
+    [type="submit"].basic-button-outline:active,
+    [type="submit"].basic-button-outline.basic-button-active,
+    [type="reset"].basic-button-outline:active,
+    [type="reset"].basic-button-outline.basic-button-active,
+    [type="image"].basic-button-outline:active,
+    [type="image"].basic-button-outline.basic-button-active {
+      box-shadow: inset 0 0 0 2px #112e51;
+      color: #112e51; }
+    .basic-button.basic-button-outline:focus, .basic-button.basic-button-outline.basic-button-focus,
+    .basic-button-primary.basic-button-outline:focus,
+    .basic-button-primary.basic-button-outline.basic-button-focus,
+    .basic-button:visited.basic-button-outline:focus,
+    .basic-button:visited.basic-button-outline.basic-button-focus,
+    .basic-button-primary:visited.basic-button-outline:focus,
+    .basic-button-primary:visited.basic-button-outline.basic-button-focus,
+    button.basic-button-outline:focus,
+    button.basic-button-outline.basic-button-focus,
+    [type="button"].basic-button-outline:focus,
+    [type="button"].basic-button-outline.basic-button-focus,
+    [type="submit"].basic-button-outline:focus,
+    [type="submit"].basic-button-outline.basic-button-focus,
+    [type="reset"].basic-button-outline:focus,
+    [type="reset"].basic-button-outline.basic-button-focus,
+    [type="image"].basic-button-outline:focus,
+    [type="image"].basic-button-outline.basic-button-focus {
+      box-shadow: inset 0 0 0 2px #112e51, 0 0 3px #3e94cf, 0 0 7px #3e94cf; }
+  .basic-button.basic-button-big,
+  .basic-button-primary.basic-button-big,
+  .basic-button:visited.basic-button-big,
+  .basic-button-primary:visited.basic-button-big,
+  button.basic-button-big,
+  [type="button"].basic-button-big,
+  [type="submit"].basic-button-big,
+  [type="reset"].basic-button-big,
+  [type="image"].basic-button-big {
+    font-size: 1.9rem;
+    padding: 1.5rem 3rem; }
+
+.button-wrapper {
+  clear: both;
+  display: block;
+  margin-left: -1rem;
+  padding: 0 1rem; }
+  @media screen and (min-width: 481px) {
+    .button-wrapper {
+      display: table;
+      white-space: pre; } }
+
+.button-group {
+  margin-top: 1em;
+  text-align: center; }
+  .button-group input {
+    display: none; }
+  .button-group label .button-group-item {
+    background: #fff;
+    border: 2px solid #477dca;
+    border-radius: 0;
+    color: #4d4d4d;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1;
+    padding: .75em 1em;
+    width: auto; }
+    .button-group label .button-group-item:focus, .button-group label .button-group-item:hover {
+      background-color: #f7f7f7; }
+  .button-group label:first-child .button-group-item {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 0; }
+  .button-group label:last-child .button-group-item {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px; }
+  .button-group label input:checked + .button-group-item {
+    background: #477dca;
+    border: 2px solid #2c5999;
+    box-shadow: inset 0 1px 2px #3264ac;
+    color: #fff; }
+
 .clearfix {
   overflow: auto;
   zoom: 1;
@@ -19,13 +235,16 @@ body {
     content: "";
     display: table; }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0; }
 
 h1 {
   font-family: "Varela Round", sans-serif;
   font-size: 1.8em;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
   text-align: center; }
   @media screen and (min-width: 62em) {
     h1 {
@@ -37,7 +256,7 @@ h2 {
   font-size: 1.2em;
   font-weight: 400;
   line-height: 1.4em;
-  margin-bottom: 0.9em;
+  margin-bottom: .9em;
   text-align: center; }
   @media screen and (min-width: 62em) {
     h2 {
@@ -49,22 +268,23 @@ h3 {
   font-size: 1.1em;
   font-weight: 400;
   line-height: 1.3em;
-  margin: 0.6em 0; }
+  margin: .6em 0; }
   @media screen and (min-width: 62em) {
     h3 {
       font-size: 1.2em;
       text-align: left; } }
 
-p, li {
+p,
+li {
   color: #333;
-  line-height: 1.5em;
+  line-height: 1.4em;
   font-family: "Nunito", sans-serif;
   font-size: 1em;
-  font-weight: 300;
-  line-height: 1.4em; }
+  font-weight: 300; }
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  padding-left: 1em; }
 
 ul {
   margin: 0;
@@ -76,9 +296,14 @@ li {
 a:link, a:visited, a:active {
   color: #477dca;
   text-decoration: none; }
+  a:link.basic-button, a:visited.basic-button, a:active.basic-button {
+    color: #fff; }
 
 a:hover {
   border-bottom: 1px solid #477dca; }
+
+img {
+  width: 100%; }
 
 hr {
   border-bottom: 1px solid #EFEFEF;
@@ -113,7 +338,7 @@ hr {
   background-size: cover; }
   #heading h1 {
     font-size: 2.5em;
-    color: white;
+    color: #fff;
     margin: 0 0 0.5em 0;
     padding-bottom: 0.5em; }
     @media screen and (min-width: 48em) {
@@ -123,7 +348,7 @@ hr {
       #heading h1 {
         font-size: 3.5em; } }
   #heading h2 {
-    color: white;
+    color: #fff;
     margin-bottom: 1.5em; }
 
 #successStory .centered {
@@ -138,7 +363,8 @@ hr {
     min-width: 255px;
     border-radius: 50%;
     margin: 0 auto 1.5em;
-    display: block; }
+    display: block;
+    width: auto; }
     @media screen and (min-width: 62em) {
       #successStory .centered img {
         float: left;
@@ -226,7 +452,7 @@ hr {
 #job1Info #map_canvas img {
   max-width: none; }
 #job1Info #map_canvas .content {
-  padding: 0 0.5em 1em 0.5em;
+  padding: 0 .5em 1em .5em;
   display: block; }
 #job1Info #map_canvas h1 {
   font-size: 2em; }
