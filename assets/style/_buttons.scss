@@ -106,7 +106,7 @@ button,
   $button-group-border-checked: darken($button-group-background-checked, 15%);
 
   margin-top: 1em;
-  text-align: center;
+  text-align: center; // centers the things, but then they don't touch
 
   input {
     display: none;
@@ -119,6 +119,7 @@ button,
       border-radius: 0;
       color: $button-group-color;
       cursor: pointer;
+      // float: left; // the buttons touch, but then it's not centered
       font-size: $base-font-size;
       font-weight: normal;
       line-height: 1;

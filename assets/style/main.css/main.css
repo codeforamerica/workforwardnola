@@ -462,6 +462,28 @@ hr {
   font-size: 1.1em;
   margin: 2px 0; }
 
+.salary-table {
+  background-color: #fff;
+  border-collapse: separate;
+  border-radius: 10px;
+  border-spacing: 0;
+  text-align: center;
+  width: 100%; }
+  .salary-table thead th {
+    padding: 0.75em 1em; }
+  .salary-table tbody td {
+    border-bottom: 1px solid #477dca;
+    border-left: 1px solid #477dca;
+    border-top: 1px solid #477dca;
+    padding: 0.75em 1em; }
+    .salary-table tbody td:first-child {
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px; }
+    .salary-table tbody td:last-child {
+      border-bottom-right-radius: 10px;
+      border-right: 1px solid #477dca;
+      border-top-right-radius: 10px; }
+
 footer {
   border-top: 3px solid #EFEFEF; }
   footer p {

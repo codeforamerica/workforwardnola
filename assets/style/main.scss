@@ -306,6 +306,7 @@ hr {
         margin: 0;
       }
     }
+
     li {
        color: $base-font-color;
        display: block;
@@ -325,10 +326,11 @@ hr {
      }
   }
 }
-#firstSteps{
+
+#firstSteps {
   @include texture(180deg, $textureFS-top-background, $textureFS-bottom-background, 67, 1);
 
-  ul{
+  ul {
     counter-reset: section;
     max-width: 500px;
     margin-left: auto;
@@ -339,6 +341,7 @@ hr {
       margin-right:15px;
     }
   }
+
   li {
     padding: 12px 0 0 16px;
     position: relative;
@@ -359,6 +362,7 @@ hr {
     }
   }
 }
+
 #job1Info {
   p {
     font-weight: bold;
@@ -374,11 +378,53 @@ hr {
   #map_canvas .content { padding: 0 .5em 1em .5em; display: block; }
 
   #map_canvas h1 { font-size: 2em; }
+
   #map_canvas #bodyContent p {
     text-align: left;
     font-weight: normal;
     font-size: 1.1em;
     margin: 2px 0;
+  }
+}
+
+.salary-table {
+  $base-border-radius: 10px !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $table-border: 1px solid $action-color;
+  $table-padding: .75em 1em;
+
+  background-color: $white;
+  border-collapse: separate;
+  border-radius: $base-border-radius;
+  border-spacing: 0;
+  text-align: center;
+  width: 100%;
+
+  thead {
+    th {
+      padding: $table-padding;
+    }
+  }
+
+  tbody {
+    td {
+      border-bottom: $table-border;
+      border-left: $table-border;
+      border-top: $table-border;
+      padding: $table-padding;
+
+      &:first-child {
+        border-bottom-left-radius: $base-border-radius;
+        border-top-left-radius: $base-border-radius;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: $base-border-radius;
+        border-right: $table-border;
+        border-top-right-radius: $base-border-radius;
+      }
+    }
   }
 }
 
