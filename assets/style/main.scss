@@ -1,137 +1,9 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+@import 'variables';
+@import 'buttons';
+@import 'texture';
 
-
-// Variables //
-$sans-serif: "Nunito", sans-serif;
-$sans-serif-2: "Varela Round", sans-serif;
-
-$base-line-height: 1.5em !default;
-$base-spacing: 1.5em !default;
-
-$action-color: #477dca !default;
-$action-color-light: #c7d8ef;
-$dark-gray: #333 !default;
-$light-gray: #EFEFEF !default;
-$base-font-color: $dark-gray !default;
-$heading-text-color: white;
-$heading-background-top: #162C4C;
-$heading-background-bottom: #0A120D;
-$gradient-angle: 10deg;
-$heading-image: "../../images/new-orleans.jpg";
-$textureFS-top-background: lighten($light-gray, 1%);
-$textureFS-bottom-background: darken($light-gray, 5%);
-
-$medium-screen: 48em !default;
-$large-screen: 62em !default;
-
-$centered-background: darken(gray, 40%);
-$centered-backside-background: darken($centered-background, 10%);
-
-$round-radius: 50%;
-
-@mixin texture($gradient-angle, $bg-color-1, $bg-color-2, $texture-number, $inverted) { $texture-list:
-  "paper.png"             // Fabric and paper
-  "rice_paper.png"
-  "noise_lines.png"
-  "fabric_plaid.png"
-  "first_aid_kit.png"
-  "texturetastic_gray.png"
-  "lil_fiber.png"
-  "tex2res5.png"
-  "skin_side_up.png"
-  "light_noise_diagonal.png"
-  "chruch.png"
-  "45degreee_fabric.png"
-  "bgnoise_lg.png"
-  "little_pluses.png"
-  "squairy_light.png"
-  "white_texture.png"
-  "binding_light.png"
-  "double_lined.png"      // Grid, mesh and squares
-  "grid.png"
-  "absurdidad.png"
-  "grid_noise.png"
-  "fancy_deboss.png"
-  "graphy.png"
-  "noise_pattern_with_crosslines.png"
-  "old_mathematics.png"
-  "ps_neutral.png"
-  "subtle_freckles.png"
-  "wavegrid.png"
-  "az_subtle.png"
-  "tiny_grid.png"
-  "wavegrid.png"
-  "gridme.png"
-  "noisy_grid.png"
-  "subtlenet2.png"
-  "white_carbon.png"
-  "lghtmesh.png"
-  "p5.png"                 // Dots
-  "worn_dots.png"
-  "subtle_dots.png"
-  "brillant.png"
-  "farmer.png"
-  "retina_dust.png"        // Lines
-  "pinstripe.png"
-  "line_horizontal1.png"
-  "line_horizontal2.png"
-  "linen.png"
-  "vintage_speckles.png"   // Patina and irregular
-  "subtle_grunge.png"
-  "old_wall.png"
-  "brushed.png"
-  "stucco.png"
-  "mooning.png"
-  "husk.png"
-  "concrete_wall_2.png"
-  "noisy.png"
-  "concrete_wall_3.png"
-  "subtle_surface.png"
-  "dust.png"
-  "light_alu.png"
-  "corrugation.png"
-  "kindajean.png"           // Diagonal
-  "line_diagonal1.png"
-  "line_diagonal2.png"
-  "groovepaper.png"
-  "brushed_alu.png"
-  "rough_diagonal.png"
-  "diagonal-noise.png"
-  "cross_scratches.png"
-  "striped_lens.png"
-  "debut_light.png"
-  "diagonal_waves.png"    // Special
-  "honey_im_subtle.png"
-  "pw_maze_white.png"
-  "subtle_zebra_3d.png"
-  "white_wave.png"
-  "circles.png"
-  "crosses.png"
-  "grilled.png"
-  "pw_pattern.png"
-  "struckaxiom.png"
-  "vichy.png"
-  "wavecut.png"
-  "whitey.png"
-  "cream_pixels.png"
-  "grey.png"
-  "shinedotted.png"
-  "stacked_circles.png"
-  "noisy_grid_simple.png";
-
-  @if ($inverted == 1) {
-    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/#{nth($texture-list, $texture-number)}"),
-                linear-gradient($gradient-angle, $bg-color-1, $bg-color-2),
-                center no-repeat $bg-color-1 scroll;
-  }
-
-  @else {
-    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/#{nth($texture-list, $texture-number)}"),
-                linear-gradient($gradient-angle, $bg-color-1, $bg-color-2),
-                center no-repeat $bg-color-1 scroll;
-  }
-}
 .clearfix {
   overflow: auto;
   zoom: 1;
@@ -140,7 +12,7 @@ $round-radius: 50%;
 
 
 // Main //
-body{
+body {
   @include clearfix;
   font-family: $sans-serif;
   text-align: left;
@@ -150,11 +22,15 @@ body{
 
 
 // Typography //
-h1, h2, h3, p { margin: 0; }
+h1,
+h2,
+h3,
+p { margin: 0; }
+
 h1 {
   font-family: $sans-serif-2;
   font-size: 1.8em;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
   text-align: center;
 
   @include media($large-screen) {
@@ -162,12 +38,13 @@ h1 {
     text-align: left;
   }
 }
+
 h2 {
   font-family: $sans-serif-2;
   font-size: 1.2em;
   font-weight: 400;
   line-height: 1.4em;
-  margin-bottom: 0.9em;
+  margin-bottom: .9em;
   text-align: center;
 
   @include media($large-screen) {
@@ -175,38 +52,53 @@ h2 {
     text-align: left;
   }
 }
+
 h3 {
   font-family: $sans-serif-2;
   font-size: 1.1em;
   font-weight: 400;
   line-height: 1.3em;
-  margin: 0.6em 0;
+  margin: .6em 0;
 
   @include media($large-screen) {
     font-size: 1.2em;
     text-align: left;
   }
 }
-p, li {
+
+p,
+li {
   color: $base-font-color;
   line-height: $base-line-height;
   font-family: $sans-serif;
   font-size: 1em;
   font-weight: 300;
-  line-height: 1.4em;
 }
-p { margin-bottom: 1.5em; }
-ul{
+
+p {
+  margin-bottom: 1.5em;
+  padding-left: 1em;
+}
+
+ul {
   margin: 0;
   padding: 0;
 }
-li{ list-style-type: none; }
+li { list-style-type: none; }
+
 a:link, a:visited, a:active {
   color: $action-color;
   text-decoration: none;
-}
-a:hover{ border-bottom: 1px solid $action-color; }
 
+  &.basic-button {
+    color: $white;
+  }
+}
+a:hover { border-bottom: 1px solid $action-color; }
+
+img {
+  width: 100%;
+}
 
 // Design Elements //
 hr {
@@ -219,25 +111,27 @@ hr {
 
 
 // Structure //
-.centered{
+.centered {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
 }
-#global-alert{
+
+#global-alert {
   text-align: center;
   padding: 4px 0;
 
   span {
     width: 10px;
     height: 5px;
-    color: #fff;
+    color: $white;
     padding: 0 3px 0 7px;
     background-color: $action-color;
     border-radius: $round-radius;
   }
-  a:hover{ border-bottom: 0; }
+  a:hover { border-bottom: 0; }
 }
+
 #heading {
   width: 100%;
   padding: 2em 0 0 0;
@@ -279,12 +173,14 @@ hr {
       border-radius: $round-radius;
       margin: 0 auto 1.5em;
       display: block;
+      width: auto;
 
       @include media($large-screen) {
         float: left;
         margin: 1em 0 0 3em;
       }
     }
+
     .ss-content {
       max-width: 35em;
       text-align: center;
@@ -311,6 +207,7 @@ hr {
         margin: 0;
       }
     }
+
     li {
        color: $base-font-color;
        display: block;
@@ -330,10 +227,11 @@ hr {
      }
   }
 }
-#firstSteps{
+
+#firstSteps {
   @include texture(180deg, $textureFS-top-background, $textureFS-bottom-background, 67, 1);
 
-  ul{
+  ul {
     counter-reset: section;
     max-width: 500px;
     margin-left: auto;
@@ -344,11 +242,12 @@ hr {
       margin-right:15px;
     }
   }
-  li{
+
+  li {
     padding: 12px 0 0 16px;
     position: relative;
 
-    &:before{
+    &:before {
        counter-increment: section;
        content: counter(section);
        text-align: center;
@@ -364,6 +263,7 @@ hr {
     }
   }
 }
+
 #job1Info {
   p {
     font-weight: bold;
@@ -376,9 +276,10 @@ hr {
 
   #map_canvas img { max-width: none; } // to prevent UI control bug
 
-  #map_canvas .content { padding: 0 0.5em 1em 0.5em; display: block; }
+  #map_canvas .content { padding: 0 .5em 1em .5em; display: block; }
 
   #map_canvas h1 { font-size: 2em; }
+
   #map_canvas #bodyContent p {
     text-align: left;
     font-weight: normal;
@@ -386,7 +287,79 @@ hr {
     margin: 2px 0;
   }
 }
-footer{
+
+.salary-table {
+  $base-border-radius: 10px !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $table-border: 1px solid $action-color;
+  $table-padding: .75em 1em;
+
+  background-color: $white;
+  border-collapse: separate;
+  border-radius: $base-border-radius;
+  border-spacing: 0;
+  text-align: center;
+  width: 100%;
+
+  thead {
+    th {
+      padding: $table-padding;
+    }
+  }
+
+  tbody {
+    td {
+      border-bottom: $table-border;
+      border-left: $table-border;
+      border-top: $table-border;
+      padding: $table-padding;
+      width: 33.33%;
+
+      &:first-child {
+        border-bottom-left-radius: $base-border-radius;
+        border-top-left-radius: $base-border-radius;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: $base-border-radius;
+        border-right: $table-border;
+        border-top-right-radius: $base-border-radius;
+      }
+    }
+  }
+}
+
+.checkmark {
+  background-image: url('../../images/checkmark.svg');
+  background-position: .5rem .5rem;
+  background-repeat: no-repeat;
+  background-size: 3rem;
+  margin-top: 1em;
+  padding: 1em;
+
+  @include media($medium-screen) {
+    background-size: 5.2rem;
+  }
+}
+
+.checkmark-body {
+  display: table-cell;
+  padding-left: 1.5rem;
+  vertical-align: top;
+
+  @include media($medium-screen) {
+    padding-left: 5rem;
+  }
+}
+
+.career-matches {
+  p {
+    font-style: italic;
+  }
+}
+
+footer {
   border-top: 3px solid $light-gray;
 
   p { margin-bottom: .5em; }
