@@ -24,6 +24,7 @@ button,
   color: #fff;
   cursor: pointer;
   display: inline-block;
+  font-weight: 700;
   line-height: 1;
   outline: none;
   padding: 1rem 2rem;
@@ -60,7 +61,6 @@ button,
   [type="image"].basic-button-hover {
     background-color: #205493;
     border-bottom: 0;
-    color: #fff;
     text-decoration: none; }
   .basic-button:focus, .basic-button.basic-button-focus,
   .basic-button-primary:focus,
@@ -177,16 +177,35 @@ button,
   [type="image"].basic-button-big {
     font-size: 1.9rem;
     padding: 1.5rem 3rem; }
+  .basic-button.basic-button-gray,
+  .basic-button-primary.basic-button-gray,
+  .basic-button:visited.basic-button-gray,
+  .basic-button-primary:visited.basic-button-gray,
+  button.basic-button-gray,
+  [type="button"].basic-button-gray,
+  [type="submit"].basic-button-gray,
+  [type="reset"].basic-button-gray,
+  [type="image"].basic-button-gray {
+    background-color: #EFEFEF;
+    color: #477dca; }
+    .basic-button.basic-button-gray:hover,
+    .basic-button-primary.basic-button-gray:hover,
+    .basic-button:visited.basic-button-gray:hover,
+    .basic-button-primary:visited.basic-button-gray:hover,
+    button.basic-button-gray:hover,
+    [type="button"].basic-button-gray:hover,
+    [type="submit"].basic-button-gray:hover,
+    [type="reset"].basic-button-gray:hover,
+    [type="image"].basic-button-gray:hover {
+      background-color: #d6d6d6;
+      border-bottom: 0;
+      text-decoration: none; }
 
 .button-wrapper {
   clear: both;
-  display: block;
-  margin-left: -1rem;
-  padding: 0 1rem; }
-  @media screen and (min-width: 481px) {
-    .button-wrapper {
-      display: table;
-      white-space: pre; } }
+  display: table;
+  margin: 0 auto;
+  white-space: pre; }
 
 .button-group {
   margin-top: 1em;
@@ -475,7 +494,8 @@ hr {
     border-bottom: 1px solid #477dca;
     border-left: 1px solid #477dca;
     border-top: 1px solid #477dca;
-    padding: 0.75em 1em; }
+    padding: 0.75em 1em;
+    width: 33.33%; }
     .salary-table tbody td:first-child {
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px; }
@@ -483,6 +503,28 @@ hr {
       border-bottom-right-radius: 10px;
       border-right: 1px solid #477dca;
       border-top-right-radius: 10px; }
+
+.checkmark {
+  background-image: url("../../images/checkmark.svg");
+  background-position: .5rem .5rem;
+  background-repeat: no-repeat;
+  background-size: 3rem;
+  margin-top: 1em;
+  padding: 1em; }
+  @media screen and (min-width: 48em) {
+    .checkmark {
+      background-size: 5.2rem; } }
+
+.checkmark-body {
+  display: table-cell;
+  padding-left: 1.5rem;
+  vertical-align: top; }
+  @media screen and (min-width: 48em) {
+    .checkmark-body {
+      padding-left: 5rem; } }
+
+.career-matches p {
+  font-style: italic; }
 
 footer {
   border-top: 3px solid #EFEFEF; }

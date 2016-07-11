@@ -1,110 +1,9 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
+@import 'bourbon/bourbon';
+@import 'neat/neat';
 @import 'variables';
 @import 'buttons';
+@import 'texture';
 
-@mixin texture($gradient-angle, $bg-color-1, $bg-color-2, $texture-number, $inverted) { $texture-list:
-  "paper.png"             // Fabric and paper
-  "rice_paper.png"
-  "noise_lines.png"
-  "fabric_plaid.png"
-  "first_aid_kit.png"
-  "texturetastic_gray.png"
-  "lil_fiber.png"
-  "tex2res5.png"
-  "skin_side_up.png"
-  "light_noise_diagonal.png"
-  "chruch.png"
-  "45degreee_fabric.png"
-  "bgnoise_lg.png"
-  "little_pluses.png"
-  "squairy_light.png"
-  "white_texture.png"
-  "binding_light.png"
-  "double_lined.png"      // Grid, mesh and squares
-  "grid.png"
-  "absurdidad.png"
-  "grid_noise.png"
-  "fancy_deboss.png"
-  "graphy.png"
-  "noise_pattern_with_crosslines.png"
-  "old_mathematics.png"
-  "ps_neutral.png"
-  "subtle_freckles.png"
-  "wavegrid.png"
-  "az_subtle.png"
-  "tiny_grid.png"
-  "wavegrid.png"
-  "gridme.png"
-  "noisy_grid.png"
-  "subtlenet2.png"
-  "white_carbon.png"
-  "lghtmesh.png"
-  "p5.png"                 // Dots
-  "worn_dots.png"
-  "subtle_dots.png"
-  "brillant.png"
-  "farmer.png"
-  "retina_dust.png"        // Lines
-  "pinstripe.png"
-  "line_horizontal1.png"
-  "line_horizontal2.png"
-  "linen.png"
-  "vintage_speckles.png"   // Patina and irregular
-  "subtle_grunge.png"
-  "old_wall.png"
-  "brushed.png"
-  "stucco.png"
-  "mooning.png"
-  "husk.png"
-  "concrete_wall_2.png"
-  "noisy.png"
-  "concrete_wall_3.png"
-  "subtle_surface.png"
-  "dust.png"
-  "light_alu.png"
-  "corrugation.png"
-  "kindajean.png"           // Diagonal
-  "line_diagonal1.png"
-  "line_diagonal2.png"
-  "groovepaper.png"
-  "brushed_alu.png"
-  "rough_diagonal.png"
-  "diagonal-noise.png"
-  "cross_scratches.png"
-  "striped_lens.png"
-  "debut_light.png"
-  "diagonal_waves.png"    // Special
-  "honey_im_subtle.png"
-  "pw_maze_white.png"
-  "subtle_zebra_3d.png"
-  "white_wave.png"
-  "circles.png"
-  "crosses.png"
-  "grilled.png"
-  "pw_pattern.png"
-  "struckaxiom.png"
-  "vichy.png"
-  "wavecut.png"
-  "whitey.png"
-  "cream_pixels.png"
-  "grey.png"
-  "shinedotted.png"
-  "stacked_circles.png"
-  "noisy_grid_simple.png";
-
-  @if ($inverted == 1) {
-    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/#{nth($texture-list, $texture-number)}"),
-                linear-gradient($gradient-angle, $bg-color-1, $bg-color-2),
-                center no-repeat $bg-color-1 scroll;
-  }
-
-  @else {
-    background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/#{nth($texture-list, $texture-number)}"),
-                linear-gradient($gradient-angle, $bg-color-1, $bg-color-2),
-                center no-repeat $bg-color-1 scroll;
-  }
-}
 .clearfix {
   overflow: auto;
   zoom: 1;
@@ -217,6 +116,7 @@ hr {
   margin: 0 auto;
   padding: 2em;
 }
+
 #global-alert {
   text-align: center;
   padding: 4px 0;
@@ -280,6 +180,7 @@ hr {
         margin: 1em 0 0 3em;
       }
     }
+
     .ss-content {
       max-width: 35em;
       text-align: center;
@@ -413,6 +314,7 @@ hr {
       border-left: $table-border;
       border-top: $table-border;
       padding: $table-padding;
+      width: 33.33%;
 
       &:first-child {
         border-bottom-left-radius: $base-border-radius;
@@ -425,6 +327,35 @@ hr {
         border-top-right-radius: $base-border-radius;
       }
     }
+  }
+}
+
+.checkmark {
+  background-image: url('../../images/checkmark.svg');
+  background-position: .5rem .5rem;
+  background-repeat: no-repeat;
+  background-size: 3rem;
+  margin-top: 1em;
+  padding: 1em;
+
+  @include media($medium-screen) {
+    background-size: 5.2rem;
+  }
+}
+
+.checkmark-body {
+  display: table-cell;
+  padding-left: 1.5rem;
+  vertical-align: top;
+
+  @include media($medium-screen) {
+    padding-left: 5rem;
+  }
+}
+
+.career-matches {
+  p {
+    font-style: italic;
   }
 }
 

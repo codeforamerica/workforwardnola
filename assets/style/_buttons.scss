@@ -23,6 +23,7 @@ button,
   color: $white;
   cursor: pointer;
   display: inline-block;
+  font-weight: 700;
   line-height: 1;
   outline: none;
   padding: 1rem 2rem;
@@ -38,7 +39,6 @@ button,
   &.basic-button-hover {
     background-color: $action-color-darker;
     border-bottom: 0;
-    color: $white;
     text-decoration: none;
   }
 
@@ -79,18 +79,24 @@ button,
     font-size: 1.9rem;
     padding: 1.5rem 3rem;
   }
+
+  &.basic-button-gray {
+    background-color: $light-gray;
+    color: $action-color;
+
+    &:hover {
+      background-color: darken($light-gray, 10);
+      border-bottom: 0;
+      text-decoration: none;
+    }
+  }
 }
 
 .button-wrapper {
   clear: both;
-  display: block;
-  margin-left: -1rem;
-  padding: 0 1rem;
-
-  @include media($small-screen) {
-    display: table;
-    white-space: pre;
-  }
+  display: table;
+  margin: 0 auto;
+  white-space: pre;
 }
 
 .button-group {
