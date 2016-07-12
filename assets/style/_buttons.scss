@@ -111,7 +111,8 @@ button,
   $button-group-color-checked: $white;
   $button-group-border-checked: darken($button-group-background-checked, 15%);
 
-  margin-top: 1em;
+  width: 156px;
+  margin: 1em auto;
   text-align: center; // centers the things, but then they don't touch
 
   input {
@@ -119,6 +120,7 @@ button,
   }
 
   label {
+    float: left;
     .button-group-item {
       background: $button-group-background;
       border: $button-group-border;
@@ -138,10 +140,12 @@ button,
       }
     }
 
+
     &:first-child .button-group-item {
       border-bottom-left-radius: $base-border-radius;
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: 0;
+      border-right: 0
     }
 
     &:last-child .button-group-item {
