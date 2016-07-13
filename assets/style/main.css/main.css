@@ -485,7 +485,7 @@ hr {
   font-size: 1.1em;
   margin: 2px 0; }
 
-.assessment {
+.assessment .centered {
   max-width: 500px;
   margin: 0 auto; }
 
@@ -493,10 +493,6 @@ hr {
   max-width: 500px;
   margin: 0 auto;
   display: block; }
-
-.career-matches {
-  max-width: 500px;
-  margin: 0 auto; }
 
 .salary-table {
   background-color: #fff;
