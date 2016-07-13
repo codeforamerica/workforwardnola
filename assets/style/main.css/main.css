@@ -485,11 +485,7 @@ hr {
   font-size: 1.1em;
   margin: 2px 0; }
 
-.assessment .centered {
-  max-width: 500px;
-  margin: 0 auto; }
-
-.wooFoundImage {
+.assessment .centered, .wooFoundImage {
   max-width: 500px;
   margin: 0 auto;
   display: block; }
