@@ -287,7 +287,11 @@ hr {
     margin: 2px 0;
   }
 }
-.assessment .centered, .wooFoundImage{max-width:500px; margin: 0 auto; display: block;}
+.assessment .centered, .wooFoundImage{
+    max-width:500px;
+    margin: 0 auto 1em;
+    display: block;
+}
 .salary-table {
   $base-border-radius: 10px !default;
   $base-line-height: 1.5em !default;
