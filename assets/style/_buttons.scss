@@ -112,7 +112,7 @@ button,
   $button-group-border-checked: darken($button-group-background-checked, 15%);
 
   width: 156px;
-  margin: 1em auto;
+  margin: 2em auto 0;
   text-align: center; // centers the things, but then they don't touch
 
   input {
