@@ -287,7 +287,7 @@ hr {
     margin: 2px 0;
   }
 }
-
+.assessment .centered, .wooFoundImage{max-width:500px; margin: 0 auto; display: block;}
 .salary-table {
   $base-border-radius: 10px !default;
   $base-line-height: 1.5em !default;
@@ -334,23 +334,16 @@ hr {
   background-image: url('../../images/checkmark.svg');
   background-position: .5rem .5rem;
   background-repeat: no-repeat;
-  background-size: 3rem;
+  background-size: 2.5rem;
   margin-top: 1em;
   padding: 1em;
-
-  @include media($medium-screen) {
-    background-size: 5.2rem;
-  }
 }
 
 .checkmark-body {
   display: table-cell;
   padding-left: 1.5rem;
   vertical-align: top;
-
-  @include media($medium-screen) {
-    padding-left: 5rem;
-  }
+  p{margin-top: -.3em;}
 }
 
 .career-matches {
