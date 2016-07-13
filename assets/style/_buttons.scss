@@ -5,6 +5,8 @@ $button-stroke: inset 0 0 0 2px;
 // Buttons
 
 // scss-lint:disable PropertyCount
+.button-wrapper{padding:.5em 0 !important;}
+
 .basic-button,
 .basic-button-primary,
 .basic-button:visited,
@@ -22,18 +24,16 @@ button,
   border-radius: $border-radius;
   color: $white;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-weight: 700;
   line-height: 1;
   outline: none;
   padding: 1rem 2rem;
+  margin: 0 auto;
   text-align: center;
   text-decoration: none;
-  width: 100%;
-
-  @include media($small-screen) {
-    width: auto;
-  }
+  width: auto;
+  max-width: 180px;
 
   &:hover,
   &.basic-button-hover {
@@ -90,13 +90,6 @@ button,
       text-decoration: none;
     }
   }
-}
-
-.button-wrapper {
-  clear: both;
-  display: table;
-  margin: 0 auto;
-  white-space: pre;
 }
 
 .button-group {

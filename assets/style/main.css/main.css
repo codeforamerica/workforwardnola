@@ -4,6 +4,9 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+.button-wrapper {
+  padding: .5em 0 !important; }
+
 .basic-button,
 .basic-button-primary,
 .basic-button:visited,
@@ -23,25 +26,16 @@ button,
   border-radius: 0.1875rem;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-weight: 700;
   line-height: 1;
   outline: none;
   padding: 1rem 2rem;
+  margin: 0 auto;
   text-align: center;
   text-decoration: none;
-  width: 100%; }
-  @media screen and (min-width: 481px) {
-    .basic-button,
-    .basic-button-primary,
-    .basic-button:visited,
-    .basic-button-primary:visited,
-    button,
-    [type="button"],
-    [type="submit"],
-    [type="reset"],
-    [type="image"] {
-      width: auto; } }
+  width: auto;
+  max-width: 180px; }
   .basic-button:hover, .basic-button.basic-button-hover,
   .basic-button-primary:hover,
   .basic-button-primary.basic-button-hover,
@@ -200,12 +194,6 @@ button,
       background-color: #d6d6d6;
       border-bottom: 0;
       text-decoration: none; }
-
-.button-wrapper {
-  clear: both;
-  display: table;
-  margin: 0 auto;
-  white-space: pre; }
 
 .button-group {
   width: 156px;
@@ -487,7 +475,7 @@ hr {
 
 .assessment .centered, .wooFoundImage {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 1em;
   display: block; }
 
 .salary-table {
