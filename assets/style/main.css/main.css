@@ -480,7 +480,8 @@ hr {
 
 .wooFoundImageTitle {
   text-align: center;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: .5em; }
 
 .salary-table {
   background-color: #fff;
