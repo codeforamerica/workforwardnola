@@ -478,6 +478,10 @@ hr {
   margin: 0 auto 1em;
   display: block; }
 
+.wooFoundImageTitle {
+  text-align: center;
+  font-weight: bold; }
+
 .salary-table {
   background-color: #fff;
   border-collapse: separate;
