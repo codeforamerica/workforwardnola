@@ -9,11 +9,12 @@ module WorkForwardNola
     dir = File.dirname(File.expand_path(__FILE__))
 
     set :mustache,
-        namespace: App,
+        namespace: WorkForwardNola,
         templates: "#{dir}/templates",
         views: "#{dir}/views"
 
     get '/' do
+      @title = 'Work Forward NOLA'
       mustache :index
     end
   end

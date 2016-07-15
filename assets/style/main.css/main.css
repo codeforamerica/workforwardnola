@@ -473,12 +473,12 @@ hr {
   font-size: 1.1em;
   margin: 2px 0; }
 
-.assessment .centered, .wooFoundImage {
+.assessment .centered, .woofound-image {
   max-width: 500px;
   margin: 0 auto 1em;
   display: block; }
 
-.wooFoundImageTitle {
+.woofound-imageTitle {
   text-align: center;
   font-weight: bold;
   margin-bottom: .5em; }
