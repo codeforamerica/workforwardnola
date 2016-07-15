@@ -13,7 +13,6 @@ map '/assets' do
 
   environment.js_compressor  = :uglify
   environment.css_compressor = :scss
-  # AutoprefixerRails.install(environment)
   run environment
 end
 

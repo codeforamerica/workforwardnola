@@ -17,5 +17,13 @@ module WorkForwardNola
       @title = 'Work Forward NOLA'
       mustache :index
     end
+
+    # yes, this is lazy and not really correct but waiting until we have
+    # more specific requirements
+    get '/*' do
+      puts params.to_s
+      @title = 'Assessment'
+      mustache params[:splat].first.to_sym
+    end
   end
 end
