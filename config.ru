@@ -4,4 +4,4 @@ require 'bundler'
 Bundler.require
 
 require './app'
-run Sinatra::Application
+run WorkForwardNola::App.new

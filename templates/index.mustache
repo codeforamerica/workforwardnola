@@ -1,0 +1,175 @@
+    <section id="global-alert">
+      <a class="alert-link" href="mailto:nola+workforwardnola@codeforamerica.org" target="_blank">
+        <span>!&nbsp;</span> We're testing a new website focused on you. Please give us your feedback here.
+      </a>
+    </section>
+
+    <section id="heading">
+      <div class="centered">
+        <h1>Find success in your job search</h1>
+        <h2>Your neighbors in New Orleans have found successful careers and so can you.<br />Take your first step today.</h2>
+      </div>
+    </section>
+
+    <section id="successStory">
+      <div class="centered">
+        <img src="assets/images/rhonda.jpg" alt="Profile Picture for Rhonda" title="Profile Picture for Rhonda" />
+        <div class="ss-content">
+          <h3>"I've taken 4 classes with the City so far...I did start at the bottom, but that's ok. I know I had to get there and show people what I'm capable of and show them that my incarceration doesn't lessen my abilities and diminish what I'm capable of."</h3>
+          <hr>
+          <p>Rhonda was raised in New Orleans and graduated from Booker T. Washington High School. After serving 20 years in prison, she had a tough time getting a job until a friend told her about STRIVE. Despite the 4 week time commitment she decided to enroll and complete the program. This transformational experience helped her land a job with the City of New Orleans. She recently aced a Microsoft Excel class and is on her way to a promotion and a stable career.</p>
+        </div>
+        <ul class="clearfix">
+          <li><b>Title:</b> Office Assistant</li>
+          <li><b>Salary:</b> $10.14/Hour &amp; Benefits</li>
+          <li><b>Training &amp; Job Search:</b> 3 Months</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="firstSteps">
+      <div class="centered">
+        <h1>Visit an Opportunity Center to get started!</h1>
+        <h2>Take these 4 steps to get the most out of your visit.</h2>
+        <ul>
+          <li>Block out 2-3 hours of time for your visit</li>
+          <li><a href="https://www.louisianaworks.net/hire/loginintro.asp?blnStartHere=True" target="_blank" title="Registration page for Louisiana Workforce Commission">Register for HiRE on the Louisiana Works website</a>
+              <br />>> Need help? <a href="https://www.louisianaworks.net/hire/vosnet/OnlineLearning/ShowVideo.aspx?v=?enc=D1r+01QcaXVd5TUJS9fCkwTZuGaIPYuXsQTyLLW/C7eFp4xw/2BNhz7HlQSLfjaWIBj4dbxGSKoKlS1mQS9RAQ==" target="_blank" title="Video for help registering on Louisiana Workforce Commision website">Follow these step-by-step instructions</a>
+          </li>
+          <li>Bring a state issued ID or Driver's License</li>
+          <li>When you arrive, ask about training and employment opportunities</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="job1Info">
+      <div class="centered">
+        <p>Click on a red point on the map to find out more information about that Opportunity Center!</p>
+        <div id="map_canvas"></div>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <div class="centered">
+        <p>The source code for this site is <a href="https://github.com/codeforamerica/workforwardnola" target="_blank">available on GitHub</a>.</p>
+        <p>This project is in Beta and continuously evolving. Please email <a href="mailto:nola+workforwardnola@codeforamerica.org">nola+workforwardnola@codeforamerica.org</a> if you have any feedback.</p>
+        <p>
+          <small>
+              <br>Copyright &copy; 2016, <a href="http://codeforamerica.org/">Code for America</a>
+          </small>
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>
+    <script>
+    var bittersMap = (function() {
+      var locations = [
+        ['Goodwill and Job1', 29.94711, -90.09446,
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1>Goodwill</h1>' +
+        '<div id="bodyContent">' +
+        '<p>Mon-Fri, 8AM - 5PM</p>' +
+        '<p>3400 Tulane Ave, 1st Floor, New Orleans, LA 70119</p>' +
+        '<p><a href="tel:+5044563933">(504) 456-3933</a></p>' +
+        '<p><a href="http://goodwillno.org/" target="_blank" title="Goodwill Website">Visit the website</a></p>' +
+        '</div>' +
+        '<br />' +
+        '<h1>Job1</h1>' +
+        '<div id="bodyContent">' +
+        '<p>Mon-Fri, 8AM - 5PM</p>' +
+        '<p>3400 Tulane Ave, 2nd Floor, New Orleans, LA 70119</p>' +
+        '<p><a href="tel:+5046584500">(504) 658-4500</a></p>' +
+        '<p><a href="http://www.nola.gov/economic-development/workforce-development/job1/" target="_blank" title="Job1 Website">Visit the website</a></p>' +
+        '</div>' +
+        '</div>'],
+        ['STRIVE', 29.95091, -90.07738,
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1>STRIVE</h1>' +
+        '<div id="bodyContent">' +
+        '<p>Mon-Fri, 8AM - 5PM</p>' +
+        '<p>1340 Poydras St. Suite 100, New Orleans, LA 70112</p>' +
+        '<p><a href="tel:+5046584201">(504) 658-4201</a></p>' +
+        '<p><a href="http://striveinternational.org/" target="_blank" title="STRIVE International Website">Visit the website</a></p>' +
+        '</div>' +
+        '</div>'],
+        ['TCA', 29.95602, -90.10512,
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1>Total Community Action</h1>' +
+        '<div id="bodyContent">' +
+        '<p>Mon-Fri, 8AM - 5PM</p>' +
+        '<p>1424 S. Jefferson Davis Parkway, New Orleans, LA 70125</p>' +
+        '<p><a href="tel:+5048720334">(504) 872-0334</a></p>' +
+        '<p><a href="http://www.tca-nola.org/" target="_blank" title="TCA Website">Visit the website</a></p>' +
+        '</div>' +
+        '</div>'],
+        ['Urban League', 29.97723, -90.03875,
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1>Urban League</h1>' +
+        '<div id="bodyContent">' +
+        '<p>Mon-Fri, 8AM - 5PM</p>' +
+        '<p>3232 North Galvez Street, New Orleans, LA 70117</p>' +
+        '<p><a href="tel:+5043244444">(504) 324-4444</a></p>' +
+        '<p><a href="http://www.urbanleagueneworleans.org/ul/" target="_blank" title="Urban League Website">Visit the website</a></p>' +
+        '</div>' +
+        '</div>']
+      ],
+      mapCenter = new google.maps.LatLng(29.97036, -90.07493),
+      mapCanvas = document.getElementById('map_canvas'),
+      mapOptions = {
+        center: mapCenter,
+        zoom: 13,
+        scrollwheel: false,
+        draggable: true,
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      },
+      map = new google.maps.Map(mapCanvas, mapOptions),
+      infowindow = new google.maps.InfoWindow(),
+      marker, i;
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][3]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      };
+      return {
+        init: function() {
+          map.set('styles', [{
+            featureType: 'landscape',
+            elementType: 'geometry',
+            stylers: [{
+              hue: '#ffff00'
+            }, {
+              saturation: 30
+            }, {
+              lightness: 10
+            }]
+          }]);
+
+        }
+      };
+    }());
+
+    bittersMap.init();
+    </script>
+    <script>
+    window.intercomSettings = {
+      app_id: "keo75jgl"
+    }
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/keo75jgl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>

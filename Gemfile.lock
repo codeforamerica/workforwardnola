@@ -3,6 +3,9 @@ GEM
   specs:
     daemons (1.2.3)
     eventmachine (1.2.0.1)
+    mustache (0.99.8)
+    mustache-sinatra (1.0.1)
+      mustache (<= 0.99.8)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -20,6 +23,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mustache-sinatra
   sinatra
   thin
 

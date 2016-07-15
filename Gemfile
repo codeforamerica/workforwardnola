@@ -4,3 +4,8 @@ ruby '2.2.2'
 
 gem 'sinatra'
 gem 'thin'
+gem 'mustache-sinatra'
+
+# group :development do
+#   gem 'rerun'
+# end
