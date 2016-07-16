@@ -2,35 +2,10 @@
   <div class="centered button-wrapper">
     <a class="basic-button" href="/assessment">Back</a>
   </div>
-  <div class="centered">
-    <img class="woofound-image" src="assets/assessment/computer-user.jpg" />
-    <p class="woofound-image-title">Working with technology</p>
-    <div class="button-group">
-      <label>
-        <input type="radio" name="button-group-1" value="me">
-        <span class="button-group-item">Me</span>
-      </label>
-      <label>
-        <input type="radio" name="button-group-1" value="not-me">
-        <span class="button-group-item">Not Me</span>
-      </label>
-    </div>
-  </div>
-  <div class="centered">
-    <img class="woofound-image" src="assets/assessment/Gardening-LB0507-1124.jpg" />
-    <p class="woofound-image-title">Working outside</p>
-    <div class="button-group">
-      <label>
-        <input type="radio" name="button-group-2" value="me">
-        <span class="button-group-item">Me</span>
-      </label>
-      <label>
-        <input type="radio" name="button-group-2" value="not-me">
-        <span class="button-group-item">Not Me</span>
-      </label>
-    </div>
-  </div>
+  {{#images}}
+    {{> partials/assessment_image }}
+  {{/images}}
   <div class="centered button-wrapper">
-    <a class="basic-button" href="/woofound_2">Next</a>
+    <a class="basic-button" href="/woofound2">Next</a>
   </div>
 </div>

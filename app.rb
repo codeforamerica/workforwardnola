@@ -13,6 +13,10 @@ module WorkForwardNola
         templates: "#{dir}/templates",
         views: "#{dir}/views"
 
+    before do
+      response.headers['Cache-Control'] = 'public, max-age=36000'
+    end
+
     get '/' do
       @title = 'Work Forward NOLA'
       mustache :index

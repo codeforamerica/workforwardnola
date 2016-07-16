@@ -1,36 +1,12 @@
 <div class="assessment">
   <div class="centered button-wrapper">
-    <a class="basic-button" href="/woofound_2">Back</a>
+    <a class="basic-button" href="/woofound2">Back</a>
   </div>
   <div class="centered">
     <h1>Career Matches</h1>
     <hr/>
-    <h2>Electrician</h2>
-    <p><strong>Description</strong>: Read blueprints or technical diagrams. Install and maintain wiring, control, and lighting systems. Inspect electrical components, such as transformers and circuit breakers.</p>
-    <p style="margin-bottom:0"><strong>Career Pathway:</strong><br /><i>(with additional training)</i></p>
-    <table class="salary-table">
-      <thead>
-        <tr>
-          <th>Now</th>
-          <th>6 Months</th>
-          <th>2 Years</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><i>Annually:</i><br />$0<br /><br /><i>Hourly:</i><br />$0</td>
-          <td><i>Annually:</i><br />$35,000<br /><br /><i>Hourly:</i><br />$16.83</td>
-          <td><i>Annually:</i><br />$60,000<br /><br /><i>Hourly:</i><br />$16.83</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="checkmark">
-      <div class="checkmark-body">
-        <p>Money available for training</p>
-      </div>
-    </div>
-    <div class="centered button-wrapper">
-      <a class="basic-button basic-button-gray" href="">Learn How to Get Started</a>
-    </div>
+    {{#career_descriptions}}
+      {{> partials/career}}
+    {{/career_descriptions}}
   </div>
 </div>
