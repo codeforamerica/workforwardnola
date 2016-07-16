@@ -21,9 +21,8 @@ module WorkForwardNola
     # yes, this is lazy and not really correct but waiting until we have
     # more specific requirements
     get '/*' do
-      puts params.to_s
       @title = 'Assessment'
-      mustache params[:splat].first.to_sym
+      mustache request.path_info.delete('/').to_sym
     end
   end
 end

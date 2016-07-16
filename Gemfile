@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.2.5'
 
 gem 'sinatra'
 gem 'thin'
@@ -10,5 +10,5 @@ gem 'sass'
 gem 'uglifier'
 
 group :development do
-  gem 'shotgun'
+  gem 'rerun'
 end
