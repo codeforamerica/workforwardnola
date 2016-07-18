@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup

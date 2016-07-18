@@ -1,0 +1,7 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - 'Gemfile.lock'% 
+
+Metrics/MethodLength:
+  Max: 25
