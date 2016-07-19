@@ -42,13 +42,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mustache-sinatra
+  mustache-sinatra (~> 1)
   rerun
-  sass
-  sinatra
-  sprockets
-  thin
-  uglifier
+  sass (~> 3.4)
+  sinatra (= 1.4.7)
+  sprockets (~> 3.6)
+  thin (~> 1.7)
+  uglifier (~> 3.0)
 
 RUBY VERSION
    ruby 2.2.5p319
