@@ -1,8 +1,16 @@
 require 'sinatra/base'
+require 'sinatra/sequel'
 
 module WorkForwardNola
   # WFN app
   class App < Sinatra::Base
+    configure do
+      set :database, lambda {
+        ENV['DATABASE_URL'] ||
+        "postgres://localhost:5432/workforwardnola"
+      }
+    end
+
     register Mustache::Sinatra
     require './views/layout'
 

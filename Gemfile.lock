@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/danascheider/sinatra-sequel_extension.git
+  revision: 394c9b3d9dd6d54e44bde492457da70daba1e63a
+  specs:
+    sinatra-sequel_extension (0.9.1)
+      sequel (>= 3.2)
+      sinatra (>= 0.9.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,6 +21,7 @@ GEM
     mustache (0.99.8)
     mustache-sinatra (1.0.1)
       mustache (<= 0.99.8)
+    pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -23,6 +32,7 @@ GEM
       listen (~> 3.0)
     ruby_dep (1.3.1)
     sass (3.4.22)
+    sequel (4.36.0)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -43,9 +53,12 @@ PLATFORMS
 
 DEPENDENCIES
   mustache-sinatra (~> 1)
+  pg
   rerun
   sass (~> 3.4)
+  sequel
   sinatra (= 1.4.7)
+  sinatra-sequel_extension!
   sprockets (~> 3.6)
   thin (~> 1.7)
   uglifier (~> 3.0)
