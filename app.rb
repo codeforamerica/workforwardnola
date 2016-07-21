@@ -32,7 +32,7 @@ module WorkForwardNola
 
     # yes, this is lazy and not really correct but waiting until we have
     # more specific requirements
-    get '/*' do
+    get %r{^(?!\/favicon.ico$)} do
       @title = 'Assessment'
       mustache request.path_info.delete('/').to_sym
     end
