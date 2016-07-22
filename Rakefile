@@ -1,3 +1,9 @@
+require 'mustache'
+
+task :app do
+  require './app'
+end
+
 namespace :db do
   desc 'Run DB migrations'
   task :migrate => :app do
