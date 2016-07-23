@@ -13,7 +13,7 @@ Sequel.migration do
       BigDecimal :median_wage, size: [5, 2], null: false
     end
 
-    create_join_table(career_id: :traits, trait_id: :careers)
+    create_join_table(career_id: :careers, trait_id: :traits)
   end
 
 end

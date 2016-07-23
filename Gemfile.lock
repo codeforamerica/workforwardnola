@@ -33,6 +33,8 @@ GEM
     ruby_dep (1.3.1)
     sass (3.4.22)
     sequel (4.36.0)
+    sequel-seed (0.3.2)
+      sequel (>= 4.0)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -57,6 +59,7 @@ DEPENDENCIES
   rerun
   sass (~> 3.4)
   sequel
+  sequel-seed
   sinatra (= 1.4.7)
   sinatra-sequel_extension!
   sprockets (~> 3.6)

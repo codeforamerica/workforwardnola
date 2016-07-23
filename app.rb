@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/sequel'
+require 'mustache'
 
 module WorkForwardNola
   # WFN app
