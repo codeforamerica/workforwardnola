@@ -10,7 +10,7 @@ Sequel.migration do
       String :name, null: false
       String :sector, null: false
       String :description, text: true
-      BigDecimal :median_wage, size: [5, 2], null: false
+      Float :median_wage, null: false
     end
 
     create_join_table(career_id: :careers, trait_id: :traits)

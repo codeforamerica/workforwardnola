@@ -40,6 +40,7 @@ module WorkForwardNola
       machinist = Career.create \
         name: 'Machinist',
         sector: 'Advanced Manufacturing',
+        description: 'Machinists machine things.',
         median_wage: 21.25
       ['Detail oriented', 'Technical', 'Following instructions'].each do |trait|
         machinist.add_trait all_traits[trait]
