@@ -11,11 +11,10 @@ module WorkForwardNola
           {
             job_title: career.name,
             job_description: career.description,
-            training_money_available: true,
-            hourly: { now: to_money(career.median_wage * 0.80), 
-                      six_months: to_money(career.median_wage) },
-            yearly: { now: to_money(as_annual(career.median_wage * 0.80)), 
-                      six_months: to_money(as_annual(career.median_wage)) }
+            average_wage: to_money(career.average_wage),
+            experienced_wage: to_money(career.experienced_wage),
+            training_money_available: career.training_money_available,
+            certification_required: career.certification_required
           }
         end
       end
@@ -24,15 +23,9 @@ module WorkForwardNola
 
       # expecting float
       def to_money amount
-        if amount >= 1000
-          "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
-        else
-          sprintf '$%.2f', amount
-        end
-      end
-
-      def as_annual amount
-        (amount * 37 * 52).round 0
+        sprintf '$%.2f', amount
+        # if needed, for putting commas in money format:
+        # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
       end
     end
   end
