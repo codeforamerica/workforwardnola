@@ -10,14 +10,14 @@ module WorkForwardNola
       set :database, lambda {
         ENV['DATABASE_URL'] ||
         "postgres://localhost:5432/workforwardnola"
-        # TODO: put this url in env file
       }
     end
 
-    # TODO figure out how to only run in dev mode, not tasks
     # check for un-run migrations
-    # Sequel.extension :migration
-    # Sequel::Migrator.check_current(database, 'db/migrations')
+    unless ENV['RACK_ENV'].eql? 'rake'
+      Sequel.extension :migration
+      Sequel::Migrator.check_current(database, 'db/migrations')
+    end
 
     register Mustache::Sinatra
     require './views/layout'
