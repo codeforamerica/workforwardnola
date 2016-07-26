@@ -5,7 +5,7 @@ end
 namespace :db do
   require 'sequel'
   Sequel.extension :migration
-  ENV['RACK_ENV'] = 'RAKE'
+  ENV['RACK_ENV'] = 'rake'
 
   desc 'Run DB migrations'
   task :migrate => :app do

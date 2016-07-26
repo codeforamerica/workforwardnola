@@ -1,16 +1,16 @@
 require 'sinatra/base'
 require 'sinatra/sequel'
 require 'mustache'
+require 'dotenv'
 
 module WorkForwardNola
   # WFN app
   class App < Sinatra::Base
+    Dotenv.load
+
     register Sinatra::SequelExtension
     configure do
-      set :database, lambda {
-        ENV['DATABASE_URL'] ||
-        "postgres://localhost:5432/workforwardnola"
-      }
+      set :database, ENV['DATABASE_URL']
     end
 
     # check for un-run migrations
