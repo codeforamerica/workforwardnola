@@ -114,7 +114,7 @@ hr {
 .centered {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2em;
+  padding: 2em 1em;
 }
 
 #global-alert {
@@ -160,25 +160,39 @@ hr {
   .centered {
     $large-screen: 50em !default;
     min-height: 23em;
-    padding: 2em;
 
     @include media($medium-screen) {
       background-position: left;
       background-size: cover;
       justify-content: flex-end;
     }
+    .container{
+      max-width:345px;
+      margin: 0 auto;
 
-    img {
-      min-width: 255px;
-      border-radius: $round-radius;
-      margin: 0 auto 1.5em;
-      display: block;
-      width: auto;
-
-      @include media($large-screen) {
+      img {
+        width: 75px;
+        border-radius: $round-radius;
         float: left;
-        margin: 1em 0 0 3em;
+        @include media($large-screen) {
+          width: 150px;
+        }
       }
+      ul{
+        float: left;
+        margin: .5em 0 1em 1em;
+        @include media($large-screen) {
+          margin: 2.5em 0 4em 1em;
+        }
+      }
+      li {
+         color: $base-font-color;
+         display: block;
+       }
+       @include media($large-screen) {
+         max-width:600px;
+         margin: 0;
+       }
     }
 
     .ss-content {
@@ -188,43 +202,11 @@ hr {
 
       @include media($large-screen) {
         text-align: left;
-        float: right;
+        margin: 0;
+        max-width:1000px;
       }
       h1 { font-weight: 2em; }
     }
-
-    ul{
-      max-width: 300px;
-      text-align: center;
-      padding: .3em 0;
-      margin: 0 auto;
-      background-color:$action-color-light;
-      border-radius: 10px;
-
-      @include media($large-screen) {
-        width: 100%;
-        max-width:100%;
-        margin: 0;
-      }
-    }
-
-    li {
-       color: $base-font-color;
-       display: block;
-       padding: .3em 0;
-       border-bottom: 1px solid transparentize($base-font-color, 0.8);
-       &:first-child { padding-top: 0; }
-       &:last-child { padding-bottom: 0; border-bottom: 0; }
-
-       @include media($large-screen) {
-          display: inline-block;
-          padding: .5em 1em;
-          border-bottom: 0;
-          border-right: 1px solid transparentize($base-font-color, 0.8);
-          &:first-child { padding-top: .5em; padding-left: 0; }
-          &:last-child { padding-right: 0; border-right: 0; }
-       }
-     }
   }
 }
 
@@ -287,12 +269,19 @@ hr {
     margin: 2px 0;
   }
 }
-.assessment .centered, .wooFoundImage{
+
+.assessment .centered, .woofound-image {
     max-width:500px;
     margin: 0 auto 1em;
     display: block;
 }
-.wooFoundImageTitle{text-align: center; font-weight: bold; margin-bottom: .5em;}
+
+.woofound-image-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
 .salary-table {
   $base-border-radius: 10px !default;
   $base-line-height: 1.5em !default;
@@ -306,7 +295,7 @@ hr {
   border-spacing: 0;
   text-align: center;
   font-size: 1em;
-  font-weight:300;
+  font-weight: 300;
   width: 100%;
 
   thead {
@@ -338,7 +327,7 @@ hr {
 }
 
 .checkmark {
-  background-image: url('../../images/checkmark.svg');
+  background-image: url('checkmark.svg');
   background-position: .5rem .5rem;
   background-repeat: no-repeat;
   background-size: 2.5rem;
@@ -350,7 +339,7 @@ hr {
   display: table-cell;
   padding-left: 1.5rem;
   vertical-align: top;
-  p{margin-top: -.3em;}
+  p { margin-top: -.3em; }
 }
 
 .career-matches {

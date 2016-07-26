@@ -1,0 +1,27 @@
+    <h2>{{ job_title }}</h2>
+    <p><strong>Description</strong>: {{ job_description }}</p>
+    <p style="margin-bottom:0"><strong>Career Pathway:</strong><br /><i>(with additional training)</i></p>
+    <table class="salary-table">
+      <thead>
+        <tr>
+          <th>Now</th>
+          <th>After Training</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ average_wage }}/hour</td>
+          <td>{{ experienced_wage }}/hour</td>
+        </tr>
+      </tbody>
+    </table>
+    {{#training_money_available}}
+    <div class="checkmark">
+      <div class="checkmark-body">
+        <p>Money available for training</p>
+      </div>
+    </div>
+    {{/training_money_available}}
+    <div class="centered button-wrapper">
+      <a class="basic-button basic-button-gray" href="">Learn How to Get Started</a>
+    </div>
