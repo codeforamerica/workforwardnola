@@ -14,7 +14,7 @@ module WorkForwardNola
     end
 
     # check for un-run migrations
-    unless ENV['RACK_ENV'].eql? 'rake'
+    if ENV['RACK_ENV'].eql? 'development'
       Sequel.extension :migration
       Sequel::Migrator.check_current(database, 'db/migrations')
     end

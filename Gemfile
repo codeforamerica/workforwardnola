@@ -8,6 +8,7 @@ gem 'mustache-sinatra', '~> 1'
 gem 'sprockets', '~> 3.6'
 gem 'sass', '~> 3.4'
 gem 'uglifier', '~> 3.0'
+gem 'dotenv'
 
 # database things
 gem 'pg'
@@ -17,5 +18,4 @@ gem 'sequel-seed' # should eventually be dev-only but :shrug:
 
 group :development do
   gem 'rerun'
-  gem 'dotenv'
 end

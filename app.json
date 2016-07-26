@@ -1,12 +1,16 @@
 {
   "name": "workforwardnola",
   "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
   },
   "env": {
     "LANG": {
       "required": true
     },
     "RACK_ENV": {
+      "required": true
+    },
+    "DATABASE_URL": {
       "required": true
     }
   },

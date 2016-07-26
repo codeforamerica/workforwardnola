@@ -41,4 +41,10 @@ namespace :db do
     Sequel::Migrator.run(database, 'db/migrations')
     database.run 'delete from schema_seeds'
   end
+
+  desc 'Migrate & seed DB all in one'
+  task :setup => :app do
+    Rake::Task['db:migrate'].execute
+    Rake::Task['db:seed'].execute
+  end
 end
