@@ -106,9 +106,9 @@ button,
   $button-group-color-checked: $white;
   $button-group-border-checked: darken($button-group-background-checked, 15%);
 
-  width: 156px;
-  margin: 2em auto 0;
-  text-align: center; // centers the things, but then they don't touch
+  width: 168px;
+  margin: 0 auto;
+  text-align: center; 
 
   input {
     display: none;
@@ -122,38 +122,26 @@ button,
       border-radius: 0;
       color: $button-group-color;
       cursor: pointer;
-      // float: left; // the buttons touch, but then it's not centered
+      float: left;
       font-size: $base-font-size;
       font-weight: normal;
       line-height: 1;
       padding: .75em 1em;
-      width: auto;
+      width: 84px;
 
       &:focus,
       &:hover {
         background-color: darken($button-group-background, 3%);
       }
     }
-
-
-    &:first-child .button-group-item {
-      border-bottom-left-radius: $base-border-radius;
-      border-top-left-radius: $base-border-radius;
-      border-top-right-radius: 0;
-      border-right: 0
-    }
-
-    &:last-child .button-group-item {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: $base-border-radius;
-      border-top-right-radius: $base-border-radius;
-    }
-
     input:checked + .button-group-item {
       background: $button-group-background-checked;
       border: $border-size solid $button-group-border-checked;
       box-shadow: inset 0 1px 2px darken($button-group-background-checked, 10%);
       color: $button-group-color-checked;
     }
+  }
+  :first-child .button-group-item, :first-child input:checked + .button-group-item {
+    border-right: none;
   }
 }

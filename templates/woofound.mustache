@@ -1,11 +1,16 @@
-<div class="assessment">
-  <div class="centered button-wrapper">
-    <a class="basic-button" href="/assessment">Back</a>
+<section id="assessment">
+  <div class="centered">
+    <div class="button-wrapper">
+      <button class="basic-button-outline center" type="button"><a href="/index" title="Return to home page">Back to home page</a></button>
+    </div>
+    <h1>Career Assessment</h1>
+    <p>Choose "Me" or "Not Me" for each image to mark whether or not that activity interests you.<br>
+    <i>(Estimated time: 2 min.)</i></p>
+    {{#images}}
+      {{> partials/assessment_image }}
+    {{/images}}
+    <div class="centered button-wrapper">
+      <button class="basic-button center" type="button"><a href="/careers">See your career matches</a></button>
+    </div>
   </div>
-  {{#images}}
-    {{> partials/assessment_image }}
-  {{/images}}
-  <div class="centered button-wrapper">
-    <a class="basic-button" href="/woofound2">Next</a>
-  </div>
-</div>
+</section>
