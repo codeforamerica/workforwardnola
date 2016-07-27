@@ -35,7 +35,8 @@ button,
   text-align: left;
   text-decoration: none;
   width: auto;
-  
+  min-height: 44px;
+
   &:hover,
   &.basic-button-hover {
     background-color: $action-color-darker;
