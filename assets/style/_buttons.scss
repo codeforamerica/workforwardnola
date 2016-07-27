@@ -25,16 +25,17 @@ button,
   color: $white;
   cursor: pointer;
   display: block;
+  font-family: $sans-serif;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   outline: none;
-  padding: 1rem 2rem;
-  margin: 0 auto;
-  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  text-align: left;
   text-decoration: none;
   width: auto;
-  max-width: 180px;
-
+  
   &:hover,
   &.basic-button-hover {
     background-color: $action-color-darker;
@@ -44,7 +45,7 @@ button,
 
   &:focus,
   &.basic-button-focus {
-    box-shadow: $focus-shadow;
+    box-shadow: $action-color;
   }
 
   &:active,
@@ -71,7 +72,7 @@ button,
 
     &:focus,
     &.basic-button-focus {
-      box-shadow: $button-stroke $action-color-darkest, $focus-shadow;
+      box-shadow: $button-stroke $action-color-darkest, $action-color;
     }
   }
 
