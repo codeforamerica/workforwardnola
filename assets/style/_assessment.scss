@@ -1,0 +1,68 @@
+.assessment .centered, .woofound-image {
+    max-width:500px;
+    margin: 0 auto 1em;
+    display: block;
+}
+
+.woofound-image-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+// Careers that match your interests //
+.assessment {
+  .careerNav {
+    width: 230px;
+    margin: 0 auto 7rem;
+
+    > * { float: left; }
+    button {
+      min-width:44px;
+      margin: 0 15px;
+
+      .fa {
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+    p { line-height: 4.5rem;}
+  }
+  p { margin: .5rem 0 1rem; }
+}
+
+
+// Success Story //
+#successStory {
+  margin-bottom: 2rem; 
+
+  .container{
+    max-width:345px;
+    margin: 1rem 0 2rem;
+
+    img {
+      width: 75px;
+      border-radius: $round-radius;
+      float: left;
+      @include media($large-screen) {
+        width: 150px;
+      }
+    }
+    ul{
+      float: left;
+      margin: .5em 0 1em 1em;
+      @include media($large-screen) {
+        margin: 2.5em 0 4em 1em;
+      }
+    }
+    li {
+       color: $base-font-color;
+       display: block;
+     }
+     @include media($large-screen) {
+       max-width:600px;
+       margin: 0;
+     }
+  }
+}
