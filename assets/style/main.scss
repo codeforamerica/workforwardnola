@@ -2,6 +2,7 @@
 @import 'neat/neat';
 @import 'variables';
 @import 'buttons';
+@import 'assessment';
 @import 'texture';
 
 .clearfix {
@@ -24,14 +25,11 @@ body {
 
 
 // Typography //
-h1, h2, h3, h4{
-  font-family: $sans-serif;
-  color: $action-color;
-}
+h1, h2, h3{ color: $action-color; }
 h1 {
   font-weight: 700;
-  font-size: 4.6rem;
-  line-height: 4.8rem;
+  font-size: 3.8rem;
+  line-height: 4.4rem;
 }
 h2 {
   font-weight: 300;
@@ -40,12 +38,13 @@ h2 {
 }
 h3 {
   font-weight: 300;
-  font-size: 2.5rem;
-  margin: .7rem 0;
+  font-size: 2rem;
+  margin: .5rem 0 2rem;
 }
 h4 {
-  font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 2rem 0 0 0;
 }
 p, li {
   font-size: 1.6rem;
@@ -68,6 +67,23 @@ a:link, a:visited, a:active {
   }
 }
 a:hover { border-bottom: 1px solid $action-color; }
+button a { border-bottom: none !important; }
+.basic-button a { color: $white; }
+.quote{
+  font-style: italic;
+  font-size: 1.4rem;
+  padding: 0 0 0 2rem;
+  position: relative;
+
+  &:before {
+     content: "\f10d" ;
+     font-family: FontAwesome;
+     font-size: 1.5rem;
+     position: absolute;
+     top: 0;
+     left: 0;
+  }
+}
 
 
 // Design Elements //
@@ -81,6 +97,7 @@ hr {
   border-top: 0;
   margin: $base-spacing 0;
 }
+.center { margin: 0 auto; }
 
 
 // Structure //
@@ -161,141 +178,8 @@ hr {
   }
 }
 
-// Success Story //
-#successStory {
 
-  .centered {
-    $large-screen: 50em !default;
-    min-height: 23em;
-
-    @include media($medium-screen) {
-      background-position: left;
-      background-size: cover;
-      justify-content: flex-end;
-    }
-    .container{
-      max-width:345px;
-      margin: 0 auto;
-
-      img {
-        width: 75px;
-        border-radius: $round-radius;
-        float: left;
-        @include media($large-screen) {
-          width: 150px;
-        }
-      }
-      ul{
-        float: left;
-        margin: .5em 0 1em 1em;
-        @include media($large-screen) {
-          margin: 2.5em 0 4em 1em;
-        }
-      }
-      li {
-         color: $base-font-color;
-         display: block;
-       }
-       @include media($large-screen) {
-         max-width:600px;
-         margin: 0;
-       }
-    }
-
-    .ss-content {
-      max-width: 35em;
-      text-align: center;
-      margin: 0 auto;
-
-      @include media($large-screen) {
-        text-align: left;
-        margin: 0;
-        max-width:1000px;
-      }
-      h1 { font-weight: 2em; }
-    }
-  }
-}
-
-
-.assessment .centered, .woofound-image {
-    max-width:500px;
-    margin: 0 auto 1em;
-    display: block;
-}
-
-.woofound-image-title {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: .5em;
-}
-
-.salary-table {
-  $base-border-radius: 10px !default;
-  $base-line-height: 1.5em !default;
-  $base-spacing: 1.5em !default;
-  $table-border: 1px solid $action-color;
-  $table-padding: .75em 1em;
-
-  background-color: $white;
-  border-collapse: separate;
-  border-radius: $base-border-radius;
-  border-spacing: 0;
-  text-align: center;
-  font-size: 1em;
-  font-weight: 300;
-  width: 100%;
-
-  thead {
-    th {
-      padding: $table-padding;
-    }
-  }
-
-  tbody {
-    td {
-      border-bottom: $table-border;
-      border-left: $table-border;
-      border-top: $table-border;
-      padding: $table-padding;
-      width: 33.33%;
-
-      &:first-child {
-        border-bottom-left-radius: $base-border-radius;
-        border-top-left-radius: $base-border-radius;
-      }
-
-      &:last-child {
-        border-bottom-right-radius: $base-border-radius;
-        border-right: $table-border;
-        border-top-right-radius: $base-border-radius;
-      }
-    }
-  }
-}
-
-.checkmark {
-  background-image: url('checkmark.svg');
-  background-position: .5rem .5rem;
-  background-repeat: no-repeat;
-  background-size: 2.5rem;
-  margin-top: 1em;
-  padding: 1em;
-}
-
-.checkmark-body {
-  display: table-cell;
-  padding-left: 1.5rem;
-  vertical-align: top;
-  p { margin-top: -.3em; }
-}
-
-.career-matches {
-  p {
-    font-style: italic;
-  }
-}
-
+// Footer //
 footer {
   margin: 6rem 0 0;
 

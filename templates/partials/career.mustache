@@ -1,27 +1,38 @@
-    <h2>{{ job_title }}</h2>
-    <p><strong>Description</strong>: {{ job_description }}</p>
-    <p style="margin-bottom:0"><strong>Career Pathway:</strong><br /><i>(with additional training)</i></p>
-    <table class="salary-table">
-      <thead>
-        <tr>
-          <th>Now</th>
-          <th>After Training</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ average_wage }}/hour</td>
-          <td>{{ experienced_wage }}/hour</td>
-        </tr>
-      </tbody>
-    </table>
-    {{#training_money_available}}
-    <div class="checkmark">
-      <div class="checkmark-body">
-        <p>Money available for training</p>
-      </div>
+    <div class="button-wrapper careerNav">
+      <button class="basic-button-outline" type="button"><a href="#"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></a></button>
+      <p>Result 1 of 4</p>
+      <button class="basic-button-outline" type="button"><a href="#"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></a></button>
     </div>
-    {{/training_money_available}}
-    <div class="centered button-wrapper">
-      <a class="basic-button basic-button-gray" href="">Learn How to Get Started</a>
+    <h2 class="clearfix">{{ job_title }}</h2>
+    <h3>{{ average_wage }}/hour on average</h3>
+    <p><i>After training and/or more experience: {{ experienced_wage }}/hour</i></p>
+    <ul class="careerInfo">
+      <li><i class="fa fa-clock-o" aria-hidden="true"></i> Part-time work available</li>
+      <li><i class="fa fa-suitcase" aria-hidden="true"></i> Some exerience required</li>
+      <li><i class="fa fa-certificate" aria-hidden="true"></i> Requires Certification</li>
+      <li><i class="fa fa-graduation-cap" aria-hidden="true"></i> Requires 2-year degree</li>
+      {{#training_money_available}}
+      <li><i class="fa fa-money" aria-hidden="true"></i> Money Available for training</li>
+      {{/training_money_available}}
+    </ul>
+    <h4>Description</h4>
+    <p>{{ job_description }}</p>
+
+    <h4>Others who've taken a similar path</h4>
+    <section id="successStory">
+      <div class="container">
+        <img src="assets/rhonda.jpg" alt="Profile Picture for Rhonda" title="Profile Picture for Rhonda" />
+        <ul>
+          <li><b>Title:</b> Office Assistant</li>
+          <li><b>Salary:</b> $10.14/Hour &amp; Benefits</li>
+          <li><b>Training &amp; Job Search:</b> 3 Months</li>
+        </ul>
+      </div>
+      <p class="quote clearfix">I know I had to get there and show people what I'm capable of and show them that my incarceration doesn't lessen my abilities and diminish what I'm capable of.</p>
+    </section>
+    <div class="button-wrapper">
+      <button class="basic-button center" type="button"><a href="#">View full list of careers</a></button>
+    </div>
+    <div class="button-wrapper">
+      <button class="basic-button-outline center" type="button"><a href="/woofound2">Return to career assessment</a></button>
     </div>
