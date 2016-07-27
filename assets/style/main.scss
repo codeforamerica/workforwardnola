@@ -30,7 +30,7 @@ h1, h2, h3, h4{
 }
 h1 {
   font-weight: 700;
-  font-size: 4.4rem;
+  font-size: 4.6rem;
   line-height: 4.8rem;
 }
 h2 {
@@ -119,11 +119,7 @@ hr {
 
   .centered{ padding: .5rem 1.5rem; }
   h2, p { color: $white; }
-  h2 {
-    font-size: 3.2rem;
-    font-weight: 400;
-    @include media($medium-screen) { font-size: 4rem; }
-  }
+  h2 { font-weight: 400; }
 }
 
 
