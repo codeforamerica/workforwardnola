@@ -227,11 +227,16 @@ hr {
     }
 
     img { max-width: none; }
-    .content {
+    #content {
       padding: 0 .5em 1em .5em;
       display: block;
 
-      h2 { font-size: 2rem; }
+      h2 {
+        font-size: 1.6rem;
+        @media (min-width: $medium-screen) {
+        font-size: 2rem;
+        }
+      }
       p {
         text-align: left;
         font-weight: normal;
@@ -240,6 +245,7 @@ hr {
       }
     }
   }
+}
 
 
 // Footer //
