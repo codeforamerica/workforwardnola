@@ -3,7 +3,6 @@
 @import 'variables';
 @import 'buttons';
 @import 'assessment';
-@import 'texture';
 
 .clearfix {
   overflow: auto;
@@ -22,6 +21,11 @@ body {
   margin: 0;
   padding: 0;
 }
+#bodyContainer {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+}
 
 
 // Typography //
@@ -30,6 +34,10 @@ h1 {
   font-weight: 700;
   font-size: 3.8rem;
   line-height: 4.4rem;
+  @media (min-width: $medium-screen) {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
 }
 h2 {
   font-weight: 300;
@@ -42,15 +50,27 @@ h3 {
   margin: .5rem 0 2rem;
 }
 h4 {
-  font-size: 1.8rem;
   font-weight: 600;
+  font-size: 1.8rem;
   margin: 2rem 0 0 0;
 }
 p, li {
-  font-size: 1.6rem;
   font-weight: 400;
+  font-size: 1.6rem;
   line-height: 2.2rem;
   color: $base-font-color;
+
+  @media (min-width: $medium-screen) {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+}
+p {
+  margin: 1rem 0;
+
+  @media (min-width: $medium-screen) {
+    margin: 2rem 0;
+  }
 }
 ul {
   margin: 0;
@@ -66,7 +86,7 @@ a:link, a:visited, a:active {
     color: $white;
   }
 }
-a:hover { border-bottom: 1px solid $action-color; }
+a:hover { color: $action-color-darker; border-bottom: 1px solid $action-color-darker; }
 .basic-button a, .basic-button-outline a {
   padding: 1rem;
   border-bottom: none !important;
@@ -106,7 +126,6 @@ hr {
 
 // Structure //
 .centered {
-  max-width: 850px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
@@ -138,14 +157,40 @@ hr {
 #prepare {
   background-color: $action-color;
 
-  .centered{ padding: .5rem 1.5rem; }
+  .centered{
+    padding: .5rem 1.5rem;
+
+    @media (min-width: $medium-screen) {
+      padding: 3rem 1.5rem;
+    }
+  }
   h2, p { color: $white; }
-  h2 { font-weight: 400; }
+  h2 {
+    font-weight: 400;
+    @media (min-width: $medium-screen) {
+      font-size: 4rem;
+      line-height: 6.5rem;
+    }
+  }
+}
+
+
+// Explore your career options ahead of time //
+#explore {
+  @media (min-width: $medium-screen) {
+    width: 48%;
+    float: left;
+  }
 }
 
 
 // Make the most of your time //
 #time {
+  ul{
+    @media (min-width: $medium-screen) {
+      li:not(:first-child) { padding: 20px 0 0 16px; }
+    }
+  }
   li {
     padding: 10px 0 0 16px;
     position: relative;
@@ -154,18 +199,32 @@ hr {
        content: "\f046";
        font-family: FontAwesome;
        position: absolute;
-       top: 12px;
        left: -3px;
+       padding: 2px 0 0 0;
+
+       @media (min-width: $medium-screen) {
+         left: - 6px;
+       }
     }
+  }
+  @media (min-width: $medium-screen) {
+    width: 48%;
+    float: right;
   }
 }
 
 
-// What to expect //
-#expect {
+// Opportunity Center Information //
+#oppCenterInfo {
   #map_canvas {
-    height: 400px;
-    width: 100%;
+    height: 250px;
+    width: 90%;
+    margin: 0 auto;
+
+    @media (min-width: $medium-screen) {
+      height: 400px;
+      width: 100%;
+    }
   }
 
   #map_canvas img { max-width: none; } // to prevent UI control bug
