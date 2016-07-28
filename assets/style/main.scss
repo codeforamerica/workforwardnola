@@ -67,7 +67,11 @@ a:link, a:visited, a:active {
   }
 }
 a:hover { border-bottom: 1px solid $action-color; }
-button a { border-bottom: none !important; }
+.basic-button a, .basic-button-outline a {
+  padding: 1rem;
+  border-bottom: none !important;
+  display: inline-block;
+}
 .basic-button a { color: $white; }
 .quote{
   font-style: italic;

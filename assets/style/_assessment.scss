@@ -1,19 +1,22 @@
-.assessment .centered, .woofound-image {
-    max-width:500px;
-    margin: 0 auto 1em;
+// Assessment //
+#assessment {
+  .container { margin: 4rem 0; }
+  .assessmentImage-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  .assessmentImage {
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
     display: block;
-}
-
-.woofound-image-title {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: .5em;
+  }
 }
 
 // Careers that match your interests //
-.assessment {
+#careerMatch {
   .careerNav {
-    width: 230px;
+    width: 243px;
     margin: 0 auto 7rem;
 
     > * { float: left; }
@@ -35,7 +38,7 @@
 
 // Success Story //
 #successStory {
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 
   .container{
     max-width:345px;
