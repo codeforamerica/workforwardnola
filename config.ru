@@ -11,8 +11,11 @@ map '/assets' do
   environment.append_path 'assets/style'
   environment.append_path 'assets/images'
 
-  environment.js_compressor  = :uglify
-  environment.css_compressor = :scss
+  if ENV['RACK_ENV'].eql? 'production'
+    environment.js_compressor  = :uglify
+    environment.css_compressor = :scss
+  end
+  
   run environment
 end
 
