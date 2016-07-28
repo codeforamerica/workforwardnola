@@ -232,9 +232,8 @@ hr {
   #map_canvas .content { padding: 0 .5em 1em .5em; display: block; }
 
   #map_canvas h2 {
-    font-size: 2em;
     @media (min-width: $medium-screen) {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 
