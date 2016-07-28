@@ -225,25 +225,21 @@ hr {
       height: 400px;
       width: 100%;
     }
-  }
 
-  #map_canvas img { max-width: none; } // to prevent UI control bug
+    img { max-width: none; }
+    .content {
+      padding: 0 .5em 1em .5em;
+      display: block;
 
-  #map_canvas .content { padding: 0 .5em 1em .5em; display: block; }
-
-  #map_canvas h2 {
-    @media (min-width: $medium-screen) {
-      font-size: 2rem;
+      h2 { font-size: 2rem; }
+      p {
+        text-align: left;
+        font-weight: normal;
+        font-size: 1.1em;
+        margin: 2px 0;
+      }
     }
   }
-
-  #map_canvas #bodyContent p {
-    text-align: left;
-    font-weight: normal;
-    font-size: 1.1em;
-    margin: 2px 0;
-  }
-}
 
 
 // Footer //
