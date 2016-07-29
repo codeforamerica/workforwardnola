@@ -7,6 +7,7 @@ module WorkForwardNola
       attr_reader :title
 
       def career_descriptions
+        puts @quiz_answers
         Career.map do |career|
           {
             job_title: career.name,

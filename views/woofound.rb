@@ -6,16 +6,16 @@ module WorkForwardNola
 
       def images
         [
-          { id: 1,
+          { trait: 'Technical',
             title: 'Working with technology',
             file: 'computer-user.jpg' },
-          { id: 2,
+          { trait: 'Outdoor work',
             title: 'Working outside',
             file: 'Gardening-LB0507-1124.jpg' },
-          { id: 3,
+          { trait: 'Organized',
             title: 'Teaching',
             file: 'teacher.jpg' },
-          { id: 4,
+          { trait: 'Teamwork',
             title: 'Working with others',
             file: 'people-in-meeting.jpg' }
         ]

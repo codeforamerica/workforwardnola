@@ -1,14 +1,14 @@
-<div class="container clearfix">
-  <img class="assessmentImage" src="assets/assessment/{{ file }}" />
-  <p class="assessmentImage-title">{{ title }}</p>
-  <div class="button-group">
-    <label>
-      <input type="radio" name="button-group-{{ id }}" value="me">
-      <span class="button-group-item">Me</span>
-    </label>
-    <label>
-      <input type="radio" name="button-group-{{ id }}" value="not-me">
-      <span class="button-group-item">Not Me</span>
-    </label>
+  <div class="container clearfix">
+    <img class="assessmentImage" src="assets/assessment/{{ file }}" />
+    <p class="assessmentImage-title">{{ title }}</p>
+    <div class="button-group">
+      <label>
+        <input type="radio" name="{{ trait }}" value="me">
+        <span class="button-group-item">Me</span>
+      </label>
+      <label>
+        <input type="radio" name="{{ trait }}" value="not-me">
+        <span class="button-group-item">Not Me</span>
+      </label>
+    </div>
   </div>
-</div>
