@@ -25,6 +25,24 @@
       </script>
     <script src="assets/app.js"></script>
     </head>
-    {{{ yield }}}
+    <div id="bodyContainer">
+      <section id="global-alert">
+        <div class="centered">
+          <i class="fa fa-comments" aria-hidden="true"></i> <a class="alert-link" href="mailto:nola+workforwardnola@codeforamerica.org" target="_blank">We're testing a new website focused on you. Please give us your feedback here.</a>
+        </div>
+      </section>
+      {{{ yield }}}
+      <footer role="contentinfo">
+        <a href="http://www.nola.gov/" title="New Orleans City Government" target="_blank"><img class="nolaLogo" alt="City of New Orleans Logo" src="assets/nolaLogo.png"/></a>
+        <div class="centered">
+          <p>The source code for this site is <a href="https://github.com/codeforamerica/workforwardnola" target="_blank">available on GitHub</a>. <br> This project is in Beta and continuously evolving.</p>
+          <p>
+            <small>
+                <br>Copyright &copy; 2016, <a href="http://codeforamerica.org/">Code for America</a>
+            </small>
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

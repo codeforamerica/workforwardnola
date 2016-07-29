@@ -1,9 +1,3 @@
-    <section id="global-alert">
-      <div class="centered">
-        <i class="fa fa-comments" aria-hidden="true"></i> <a class="alert-link" href="mailto:nola+workforwardnola@codeforamerica.org" target="_blank">We're testing a new website focused on you. Please give us your feedback here.</a>
-      </div>
-    </section>
-
     <section id="heading">
       <div class="centered">
         <h1>Need a job now?</h1>
@@ -29,41 +23,31 @@
 
     <section id="time">
       <div class="centered">
-        <h2>Make the most of your time</h2>
+        <h2>Make the most of your visit</h2>
+        <p>You don't have to make an appointment to visit, come in today! Plan to spend 2-3 hours and follow the steps below to get the most of your time.</p>
         <ul>
-          <li><strong>Bring a driver's license or State ID</strong> <br>
-              You might need this to sign up for a program at the Opportunity Center.
+          <li><strong>Bring your career assessment results</strong> <br>
+              Take the career assessment above so you have a better idea of what you want to do for work.
           </li>
-            <li><strong>Bring your career assessment results</strong> <br>
-                Take the career assessment above so you have a better idea of what you want to get out of the visit.
-            </li>
           <li><strong>Sign up for a job seeker profile on the <a href="https://www.louisianaworks.net/hire/loginintro.asp?blnStartHere=True" target="_blank" title="Registration page for Louisiana Workforce Commission">Louisiana HiRE website</strong></a> <br>
               You can start looking for work immediately.
+          </li>
+          <li><strong>Bring a driver's license or State ID</strong> <br>
+              If you sign up for a program at an Opportunity Center, you might need a driver's license or State ID.
           </li>
         </ul>
       </div>
     </section>
 
-    <section id="expect">
+    <div class="clearfix"></div>
+
+    <section id="oppCenterInfo">
       <div class="centered">
-        <h2>What to expect during your visit</h2>
-        <p><strong>Plan to spend 2-3 hours of your time at the center.</strong> <br>
-          You don’t have to make an appointment to visit. Click on a pin on the map below to see the open hours for each center so that you can plan around your busy schedule.</p>
+        <h2>Find an Opportunity Center near you</h2>
+        <p>Click on a pin below to see open hours, address, phone number and website for each center.</p>
         <div id="map_canvas"></div>
       </div>
     </section>
-
-    <footer role="contentinfo">
-      <a href="http://www.nola.gov/" title="New Orleans City Government" target="_blank"><img class="nolaLogo" alt="City of New Orleans Logo" src="assets/nolaLogo.png"/></a>
-      <div class="centered">
-        <p>The source code for this site is <a href="https://github.com/codeforamerica/workforwardnola" target="_blank">available on GitHub</a>. <br> This project is in Beta and continuously evolving.</p>
-        <p>
-          <small>
-              <br>Copyright &copy; 2016, <a href="http://codeforamerica.org/">Code for America</a>
-          </small>
-        </p>
-      </div>
-    </footer>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>
     <script>
@@ -73,18 +57,20 @@
         '<div id="content">' +
         '<div id="siteNotice">' +
         '</div>' +
-        '<h1>Goodwill</h1>' +
+        '<h2>Goodwill</h2>' +
         '<div id="bodyContent">' +
         '<p>Mon-Fri, 8AM - 5PM</p>' +
         '<p>3400 Tulane Ave, 1st Floor, New Orleans, LA 70119</p>' +
+        '<p><a href="https://goo.gl/maps/U52rdrdnvaE2" target="_blank" title="Goodwill address in Google Maps">Open in Google Maps</a></p>' +
         '<p><a href="tel:+5044563933">(504) 456-3933</a></p>' +
         '<p><a href="http://goodwillno.org/" target="_blank" title="Goodwill Website">Visit the website</a></p>' +
         '</div>' +
         '<br />' +
-        '<h1>Job1</h1>' +
+        '<h2>Job1</h2>' +
         '<div id="bodyContent">' +
         '<p>Mon-Fri, 8AM - 5PM</p>' +
         '<p>3400 Tulane Ave, 2nd Floor, New Orleans, LA 70119</p>' +
+        '<p><a href="https://goo.gl/maps/U52rdrdnvaE2" target="_blank" title="Job1 address in Google Maps">Open in Google Maps</a></p>' +
         '<p><a href="tel:+5046584500">(504) 658-4500</a></p>' +
         '<p><a href="http://www.nola.gov/economic-development/workforce-development/job1/" target="_blank" title="Job1 Website">Visit the website</a></p>' +
         '</div>' +
@@ -93,10 +79,11 @@
         '<div id="content">' +
         '<div id="siteNotice">' +
         '</div>' +
-        '<h1>STRIVE</h1>' +
+        '<h2>STRIVE</h2>' +
         '<div id="bodyContent">' +
         '<p>Mon-Fri, 8AM - 5PM</p>' +
         '<p>1340 Poydras St. Suite 100, New Orleans, LA 70112</p>' +
+        '<p><a href="https://goo.gl/maps/9mFVJg823aG2" target="_blank" title="STRIVE address in Google Maps">Open in Google Maps</a></p>' +
         '<p><a href="tel:+5046584201">(504) 658-4201</a></p>' +
         '<p><a href="http://striveinternational.org/" target="_blank" title="STRIVE International Website">Visit the website</a></p>' +
         '</div>' +
@@ -105,10 +92,11 @@
         '<div id="content">' +
         '<div id="siteNotice">' +
         '</div>' +
-        '<h1>Total Community Action</h1>' +
+        '<h2>Total Community Action</h2>' +
         '<div id="bodyContent">' +
         '<p>Mon-Fri, 8AM - 5PM</p>' +
         '<p>1424 S. Jefferson Davis Parkway, New Orleans, LA 70125</p>' +
+        '<p><a href="https://goo.gl/maps/eq5h2oCM2f12" target="_blank" title="TCA address in Google Maps">Open in Google Maps</a></p>' +
         '<p><a href="tel:+5048720334">(504) 872-0334</a></p>' +
         '<p><a href="http://www.tca-nola.org/" target="_blank" title="TCA Website">Visit the website</a></p>' +
         '</div>' +
@@ -117,10 +105,11 @@
         '<div id="content">' +
         '<div id="siteNotice">' +
         '</div>' +
-        '<h1>Urban League</h1>' +
+        '<h2>Urban League</h2>' +
         '<div id="bodyContent">' +
         '<p>Mon-Fri, 8AM - 5PM</p>' +
         '<p>3232 North Galvez Street, New Orleans, LA 70117</p>' +
+        '<p><a href="https://goo.gl/maps/aWS8QZrKGYn" target="_blank" title="Urban League address in Google Maps">Open in Google Maps</a></p>' +
         '<p><a href="tel:+5043244444">(504) 324-4444</a></p>' +
         '<p><a href="http://www.urbanleagueneworleans.org/ul/" target="_blank" title="Urban League Website">Visit the website</a></p>' +
         '</div>' +
@@ -129,17 +118,16 @@
       mapCenter = new google.maps.LatLng(29.97036, -90.07493),
       mapCanvas = document.getElementById('map_canvas'),
       mapOptions = {
-        center: mapCenter,
         zoom: 13,
-        scrollwheel: false,
-        draggable: true,
-        disableDefaultUI: true,
+        center: new google.maps.LatLng(0, 0),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       },
       map = new google.maps.Map(mapCanvas, mapOptions),
       infowindow = new google.maps.InfoWindow(),
+      bounds = new google.maps.LatLngBounds(),
       marker, i;
       for (i = 0; i < locations.length; i++) {
+        var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
           map: map
@@ -150,7 +138,9 @@
             infowindow.open(map, marker);
           }
         })(marker, i));
+        bounds.extend(myLatLng);
       };
+      map.fitBounds(bounds);
       return {
         init: function() {
           map.set('styles', [{
