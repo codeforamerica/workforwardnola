@@ -1,4 +1,3 @@
-//= require vendor/jquery
+//= require_directory ./vendor
 //= require custom
-//= require_tree .
 //

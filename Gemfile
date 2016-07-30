@@ -14,7 +14,7 @@ gem 'dotenv'
 # database things
 gem 'pg'
 gem 'sequel'
-gem 'sinatra-sequel_extension', :git => 'git://github.com/danascheider/sinatra-sequel_extension.git'
+gem 'sinatra-sequel'
 gem 'sequel-seed' # should eventually be dev-only but :shrug:
 
 group :development do
