@@ -1,3 +1,4 @@
 //= require_directory ./vendor
-//= require custom
 //
+
+// custom JS can go in this file, or another, then you add another require line
