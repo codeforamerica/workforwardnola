@@ -49,9 +49,9 @@ module WorkForwardNola
       mustache :careers
     end
 
-    get '/woofound' do
+    get '/assessment' do
       @title = 'Assessment'
-      mustache :woofound
+      mustache :assessment
     end
   end
 end

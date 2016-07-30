@@ -1,7 +1,7 @@
 module WorkForwardNola
   module Views
-    # logic for showing woofound images
-    class Woofound < Layout
+    # logic for showing assessment images
+    class Assessment < Layout
       attr_reader :title
 
       def images
