@@ -21,7 +21,8 @@ module WorkForwardNola
         'Self-starter',
         'Leadership',
         'Perceptive',
-        'Researcher'
+        'Researcher',
+        'Outdoor work' # added for current sample data
       ].each do |name|
         Trait.create name: name
       end
@@ -36,7 +37,13 @@ module WorkForwardNola
         'items, serving customers.',
         average_wage: 12.50,
         experienced_wage: 18.50
-      ['Detail oriented', 'Self-starter', 'Customer service', 'Reliable'].each do |trait|
+      ['Detail oriented', 
+       'Self-starter', 
+       'Customer service', 
+       'Reliable', 
+       'Organized', # added for sample data
+       'Teamwork'   # added for sample data
+      ].each do |trait|
         office_assistant.add_trait all_traits[trait]
       end
 
@@ -48,7 +55,11 @@ module WorkForwardNola
         'raking, weeding, edging, pruning, bed preparation, and planting.',
         average_wage: 13.50,
         experienced_wage: 16.50
-      ['Working with your hands', 'Physical Strength', 'Following instructions'].each do |trait|
+      ['Working with your hands', 
+       'Physical Strength', 
+       'Following instructions', 
+       'Outdoor work' # added for sample data
+      ].each do |trait|
         gardener.add_trait all_traits[trait]
       end
 
@@ -62,7 +73,7 @@ module WorkForwardNola
         experienced_wage: 24.15,
         certification_required: true,
         training_money_available: true
-      ['Working with your hands', 'Organized', 'Perceptive'].each do |trait|
+      ['Technical', 'Organized', 'Perceptive'].each do |trait|
         computer_support.add_trait all_traits[trait]
       end
 
@@ -76,7 +87,12 @@ module WorkForwardNola
         experienced_wage: 24.50,
         certification_required: true,
         training_money_available: true
-      ['Following instructions', 'Adaptable', 'No fear of heights'].each do |trait|
+      ['Following instructions', 
+       'Adaptable', 
+       'No fear of heights', 
+       'Technical', # added for sample data
+       'Organized'  # added for sample data
+      ].each do |trait|
         electrician.add_trait all_traits[trait]
       end
     end
