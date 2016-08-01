@@ -21,8 +21,7 @@ module WorkForwardNola
         'Self-starter',
         'Leadership',
         'Perceptive',
-        'Researcher',
-        'Outdoor work' # added for current sample data
+        'Researcher'
       ].each do |name|
         Trait.create name: name
       end
@@ -40,9 +39,7 @@ module WorkForwardNola
       ['Detail oriented', 
        'Self-starter', 
        'Customer service', 
-       'Reliable', 
-       'Organized', # added for sample data
-       'Teamwork'   # added for sample data
+       'Reliable'
       ].each do |trait|
         office_assistant.add_trait all_traits[trait]
       end
@@ -57,8 +54,7 @@ module WorkForwardNola
         experienced_wage: 16.50
       ['Working with your hands', 
        'Physical Strength', 
-       'Following instructions', 
-       'Outdoor work' # added for sample data
+       'Following instructions'
       ].each do |trait|
         gardener.add_trait all_traits[trait]
       end
@@ -73,7 +69,7 @@ module WorkForwardNola
         experienced_wage: 24.15,
         certification_required: true,
         training_money_available: true
-      ['Technical', 'Organized', 'Perceptive'].each do |trait|
+      ['Working with your hands', 'Organized', 'Perceptive'].each do |trait|
         computer_support.add_trait all_traits[trait]
       end
 
@@ -89,9 +85,7 @@ module WorkForwardNola
         training_money_available: true
       ['Following instructions', 
        'Adaptable', 
-       'No fear of heights', 
-       'Technical', # added for sample data
-       'Organized'  # added for sample data
+       'No fear of heights'
       ].each do |trait|
         electrician.add_trait all_traits[trait]
       end
