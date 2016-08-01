@@ -1,4 +1,5 @@
 require './models/career'
+require './models/trait'
 
 module WorkForwardNola
   module Views
@@ -7,7 +8,10 @@ module WorkForwardNola
       attr_reader :title
 
       def career_descriptions
-        Career.map do |career|
+        # get all the "me" traits
+        it_me = @quiz_answers.select{|trait, ans| ans.eql? 'me'}.keys
+        # only select careers that match the "me" traits
+        Career.where(traits: Trait.where(name: it_me)).map do |career|
           {
             job_title: career.name,
             job_description: career.description,

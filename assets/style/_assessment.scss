@@ -1,12 +1,12 @@
 // Assessment //
 #assessment {
   .container { margin: 4rem 0; }
-  .assessmentImage-title {
+  .assessment-image-title {
     text-align: center;
     font-weight: bold;
     margin-bottom: 1.5rem;
   }
-  .assessmentImage {
+  .assessment-image {
     max-width: 400px;
     margin: 0 auto 1.5rem;
     display: block;
@@ -14,14 +14,15 @@
 }
 
 // Careers that match your interests //
-#careerMatch {
-  .careerNav {
+#career-match {
+  .career-nav {
     width: 243px;
     margin: 0 auto 7rem;
 
     > * { float: left; }
+
     button {
-      min-width:44px;
+      min-width: 44px;
       margin: 0 15px;
 
       .fa {
@@ -37,11 +38,11 @@
 
 
 // Success Story //
-#successStory {
+#success-story {
   margin-bottom: 2rem;
 
-  .container{
-    max-width:345px;
+  .container {
+    max-width: 345px;
     margin: 1rem 0 2rem;
 
     img {
@@ -52,20 +53,22 @@
         width: 150px;
       }
     }
-    ul{
+
+    ul {
       float: left;
       margin: .5em 0 1em 1em;
       @include media($large-screen) {
         margin: 2.5em 0 4em 1em;
       }
     }
+
     li {
-       color: $base-font-color;
-       display: block;
-     }
-     @include media($large-screen) {
-       max-width:600px;
-       margin: 0;
-     }
+      color: $base-font-color;
+      display: block;
+    }
+    @include media($large-screen) {
+      max-width: 600px;
+      margin: 0;
+    }
   }
 }

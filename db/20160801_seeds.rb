@@ -1,0 +1,29 @@
+require './models/trait'
+require './models/career'
+
+module WorkForwardNola
+  # changes to match sample data
+  Sequel.seed do
+    def run
+      Trait.create name: 'Outdoor work'
+
+      all_traits = Trait.map { |t| [t[:name] , t[:id]] }.to_h
+
+      office_assistant = Career.where(name: 'Office Assistant').first
+      office_assistant.add_trait all_traits['Organized']
+      office_assistant.add_trait all_traits['Teamwork']
+
+      gardener = Career.where(name: 'Gardener').first
+      gardener.add_trait all_traits['Outdoor work']
+
+      computer_support = Career.where(name: 'Computer Support Specialist').first
+      computer_support.remove_trait all_traits['Working with your hands']
+      computer_support.add_trait all_traits['Technical']
+
+      electrician = Career.where(name: 'Electrician').first
+      electrician.add_trait all_traits['Technical']
+      electrician.add_trait all_traits['Organized']
+    end
+
+  end
+end

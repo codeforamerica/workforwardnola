@@ -36,7 +36,11 @@ module WorkForwardNola
         'items, serving customers.',
         average_wage: 12.50,
         experienced_wage: 18.50
-      ['Detail oriented', 'Self-starter', 'Customer service', 'Reliable'].each do |trait|
+      ['Detail oriented', 
+       'Self-starter', 
+       'Customer service', 
+       'Reliable'
+      ].each do |trait|
         office_assistant.add_trait all_traits[trait]
       end
 
@@ -48,7 +52,10 @@ module WorkForwardNola
         'raking, weeding, edging, pruning, bed preparation, and planting.',
         average_wage: 13.50,
         experienced_wage: 16.50
-      ['Working with your hands', 'Physical Strength', 'Following instructions'].each do |trait|
+      ['Working with your hands', 
+       'Physical Strength', 
+       'Following instructions'
+      ].each do |trait|
         gardener.add_trait all_traits[trait]
       end
 
@@ -76,7 +83,10 @@ module WorkForwardNola
         experienced_wage: 24.50,
         certification_required: true,
         training_money_available: true
-      ['Following instructions', 'Adaptable', 'No fear of heights'].each do |trait|
+      ['Following instructions', 
+       'Adaptable', 
+       'No fear of heights'
+      ].each do |trait|
         electrician.add_trait all_traits[trait]
       end
     end

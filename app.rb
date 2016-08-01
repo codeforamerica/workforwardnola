@@ -38,11 +38,20 @@ module WorkForwardNola
       mustache :index
     end
 
-    # yes, this is lazy and not really correct but waiting until we have
-    # more specific requirements
-    get %r{^(?!\/favicon.ico$)} do
+    post '/careers' do
+      # TODO require answers to all questions
+      @quiz_answers = params       # params hash has answers
+      mustache :careers
+    end
+
+    get '/careers' do
+      @title = 'Career Results'
+      mustache :careers
+    end
+
+    get '/assessment' do
       @title = 'Assessment'
-      mustache request.path_info.delete('/').to_sym
+      mustache :assessment
     end
   end
 end

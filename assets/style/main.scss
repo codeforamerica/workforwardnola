@@ -12,7 +12,8 @@
 
 
 // Main //
-html {  font-size: 62.5%; }
+html { font-size: 62.5%; }
+
 body {
   @include clearfix;
   font-family: $sans-serif;
@@ -21,6 +22,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 #bodyContainer {
   width: 100%;
   max-width: 950px;
@@ -29,7 +31,7 @@ body {
 
 
 // Typography //
-h1, h2, h3{ color: $action-color; }
+h1, h2, h3 { color: $action-color; }
 h1 {
   font-weight: 700;
   font-size: 3.8rem;
@@ -148,8 +150,8 @@ hr {
 
 
 // Heading //
-#heading{
-  .centered{ padding: 0 1.5rem; }
+#heading {
+  .centered { padding: 0 1.5rem; }
 }
 
 
@@ -157,7 +159,7 @@ hr {
 #prepare {
   background-color: $action-color;
 
-  .centered{
+  .centered {
     padding: .5rem 1.5rem;
 
     @media (min-width: $medium-screen) {
@@ -186,7 +188,7 @@ hr {
 
 // Make the most of your time //
 #time {
-  ul{
+  ul {
     @media (min-width: $medium-screen) {
       li:not(:first-child) { padding: 20px 0 0 16px; }
     }
@@ -253,8 +255,8 @@ hr {
 footer {
   margin: 6rem 0 0;
 
-  .nolaLogo {
-    width:150px;
+  .nola-logo {
+    width: 150px;
     margin: .5rem auto;
     display: block;
   }
