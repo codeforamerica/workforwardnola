@@ -22,87 +22,116 @@
   }
   .jobCardContainer { height: auto; }
   .jobCard {
-      background-color: rgb(8, 114, 185);
-      max-width: 300px;
-      height: 100%;
-      position: relative;
-      margin: 4rem auto 2rem;
-      padding: 9rem 0.2rem 0.2rem;
+    background-color: rgb(8, 114, 185);
+    max-width: 300px;
+    height: 100%;
+    position: relative;
+    margin: 4rem auto 2rem;
+    padding: 9rem 0.2rem 0.2rem;
 
-      @media print {
-         max-width:800px;
-         background-color: $white;
-         text-align: left;
-         margin: 1rem 0;
-         padding: 1rem .2rem;
-         border-top: 1px solid $light-gray;
-         border-bottom: 1px solid $light-gray;
-      }
+    @media print {
+       max-width:800px;
+       background-color: $white;
+       text-align: left;
+       margin: 1rem 0;
+       padding: 1rem .2rem;
+       border-top: 1px solid $light-gray;
+       border-bottom: 1px solid $light-gray;
+    }
 
-      @media (min-width: 955px) {
-        float: left;
-        margin: 0px 0px 2rem 1rem;
-        &:first-of-type { margin-left: 0px; }
-      }
+    @media (min-width: 955px) {
+      float: left;
+      margin: 0px 0px 2rem 1rem;
+      &:first-of-type { margin-left: 0px; }
+    }
 
-      p {
-        padding: 0.5rem 1rem 1rem;
-        &:first-child {
-          width: 150px;
-          height: 150px;
-          color: $action-color;
-          text-align: center;
-          font-style: italic;
-          font-size: 1.5rem;
-          line-height: 2rem;
-          background-color: $white;
-          position: absolute;
-          top: 0px;
-          left: 50%;
-          margin-left: -75px;
-          border: 5px solid $action-color;
-          border-radius: 50%;
-
-          @media print {
-             width: auto;
-             height: auto;
-             text-align: left;
-             font-style: normal;
-             font-weight: bold;
-             color: black;
-             position: relative;
-             left: 0;
-             margin: 0;
-             padding: 0 1rem;
-             background-color: $white;
-             border: none;
-          }
-        }
-      }
-      .wage {
-        font-size: 4rem;
-        font-weight: bold;
-        font-style: normal;
-        display: block;
-        padding: 50px 0px 10px;
-        @media print {
-          padding: 1rem 0;
-          font-size: inherit;
-          display: inline-block;
-        }
-      }
-      h2 {
-        padding: 9rem 1rem 0px;
-        @media print { padding: 1rem; }
-      }
-      h2, p:last-child {
-        background-color: rgb(255, 255, 255);
+    p {
+      padding: 0.5rem 1rem 1rem;
+      &:first-child {
+        width: 150px;
+        height: 150px;
+        color: $action-color;
         text-align: center;
-        margin: 0px;
-        @media print { text-align: left; }
+        font-style: italic;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        background-color: $white;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        margin-left: -75px;
+        border: 5px solid $action-color;
+        border-radius: 50%;
+
+        @media print {
+           width: auto;
+           height: auto;
+           text-align: left;
+           font-style: normal;
+           font-weight: bold;
+           color: black;
+           position: relative;
+           left: 0;
+           margin: 0;
+           padding: 0 1rem;
+           background-color: $white;
+           border: none;
+        }
       }
     }
-    .button-wrapper{
-      @media print { display: none; }
+
+    .wage {
+      font-size: 4rem;
+      font-weight: bold;
+      font-style: normal;
+      display: block;
+      padding: 50px 0 10px;
+      @media print {
+        padding: 1rem 0;
+        font-size: inherit;
+        display: inline-block;
+      }
     }
+
+    h2 {
+      padding: 9rem 1rem 0;
+      @media print { padding: 1rem; }
+    }
+
+    h2, p:last-child {
+      background-color: rgb(255, 255, 255);
+      text-align: center;
+      margin: 0;
+      @media print { text-align: left; }
+    }
+  }
+
+  .button-wrapper {
+    @media print { display: none; }
+  }
+
+  .career-nav {
+    margin: 0 auto 7rem;
+    width: 243px;
+
+    > * { float: left; }
+
+    button {
+      margin: 0 15px;
+      min-width: 44px;
+
+      .fa {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+    p { line-height: 4.5rem; }
+  }
+
+  .invisible {
+    box-shadow: inset 0 0 0 2px $white;
+    color: $white;
+    cursor: auto;
+  }
 }

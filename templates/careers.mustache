@@ -5,17 +5,25 @@
     </div>
     <h1>Your top three potential career matches</h1>
     <p>A career coach at an Opportunity Center can help you get started on one of these career paths.</p>
-    <div id="career-list">
-      <div class="jobCardContainer">
+    <div>
+      <div class="jobCardContainer" id="career-list">
         {{#career_descriptions}}
           <div class="jobCard">
             <p><span class="wage">{{experienced_wage}}</span> hourly after training</p>
             <h2>{{job_title}}</h2>
-            <p>{{& job_description}}</p>
+            <p>{{job_description}}</p>
+            <div class="button-wrapper">
+              <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})">
+                Read More
+              </button>
+            </div>
           </div>
         {{/career_descriptions}}
         <div class="clearfix"></div>
       </div>
+      {{#career_descriptions}}
+        {{> partials/career}}
+      {{/career_descriptions}}
       <h2>Next Steps</h2>
       <p>Visit an Opportunity Center to learn about financial resources that can help support you while you work towards a career. </p>
       <p>Bring your results to your first appointment to get the most of your time.</p>

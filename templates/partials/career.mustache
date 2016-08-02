@@ -1,0 +1,26 @@
+  <div class="career" index="{{ index }}" style="display:none;">  
+    <div class="button-wrapper career-nav">
+      <button class="basic-button-outline {{#first}}invisible{{/first}}" type="button" onclick="showPrevCareer({{index}})"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></button>
+      <p>Result {{ index }} of {{ career_count }}</p>
+      {{^last}}
+      <button class="basic-button-outline" type="button" onclick="showNextCareer({{index}}, {{career_count}})"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></button>
+      {{/last}}
+    </div>
+    <h2 class="clearfix">{{ job_title }}</h2>
+    <h3>{{ average_wage }}/hour on average</h3>
+    <p><i>After training and/or more experience: {{ experienced_wage }}/hour</i></p>
+    <ul class="careerInfo">
+      {{#certification_required}}
+      <li><i class="fa fa-certificate" aria-hidden="true"></i> Requires Certification</li>
+      {{/certification_required}}
+      {{#training_money_available}}
+      <li><i class="fa fa-money" aria-hidden="true"></i> Money Available for training</li>
+      {{/training_money_available}}
+    </ul>
+    <h4>Description</h4>
+    <p>{{ job_description }}</p>
+
+    <div class="button-wrapper">
+      <button class="basic-button center" type="button" onclick="showCareerList()">Back to full list of careers</button>
+    </div>
+  </div>
