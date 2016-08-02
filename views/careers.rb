@@ -31,6 +31,7 @@ module WorkForwardNola
         end
 
         @career_matches.first[:first] = true
+        @career_matches.last[:last] = true
         @career_matches
       end
 
