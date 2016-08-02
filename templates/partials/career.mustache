@@ -1,8 +1,11 @@
-   <!-- <div class="button-wrapper career-nav">
-      <button class="basic-button-outline" type="button"><a href="#"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></a></button>
-      <p>Result 1 of 4</p>
-      <button class="basic-button-outline" type="button"><a href="#"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></a></button>
-    </div> -->
+  <div class="career" index="{{ index }}" style="display:none;">  
+    <div class="button-wrapper career-nav">
+      <button class="basic-button-outline {{#first}}invisible{{/first}}" type="button" onclick="showPrevCareer({{index}})"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></button>
+      <p>Result {{ index }} of {{ career_count }}</p>
+      {{^last}}
+      <button class="basic-button-outline" type="button" onclick="showNextCareer({{index}}, {{career_count}})"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></button>
+      {{/last}}
+    </div>
     <h2 class="clearfix">{{ job_title }}</h2>
     <h3>{{ average_wage }}/hour on average</h3>
     <p><i>After training and/or more experience: {{ experienced_wage }}/hour</i></p>
@@ -29,9 +32,10 @@
       </div>
       <p class="quote clearfix">I know I had to get there and show people what I'm capable of and show them that my incarceration doesn't lessen my abilities and diminish what I'm capable of.</p>
     </section>
-    <!--<div class="button-wrapper">
-      <button class="basic-button center" type="button"><a href="#">View full list of careers</a></button>
+    <div class="button-wrapper">
+      <button class="basic-button center" type="button" onclick="showCareerList()">View full list of careers</button>
     </div>
     <div class="button-wrapper">
       <button class="basic-button-outline center" type="button"><a href="/assessment">Return to career assessment</a></button>
-    </div>-->
+    </div>
+  </div>
