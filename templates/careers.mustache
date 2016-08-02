@@ -1,6 +1,19 @@
 <section id="career-match">
   <div class="centered">
     <h1>Careers that match your interests</h1>
+    <div id="career-list">
+      Click on a position to review its information.
+      {{#career_descriptions}}
+        <div class="button-wrapper">
+          <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})">
+            <p><b>{{job_title}}</b> - {{average_wage}}/hour</p>
+          </button>
+        </div>
+      {{/career_descriptions}}
+      <div class="button-wrapper">
+        <button class="basic-button center" type="button"><a href="/assessment">Return to career assessment</a></button>
+      </div>
+    </div>
     {{#career_descriptions}}
       {{> partials/career}}
     {{/career_descriptions}}

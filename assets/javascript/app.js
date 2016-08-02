@@ -8,7 +8,7 @@ function showCareerPrev(currIndex) {
 
   var newIndex = parseInt(currIndex) - 1;
   if (newIndex > 0) {
-    showCareer(currIndex, newIndex);
+    toggleCareer(currIndex, newIndex);
   }
 }
 
@@ -17,13 +17,27 @@ function showCareerNext(currIndex, count) {
 
   var newIndex = parseInt(currIndex) + 1;
   if (newIndex <= count) {
-    showCareer(currIndex, newIndex);
+    toggleCareer(currIndex, newIndex);
   }
 }
 
-function showCareer(oldIndex, newIndex) {
+function toggleCareer(oldIndex, newIndex) {
   'use strict';
 
-  $('[index='+oldIndex+']').removeClass('show');
-  $('[index='+newIndex+']').addClass('show');
+  $('[index='+oldIndex+']').hide();
+  $('[index='+newIndex+']').show();
+}
+
+function showCareerList() {
+  'use strict';
+
+  $('.career').hide();
+  $('#career-list').show();
+}
+
+function showCareer(index) {
+  'use strict';
+
+  $('#career-list').hide();
+  $('[index='+index+']').show();
 }

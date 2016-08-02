@@ -33,18 +33,21 @@
         display: block;
       }
     }
-    p { line-height: 4.5rem;}
+    p { line-height: 4.5rem; }
   }
 
-  .career {
-    display: none;
-  }
-
-  .show {
-    display: block;
+  #career-list {
+    .basic-button-outline { width: 50%; }
+    p { margin: 1rem 0; }
   }
 
   p { margin: .5rem 0 1rem; }
+
+  .invisible {
+    box-shadow: inset 0 0 0 2px $white;
+    color: $white;
+    cursor: auto;
+  }
 }
 
 
