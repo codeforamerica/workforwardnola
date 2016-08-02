@@ -1,6 +1,7 @@
+  <div class="career{{#first}}show{{/first}}">  
     <div class="button-wrapper career-nav">
       <button class="basic-button-outline" type="button"><a href="#"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></a></button>
-      <p>Result 1 of 4</p>
+      <p>Result {{ index }} of {{ career_count }}</p>
       <button class="basic-button-outline" type="button"><a href="#"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></a></button>
     </div>
     <h2 class="clearfix">{{ job_title }}</h2>
@@ -35,3 +36,4 @@
     <div class="button-wrapper">
       <button class="basic-button-outline center" type="button"><a href="/assessment">Return to career assessment</a></button>
     </div>
+  </div>

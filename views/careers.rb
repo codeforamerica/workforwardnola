@@ -5,22 +5,33 @@ module WorkForwardNola
   module Views
     # logic for career results page
     class Careers < Layout
+      @career_matches = []
+
       attr_reader :title
+
+      def career_count
+        @career_matches.count
+      end
 
       def career_descriptions
         # get all the "me" traits
         it_me = @quiz_answers.select{|trait, ans| ans.eql? 'me'}.keys
         # only select careers that match the "me" traits
-        Career.where(traits: Trait.where(name: it_me)).map do |career|
+        @career_matches = Career.where(traits: Trait.where(name: it_me))
+                                .map.with_index(1) do |career, i|
           {
             job_title: career.name,
             job_description: career.description,
             average_wage: to_money(career.average_wage),
             experienced_wage: to_money(career.experienced_wage),
             training_money_available: career.training_money_available,
-            certification_required: career.certification_required
+            certification_required: career.certification_required,
+            index: i
           }
         end
+
+        @career_matches.first[:first] = true
+        @career_matches
       end
 
       private 
