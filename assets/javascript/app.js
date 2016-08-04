@@ -1,5 +1,5 @@
 //= require_directory ./vendor
-//
+//= require spreadsheets
 
 // custom JS can go in this file, or another, then you add another require line
 

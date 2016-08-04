@@ -53,5 +53,10 @@ module WorkForwardNola
       @title = 'Assessment'
       mustache :assessment
     end
+
+    get '/manage' do
+      @title = 'Manage Content'
+      mustache :manage
+    end
   end
 end
