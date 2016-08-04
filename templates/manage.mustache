@@ -3,6 +3,9 @@
     <form action="/careers/update" method="POST">
       <label>Google Spreadsheet URL: </label>
       <input name="Spreadsheet URL" placeholder="Spreadsheet URL" type="text" onchange="checkSpreadsheetUrl()" />
+      {{! <div class="flash-success" id="alert">
+        <span>This is a success message <a href="#">with a link</a></span>
+       </div>}}
       <div class="button-wrapper">
         <button class="basic-button" type="submit" disabled>Update content</button>
       </div>

@@ -6,49 +6,56 @@ function checkSpreadsheetUrl() {
     spreadSheetKey,
     spreadSheetLink = event.target.value;
 
-    if(!spreadSheetLink){
-      console.log('link is empty');
-      // this.setState({
-        // linkStatus: 'empty',
-        // createButtonDisabled: true
-      // })
-      return;
-    }
+  if(!spreadSheetLink){
+    console.log('link is empty');
+    setState({
+      linkStatus: 'empty',
+      updateButtonDisabled: true
+    });
+    return;
+  }
 
-    if(/https:\/\/docs\.google\.com\/spreadsheets\/d\/(.*)\//.test(spreadSheetLink)){
-        console.log('link matches regex');
-        spreadSheetKey = spreadSheetLink.match(/https:\/\/docs\.google\.com\/spreadsheets\/d\/(.*)\//)[1];
+// https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8/pubhtml
 
-        // this.connectionSuccess = function(data){
-        //   console.log(spreadSheetKey)
-        //   this.setState({
-        //     linkStatus: 'success',
-        //     createButtonDisabled: false,
-        //     spreadSheetLink: spreadSheetKey
-        //   })
-        // }.bind(this)
+  if(/https:\/\/docs\.google\.com\/spreadsheets\/d\/(.*)\//.test(spreadSheetLink)){
+    console.log('link matches regex');
+    spreadSheetKey = spreadSheetLink.match(/https:\/\/docs\.google\.com\/spreadsheets\/d\/(.*)\//)[1];
 
-        // this.connectionError = function(err){
-        //   console.error('no connection!');
-        //   this.setState({
-        //     linkStatus: 'bad-connection',
-        //     createButtonDisabled: true
-        //   })
-        // }.bind(this)
+    this.connectionSuccess = function(data){
+      console.log(spreadSheetKey);
+      setState({
+        linkStatus: 'success',
+        updateButtonDisabled: false,
+        spreadSheetKey: spreadSheetKey
+      });
+    }.bind(this);
 
-        // $.get({
-        //   url: 'https://spreadsheets.google.com/feeds/list/' + spreadSheetKey + '/1/public/full?alt=json',
-        //   dataType: 'jsonp',
-        //   success: this.connectionSuccess,
-        //   error: this.connectionError
-        // });
+    this.connectionError = function(err){
+      console.error('no connection!');
+      setState({
+        linkStatus: 'bad-connection',
+        updateButtonDisabled: true
+      });
+    }.bind(this);
 
-      } else {
-        console.log('bad-format');
-        // this.setState({
-        //   linkStatus: 'bad-format',
-        //   createButtonDisabled: true
-        // })
-      }
+    $.get({
+      url: 'https://spreadsheets.google.com/feeds/list/' + spreadSheetKey + '/1/public/full?alt=json',
+      dataType: 'jsonp',
+      success: this.connectionSuccess,
+      error: this.connectionError
+    });
 
+  } else {
+    console.log('bad-format');
+    setState({
+      linkStatus: 'bad-format',
+      updateButtonDisabled: true
+    });
+  }
+}
+
+// see https://github.com/janl/mustache.js for possible alert-ing
+function setState(state /* linkStatus, updateButtonDisabled, spreadsheetKey */) {
+  console.log(state.linkStatus+', '+state.updateButtonDisabled+', '+state.spreadSheetKey);
+  $('button').prop('disabled', state.updateButtonDisabled);
 }
