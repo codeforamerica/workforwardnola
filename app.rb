@@ -13,6 +13,10 @@ module WorkForwardNola
       set :database, ENV['DATABASE_URL']
     end
 
+    # this is convoluted, but I have to require this after setting up the DB
+    require './models/trait'
+    require './models/career'
+
     # check for un-run migrations
     if ENV['RACK_ENV'].eql? 'development'
       Sequel.extension :migration
@@ -40,8 +44,10 @@ module WorkForwardNola
 
     post '/careers/update' do
       data = JSON.parse(request.body.read)
-      puts data.to_s
-      {result: "success!! there are #{data.size} traits"}.to_json
+      Trait.bulk_create data['traits']
+      Career.bulk_create data['careers']
+      {result: "success!! there are #{Trait.count} traits \
+      and #{Career.count} careers."}.to_json
     end
 
     post '/careers' do

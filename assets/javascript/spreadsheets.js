@@ -75,7 +75,11 @@ function updateFromSpreadsheet() {
 
 function uploadData(data, tabletop) {
   // console.log(data.traits.all());
-  $.postJSON('/careers/update', data.traits.all(), callback = function(data) {
+  var dataToSend = {};
+  dataToSend.traits = data.traits.all();
+  dataToSend.careers = data.careers.all();
+
+  $.postJSON('/careers/update', dataToSend, callback = function(data) {
     console.log('omg '+data.result);
   });
 }
