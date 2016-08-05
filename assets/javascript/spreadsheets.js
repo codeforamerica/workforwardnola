@@ -1,9 +1,8 @@
-//'use strict';
+'use strict';
 var spreadSheetKey;
 
 function checkSpreadsheetUrl() {
-  console.log($('[name="Spreadsheet URL"]').val());
-  var spreadSheetLink = event.target.value;
+  var spreadSheetLink = $('[name="Spreadsheet URL"]').val();
 
   if(!spreadSheetLink){
     console.log('link is empty');
@@ -74,7 +73,6 @@ function updateFromSpreadsheet() {
 }
 
 function uploadData(data, tabletop) {
-  // console.log(data.traits.all());
   var dataToSend = {};
   dataToSend.traits = data.traits.all();
   dataToSend.careers = data.careers.all();

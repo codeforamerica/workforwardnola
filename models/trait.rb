@@ -4,7 +4,7 @@ module WorkForwardNola
 
     def self.bulk_create data
       # clear traits table
-      Trait.db.run 'TRUNCATE traits, careers_traits'
+      Trait.db.run 'TRUNCATE traits CASCADE'
       # iterate over data & insert for each one
       data.each do |trait|
         Trait.create name: trait['name'], spreadsheet_key: trait['id']

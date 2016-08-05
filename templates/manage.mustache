@@ -1,6 +1,5 @@
   <div class="centered">
     <h1>Manage careers content</h1>
-    {{! <form action="/careers/update" method="POST"> }}
       <label>Google Spreadsheet URL: </label>
       <input name="Spreadsheet URL" placeholder="Spreadsheet URL" type="text" onchange="checkSpreadsheetUrl()" />
       {{! <div class="flash-success" id="alert">
@@ -9,7 +8,8 @@
       <div class="button-wrapper">
         <button class="basic-button" type="submit" onclick="updateFromSpreadsheet()" disabled>Update content</button>
       </div>
-    {{! </form> }}
 
-    <p>Coming soon: how to set up a spreadsheet for the content</p>
+    <p>If you're starting from scratch, <a href="https://drive.google.com/previewtemplate?id=1vgqsoXLJ9FSDZamGv-SzDX_xCV3wHY0Lh142nhuZDQI&mode=public">use this template</a>. After all your data is in, publish it to the web ("File" > "Publish to Web" and use that url above.</p>
+    <p>If you're working with Code for America, use <a href="https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8/pubhtml">this url</a>.</p>
+    <p>DO NOT modify any column names on the 'careers' or 'traits' tabs, the data will not update correctly. DO fill out every column.</p>
   </div>

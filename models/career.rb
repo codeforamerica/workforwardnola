@@ -7,7 +7,7 @@ module WorkForwardNola
       Career.db.run 'TRUNCATE careers CASCADE'
       # iterate over data & insert for each one
       all_traits = Trait.map { |t| [t[:spreadsheet_key] , t[:id]] }.to_h
-      puts all_traits
+
       data.each do |career|
         new_career = Career.create(
           name: career['name'],
@@ -18,10 +18,9 @@ module WorkForwardNola
           training_money_available: career['training_money_available'],
           certification_required: career['certification_required'],
           description: career['description'])
+
         # add traits
         career['traits'].split(',').each do |spreadsheet_key|
-          puts spreadsheet_key
-          puts all_traits[spreadsheet_key.to_i]
           new_career.add_trait all_traits[spreadsheet_key.to_i]
         end
       end
