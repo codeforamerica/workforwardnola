@@ -1,15 +1,15 @@
   <div class="centered">
     <h1>Manage careers content</h1>
-    <form action="/careers/update" method="POST">
+    {{! <form action="/careers/update" method="POST"> }}
       <label>Google Spreadsheet URL: </label>
       <input name="Spreadsheet URL" placeholder="Spreadsheet URL" type="text" onchange="checkSpreadsheetUrl()" />
       {{! <div class="flash-success" id="alert">
         <span>This is a success message <a href="#">with a link</a></span>
        </div>}}
       <div class="button-wrapper">
-        <button class="basic-button" type="submit" disabled>Update content</button>
+        <button class="basic-button" type="submit" onclick="updateFromSpreadsheet()" disabled>Update content</button>
       </div>
-    </form>
+    {{! </form> }}
 
     <p>Coming soon: how to set up a spreadsheet for the content</p>
   </div>

@@ -1,10 +1,9 @@
 //'use strict';
+var spreadSheetKey;
 
 function checkSpreadsheetUrl() {
   console.log($('[name="Spreadsheet URL"]').val());
-  var
-    spreadSheetKey,
-    spreadSheetLink = event.target.value;
+  var spreadSheetLink = event.target.value;
 
   if(!spreadSheetLink){
     console.log('link is empty');
@@ -54,8 +53,29 @@ function checkSpreadsheetUrl() {
   }
 }
 
-// see https://github.com/janl/mustache.js for possible alert-ing
-function setState(state /* linkStatus, updateButtonDisabled, spreadsheetKey */) {
+// see https://github.com/janl/mustache.js for possible flash/alert-ing
+function setState(state /* linkStatus, updateButtonDisabled, spreadSheetKey */) {
   console.log(state.linkStatus+', '+state.updateButtonDisabled+', '+state.spreadSheetKey);
   $('button').prop('disabled', state.updateButtonDisabled);
+}
+
+function updateFromSpreadsheet() {
+  if(spreadSheetKey) {
+    Tabletop.init({
+      key: spreadSheetKey,
+      callback: function (data, tabletop) {
+        uploadData(data, tabletop);
+        // update UI somehow (more flash messages probably)
+      }
+    });
+  } else {
+    console.log('no spreadsheet key! everything is terrible');
+  }
+}
+
+function uploadData(data, tabletop) {
+  // console.log(data.traits.all());
+  $.postJSON('/careers/update', data.traits.all(), callback = function(data) {
+    console.log('omg '+data.result);
+  });
 }

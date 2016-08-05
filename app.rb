@@ -38,6 +38,12 @@ module WorkForwardNola
       mustache :index
     end
 
+    post '/careers/update' do
+      data = JSON.parse(request.body.read)
+      puts data.to_s
+      {result: "success!! there are #{data.size} traits"}.to_json
+    end
+
     post '/careers' do
       # TODO require answers to all questions
       @quiz_answers = params       # params hash has answers
