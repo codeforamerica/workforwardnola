@@ -44,7 +44,10 @@ namespace :db do
 
   desc 'Migrate & seed DB all in one'
   task :setup => :app do
+    puts 'Running migrations'
     Rake::Task['db:migrate'].execute
+    puts 'Running seed'
     Rake::Task['db:seed'].execute
+    puts 'Done!'
   end
 end
