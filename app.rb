@@ -13,10 +13,6 @@ module WorkForwardNola
       set :database, ENV['DATABASE_URL']
     end
 
-    # this is convoluted, but I have to require this after setting up the DB
-    require './models/trait'
-    require './models/career'
-
     # check for un-run migrations
     if ENV['RACK_ENV'].eql? 'development'
       Sequel.extension :migration
@@ -48,6 +44,10 @@ module WorkForwardNola
 
     before do
       response.headers['Cache-Control'] = 'public, max-age=36000'
+      
+      # this is convoluted, but I have to require this after setting up the DB
+      require './models/trait'
+      require './models/career'
     end
 
     get '/' do
