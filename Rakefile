@@ -9,6 +9,7 @@ namespace :db do
 
   desc 'Run DB migrations'
   task :migrate => :app do
+   puts 'Running migrations'
    Sequel::Migrator.apply(WorkForwardNola::App.database, 'db/migrations')
   end
 
@@ -29,6 +30,7 @@ namespace :db do
 
   desc 'Seed DB'
   task :seed => :app do
+    puts 'Running seed'
     require 'sequel/extensions/seed'
     Sequel.extension :seed
     Sequel::Seeder.apply(WorkForwardNola::App.database, 'db')
@@ -43,11 +45,5 @@ namespace :db do
   end
 
   desc 'Migrate & seed DB all in one'
-  task :setup => :app do
-    puts 'Running migrations'
-    Rake::Task['db:migrate'].execute
-    puts 'Running seed'
-    Rake::Task['db:seed'].execute
-    puts 'Done!'
-  end
+  task :setup => [:migrate, :seed]
 end
