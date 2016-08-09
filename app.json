@@ -9,6 +9,12 @@
     },
     "RACK_ENV": {
       "required": true
+    },
+    "ADMIN_USER": {
+      "required": true
+    },
+    "ADMIN_PASSWORD": {
+      "required": true
     }
   },
   "formation": {

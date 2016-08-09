@@ -5,7 +5,7 @@ $button-stroke: inset 0 0 0 2px;
 // Buttons
 
 // scss-lint:disable PropertyCount
-.button-wrapper{padding:.5em 0 !important;}
+.button-wrapper { padding: .5em 0 !important; }
 
 .basic-button,
 .basic-button-primary,
@@ -90,6 +90,24 @@ button,
       border-bottom: 0;
       text-decoration: none;
     }
+  }
+}
+
+[type='submit']:disabled,
+.basic-button-disabled {
+  background-color: $light-gray;
+  color: $dark-gray;
+  pointer-events: none;
+
+  &:hover,
+  &.basic-button-hover,
+  &:active,
+  &.basic-button-active,
+  &:focus {
+    background-color: $light-gray;
+    border: 0;
+    box-shadow: none;
+    color: $dark-gray;
   }
 }
 

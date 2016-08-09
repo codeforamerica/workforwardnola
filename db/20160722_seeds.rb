@@ -4,6 +4,9 @@ module WorkForwardNola
 
   Sequel.seed do
     def run
+
+      Trait.set_allowed_columns :name
+
       [
         'Detail oriented',
         'Working with your hands',
