@@ -6,18 +6,33 @@ module WorkForwardNola
 
       def images
         [
-          { trait: 'Technical',
-            title: 'Working with technology',
-            file: 'computer-user.jpg' },
-          { trait: 'Outdoor work',
-            title: 'Working outside',
-            file: 'Gardening-LB0507-1124.jpg' },
-          { trait: 'Organized',
-            title: 'Teaching',
-            file: 'teacher.jpg' },
+          { trait: 'Following instructions',
+            title: 'Following instructions',
+            file: 'instructions.jpg' },
+          { trait: 'Working with your hands',
+            title: 'Working with your hands',
+            file: 'withhands.jpg' },
           { trait: 'Teamwork',
-            title: 'Working with others',
-            file: 'people-in-meeting.jpg' }
+            title: 'Working on a team',
+            file: 'teamwork.jpg' },
+          { trait: 'Working well under pressure',
+            title: 'Working under a deadline',
+            file: 'underpressure.jpg' },
+          { trait: 'Customer service',
+            title: 'Working with customers',
+            file: 'customerservice.jpg' },
+          { trait: 'Repetition',
+            title: 'Following a routine every day',
+            file: 'routine.jpg' },
+          { trait: 'Organized',
+            title: 'Being well-organized',
+            file: 'organized.jpg' },
+          { trait: 'No fear of heights',
+            title: 'Comfortable with heights',
+            file: 'heights.jpg' },
+          { trait: 'Detail oriented',
+            title: 'Paying attention to details',
+            file: 'detail.jpg' }
         ]
       end
     end
