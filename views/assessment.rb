@@ -6,18 +6,50 @@ module WorkForwardNola
 
       def images
         [
-          { trait: 'Technical',
-            title: 'Working with technology',
-            file: 'computer-user.jpg' },
-          { trait: 'Outdoor work',
-            title: 'Working outside',
-            file: 'Gardening-LB0507-1124.jpg' },
-          { trait: 'Organized',
-            title: 'Teaching',
-            file: 'teacher.jpg' },
+          { trait: 'Following instructions',
+            reverse_trait: 'Self-starter',
+            title: 'Following instructions',
+            file: 'instructions.jpg' },
+          { trait: 'Working with your hands',
+            reverse_trait: 'Technical',
+            title: 'Working with your hands',
+            file: 'withhands.jpg' },
           { trait: 'Teamwork',
-            title: 'Working with others',
-            file: 'people-in-meeting.jpg' }
+            reverse_trait: 'Researcher',
+            title: 'Working on a team',
+            file: 'teamwork.jpg' },
+          { trait: 'Working well under pressure',
+            title: 'Working under a deadline',
+            file: 'underpressure.jpg' },
+          { trait: 'Customer service',
+            title: 'Working with customers',
+            file: 'customerservice.jpg' },
+          { trait: 'Repetition',
+            reverse_trait: 'Adaptable',
+            title: 'Following a routine every day',
+            file: 'routine.jpg' },
+          { trait: 'Organized',
+            title: 'Being well-organized',
+            file: 'organized.jpg' },
+          { trait: 'No fear of heights',
+            title: 'Comfortable with heights',
+            file: 'heights.jpg' },
+          { trait: 'Detail oriented',
+            title: 'Paying attention to details',
+            file: 'detail.jpg' }
+        ]
+      end
+
+      def compound_traits
+        [
+          { trait: 'Perceptive',
+            components: ['Detail oriented', 'Customer service'] },
+          { trait: 'Physical Strength',
+            components: ['Working with your hands', 'No fear of heights'] },
+          { trait: 'Reliable',
+            components: ['Working well under pressure', 'Organized'] },
+          { trait: 'Leadership',
+            components: ['Teamwork', 'Self-starter'] }
         ]
       end
     end
