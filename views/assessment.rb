@@ -7,12 +7,15 @@ module WorkForwardNola
       def images
         [
           { trait: 'Following instructions',
+            reverse_trait: 'Self-starter',
             title: 'Following instructions',
             file: 'instructions.jpg' },
           { trait: 'Working with your hands',
+            reverse_trait: 'Technical',
             title: 'Working with your hands',
             file: 'withhands.jpg' },
           { trait: 'Teamwork',
+            reverse_trait: 'Researcher',
             title: 'Working on a team',
             file: 'teamwork.jpg' },
           { trait: 'Working well under pressure',
@@ -22,6 +25,7 @@ module WorkForwardNola
             title: 'Working with customers',
             file: 'customerservice.jpg' },
           { trait: 'Repetition',
+            reverse_trait: 'Adaptable',
             title: 'Following a routine every day',
             file: 'routine.jpg' },
           { trait: 'Organized',
@@ -33,6 +37,19 @@ module WorkForwardNola
           { trait: 'Detail oriented',
             title: 'Paying attention to details',
             file: 'detail.jpg' }
+        ]
+      end
+
+      def compound_traits
+        [
+          { trait: 'Perceptive',
+            components: ['Detail oriented', 'Customer service'] },
+          { trait: 'Physical Strength',
+            components: ['Working with your hands', 'No fear of heights'] },
+          { trait: 'Reliable',
+            components: ['Working well under pressure', 'Organized'] },
+          { trait: 'Leadership',
+            components: ['Teamwork', 'Self-starter'] }
         ]
       end
     end

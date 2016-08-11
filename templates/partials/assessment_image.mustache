@@ -3,12 +3,13 @@
     <p class="assessment-image-title">{{ title }}</p>
     <div class="button-group">
       <label>
-        <input type="radio" name="{{ trait }}" value="me">
+        <input type="radio" name="{{ trait }}" value="me" {{#reverse_trait}}onclick="reverseTraitTrigger('{{ reverse_trait }}', 'not-me')"{{/reverse_trait}}>
         <span class="button-group-item">Me</span>
       </label>
       <label>
-        <input type="radio" name="{{ trait }}" value="not-me">
+        <input type="radio" name="{{ trait }}" value="not-me" {{#reverse_trait}}onclick="reverseTraitTrigger('{{ reverse_trait }}', 'me')"{{/reverse_trait}}>
         <span class="button-group-item">Not Me</span>
       </label>
+      {{#reverse_trait}}<input type="hidden" name="{{ reverse_trait }}" value="">{{/reverse_trait}}
     </div>
   </div>

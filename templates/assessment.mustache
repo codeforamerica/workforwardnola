@@ -6,12 +6,15 @@
     <h1>Career Assessment</h1>
     <p>Choose "Me" or "Not Me" for each image to mark whether or not that activity interests you.<br>
     <i>(Estimated time: 2 min.)</i></p>
-    <form action="/careers" method="POST">
+    <form name="assessment-form" action="/careers" method="POST">
       {{#images}}
         {{> partials/assessment_image }}
       {{/images}}
+      {{#compound_traits}}
+        {{> partials/assessment_compound_trait }}
+      {{/compound_traits}}
       <div class="centered button-wrapper">
-        <button class="basic-button center" type="submit">See your career matches</button>
+        <button class="basic-button center" type="submit" disabled>See your career matches</button>
       </div>
     </form>
   </div>

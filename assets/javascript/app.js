@@ -34,6 +34,73 @@ function showCareer(index) {
   $('[index='+index+']').show();
 }
 
+function reverseTraitTrigger(trait, value) {
+  var $traitInput = $("input[name='"+trait+"']");
+  $traitInput.val(value);
+  $traitInput.trigger('valueChange');
+}
+
+function checkTraitComponents(components) {
+  var allMe = true;
+
+  components.forEach(function(component) {
+    var $componentInput = $("input[name='"+component+"']");
+    var componentValue = $componentInput.val();
+    var componentChecked = $componentInput.prop("checked") || $componentInput.attr("type") == 'hidden';
+    if(!componentChecked || componentValue != "me") allMe = false;
+  });
+
+  return allMe;
+}
+
+function setElementFromComponents(element, components) {
+  if(checkTraitComponents(components)) {
+    $(element).val('me');
+  } else {
+    $(element).val('not-me');
+  }
+}
+
+function bindTraitToComponents(element, componentString) {
+  var components = JSON.parse(componentString);
+
+  components.forEach(function(component) {
+    var $componentInput = $("input[name='"+component+"']");
+
+    if($componentInput.attr("type") == 'hidden') {
+      $componentInput.on('valueChange', function() { setElementFromComponents(element, components); });
+    } else {
+      $componentInput.change(function() { setElementFromComponents(element, components); });
+    }
+  });
+}
+
+function enableSubmitWithRadioChanges() {
+  var radioChanged = {};
+  $('input:radio').each(function() {
+    radioChanged[this.name] = false;
+    $(this).change(function() {
+      radioChanged[this.name] = true;
+      var allChanged = true;
+      for (var key in radioChanged) {
+        if(radioChanged[key] == false) allChanged = false;
+      }
+      if(allChanged) $('button[type="submit"]').prop('disabled', false);
+    });
+  });
+}
+
+// when the page loads, look for hidden compound traits & set up submit validation
+$(document).ready(function() {
+  $('[data-trait-components]').each(function() {
+    bindTraitToComponents(this, $(this).attr('data-trait-components'));
+  });
+
+  enableSubmitWithRadioChanges();
+});
+
+
+
 // jQuery POST using JSON
 $.postJSON = function(url, data, callback) {
     return jQuery.ajax({
