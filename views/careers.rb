@@ -34,7 +34,7 @@ module WorkForwardNola
                                         .reverse
                                         .first(3)
 
-        @career_matches.each_with_index{|career, i| career[:index] = i}
+        @career_matches.each_with_index{|career, i| career[:index] = i+1}
         @career_matches.first[:first] = true
         @career_matches.last[:last] = true
 
