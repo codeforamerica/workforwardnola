@@ -1,21 +1,25 @@
 <section id="career-match">
   <div class="centered">
-    <h1>Careers that match your interests</h1>
+    <h1>Your top three potential career matches</h1>
+    <p>A career coach at an Opportunity Center can help you get started on one of these career paths.</p>
     <div id="career-list">
-      Click on a position to review its information.
       {{#career_descriptions}}
-        <div class="button-wrapper">
-          <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})">
-            <p><b>{{job_title}}</b> - {{average_wage}}/hour</p>
-          </button>
+        <div class="jobCard">
+          <p><span class="wage">{{average_wage}}</span> Hourly after<br> training</p>
+          <h2>{{job_title}}</h2>
+          <p>{{job_description}}</p>
         </div>
       {{/career_descriptions}}
+      <div class="clearfix"></div>
+      <h2>Next Steps</h2>
+      <p>Visit an Opportunity Center to learn about financial resources that can help support you while you work towards a career. </p>
+      <p>Bring your results to your first appointment to get the most of your time.</p>
       <div class="button-wrapper">
-        <button class="basic-button center" type="button"><a href="/assessment">Return to career assessment</a></button>
+        <button class="basic-button-outline center" type="button"><a href="#">Print your results</a></button>
+      </div>
+      <div class="button-wrapper">
+        <button class="basic-button center" type="button"><a href="/#oppCenterInfo">Find an Opportunity Center near you</a></button>
       </div>
     </div>
-    {{#career_descriptions}}
-      {{> partials/career}}
-    {{/career_descriptions}}
   </div>
 </section>
