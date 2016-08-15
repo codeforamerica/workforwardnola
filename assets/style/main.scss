@@ -147,6 +147,7 @@ hr {
     background-color: $action-color;
     border-radius: $round-radius;
   }
+  @media print { display: none; }
 }
 
 
@@ -266,4 +267,5 @@ footer {
     padding: .5rem 1.5rem;
   }
   p { margin-bottom: .5em; }
+  @media print { display: none; }
 }

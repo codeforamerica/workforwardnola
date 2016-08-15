@@ -17,12 +17,25 @@
 
 // Careers that match your interests //
 #career-match {
+  h1, h2 {
+    @media print { color: black; }
+  }
   .jobCard {
       background-color: rgb(8, 114, 185);
       max-width: 290px;
       position: relative;
       margin: 4rem auto 2rem;
       padding: 9rem 0.2rem 0.2rem;
+
+      @media print {
+         max-width:800px;
+         background-color: $white;
+         text-align: left;
+         margin: 1rem 0;
+         padding: 1rem .2rem;
+         border-top: 1px solid $light-gray;
+         border-bottom: 1px solid $light-gray;
+      }
 
       @media (min-width: $medium-screen) {
         float: left;
@@ -47,6 +60,21 @@
           margin-left: -75px;
           border: 5px solid $action-color;
           border-radius: 50%;
+
+          @media print {
+             width: auto;
+             height: auto;
+             text-align: left;
+             font-style: normal;
+             font-weight: bold;
+             color: black;
+             position: relative;
+             left: 0;
+             margin: 0;
+             padding: 0 1rem;
+             background-color: $white;
+             border: none;
+          }
         }
       }
       .wage {
@@ -55,12 +83,24 @@
         font-style: normal;
         display: block;
         padding: 50px 0px 10px;
+        @media print {
+          padding: 1rem 0;
+          font-size: inherit;
+          display: inline-block;
+        }
       }
-      h2 { padding: 9rem 1rem 0px; }
+      h2 {
+        padding: 9rem 1rem 0px;
+        @media print { padding: 1rem; }
+      }
       h2, p:last-child {
         background-color: rgb(255, 255, 255);
         text-align: center;
         margin: 0px;
+        @media print { text-align: left; }
       }
+    }
+    .button-wrapper{
+      @media print { display: none; }
     }
 }
