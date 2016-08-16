@@ -20,9 +20,11 @@
   h1, h2 {
     @media print { color: black; }
   }
+  .jobCardContainer { height: auto; }
   .jobCard {
       background-color: rgb(8, 114, 185);
-      max-width: 290px;
+      max-width: 300px;
+      height: 100%;
       position: relative;
       margin: 4rem auto 2rem;
       padding: 9rem 0.2rem 0.2rem;
@@ -37,9 +39,9 @@
          border-bottom: 1px solid $light-gray;
       }
 
-      @media (min-width: $medium-screen) {
+      @media (min-width: 955px) {
         float: left;
-        margin: 0px 0px 2rem 2rem;
+        margin: 0px 0px 2rem 1rem;
         &:first-of-type { margin-left: 0px; }
       }
 
