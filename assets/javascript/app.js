@@ -86,6 +86,7 @@ function enableSubmitWithRadioChanges() {
         if(radioChanged[key] == false) allChanged = false;
       }
       if(allChanged) $('button[type="submit"]').prop('disabled', false);
+      if(allChanged) $("#assessment .error").hide();
     });
   });
 }
