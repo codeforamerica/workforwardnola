@@ -66,8 +66,8 @@ module WorkForwardNola
     end
 
     post '/careers' do
-      # TODO require answers to all questions
       @quiz_answers = params       # params hash has answers
+      @title = 'Career Results'
       mustache :careers
     end
 
