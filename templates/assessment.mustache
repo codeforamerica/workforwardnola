@@ -1,7 +1,7 @@
 <section id="assessment">
   <div class="centered">
     <div class="button-wrapper">
-      <button class="basic-button-outline center" type="button"><a href="/" data-event-category="Assessment" data-event-action="Back to homepage" title="Return to home page">Back to home page</a></button>
+      <a href="/" data-event-category="Assessment" data-event-action="Back to homepage" title="Return to home page" class="basic-button basic-button-outline center">Back to home page</a>
     </div>
     <h1>Career Assessment</h1>
     <p>Choose "Me" or "Not Me" for each image to mark whether or not that activity interests you.<br>
@@ -14,7 +14,7 @@
         {{> partials/assessment_compound_trait }}
       {{/compound_traits}}
       <p class="error">Before you see your career matches, select "Me" or "Not Me" for each image.</p>
-      <div class="centered button-wrapper">
+      <div class="button-wrapper">
         <button class="basic-button center" type="submit" disabled data-event-category="Assessment" data-event-action="See career matches">See your career matches</button>
       </div>
     </form>
