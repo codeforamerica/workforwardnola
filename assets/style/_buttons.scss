@@ -5,7 +5,10 @@ $button-stroke: inset 0 0 0 2px;
 // Buttons
 
 // scss-lint:disable PropertyCount
-.button-wrapper { padding: .5em 0 !important; }
+.button-wrapper {
+  padding: .5em 0 !important;
+  text-align: center;
+}
 
 .basic-button,
 .basic-button-primary,
@@ -22,15 +25,14 @@ button,
   background-color: $action-color;
   border: 0;
   border-radius: $border-radius;
+  display: inline-block;
   color: $white;
   cursor: pointer;
-  display: inline-block;
   font-family: $sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 2.2rem;
   outline: none;
-  margin: 0;
   padding: 1.5rem;
   text-align: left;
   text-decoration: none;
