@@ -90,12 +90,6 @@ a:link, a:visited, a:active {
   }
 }
 a:hover { color: $action-color-darker; border-bottom: 1px solid $action-color-darker; }
-.basic-button a, .basic-button-outline a {
-  padding: 1rem;
-  border-bottom: none !important;
-  display: inline-block;
-}
-.basic-button a { color: $white; }
 .quote{
   font-style: italic;
   font-size: 1.4rem;
@@ -261,9 +255,10 @@ hr {
 footer {
   margin: 6rem 0 0;
 
-  .nola-logo {
+  .nola-logo, {
     width: 150px;
     margin: .5rem auto;
+    border: 0;
     display: block;
   }
   .centered {
