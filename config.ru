@@ -1,3 +1,5 @@
+#\ -s puma
+
 require 'rubygems'
 require 'bundler'
 
@@ -5,7 +7,7 @@ Bundler.require
 
 require './app'
 
-map '/public/assets' do
+map '/assets' do
   environment = Sprockets::Environment.new
   environment.append_path 'assets/javascript'
   environment.append_path 'assets/style'
@@ -15,7 +17,7 @@ map '/public/assets' do
     environment.js_compressor  = :uglify
     environment.css_compressor = :scss
   end
-  
+
   run environment
 end
 

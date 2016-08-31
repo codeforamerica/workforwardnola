@@ -12,7 +12,7 @@ module WorkForwardNola
 
     configure do
       set :database, "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
-      # set :database, get_database_url
+      # set :database, ENV['DATABASE_URL']
     end
 
     # check for un-run migrations
@@ -93,7 +93,6 @@ module WorkForwardNola
       mustache :manage
     end
 
-    
 
     def get_database_url
       return ENV['DATABASE_URL'] if ENV['RACK_ENV'].eql? 'development'
