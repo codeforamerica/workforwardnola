@@ -5,7 +5,7 @@ Bundler.require
 
 require './app'
 
-map '/assets' do
+map '/public/assets' do
   environment = Sprockets::Environment.new
   environment.append_path 'assets/javascript'
   environment.append_path 'assets/style'

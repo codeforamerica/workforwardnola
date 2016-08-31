@@ -9,8 +9,10 @@ module WorkForwardNola
     Dotenv.load
 
     register Sinatra::SequelExtension
+
     configure do
-      set :database, ENV['DATABASE_URL']
+      set :database, "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
+      # set :database, get_database_url
     end
 
     # check for un-run migrations
@@ -89,6 +91,15 @@ module WorkForwardNola
       protected!
       @title = 'Manage Content'
       mustache :manage
+    end
+
+    
+
+    def get_database_url
+      return ENV['DATABASE_URL'] if ENV['RACK_ENV'].eql? 'development'
+
+      # AWS connection string
+      "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
     end
   end
 end
