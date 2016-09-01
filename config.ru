@@ -1,4 +1,4 @@
-#\ -s puma
+# \ -s puma
 
 require 'rubygems'
 require 'bundler'
