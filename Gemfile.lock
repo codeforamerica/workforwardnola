@@ -3,9 +3,7 @@ GEM
   specs:
     bacon (1.2.0)
     concurrent-ruby (1.0.2)
-    daemons (1.2.3)
     dotenv (2.1.1)
-    eventmachine (1.2.0.1)
     execjs (2.7.0)
     ffi (1.9.14)
     listen (3.1.5)
@@ -16,6 +14,7 @@ GEM
     mustache-sinatra (1.0.1)
       mustache (<= 0.99.8)
     pg (0.18.4)
+    puma (3.6.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -41,10 +40,6 @@ GEM
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    thin (1.7.0)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
     tilt (2.0.5)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
@@ -56,6 +51,7 @@ DEPENDENCIES
   dotenv
   mustache-sinatra (~> 1)
   pg
+  puma
   rake
   rerun
   sass (~> 3.4)
@@ -64,7 +60,6 @@ DEPENDENCIES
   sinatra (= 1.4.7)
   sinatra-sequel
   sprockets (~> 3.6)
-  thin (~> 1.7)
   uglifier (~> 3.0)
 
 RUBY VERSION

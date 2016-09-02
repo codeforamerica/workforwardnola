@@ -9,6 +9,9 @@ module WorkForwardNola
     Dotenv.load
 
     register Sinatra::SequelExtension
+
+    ENV['DATABASE_URL'] ||= "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
+
     configure do
       set :database, ENV['DATABASE_URL']
     end
@@ -44,7 +47,7 @@ module WorkForwardNola
 
     before do
       response.headers['Cache-Control'] = 'public, max-age=36000'
-      
+
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
@@ -61,12 +64,13 @@ module WorkForwardNola
       Career.bulk_create data['careers']
       # TODO: meaningful success/failure responses
       # or better handling of empty/malformed columns
-      {result: "success!! there are #{Trait.count} traits \
-      and #{Career.count} careers."}.to_json
+      { result: "success!! there are #{Trait.count} traits \
+      and #{Career.count} careers." }.to_json
     end
 
     post '/careers' do
-      @quiz_answers = params       # params hash has answers
+      # params hash has answers
+      @quiz_answers = params
       @title = 'Career Results'
       mustache :careers
     end
