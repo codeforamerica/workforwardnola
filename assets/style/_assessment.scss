@@ -83,6 +83,7 @@
 
     > * { float: left; }
 
+    &:first-child button { margin-bottom: 1rem; }
     button {
       margin: 0 15px;
       min-width: 44px;
@@ -93,7 +94,7 @@
         text-align: center;
       }
     }
-    p { line-height: 4.5rem; }
+    p { line-height: .5rem; }
   }
 
   .invisible {
