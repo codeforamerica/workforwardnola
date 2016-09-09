@@ -9,13 +9,11 @@
       <div class="jobCardContainer" id="career-list">
         {{#career_descriptions}}
           <div class="jobCard">
-            <p><span class="wage">{{experienced_wage}}</span> hourly after training</p>
             <h2>{{job_title}}</h2>
+            <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
             <p>{{job_description}}</p>
             <div class="button-wrapper">
-              <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})">
-                Read More
-              </button>
+              <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})" title="Learn More about this career"><span>Learn More</span></button>
             </div>
           </div>
         {{/career_descriptions}}

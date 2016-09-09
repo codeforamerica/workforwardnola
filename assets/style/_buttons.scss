@@ -96,7 +96,14 @@ button,
       text-decoration: none;
     }
   }
+
+  a, span {
+    padding: 1rem;
+    border-bottom: none !important;
+    display: inline-block;
+  }
 }
+.basic-button a, .basic-button span{ color: $white !important; }
 
 [type='submit']:disabled,
 .basic-button-disabled {

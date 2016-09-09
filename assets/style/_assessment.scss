@@ -22,12 +22,13 @@
   }
   .jobCardContainer { height: auto; }
   .jobCard {
-    background-color: rgb(8, 114, 185);
     max-width: 300px;
     height: 100%;
     position: relative;
     margin: 4rem auto 2rem;
-    padding: 9rem 0.2rem 0.2rem;
+    padding: 0 0 1rem 0;
+    border: 2px solid $action-color;
+    text-align: center;
 
     @media print {
        max-width:800px;
@@ -47,62 +48,28 @@
 
     p {
       padding: 0.5rem 1rem 1rem;
-      &:first-child {
-        width: 150px;
-        height: 150px;
-        color: $action-color;
-        text-align: center;
-        font-style: italic;
-        font-size: 1.5rem;
-        line-height: 2rem;
-        background-color: $white;
-        position: absolute;
-        top: 0px;
-        left: 50%;
-        margin-left: -75px;
-        border: 5px solid $action-color;
-        border-radius: 50%;
-
-        @media print {
-           width: auto;
-           height: auto;
-           text-align: left;
-           font-style: normal;
-           font-weight: bold;
-           color: black;
-           position: relative;
-           left: 0;
-           margin: 0;
-           padding: 0 1rem;
-           background-color: $white;
-           border: none;
-        }
-      }
-    }
-
-    .wage {
-      font-size: 4rem;
-      font-weight: bold;
-      font-style: normal;
-      display: block;
-      padding: 50px 0 10px;
-      @media print {
-        padding: 1rem 0;
-        font-size: inherit;
-        display: inline-block;
-      }
+      margin: 1rem 0;
     }
 
     h2 {
-      padding: 9rem 1rem 0;
-      @media print { padding: 1rem; }
+      background-color: $action-color;
+      color: $white;
+      font-weight: bold;
+      margin: 0;
+      padding: 1.5rem;
     }
 
-    h2, p:last-child {
-      background-color: rgb(255, 255, 255);
-      text-align: center;
-      margin: 0;
-      @media print { text-align: left; }
+    h3 {
+      margin: 2rem 0 0;
+
+      .wage {
+        font-weight: bold;
+        font-style: normal;
+        @media print {
+          font-size: inherit;
+          display: inline-block;
+        }
+      }
     }
   }
 
