@@ -3,8 +3,7 @@
     <div class="button-wrapper">
       <a href="/assessment" data-event-category="Careers" data-event-action="Retake assessment" class="basic-button basic-button-outline center">Take career assessment again</a>
     </div>
-    <h1>Your top three potential career matches</h1>
-    <p>A career coach at an Opportunity Center can help you get started on one of these career paths.</p>
+    <h1>Your top three career pathways</h1>
     <div>
       <div class="jobCardContainer" id="career-list">
         {{#career_descriptions}}
@@ -22,15 +21,24 @@
       {{#career_descriptions}}
         {{> partials/career}}
       {{/career_descriptions}}
-      <h2>Next Steps</h2>
-      <p>Visit an Opportunity Center to learn about financial resources that can help support you while you work towards a career. </p>
-      <p>Bring your results to your first appointment to get the most of your time.</p>
-      <div class="button-wrapper">
-        <a href="javascript:window.print()" data-event-category="Careers" data-event-action="Print" class="basic-button basic-button-outline center">Print your results</a>
-      </div>
-      <div class="button-wrapper">
-        <a href="/#oppCenterInfo" data-event-category="Careers" data-event-action="Find OC" class="basic-button center">Find an Opportunity Center near you</a>
-      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="centered">
+    <h2>Save your results</h2>
+    <p>Bring your results to an Opportunity Center to get the most of your visit.</p>
+    <p><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a href="javascript:window.print()" data-event-category="Careers" data-event-action="Print">Print or Save as PDF</a></p>
+    <p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email to yourself</a></p>
+  </div>
+</section>
+<section>
+  <div class="centered">
+    <h2>Get Started Now</h2>
+    <p><strong>An Opportunity Center can help you get started on one of these career paths.</strong></p>
+    <p>Start by signing up for the Opportunity Center job system and receive a customized referral to a center.</p>
+    <div class="button-wrapper">
+      <button class="basic-button-outline" type="button"><a herf="#">Sign up for the job system >></a></button>
     </div>
   </div>
 </section>
