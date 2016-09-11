@@ -11,16 +11,15 @@ module WorkForwardNola
 
       def career_descriptions
         # get all the "me" traits
-        it_me = @quiz_answers.select { |trait, ans| ans.eql? 'me' }.keys
+        it_me = @quiz_answers.select { |_trait, ans| ans.eql? 'me' }.keys
         # only select careers that match the "me" traits
         @career_matches = Career.where(traits: Trait.where(name: it_me))
                                 .map do |career|
           {
             job_title: career.name,
             job_description: career.description,
-            average_wage: to_money(career.average_wage),
+            foundational_skills: career.foundational_skills,
             experienced_wage: to_money(career.experienced_wage),
-            training_money_available: career.training_money_available,
             certification_required: career.certification_required,
             match_score: trait_match_score(it_me, career.traits)
           }
