@@ -5,11 +5,6 @@
 
 'use strict';
 
-function showIFrame(id) {
-  var iframe = $("#"+id);
-  iframe.show();
-}
-
 function reverseTraitTrigger(trait, value) {
   var $traitInput = $("input[name='"+trait+"']");
   $traitInput.val(value);

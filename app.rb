@@ -44,7 +44,7 @@ module WorkForwardNola
 
     before do
       response.headers['Cache-Control'] = 'public, max-age=36000'
-      
+
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
@@ -79,6 +79,11 @@ module WorkForwardNola
     get '/assessment' do
       @title = 'Assessment'
       mustache :assessment
+    end
+
+    get '/jobsystem' do
+      @title = 'Job System'
+      mustache :jobsystem
     end
 
     get '/admin' do
