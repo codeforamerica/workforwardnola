@@ -9,6 +9,10 @@ module WorkForwardNola
 
       attr_reader :title
 
+      def career_count
+        @career_matches.count
+      end
+
       def career_descriptions
         # get all the "me" traits
         it_me = @quiz_answers.select { |_trait, ans| ans.eql? 'me' }.keys
@@ -25,10 +29,15 @@ module WorkForwardNola
           }
         end
 
-        @career_matches = @career_matches.sort_by { |career| career[:match_score] }
-                                         .reverse
-                                         .first(3)
+        @career_matches = @career_matches.sort_by{|career| career[:match_score]}
+                                        .reverse
+                                        .first(3)
+        @career_matches.each.with_index(1) do |match, i|
+          match[:index] = i
+        end
 
+        @career_matches.first[:first] = true
+        @career_matches.last[:last] = true
         @career_matches
       end
 

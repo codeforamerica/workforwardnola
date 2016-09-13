@@ -1,0 +1,23 @@
+<div class="career" index="{{ index }}" style="display:none;">
+  <h1>Your top three career pathways</h1>
+  <div class="button-wrapper career-nav">
+    <button class="basic-button-outline center" type="button" onclick="showCareerList()"><span>Back to full list of careers</span></button>
+    <button class="basic-button-outline {{#first}}invisible{{/first}}" type="button" onclick="showPrevCareer({{index}})"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></button>
+    <p>Result {{ index }} of {{ career_count }}</p>
+    {{^last}}
+    <button class="basic-button-outline" type="button" onclick="showNextCareer({{index}}, {{career_count}})"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></button>
+    {{/last}}
+    <div class="clearfix"></div>
+  </div>
+  <h1 class="clearfix">{{ job_title }}</h1>
+  <h2>About <span class="wage">{{experienced_wage}}/hour</span> after training</h2>
+  <h3>Description</h3>
+  <p>{{ job_description }}</p>
+
+  <h3>Foundational Skills</h3>
+  <div class="foundational-skills">
+    {{& foundational_skills }}
+  </div>
+
+  <h3>Training</h3>
+</div>
