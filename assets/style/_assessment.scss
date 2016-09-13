@@ -22,7 +22,7 @@
   }
   .jobCardContainer { height: auto; }
   .jobCard {
-    max-width: 296px;
+    width: 100%;
     height: 100%;
     position: relative;
     margin: 4rem auto 2rem;
@@ -41,6 +41,7 @@
     }
 
     @media (min-width: 955px) {
+      width: 296px;
       float: left;
       margin: 0px .5rem 2rem;
     }
@@ -101,6 +102,7 @@
     p {
       line-height: 5.5rem;
       margin: 0 1em;
+      font-weight: bold;
     }
   }
 
