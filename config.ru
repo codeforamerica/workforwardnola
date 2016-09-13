@@ -1,3 +1,5 @@
+# \ -s puma
+
 require 'rubygems'
 require 'bundler'
 
@@ -15,7 +17,7 @@ map '/assets' do
     environment.js_compressor  = :uglify
     environment.css_compressor = :scss
   end
-  
+
   run environment
 end
 

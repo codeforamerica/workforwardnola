@@ -1,10 +1,9 @@
 require './models/trait'
 require './models/career'
-module WorkForwardNola
 
+module WorkForwardNola
   Sequel.seed do
     def run
-
       Trait.set_allowed_columns :name
 
       [
@@ -29,19 +28,18 @@ module WorkForwardNola
         Trait.create name: name
       end
 
-      all_traits = Trait.map { |t| [t[:name] , t[:id]] }.to_h
-      
+      all_traits = Trait.map { |t| [t[:name], t[:id]] }.to_h
+
       office_assistant = Career.create \
         name: 'Office Assistant',
         sector: 'Other',
         description: 'Maintain office operations by received and distributing ' \
         'communications, maintaining supplies and equipment, picking up and delivering ' \
         'items, serving customers.',
-        average_wage: 12.50,
         experienced_wage: 18.50
-      ['Detail oriented', 
-       'Self-starter', 
-       'Customer service', 
+      ['Detail oriented',
+       'Self-starter',
+       'Customer service',
        'Reliable'
       ].each do |trait|
         office_assistant.add_trait all_traits[trait]
@@ -53,10 +51,9 @@ module WorkForwardNola
         description: 'Carry out numerous gardening duties, requiring a minimum amount ' \
         'of supervision. Soil cultivation, digging, forking, mulching, watering, ' \
         'raking, weeding, edging, pruning, bed preparation, and planting.',
-        average_wage: 13.50,
         experienced_wage: 16.50
-      ['Working with your hands', 
-       'Physical Strength', 
+      ['Working with your hands',
+       'Physical Strength',
        'Following instructions'
       ].each do |trait|
         gardener.add_trait all_traits[trait]
@@ -68,10 +65,8 @@ module WorkForwardNola
         description: 'Give technical assistance to computer users. Answer questions or ' \
         'a solution for a client\'s computer problems in person, over the telephone, ' \
         'or electronically.',
-        average_wage: 14.50,
         experienced_wage: 24.15,
-        certification_required: true,
-        training_money_available: true
+        certification_required: true
       ['Working with your hands', 'Organized', 'Perceptive'].each do |trait|
         computer_support.add_trait all_traits[trait]
       end
@@ -82,12 +77,10 @@ module WorkForwardNola
         description: 'Read blueprints or technical diagrams. Install and maintain ' \
         'wiring, control, and lighting systems. Inspect electrical components, such ' \
         'as transformers and circuit breakers.',
-        average_wage: 18.50,
         experienced_wage: 24.50,
-        certification_required: true,
-        training_money_available: true
-      ['Following instructions', 
-       'Adaptable', 
+        certification_required: true
+      ['Following instructions',
+       'Adaptable',
        'No fear of heights'
       ].each do |trait|
         electrician.add_trait all_traits[trait]
