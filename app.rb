@@ -85,6 +85,11 @@ module WorkForwardNola
       mustache :assessment
     end
 
+    get '/jobsystem' do
+      @title = 'Job System'
+      mustache :jobsystem
+    end
+
     get '/admin' do
       redirect to('/manage')
     end
