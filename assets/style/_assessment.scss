@@ -80,7 +80,7 @@
 
   .career-nav {
     margin: 0 auto 7rem;
-    width: 224px;
+    width: 230px;
 
     > * { float: left; }
 
@@ -121,4 +121,7 @@
       display: inline-block;
     }
   }
+  .foundational-skills { margin-bottom: 3rem; }
+  li { margin: 0 0 1rem 0; }
+  li:last-child { margin: 0; }
 }
