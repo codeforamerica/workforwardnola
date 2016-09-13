@@ -22,7 +22,7 @@
   }
   .jobCardContainer { height: auto; }
   .jobCard {
-    max-width: 300px;
+    max-width: 296px;
     height: 100%;
     position: relative;
     margin: 4rem auto 2rem;
@@ -42,8 +42,7 @@
 
     @media (min-width: 955px) {
       float: left;
-      margin: 0px 0px 2rem 1rem;
-      &:first-of-type { margin-left: 0px; }
+      margin: 0px .5rem 2rem;
     }
 
     p {
@@ -74,19 +73,19 @@
   }
 
   .button-wrapper {
+    span { padding: 0; }
     @media print { display: none; }
   }
 
   .career-nav {
     margin: 0 auto 7rem;
-    width: 243px;
+    width: 224px;
 
     > * { float: left; }
 
-    &:first-child button { margin-bottom: 1rem; }
     button {
-      margin: 0 15px;
       min-width: 44px;
+      margin: 0;
 
       .fa {
         display: block;
@@ -94,12 +93,30 @@
         text-align: center;
       }
     }
-    p { line-height: .5rem; }
+    .center {
+      margin: 0 auto 1rem;
+      display: block;
+      float: none;
+    }
+    p {
+      line-height: 5.5rem;
+      margin: 0 1em;
+    }
   }
 
   .invisible {
     box-shadow: inset 0 0 0 2px $white;
     color: $white;
     cursor: auto;
+  }
+}
+.career {
+  .wage {
+    font-weight: bold;
+    font-style: normal;
+    @media print {
+      font-size: inherit;
+      display: inline-block;
+    }
   }
 }
