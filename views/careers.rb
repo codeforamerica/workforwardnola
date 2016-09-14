@@ -23,15 +23,16 @@ module WorkForwardNola
             job_title: career.name,
             job_description: career.description,
             foundational_skills: career.foundational_skills,
+            training: career.training,
             experienced_wage: to_money(career.experienced_wage),
             certification_required: career.certification_required,
             match_score: trait_match_score(it_me, career.traits)
           }
         end
 
-        @career_matches = @career_matches.sort_by{|career| career[:match_score]}
-                                        .reverse
-                                        .first(3)
+        @career_matches = @career_matches.sort_by { |career| career[:match_score] }
+                                         .reverse
+                                         .first(3)
         @career_matches.each.with_index(1) do |match, i|
           match[:index] = i
         end
@@ -48,9 +49,7 @@ module WorkForwardNola
 
         # loop through traits of the career and see how many match the ones the user selected
         career_traits.each do |trait|
-          if user_trait_names.include?(trait.name)
-            score += 1
-          end
+          score += 1 if user_trait_names.include?(trait.name)
         end
 
         score

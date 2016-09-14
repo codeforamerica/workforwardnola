@@ -1,4 +1,5 @@
 module WorkForwardNola
+  # model for Career object
   class Career < Sequel::Model
     many_to_many :traits
 
@@ -13,10 +14,11 @@ module WorkForwardNola
           name: career['name'],
           sector: career['sector'],
           experienced_wage: career['experienced_wage'],
-          ## this is a hack, we need to have the data ##
           foundational_skills: career['foundational_skills'],
           certification_required: career['certification_required'],
-          description: career['description'])
+          description: career['description'],
+          training: career['training']
+        )
 
         # add traits
         career['traits'].split(',').each do |spreadsheet_key|
