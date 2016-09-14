@@ -22,7 +22,7 @@
   }
   .jobCardContainer { height: auto; }
   .jobCard {
-    max-width: 296px;
+    width: 100%;
     height: 100%;
     position: relative;
     margin: 4rem auto 2rem;
@@ -41,6 +41,7 @@
     }
 
     @media (min-width: 955px) {
+      width: 296px;
       float: left;
       margin: 0px .5rem 2rem;
     }
@@ -79,7 +80,7 @@
 
   .career-nav {
     margin: 0 auto 7rem;
-    width: 224px;
+    width: 230px;
 
     > * { float: left; }
 
@@ -101,6 +102,7 @@
     p {
       line-height: 5.5rem;
       margin: 0 1em;
+      font-weight: bold;
     }
   }
 
@@ -119,4 +121,7 @@
       display: inline-block;
     }
   }
+  .foundational-skills { margin-bottom: 3rem; }
+  li { margin: 0 0 1rem 0; }
+  li:last-child { margin: 0; }
 }
