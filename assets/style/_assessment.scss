@@ -3,15 +3,24 @@
   .container { margin: 4rem 0; }
 
   .assessment-image-title {
+    max-width: 400px;
+    color: $white;
     text-align: center;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    background-color: $action-color;
   }
 
   .assessment-image {
     max-width: 400px;
     margin: 0 auto 1.5rem;
     display: block;
+    background-color: $action-color;
+  }
+  .error {
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 
