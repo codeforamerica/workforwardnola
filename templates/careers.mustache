@@ -12,7 +12,7 @@
             <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
             <p>{{job_description}}</p>
             <div class="button-wrapper">
-              <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})" title="Learn More about this career"><span>Learn More</span></button>
+              <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})" title="Learn More about this career" data-event-category="Careers" data-event-action="Learn more about career" data-event-label="{{job_title}}"><span>Learn More</span></button>
             </div>
           </div>
         {{/career_descriptions}}
@@ -38,7 +38,7 @@
     <p><strong>An Opportunity Center can help you get started on one of these career paths.</strong></p>
     <p>Start by signing up for the Opportunity Center job system and receive a customized referral to a center.</p>
     <div class="button-wrapper">
-      <button class="basic-button-outline" type="button"><a href="/jobsystem">Sign up for the job system >></a></button>
+      <button class="basic-button-outline" type="button"><a href="/jobsystem" data-event-category="Careers" data-event-action="Start job system form">Sign up for the job system >></a></button>
     </div>
   </div>
 </section>
