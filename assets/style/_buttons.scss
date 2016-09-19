@@ -116,18 +116,7 @@ button,
 }
 
 .button-group {
-  $base-border-radius: 10px !default;
-  $base-font-size: 1em !default;
-  $base-background-color: $white !default;
-  $border-size: 2px;
-  $button-group-background: $base-background-color;
-  $button-group-color: lighten($base-font-color, 10%);
-  $button-group-border: $border-size solid $action-color;
-  $button-group-background-checked: $action-color;
-  $button-group-color-checked: $white;
-  $button-group-border-checked: darken($button-group-background-checked, 15%);
-
-  width: 168px;
+  width: 184px;
   margin: 0 auto;
   text-align: center;
 
@@ -148,7 +137,7 @@ button,
       font-weight: normal;
       line-height: 1;
       padding: .75em 1em;
-      width: 84px;
+      width: 92px;
 
       &:focus,
       &:hover {
