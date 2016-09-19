@@ -1,6 +1,6 @@
 // Assessment //
 #assessment {
-  .container { margin: 4rem 0; }
+  .container { margin: 8rem 0; }
 
   .assessment-image-title {
     max-width: 400px;
@@ -9,18 +9,18 @@
     font-size: 2rem;
     margin: 0 auto;
     padding: 1.5rem 0;
-    background-color: $action-color;
+    background-color: $heading-color-light;
   }
 
   .assessment-image {
     max-width: 400px;
     margin: 0 auto 1.5rem;
     display: block;
-    background-color: $action-color;
   }
   .error {
+    font-weight: bold;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 }
 
@@ -36,7 +36,7 @@
     position: relative;
     margin: 4rem auto 2rem;
     padding: 0 0 1rem 0;
-    border: 2px solid $action-color;
+    border: 2px solid $heading-color-light;
     text-align: center;
 
     @media print {
@@ -61,7 +61,7 @@
     }
 
     h2 {
-      background-color: $action-color;
+      background-color: $heading-color-light;
       color: $white;
       font-weight: bold;
       margin: 0;
@@ -89,7 +89,7 @@
 
   .career-nav {
     margin: 0 auto 7rem;
-    width: 236px;
+    width: 240px;
 
     > * { float: left; }
 
@@ -97,10 +97,13 @@
       min-width: 44px;
       margin: 0;
 
+      &:first-of-type { margin-bottom: 1rem; }
       .fa {
         display: block;
-        margin: 0 auto;
+        font-size: 1.8rem;
+        font-weight: bold;
         text-align: center;
+        color: $action-color;
       }
     }
     .center {
@@ -131,6 +134,6 @@
     }
   }
   .foundational-skills { margin-bottom: 3rem; }
-  li { margin: 0 0 1rem 0; }
+  li { margin: 0 0 2rem 0; }
   li:last-child { margin: 0; }
 }

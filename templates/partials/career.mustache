@@ -1,10 +1,10 @@
 <div class="career" index="{{ index }}" style="display:none;">
-  <div class="button-wrapper career-nav">
-    <button class="basic-button-outline center" type="button" onclick="showCareerList()"><span>Return to list of careers</span></button>
-    <button class="basic-button-outline {{#first}}invisible{{/first}}" type="button" onclick="showPrevCareer({{index}})"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></button>
+  <div class="button-wrapper career-nav center">
+    <button class="basic-button-outline" type="button" onclick="showCareerList()"><span>Return to list of careers</span></button>
+    <button class="basic-button-outline {{#first}}invisible{{/first}}" type="button" onclick="showPrevCareer({{index}})"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
     <p>Result {{ index }} of {{ career_count }}</p>
     {{^last}}
-    <button class="basic-button-outline" type="button" onclick="showNextCareer({{index}}, {{career_count}})"><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></button>
+    <button class="basic-button-outline" type="button" onclick="showNextCareer({{index}}, {{career_count}})"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
     {{/last}}
     <div class="clearfix"></div>
   </div>
