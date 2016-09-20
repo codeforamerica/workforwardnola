@@ -2,8 +2,8 @@
   <div class="centered">
     <div>
       <div class="jobCardContainer" id="career-list">
-        <div class="button-wrapper">
-          <a href="/assessment" data-event-category="Careers" data-event-action="Retake assessment" class="basic-button basic-button-outline center">Take career assessment again</a>
+        <div class="button-wrapper center">
+          <a href="/assessment" data-event-category="Careers" data-event-action="Retake assessment" class="basic-button center">Take career assessment again</a>
         </div>
         <h1>Your top three career pathways</h1>
         {{#career_descriptions}}
@@ -11,34 +11,32 @@
             <h2>{{job_title}}</h2>
             <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
             <p>{{job_description}}</p>
-            <div class="button-wrapper">
-              <button class="basic-button-outline center" type="button" onclick="showCareer({{index}})" title="Learn More about this career" data-event-category="Careers" data-event-action="Learn more about career" data-event-label="{{job_title}}"><span>Learn More</span></button>
+            <div class="button-wrapper center">
+              <button class="basic-button-outline" type="button" onclick="showCareer({{index}})" title="Learn More about this career" data-event-category="Careers" data-event-action="Learn more about career" data-event-label="{{job_title}}"><span>Learn More</span></button>
             </div>
           </div>
         {{/career_descriptions}}
         <div class="clearfix"></div>
+
+        <div class="save-results">
+          <h2>Save your results</h2>
+          <p>Bring your results to an Opportunity Center to get the most of your visit.</p>
+          <p><a href="javascript:window.print()" data-event-category="Careers" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print or Save as PDF</a></p>
+          <!--<p><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Email to yourself</a></p>-->
+        </div>
+
+        <div class="get-started">
+          <h2>Get Started Now</h2>
+          <p><strong>An Opportunity Center can help you get started on one of these career paths.</strong></p>
+          <p>Start by signing up for the Opportunity Center job system and receive a customized referral to a center.</p>
+          <div class="button-wrapper">
+            <button class="basic-button" type="button"><a href="/jobsystem" data-event-category="Careers" data-event-action="Start job system form">Sign up for the job system</a></button>
+          </div>
+        </div>
       </div>
       {{#career_descriptions}}
         {{> partials/career}}
       {{/career_descriptions}}
-    </div>
-  </div>
-</section>
-<section>
-  <div class="centered">
-    <h2>Save your results</h2>
-    <p>Bring your results to an Opportunity Center to get the most of your visit.</p>
-    <p><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a href="javascript:window.print()" data-event-category="Careers" data-event-action="Print">Print or Save as PDF</a></p>
-    <!--<p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email to yourself</a></p>-->
-  </div>
-</section>
-<section>
-  <div class="centered">
-    <h2>Get Started Now</h2>
-    <p><strong>An Opportunity Center can help you get started on one of these career paths.</strong></p>
-    <p>Start by signing up for the Opportunity Center job system and receive a customized referral to a center.</p>
-    <div class="button-wrapper">
-      <button class="basic-button-outline" type="button"><a href="/jobsystem" data-event-category="Careers" data-event-action="Start job system form">Sign up for the job system >></a></button>
     </div>
   </div>
 </section>
