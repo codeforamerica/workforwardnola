@@ -26,8 +26,8 @@
 
 // Careers that match your interests //
 #career-match {
-  h1, h2 {
-    @media print { color: black; }
+  @media print {
+    h1 { color: black; font-size:4rem; }
   }
   .jobCardContainer { height: auto; }
   .jobCard {
@@ -43,10 +43,8 @@
        max-width:800px;
        background-color: $white;
        text-align: left;
-       margin: 1rem 0;
-       padding: 1rem .2rem;
-       border-top: 1px solid $light-gray;
-       border-bottom: 1px solid $light-gray;
+       margin: 2rem 0;
+       border: 1px solid $light-gray;
     }
 
     @media (min-width: 955px) {
@@ -66,6 +64,11 @@
       font-weight: bold;
       margin: 0;
       padding: 1.5rem;
+      @media print {
+        background-color: $white;
+        color: black;
+        padding: 1rem 1rem 0;
+      }
     }
 
     h3 {
@@ -74,10 +77,11 @@
       .wage {
         font-weight: bold;
         font-style: normal;
-        @media print {
-          font-size: inherit;
-          display: inline-block;
-        }
+      }
+      @media print {
+        color: black;
+        font-size: inherit;
+        padding: 1rem;
       }
     }
   }
@@ -122,20 +126,25 @@
     box-shadow: inset 0 0 0 2px $white;
     color: $white;
     cursor: auto;
-    &.fa { color: $white; }
+    .fa { color: $white !important; }
   }
   .save-results { margin: 6rem 0; }
+  @media print {
+    .save-results, .get-started { display: none; }
+  }
 }
 .career {
   .wage {
     font-weight: bold;
     font-style: normal;
-    @media print {
-      font-size: inherit;
-      display: inline-block;
-    }
+    @media print { font-size: inherit; }
   }
   .foundational-skills { margin-bottom: 3rem; }
   li { margin: 0 0 2rem 0; }
   li:last-child { margin: 0; }
+  @media print {
+    h1, h2, h3, p, a { color: black !important; }
+    a { border-bottom: 0; text-decoration: none;}
+  }
+
 }
