@@ -88,8 +88,8 @@
   }
 
   .career-nav {
-    margin: 0 auto 7rem;
-    width: 240px;
+    margin: 0 auto 16rem;
+    width: 229px;
 
     > * { float: left; }
 
@@ -123,6 +123,7 @@
     color: $white;
     cursor: auto;
   }
+  .save-results { margin: 6rem 0; }
 }
 .career {
   .wage {

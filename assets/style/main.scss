@@ -84,8 +84,13 @@ a:link, a:visited, a:active {
   &.basic-button {
     color: $white;
   }
+  &.fa { color: $heading-color-light; }
 }
-a:hover { color: $action-color; border-bottom: 1px solid $action-color; }
+a:hover {
+  color: $action-color;
+  border-bottom: 1px solid $action-color;
+  &.fa { color: $heading-color; }
+}
 .quote{
   font-style: italic;
   font-size: 1.4rem;
