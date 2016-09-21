@@ -11,6 +11,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="shortcut icon" href="assets/favicon.ico"/>
 
+    <script src="https://use.typekit.net/scw1hsv.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
     <script>
      if (/^(www\.)?workforwardnola.com$/.test(document.location.host)) {
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -34,9 +37,12 @@
       </section>
       {{{ yield }}}
       <footer role="contentinfo">
-        <a href="http://www.nola.gov/" title="New Orleans City Government" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
+        <div class="logos clearfix">
+          <a href="http://www.thenetworkneworleans.org/" title="The Network for Economic Opportunity Website" target="_blank" class="network-logo"><img alt="The Network for Economic Opportunity Logo" src="assets/network-logo.png"/></a>
+          <a href="http://www.nola.gov/" title="New Orleans City Government Website" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
+        </div>
         <div class="centered">
-          <p>The source code for this site is <a href="https://github.com/codeforamerica/workforwardnola" target="_blank">available on GitHub</a>. <br> This project is in Beta and continuously evolving.</p>
+          <p>The source code for this site is <a href="https://github.com/codeforamerica/workforwardnola" target="_blank">available on GitHub</a>. <br> This project is continuously evolving.</p>
           <p>
             <small>
                 <br>Copyright &copy; 2016, <a href="http://codeforamerica.org/">Code for America</a>

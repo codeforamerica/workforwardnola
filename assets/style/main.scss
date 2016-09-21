@@ -32,20 +32,19 @@ body {
 
 
 // Typography //
-h1, h2, h3 { color: $action-color; }
+h1, h2, h3 { color: $heading-color; }
 h1 {
-  font-weight: 700;
-  font-size: 3.8rem;
-  line-height: 4.4rem;
+  font-weight: 300;
+  font-size: 5.5rem;
   @media (min-width: $medium-screen) {
-    font-size: 6rem;
-    line-height: 6rem;
+    font-size: 7.5rem;
+    margin: 6rem 0;
   }
 }
 h2 {
   font-weight: 300;
   font-size: 3rem;
-  margin: .7rem 0;
+  margin: 1rem 0;
 }
 h3 {
   font-weight: 600;
@@ -81,15 +80,20 @@ ul {
 }
 li { list-style-type: none; }
 a:link, a:visited, a:active {
-  color: $action-color;
+  color: $heading-color-light;
   text-decoration: none;
-  border-bottom: 1px solid $action-color;
+  border-bottom: 1px solid $heading-color-light;
 
   &.basic-button {
     color: $white;
   }
+  &.fa { color: $heading-color-light; }
 }
-a:hover { color: $action-color-darker; border-bottom: 1px solid $action-color-darker; }
+a:hover {
+  color: $action-color;
+  border-bottom: 1px solid $action-color;
+  &.fa { color: $heading-color; }
+}
 .quote{
   font-style: italic;
   font-size: 1.4rem;
@@ -109,7 +113,7 @@ a:hover { color: $action-color-darker; border-bottom: 1px solid $action-color-da
   color: red;
   text-align: center;
 }
-.fa { color: $action-color; }
+
 span.link {
   @extend a;
   @extend a:link;
@@ -128,7 +132,6 @@ hr {
   border-top: 0;
   margin: $base-spacing 0;
 }
-.center { margin: 0 auto; }
 
 
 // Structure //
@@ -148,7 +151,7 @@ hr {
     color: $white;
     padding: 4px;
     margin: 0 5px 0 0;
-    background-color: $action-color;
+    background-color: $heading-color;
     border-radius: $round-radius;
   }
   @media print { display: none; }
@@ -156,28 +159,25 @@ hr {
 
 
 // Heading //
-#heading {
-  .centered { padding: 0 1.5rem; }
-}
+#heading .centered { padding: 0 1.5rem; }
 
 
 // Prepare //
 #prepare {
-  background-color: $action-color;
+  background-color: $heading-color-light;
 
-  .centered {
-    padding: .5rem 1.5rem;
-
-    @media (min-width: $medium-screen) {
-      padding: 3rem 1.5rem;
-    }
-  }
+  .centered { padding: 1.5rem; }
   h2, p { color: $white; }
   h2 {
-    font-weight: 400;
+    font-weight: 700;
     @media (min-width: $medium-screen) {
       font-size: 4rem;
-      line-height: 6.5rem;
+    }
+  }
+  p {
+    @media (min-width: $medium-screen) {
+      font-size: 2rem;
+      line-height: 3rem;
     }
   }
 }
@@ -278,16 +278,21 @@ hr {
 footer {
   margin: 6rem 0 0;
 
-  .nola-logo, {
-    width: 150px;
-    margin: .5rem auto;
-    border: 0;
-    display: block;
+  .logos {
+    background-color: $heading-color-light;
+    padding: 1rem;
+    a, img { border: 0; }
+    img { width: auto; }
+    .network-logo img{
+      height: 40px;
+      margin: 2rem 0 0 0;
+    }
+    .nola-logo {
+      float: right;
+      img { height: 70px; }
+    }
   }
-  .centered {
-    border-top: 1px solid $light-gray;
-    padding: .5rem 1.5rem;
-  }
+  .centered { padding: .5rem 1.5rem; }
   p { margin-bottom: .5em; }
   @media print { display: none; }
 }

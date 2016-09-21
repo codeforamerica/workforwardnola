@@ -1,12 +1,14 @@
-$sans-serif: 'Source Sans Pro', sans-serif;
+$sans-serif: "museo-sans", sans-serif;
 
 $base-line-height: 1.4em !default;
 $base-spacing: 1.5em !default;
 
-$action-color: #0872b9 !default;
-$action-color-darker: #205493;
-$action-color-darkest: #112e51;
-$action-color-light: #c7d8ef;
+$action-color: #87b571 !default;
+$action-color-darker: #6f9f59;
+$action-color-darkest: #1D4E70;
+$action-color-light: #52BBE7;
+$heading-color: #1a567f;
+$heading-color-light: #226a98;
 $white: #fff;
 $dark-gray: #333 !default;
 $gray: #808080;
@@ -17,11 +19,18 @@ $small-screen: 481px;
 $medium-screen: 48em !default;
 $large-screen: 62em !default;
 
-$centered-background: darken($gray, 40%);
-$centered-backside-background: darken($centered-background, 10%);
-
 $round-radius: 50%;
 
-$color-focus: #3e94cf;
-$focus-shadow: 0 0 3px $color-focus, 0 0 7px $color-focus;
-$border-radius: rem(3px);
+$button-stroke: inset 0 0 0 2px;
+
+// Buttons //
+$base-border-radius: 10px !default;
+$base-font-size: 1em !default;
+$base-background-color: $white !default;
+$border-size: 2px;
+$button-group-background: $base-background-color;
+$button-group-color: lighten($base-font-color, 10%);
+$button-group-border: $border-size solid $action-color;
+$button-group-background-checked: $action-color;
+$button-group-color-checked: $white;
+$button-group-border-checked: darken($button-group-background-checked, 15%);
