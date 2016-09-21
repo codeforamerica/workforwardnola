@@ -26,7 +26,11 @@
     <h2>Save this Career Path</h2>
     <p>Bring this career path to an Opportunity Center to get the most of your visit.</p>
     <p><a href="javascript:window.print()" data-event-category="Careers" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print or Save as PDF</a></p>
-    <!--<p><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Email to yourself</a></p>-->
+    <p><span class="link" onclick="showEmailForm('{{id}}')"><i class="fa fa-envelope" aria-hidden="true"></i> Email to yourself</span></p>
+    <div id="email-success-message-{{id}}" class="email-success-message" style="display:none;">Email sent!</div>
+    <div id="email-form-{{id}}" class="email-form" style="display:none;">
+      <input type="text" name="email-address-{{id}}" placeholder="Email address" /><button onclick="emailAssessmentResults('{{id}}', [{{id}}])">Send</button>
+    </div>
   </div>
 
   <div class="get-started">

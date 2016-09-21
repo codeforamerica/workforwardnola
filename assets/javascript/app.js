@@ -71,18 +71,17 @@ $(document).ready(function() {
   enableSubmitWithRadioChanges();
 });
 
-function showEmailForm() {
-  $("#email-form").show();
+function showEmailForm(id) {
+  $("#email-form-"+id).show();
 }
 
-function emailAssessmentResults() {
+function emailAssessmentResults(id, careerIds) {
 
-  var emailAddress = $("input[name=email-address]").val();
-  var careerIds = $("#career-ids")[0].innerHTML;
+  var emailAddress = $("input[name=email-address-"+id+"]").val();
 
   if(emailAddress) {
     var data = {
-      career_ids: JSON.parse(careerIds),
+      career_ids: careerIds,
       recipient: emailAddress
     };
 
@@ -90,10 +89,10 @@ function emailAssessmentResults() {
       // response is too long for UI to wait for change
     });
 
-    $("input[name=email-address]").val(''); // clear email
-    $("#email-form").hide(); // hide email form
-    $("#email-success-message").fadeIn();
-    $("#email-success-message").fadeOut("slow");
+    $("input[name=email-address-"+id+"]").val(''); // clear email
+    $("#email-form-"+id).hide(); // hide email form
+    $("#email-success-message-"+id).fadeIn();
+    $("#email-success-message"+id).fadeOut("slow");
   }
 }
 
