@@ -15,6 +15,21 @@
     },
     "ADMIN_PASSWORD": {
       "required": true
+    },
+    "EMAIL_SERVER": {
+      "required": true
+    },
+    "EMAIL_PORT": {
+      "required": true
+    },
+    "EMAIL_USER": {
+      "required": true
+    },
+    "EMAIL_PASSWORD": {
+      "required": true
+    },
+    "EMAIL_DOMAIN": {
+      "required": true
     }
   },
   "formation": {
