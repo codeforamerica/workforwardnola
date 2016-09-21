@@ -1,0 +1,25 @@
+<div class="jobCardContainer" id="career-list">
+  <h1>Your career assessment results</h1>
+  {{#career_descriptions}}
+    <div class="jobCard">
+      <h2>{{job_title}}</h2>
+      <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
+      <p>{{job_description}}</p>
+
+      {{#foundational_skills}}
+      <h3>Foundational Skills</h3>
+      <div class="foundational-skills">
+        {{& foundational_skills }}
+      </div>
+      {{/foundational_skills}}
+
+      {{#training}}
+      <h3>Training</h3>
+      <div class="training">
+        {{& training }}
+      </div>
+      {{/training}}
+    </div>
+  {{/career_descriptions}}
+  <div class="clearfix"></div>
+</div>

@@ -114,6 +114,12 @@ a:hover {
   text-align: center;
 }
 
+span.link {
+  @extend a;
+  @extend a:link;
+  cursor: pointer;
+}
+
 
 // Design Elements //
 img {
@@ -250,6 +256,23 @@ hr {
   }
 }
 
+.email-success-message {
+  font-style: italic;
+}
+
+.email-form {
+  input {
+    height: 44px;
+    font-size: 18px;
+    padding: 0 10px;
+    margin-right: 5px;
+    width: 300px;
+  }
+
+  button {
+    padding: 5px 15px;
+  }
+}
 
 // Footer //
 footer {

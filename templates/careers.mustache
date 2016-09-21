@@ -22,7 +22,11 @@
           <h2>Save your results</h2>
           <p>Bring your results to an Opportunity Center to get the most of your visit.</p>
           <p><a href="javascript:window.print()" data-event-category="Careers" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print or Save as PDF</a></p>
-          <!--<p><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Email to yourself</a></p>-->
+          <p><span class="link" onclick="showEmailForm('main')"><i class="fa fa-envelope" aria-hidden="true"></i> Email to yourself</span></p>
+          <div id="email-success-message-main" class="email-success-message" style="display:none;">Email sent!</div>
+          <div id="email-form-main" class="email-form" style="display:none;">
+            <input type="text" name="email-address-main" placeholder="Email address" /><button onclick="emailAssessmentResults('main', {{career_ids}})">Send</button>
+          </div>
         </div>
 
         <div class="get-started">

@@ -20,6 +20,7 @@ module WorkForwardNola
         @career_matches = Career.where(traits: Trait.where(name: it_me))
                                 .map do |career|
           {
+            id: career.id,
             job_title: career.name,
             job_description: career.description,
             foundational_skills: career.foundational_skills,
@@ -40,6 +41,10 @@ module WorkForwardNola
         @career_matches.first[:first] = true
         @career_matches.last[:last] = true
         @career_matches
+      end
+
+      def career_ids
+        @career_matches.map { |career| career[:id] }
       end
 
       private
