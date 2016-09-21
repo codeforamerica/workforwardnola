@@ -1,0 +1,11 @@
+<div class="jobCardContainer" id="career-list">
+  <h1>Your top three career pathways</h1>
+  {{#career_descriptions}}
+    <div class="jobCard">
+      <h2>{{job_title}}</h2>
+      <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
+      <p>{{job_description}}</p>
+    </div>
+  {{/career_descriptions}}
+  <div class="clearfix"></div>
+</div>

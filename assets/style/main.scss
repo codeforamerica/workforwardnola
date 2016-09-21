@@ -110,6 +110,11 @@ a:hover { color: $action-color-darker; border-bottom: 1px solid $action-color-da
   text-align: center;
 }
 .fa { color: $action-color; }
+span.link {
+  @extend a;
+  @extend a:link;
+  cursor: pointer;
+}
 
 
 // Design Elements //
@@ -251,6 +256,23 @@ hr {
   }
 }
 
+#email-success-message {
+  font-style: italic;
+}
+
+#email-form {
+  input {
+    height: 44px;
+    font-size: 18px;
+    padding: 0 10px;
+    margin-right: 5px;
+    width: 300px;
+  }
+
+  button {
+    padding: 5px 15px;
+  }
+}
 
 // Footer //
 footer {

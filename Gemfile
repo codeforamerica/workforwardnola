@@ -10,6 +10,7 @@ gem 'sprockets', '~> 3.6'
 gem 'sass', '~> 3.4'
 gem 'uglifier', '~> 3.0'
 gem 'dotenv'
+gem 'pony'
 
 # database things
 gem 'pg'
