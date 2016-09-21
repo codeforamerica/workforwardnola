@@ -92,7 +92,7 @@ function emailAssessmentResults(id, careerIds) {
     $("input[name=email-address-"+id+"]").val(''); // clear email
     $("#email-form-"+id).hide(); // hide email form
     $("#email-success-message-"+id).fadeIn();
-    $("#email-success-message"+id).fadeOut("slow");
+    $("#email-success-message-"+id).fadeOut("slow");
   }
 }
 

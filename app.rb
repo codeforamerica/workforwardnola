@@ -95,7 +95,7 @@ module WorkForwardNola
       body = JSON.parse(request.body.read)
 
       @career_ids = body['career_ids']
-      email_body = mustache :careers_email
+      email_body = mustache :careers_email, layout: false
 
       Pony.mail({
         :to => body['recipient'],
