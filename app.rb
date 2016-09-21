@@ -98,18 +98,18 @@ module WorkForwardNola
       email_body = mustache :careers_email, layout: false
 
       Pony.mail({
-        :to => body['recipient'],
-        :subject => 'Your NOLA Career Results',
-        :html_body => email_body,
-        :via => :smtp,
-        :via_options => {
-          :address              => ENV['EMAIL_SERVER'],
-          :port                 => ENV['EMAIL_PORT'],
-          :enable_starttls_auto => true,
-          :user_name            => ENV['EMAIL_USER'],
-          :password             => ENV['EMAIL_PASSWORD'],
-          :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-          :domain               => ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
+        to: body['recipient'],
+        subject: 'Your NOLA Career Results',
+        html_body: email_body,
+        via: :smtp,
+        via_options: {
+          address:              ENV['EMAIL_SERVER'],
+          port:                 ENV['EMAIL_PORT'],
+          enable_starttls_auto: true,
+          user_name:            ENV['EMAIL_USER'],
+          password:             ENV['EMAIL_PASSWORD'],
+          authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
+          domain:               ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
         }
       })
 
