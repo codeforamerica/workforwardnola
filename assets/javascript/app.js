@@ -71,6 +71,32 @@ $(document).ready(function() {
   enableSubmitWithRadioChanges();
 });
 
+function showEmailForm() {
+  $("#email-form").show();
+}
+
+function emailAssessmentResults() {
+
+  var emailAddress = $("input[name=email-address]").val();
+  var careerIds = $("#career-ids")[0].innerHTML;
+
+  if(emailAddress) {
+    var data = {
+      career_ids: JSON.parse(careerIds),
+      recipient: emailAddress
+    };
+
+    $.postJSON('careers/email', data, function() {
+      // response is too long for UI to wait for change
+    });
+
+    $("input[name=email-address]").val(''); // clear email
+    $("#email-form").hide(); // hide email form
+    $("#email-success-message").fadeIn();
+    $("#email-success-message").fadeOut("slow");
+  }
+}
+
 
 
 // jQuery POST using JSON
