@@ -21,7 +21,7 @@ Run the app by running `bin/start`, all it does is call `rerun -p "**/*.{rb,js,s
 Deployment for collaborators is via heroku. Staging: wfn-staging.herokuapp.com (synced with master). Review apps are enabled for all pull requests.
 
 ## Deploying to production
-Two config variables need to be set, regardless of deployment: `ADMIN_USER` and `ADMIN_PASSWORD`. Career data is loaded via [http://<your url here>/manage](http://<your url here>/manage).
+Two config variables need to be set, regardless of deployment: `ADMIN_USER` and `ADMIN_PASSWORD`. Career data is loaded via [http://your_url_here/manage](http://<your url here>/manage).
 
 ### Heroku
 Setting up a Heroku pipeline is relatively straightforward. We have set up a pipeline with a staging app (with automatic deploys from the master branch), production app (we periodically promote the app from staging to production), and review apps are enabled. We use the Postgres add-on.

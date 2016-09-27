@@ -29,14 +29,15 @@ Adding a new trait to the assessment cannot be done without additional coding wo
 #### Assessment pictures <-> traits
 "Standard" traits:
 If a user answers 'me', the `trait` is recorded, if the answer is 'not me', the `reverse_trait` is recorded.
-```` ruby
+```ruby
 { trait: 'Following instructions',    # must match name of trait from spreadsheet/database
   reverse_trait: 'Self-starter',      # optional, is 'inverse' of trait above
   title: 'Following instructions',    # text to display with image
   file: 'instructions.jpg' },         # file name of image (in /assets/images/assessment)
-````
+```
 "Compound" traits:
 A trait may be tricky to capture in a single image. Two or more _existing_ traits can be combined to form a compound trait. If a user checks 'me' for each of the components, a 'me' is recorded for the trait.
-```` ruby
+```ruby
 { trait: 'Perceptive',    # trait name
   components: ['Detail oriented', 'Customer service'] },  # names of simpler traits
+```
