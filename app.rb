@@ -91,6 +91,11 @@ module WorkForwardNola
       mustache :jobsystem
     end
 
+    get '/opportunity-center-info' do
+      @title = 'Opportunity Center Information'
+      mustache :opp_center_info
+    end
+
     post '/careers/email' do
       body = JSON.parse(request.body.read)
 
