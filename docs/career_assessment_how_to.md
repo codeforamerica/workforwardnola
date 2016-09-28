@@ -40,6 +40,7 @@ If a user answers 'me', the `trait` is recorded, if the answer is 'not me', the 
 { trait: 'Following instructions',    # must match name of trait from spreadsheet/database
   reverse_trait: 'Self-starter',      # optional, is 'inverse' of trait above
   title: 'Following instructions',    # text to display with image
+  alt: 'Person is looking at a recipe on a computer before they begin chopping vegetables',   # text describing image, for accessibility
   file: 'instructions.jpg' },         # file name of image (in /assets/images/assessment)
 ```
 "Compound" traits:
