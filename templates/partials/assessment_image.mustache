@@ -1,6 +1,6 @@
   <div class="container clearfix">
     <p class="assessment-image-title">{{ title }}</p>
-    <img class="assessment-image" src="assets/assessment/{{ file }}" />
+    <img class="assessment-image" src="assets/assessment/{{ file }}" title="{{ title }}" alt="{{ alt }}"/>
     <div class="button-group">
       <label>
         <input type="radio" name="{{ trait }}" value="me" {{#reverse_trait}}onclick="reverseTraitTrigger('{{ reverse_trait }}', 'not-me')"{{/reverse_trait}}>
