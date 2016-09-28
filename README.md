@@ -28,3 +28,6 @@ Setting up a Heroku pipeline is relatively straightforward. We have set up a pip
 
 ### AWS
 For AWS, we roughly followed the steps for the [AWS with Sinatra](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html) setup, selecting the Ruby 2.2 with Puma configuration. We also created an integrated Postgres database instance (v. 9.5.2) as described in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html). PR #108 contains the code and configuration changes we made to the app to get it to work with AWS (Elastic Beanstalk), and some of the process is described in #106.
+
+## Updating content
+For details on updating content see other files under the `docs/` folder. Details on updating career info via spreadsheet specifically is in `[docs/career_assessment_how_to.md](docs/career_assessment_how_to.md)`.
