@@ -1,5 +1,18 @@
 'use strict';
 var spreadSheetKey;
+var messages = {'success': {
+                  'text': 'Successfully connected to Google Spreadsheet!',
+                  'class': 'success'},
+                'empty': {
+                  'text': 'Please paste in the spreadsheet link.',
+                  'class': 'alert'},
+                'bad-connection': {
+                  'text': 'Hmm, something happened with the connection. Try again.',
+                  'class': 'error'},
+                'bad-format': {
+                  'text': 'There\'s something wrong with the format of the link.',
+                  'class': 'error'}
+                };
 
 function checkSpreadsheetUrl() {
   var spreadSheetLink = $('[name="Spreadsheet URL"]').val();
@@ -52,9 +65,12 @@ function checkSpreadsheetUrl() {
   }
 }
 
-// see https://github.com/janl/mustache.js for possible flash/alert-ing
 function setState(state /* linkStatus, updateButtonDisabled, spreadSheetKey */) {
   console.log(state.linkStatus+', '+state.updateButtonDisabled+', '+state.spreadSheetKey);
+
+  $(".flash").removeClass('flash-alert flash-success flash-error')
+             .addClass('flash-'+messages[state.linkStatus].class);
+  $(".flash").html(messages[state.linkStatus].text).fadeIn();
   $('button').prop('disabled', state.updateButtonDisabled);
 }
 
@@ -68,7 +84,11 @@ function updateFromSpreadsheet() {
       }
     });
   } else {
-    console.log('no spreadsheet key! everything is terrible');
+    setState({
+      linkStatus: 'empty',
+      updateButtonDisabled: true
+    });
+    console.log('no spreadsheet key! everything is terrible.');
   }
 }
 

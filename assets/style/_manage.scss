@@ -6,14 +6,18 @@ $flashes: (
   'success': #e6efc2,
 ) !default;
 
+.flash {
+  display: block;
+  margin-bottom: $base-spacing / 2;
+  padding: $base-spacing / 2;
+  text-align: center;
+  width: 500px;
+}
+
 @each $flash-type, $color in $flashes {
   .flash-#{$flash-type} {
     background-color: $color;
     color: shade($color, 60%);
-    display: block;
-    margin-bottom: $base-spacing / 2;
-    padding: $base-spacing / 2;
-    text-align: center;
 
     a {
       color: shade($color, 70%);
@@ -24,5 +28,19 @@ $flashes: (
         color: shade($color, 90%);
       }
     }
+  }
+}
+
+.spreadsheet {
+  label {
+    font-size: 18px;
+    width: 200px;
+  }
+
+  input {
+    font-size: 18px;
+    margin-bottom: $base-spacing / 2;
+    padding: 0 10px;
+    width: 300px;
   }
 }
