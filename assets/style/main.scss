@@ -223,35 +223,33 @@ hr {
 
 
 // Opportunity Center Information //
-#oppCenterInfo {
-  #map_canvas {
-    height: 250px;
-    width: 90%;
-    margin: 2rem auto 0;
+#map_canvas {
+  height: 250px;
+  width: 90%;
+  margin: 2rem auto 0;
 
-    @media (min-width: $medium-screen) {
-      height: 400px;
-      width: 100%;
+  @media (min-width: $medium-screen) {
+    height: 400px;
+    width: 100%;
+  }
+
+  img { max-width: none; }
+  #content {
+    padding: 0 .5em 1em .5em;
+    display: block;
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      @media (min-width: $medium-screen) {
+      font-size: 2rem;
+      }
     }
-
-    img { max-width: none; }
-    #content {
-      padding: 0 .5em 1em .5em;
-      display: block;
-
-      h2 {
-        font-size: 1.6rem;
-        font-weight: 400;
-        @media (min-width: $medium-screen) {
-        font-size: 2rem;
-        }
-      }
-      p {
-        text-align: left;
-        font-weight: normal;
-        font-size: 1.1em;
-        margin: 2px 0;
-      }
+    p {
+      text-align: left;
+      font-weight: normal;
+      font-size: 1.1em;
+      margin: 2px 0;
     }
   }
 }
