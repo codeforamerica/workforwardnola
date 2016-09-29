@@ -1,10 +1,13 @@
 # Career assessment
+The career assessment is a quick and simple quiz to help a job seeker explore careers.
+
 ## How does it work?
-Each "Me" or "Not Me" response is matched with a trait like "Adaptable" or "Organized". Each career is associated with a few traits. When results are calculated, each career is given a score to reflect how closely it matches the traits chosen by the job seeker. The three careers with the highest score are displayed.
+Job seekers select a "Me" or "Not Me" response for each image, and it's matched with a trait like "Adaptable" or "Organized". Each career is associated with a few traits. When results are calculated, each career is given a score to reflect how closely it matches the traits chosen by the job seeker. The three careers with the highest score are displayed.
 
 Matching an image with a trait can happen three ways:
-1. Positive association: responding "Me" to an image is a "Me" response to the trait (Example: 'Working with customers' -> 'Customer service')
-2. Reverse association: responding "Not Me" to an image is a "Me" response to certain `reverse_trait`s (Example: 'Working with your hands' reverses to 'Technical')
+
+1. Positive association: selecting the "Me" option for an image matches a "Me" response to the trait (Example: 'Working with customers' -> 'Customer service')
+2. Reverse association: selecting "Not Me" for an image matches a "Me" response to certain `reverse_trait`s (Example: 'Working with your hands' reverses to 'Technical')
 3. Compound association: Some traits are hard to encapsulate in a single image, so "Me" responses to multiple images can also become a "Me" response to a higher-level trait (Example: 'Teamwork' and 'Self-starter' are parts of the 'Leadership' trait)
 
 ## How can I update the career information?
@@ -18,13 +21,15 @@ The current production version of this site uses [this spreadsheet](https://docs
 The numbers in the `traits` column correspond to the `id` column in the traits spreadsheet tab. To add or remove a trait from a career, add or remove the corrsponding `id` number from the `traits` column (make sure they are comma-separated). See below for adding an entirely new trait to the spreadsheet.
 
 #### Starting from scratch
-If you're setting up a new copy of this site, use this google spreadsheet template: https://drive.google.com/previewtemplate?id=1vgqsoXLJ9FSDZamGv-SzDX_xCV3wHY0Lh142nhuZDQI&mode=public. After filling in the info, go to 'File' > 'Publish to Web' and publish it as a web page. Make sure "Automatically republish when changes are made" is checked at the bottom. Save the link! You can also get the link again by opening the "Publish to Web" dialog again.
+If you're setting up a new copy of this site, use this google spreadsheet template: https://drive.google.com/previewtemplate?id=1vgqsoXLJ9FSDZamGv-SzDX_xCV3wHY0Lh142nhuZDQI&mode=public. 
+
+After filling in the info, go to 'File' > 'Publish to Web' and publish it as a web page. Make sure "Automatically republish when changes are made" is checked at the bottom. Save the link! You can also get the link again by opening the "Publish to Web" dialog again.
 
 ### Updating career info
-To update the information about a career: edit your spreadsheet, then go to the ["manage" page](http://workforwardnola.com/manage) & enter the username and password. Enter the PUBLIC link to the spreadsheet (it ends in `/pubhtml`) (Like https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8/pubhtml), wait for the link to be validated, then click "Update content".
+To update the information about a career: edit your spreadsheet, then go to the ["manage" page](http://workforwardnola.com/manage) & enter the username and password. Enter the PUBLIC link to the spreadsheet (it ends in `/pubhtml`) (Like https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8/pubhtml), wait for the link to be validated, then click "Update content". If an error message appears, double check the content format. When the content updates successfully, there will be a message indicating how many careers and traits were updated. You're done!
 
 ### Adding new career
-Add a new row to the google spreadsheet. The columns `name`, `sector`, and `experienced_wage` are required. The `traits` column is required to have the new career be included in assessment results. After filling in the new row in the spreadsheet, follow the instructions above to load the new information.
+Add a new row to the google spreadsheet. The columns `name`, `sector`, and `experienced_wage` are required. The `traits` column is required to have the new career be included in assessment results. After filling in the new row in the spreadsheet, follow the instructions for the 'Updating Career info' step above to load and publish the new information.
 
 ## Adding new trait
 Adding a new trait to the assessment cannot be done without additional coding work.
@@ -51,9 +56,11 @@ A trait may be tricky to capture in a single image. Two or more _existing_ trait
 ```
 
 ## Adding or removing a column from the careers spreadsheet
-If the case is you no longer want to show a specific piece of information, it can be left out of the HTML.
+To omit a specific piece of existing information, 'comment out' or delete it from the HTML.
 
-Otherwise, all these pieces need to be handled by a developer:
+Altering the columns in the spreadsheet corresponds to altering columns in the database and an understanding of the code. Please consult a developer if necessary.
+
+Steps for altering columns:
 1. Write a [migration](http://sequel.jeremyevans.net/rdoc/files/doc/migration_rdoc.html) to add or remove the column (there are examples in the code base)
 2. Update the `#bulk_create` method in `models/career.rb`
 3. Update the `#career_descriptions` method in `views/careers.rb`
