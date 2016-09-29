@@ -6,11 +6,11 @@ module WorkForwardNola
 
       def images
         [
-          { trait: 'Following instructions',
-            reverse_trait: 'Self-starter',
-            title: 'Following instructions',
-            alt: 'Person is looking at a recipe on a computer before they begin chopping vegetables',
-            file: 'instructions.jpg' },
+          { trait: 'Following instructions', # must match name of trait, 'me' result
+            reverse_trait: 'Self-starter', # optional, 'not me' result
+            title: 'Following instructions', # text to display with image
+            alt: 'Person is looking at a recipe on a computer before they begin chopping vegetables', # text describing image, for accessibility
+            file: 'instructions.jpg' }, # file name of image in /assets/images/assessment
           { trait: 'Working with your hands',
             reverse_trait: 'Technical',
             title: 'Working with your hands',
@@ -51,8 +51,8 @@ module WorkForwardNola
 
       def compound_traits
         [
-          { trait: 'Perceptive',
-            components: ['Detail oriented', 'Customer service'] },
+          { trait: 'Perceptive', # name of trait
+            components: ['Detail oriented', 'Customer service'] }, # these traits are in the images list above
           { trait: 'Physical Strength',
             components: ['Working with your hands', 'No fear of heights'] },
           { trait: 'Reliable',
