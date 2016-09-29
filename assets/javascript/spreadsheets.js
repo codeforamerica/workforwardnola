@@ -68,13 +68,14 @@ function checkSpreadsheetUrl() {
 function setState(state /* linkStatus, updateButtonDisabled, spreadSheetKey */) {
   console.log(state.linkStatus+', '+state.updateButtonDisabled+', '+state.spreadSheetKey);
 
-  $(".flash").removeClass('flash-alert flash-success flash-error')
+  $("#flash-spreadsheet-link").removeClass('flash-alert flash-success flash-error')
              .addClass('flash-'+messages[state.linkStatus].class);
-  $(".flash").html(messages[state.linkStatus].text).fadeIn();
+  $("#flash-spreadsheet-link").html(messages[state.linkStatus].text).fadeIn();
   $('button').prop('disabled', state.updateButtonDisabled);
 }
 
 function updateFromSpreadsheet() {
+  $('#flash-spreadsheet-link').hide();
   if(spreadSheetKey) {
     Tabletop.init({
       key: spreadSheetKey,
@@ -98,6 +99,10 @@ function uploadData(data, tabletop) {
   dataToSend.careers = data.careers.all();
 
   $.postJSON('/careers/update', dataToSend, callback = function(data) {
-    console.log('omg '+data.result);
+    console.log('omg '+data.text);
+    $("#flash-results").removeClass('flash-success flash-error')
+             .addClass('flash-'+data.result);
+    $("#flash-results").html(data.text).fadeIn();
+
   });
 }

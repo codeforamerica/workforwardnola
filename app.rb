@@ -65,8 +65,10 @@ module WorkForwardNola
       Career.bulk_create data['careers']
       # TODO: meaningful success/failure responses
       # or better handling of empty/malformed columns
-      { result: "success!! there are #{Trait.count} traits \
-      and #{Career.count} careers." }.to_json
+      {
+        result: 'success',
+        text: "Success! #{Trait.count} traits and #{Career.count} careers were saved."
+      }.to_json
     end
 
     post '/careers' do
