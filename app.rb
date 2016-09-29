@@ -15,6 +15,7 @@ module WorkForwardNola
 
     configure do
       set :database, ENV['DATABASE_URL']
+      enable :logging
     end
 
     # check for un-run migrations
@@ -61,10 +62,19 @@ module WorkForwardNola
 
     post '/careers/update' do
       data = JSON.parse(request.body.read)
-      Trait.bulk_create data['traits']
-      Career.bulk_create data['careers']
-      # TODO: meaningful success/failure responses
-      # or better handling of empty/malformed columns
+      begin
+        Trait.bulk_create data['traits']
+        Career.bulk_create data['careers']
+      rescue Sequel::Error => se
+        logger.error "Sequel::Error: #{se}"
+        logger.error se.backtrace.join("\n")
+        return {
+          result: 'error',
+          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" +
+                'Please make sure your data is in the correct format or contact an administrator.'
+        }.to_json
+      end
+
       {
         result: 'success',
         text: "Success! #{Trait.count} traits and #{Career.count} careers were saved."
