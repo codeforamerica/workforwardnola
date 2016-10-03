@@ -68,6 +68,7 @@ function checkSpreadsheetUrl() {
 function setState(state /* linkStatus, updateButtonDisabled, spreadSheetKey */) {
   console.log(state.linkStatus+', '+state.updateButtonDisabled+', '+state.spreadSheetKey);
 
+  $('#flash-results').hide();
   $("#flash-spreadsheet-link").removeClass('flash-alert flash-success flash-error')
              .addClass('flash-'+messages[state.linkStatus].class);
   $("#flash-spreadsheet-link").html(messages[state.linkStatus].text).fadeIn();
@@ -81,7 +82,6 @@ function updateFromSpreadsheet() {
       key: spreadSheetKey,
       callback: function (data, tabletop) {
         uploadData(data, tabletop);
-        // update UI somehow (more flash messages probably)
       }
     });
   } else {
@@ -98,11 +98,23 @@ function uploadData(data, tabletop) {
   dataToSend.traits = data.traits.all();
   dataToSend.careers = data.careers.all();
 
-  $.postJSON('/careers/update', dataToSend, callback = function(data) {
-    console.log('omg '+data.text);
-    $("#flash-results").removeClass('flash-success flash-error')
-             .addClass('flash-'+data.result);
-    $("#flash-results").html(data.text).fadeIn();
-
+  jQuery.post({
+    url: '/careers/update',
+    contentType: 'application/json; charset=utf-8',
+    data: JSON.stringify(dataToSend),
+    dataType: 'json',
+    success: function(data) {
+      console.log('omg '+data.text);
+      setResultsFlash(data.result, data.text);
+    },
+    error: function(jqXHR, textStatus) {
+      setResultsFlash('error', 'A server error occurred. Please make sure your data is in the correct format and try again. If problems continue, contact an administrator.');
+    }
   });
+}
+
+function setResultsFlash(status, message) {
+  $("#flash-results").removeClass('flash-success flash-error')
+             .addClass('flash-'+status);
+  $("#flash-results").html(message).fadeIn();
 }
