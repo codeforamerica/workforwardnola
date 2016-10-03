@@ -18,7 +18,9 @@ Run `rake db:migrate` and `rake db:seed` to set up the database structure and fi
 ### Running app & deployment
 Run the app by running `bin/start`, all it does is call `rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup`. The site will be available at [http://localhost:9292](http://localhost:9292). If there are errors when you try to refresh to see changes, try again - you may have been faster than the app regenerated.
 
-Deployment for collaborators is via heroku. Staging: wfn-staging.herokuapp.com (synced with master). Review apps are enabled for all pull requests.
+Deployment for collaborators is via heroku. Staging: wfn-staging.herokuapp.com (synced with master). Review apps are enabled for all pull requests. 
+
+The "Email to yourself" career assessment feature requires the `EMAIL_***` config variables to be set. We use the [pony](https://github.com/benprew/pony) gem to send emails, please see their documentation for more details.
 
 ## Deploying to production
 Two config variables need to be set, regardless of deployment: `ADMIN_USER` and `ADMIN_PASSWORD`. Career data is loaded via [http://your_url_here/manage](http://<your url here>/manage).
