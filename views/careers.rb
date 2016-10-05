@@ -27,11 +27,11 @@ module WorkForwardNola
             training: career.training,
             experienced_wage: to_money(career.experienced_wage),
             certification_required: career.certification_required,
-            match_score: trait_match_score(it_me, career.traits)
+            match_stats: trait_match_stats(it_me, career.traits)
           }
         end
 
-        @career_matches = @career_matches.sort_by { |career| career[:match_score] }
+        @career_matches = @career_matches.sort_by { |career| career[:match_stats][:score] }
                                          .reverse
                                          .first(3)
         @career_matches.each.with_index(1) do |match, i|
@@ -49,15 +49,22 @@ module WorkForwardNola
 
       private
 
-      def trait_match_score(user_trait_names, career_traits)
+      def trait_match_stats(user_trait_names, career_traits)
         score = 0
+        traits = []
 
         # loop through traits of the career and see how many match the ones the user selected
         career_traits.each do |trait|
-          score += 1 if user_trait_names.include?(trait.name)
+          if user_trait_names.include?(trait.name)
+            score += 1
+            traits.push({ name: trait.name })
+          end
         end
 
-        score
+        {
+          score: score,
+          traits: traits
+        }
       end
 
       # expecting float
