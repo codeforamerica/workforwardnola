@@ -11,6 +11,12 @@
             <h2>{{job_title}}</h2>
             <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
             <p>{{job_description}}</p>
+            {{#match_stats}}
+            <h4>Your matching traits:</h4>
+            <ul>
+              {{#traits}}<li>{{name}}</li>{{/traits}}
+            </ul>
+            {{/match_stats}}
             <div class="button-wrapper center">
               <button class="basic-button-outline" type="button" onclick="showCareer({{index}})" title="Learn More about this career" data-event-category="Careers" data-event-action="Learn more about career" data-event-label="{{job_title}}"><span>Learn More</span></button>
             </div>
