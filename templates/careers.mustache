@@ -9,14 +9,14 @@
         {{#career_descriptions}}
           <div class="jobCard">
             <h2>{{job_title}}</h2>
-            <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
-            <p>{{job_description}}</p>
+            <h3><span class="wage">{{experienced_wage}}/hour</span> on average after training</h3>
             {{#match_stats}}
-            <h4>Your matching traits:</h4>
-            <ul>
-              {{#traits}}<li>{{name}}</li>{{/traits}}
-            </ul>
+            <p class="traits"><strong>Your matched results</strong><br>
+              {{#traits}}<span>{{name}}</span>{{/traits}}
+            </p>
             {{/match_stats}}
+            <p><strong>Responsibilities</strong><br>
+            <span>{{job_description}}</span></p>
             <div class="button-wrapper center">
               <button class="basic-button-outline" type="button" onclick="showCareer({{index}})" title="Learn More about this career" data-event-category="Careers" data-event-action="Learn more about career" data-event-label="{{job_title}}"><span>Learn More</span></button>
             </div>
