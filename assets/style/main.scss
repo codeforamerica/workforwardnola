@@ -142,18 +142,10 @@ hr {
 
 
 // Feedback //
-#global-alert {
-  padding: .5em 0;
-  background-color: $light-gray;
-
-  .centered { padding: .2rem 1.5rem; }
-  .fa-comments {
-    color: $white;
-    padding: 4px;
-    margin: 0 5px 0 0;
-    background-color: $heading-color;
-    border-radius: $round-radius;
-  }
+#branding {
+  font-style: italic;
+  padding: .2rem 1.5rem;
+  p { font-size: 90%; }
   @media print { display: none; }
 }
 
