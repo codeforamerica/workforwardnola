@@ -1,3 +1,13 @@
 #!/bin/sh
 
-rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup
+argval=$1
+if [ -n $argval ]; then
+  echo "arg = $argval"
+  APP_HOST=$(echo $argval | cut -d ':' -f 1)
+  echo "host var = $APP_HOST"
+  APP_PORT=$(echo $argval | cut -d ':' -f 2)
+  echo "port var = $APP_PORT"
+  rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" "rackup --host $APP_HOST --port $APP_PORT"
+else
+  rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup
+fi
