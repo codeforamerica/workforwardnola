@@ -7,7 +7,7 @@ module WorkForwardNola
       def images
         [
           { trait: 'Following instructions', # must match name of trait, 'me' result
-            reverse_trait: 'Self-starter', # optional, 'not me' result
+            #reverse_trait: 'Self-starter', # optional, 'not me' result
             title: 'Following instructions', # text to display with image
             alt: 'Person is looking at a recipe on a computer before they begin chopping vegetables', # text describing image, for accessibility
             file: 'instructions.jpg' }, # file name of image in /assets/images/assessment
