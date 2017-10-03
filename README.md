@@ -14,7 +14,7 @@ Make sure [Postgres is installed](https://devcenter.heroku.com/articles/heroku-p
 Run `rake db:migrate` and `rake db:seed` to set up the database structure and fill it with sample data. If the data doesn't show up, try running `rake db:reset` and `rake db:seed`. Career data can also be loaded via [http://localhost:9292/manage](http://localhost:9292/manage). and a spreadsheet.
 
 ### Running app & deployment
-Run the app by running `bin/start`, all it does is call `rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup`. The site will be available at [http://localhost:9292](http://localhost:9292). If there are errors when you try to refresh to see changes, try again - you may have been faster than the app regenerated.
+Run the app by running `bin/start`, with an optional command line argument `"$IP:$PORT"`, all it does is call `rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup`. The site will be available at [http://localhost:9292](http://localhost:9292). If there are errors when you try to refresh to see changes, try again - you may have been faster than the app regenerated.
 
 The Code for America NOLA fellows team is no longer actively developing this. We had set up a deployment pipeline via heroku, syncing the staging site with the master branch and enabling review apps for pull requests. It worked well!
 
