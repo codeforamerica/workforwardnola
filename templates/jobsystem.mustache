@@ -1,64 +1,80 @@
 <section id="oc-form">
-  <div class="centered">
+   <footer role="contentinfo">
+       
+        <div class="logos clearfix">
+          <a href="http://www.thenetworkneworleans.org/" title="The Network for Economic Opportunity Website" target="_blank" class="network-logo"><img alt="The Network for Economic Opportunity Logo" src="assets/network-logo.png"/></a>
+          <a href="http://www.nola.gov/" title="New Orleans City Government Website" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
+        </div>
+        </footer>
+   
+    <h1>Job System Sign-up Form</h1>
+   <form>
+     <strong>Whats your name? *</strong>
+     <div style="float: right">
+      <strong> How did you learn about us? * </strong> 
+      </div> </br>
+      <input type="text" name="fName" required> 
+     <input type="text" name="lName" required> 
+     
+    <div style="float: right; padding-right:1cm">
+       <select name="referral" required>
+       <option value =" "> </option>
+       <option value ="Through an online search">Through an online search</option>
+       <option value="Midnight Basketball Website">Midnight Basketball Website</option>
+       <option value"Friend">Friend</option>
+       <option value="Library">Library</option>
+       <option value="Community Group">Community Group</option>
+       <option value="other">Other</option>
+     </select>
+    </div> </br>
+    <span>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+     <span>Last Name</span> 
+    
+     
+      <hr>
+     <h2>We're going to ask a couple of questions to figure out which 
+     Opportunity Center is the best match for you</h2>
+     <strong>Which of these apply to you? *</strong> </br> </br>
+       <input type="checkbox" name="young_adult" value="I am between the ages of 18-24">I am between the ages of 18-24</br>
+       <input type="checkbox" name="veteran" value="I am a Veteran">I am a Veteran</br>
+       <input type="checkbox" name="no_transportation" value="I don't always have a way to get to and from work">I don't always have a way to get to and from work</br>
+       <input type="checkbox" name="homeless" value="I am homeless or staying with someone temporarily">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" name="no_drivers_license" value="I don't have a driver's license">I don't have a driver's license</br>
+       <input type="checkbox" name="no_state_id" value="I don't have a state-issued I.D.">I don't have a state-issued I.D.</br>
+       <input type="checkbox" name="disabled" value="I am disabled">I am disabled</br>
+       <input type="checkbox" name="childcare" value="I need childcare">I need childcare</br>
+       <input type="checkbox" name="criminal" value="I have an open criminal chargee">I have an open criminal chargee</br>
+       <input type="checkbox" name="previously_incarcerated" value="I have been previously incarcerated"> I have been previously incarcerated</br>
+       <input type="checkbox" name="using_drugs" value="I am using drugs and want to get help">I am using drugs and want to get help</br> 
+       <input type="checkbox" name="none" value="Non of these apply to me">None of these apply to me</br> </br>
+       
+       <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
+     <select name="neighborhood" required>
+       <option></option>
+       <option value="upper_ninth_ward">Upper Ninth Ward</option>
+       <option value="cbd">CBD-Downtown</option>
+       <option value="mid-city">Mid-City</option>
+       <option value="garden_district">Garden District</option>
+       <option value="none">None of the above</option>
+     </select>
+     <hr>
+     <h2>Visit one of the the following Opportunity Center(s) to find out 
+     how they can help you work towards a career.</h2>
+     <p>Please answer the questions above to be matched with an Opportunity Center.</p>
+     <hr>
+     <h2>Now that you know where to go, add your contact information so that 
+     we can follow up and answer any questions you may have.</h2> </br>
+     <strong>What's the best way to contact you? *</strong></br>
+       <input type="checkbox" name="email" value="E-mail">E-mail</br>
+       <input type="checkbox" name="phone_call" value="Phone call">Phone Call</br>
+       <input type="checkbox" name="text" value="Text Message">Text Message</br></br>
+   <strong>If you have a resume, upload it here. </strong> </br>
+    <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
     <div class="button-wrapper center">
-      <a href="/" data-event-category="JobSystem" data-event-action="Back to homepage" title="Return to home page" class="basic-button">Back to home page</a>
-    </div>
-    <iframe
-      id="JotFormIFrame-62695003498160"
-      onload="window.parent.scrollTo(0,0)"
-      allowtransparency="true"
-      src="https://form.jotform.com/62695003498160"
-      frameborder="0"
-      style="width:100%;
-      height:2903px;
-      border:none;"
-      scrolling="no">
-    </iframe>
-    <script type="text/javascript">
-      window.handleIFrameMessage = function(e) {
-        var args = e.data.split(":");
-        var iframe = false;
-        if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[2]); } else { iframe = document.getElementById("JotFormIFrame"); }
-        if (!iframe)
-          return;
-        switch (args[0]) {
-          case "scrollIntoView":
-            iframe.scrollIntoView();
-            break;
-          case "setHeight":
-            iframe.style.height = args[1] + "px";
-            break;
-          case "collapseErrorPage":
-            if (iframe.clientHeight > window.innerHeight) {
-              iframe.style.height = window.innerHeight + "px";
-            }
-            break;
-          case "reloadPage":
-            window.location.reload();
-            break;
-        }
-        var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
-        if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
-          var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
-          iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
-        }
-      };
-      if (window.addEventListener) {
-        window.addEventListener("message", handleIFrameMessage, false);
-      } else if (window.attachEvent) {
-        window.attachEvent("onmessage", handleIFrameMessage);
-      }
-      if(window.location.href && window.location.href.indexOf("?") > -1) {
-        var ifr = false;
-        if (args.length > 2) { ifr = document.getElementById("JotFormIFrame-" + args[2]); } else { ifr = document.getElementById("JotFormIFrame"); }
-        var get = window.location.href.substr(window.location.href.indexOf("?") + 1);
-        if(ifr && get.length > 0) {
-          var src = ifr.src;
-          src = src.indexOf("?") > -1 ? src + "&" + get : src  + "?" + get;
-          ifr.src = src;
-        }
-      }
-    </script>
+    <input type="submit" value="submit" class="basic-button">
+    </div>   
+       <hr>
+   </form>
   </div>
 </section>
 <section>
