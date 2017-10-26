@@ -11,7 +11,6 @@ Sequel.migration do
       String :sector, null: false
       String :description, text: true
       Float :average_wage, null: false
-      Float :experienced_wage, null: false
       TrueClass :training_money_available, null: false, default: false
       TrueClass :certification_required, null: false, default: false
     end

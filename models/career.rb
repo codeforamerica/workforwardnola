@@ -13,7 +13,7 @@ module WorkForwardNola
         new_career = Career.create(
           name: career['name'],
           sector: career['sector'],
-          experienced_wage: career['experienced_wage'],
+          experienced_range: career['experienced_range'],
           foundational_skills: career['foundational_skills'],
           certification_required: career['certification_required'],
           description: career['description'],

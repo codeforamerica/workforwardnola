@@ -1,5 +1,3 @@
-# REFERENCE, regenerate by running `rake db:dump`
-
 Sequel.migration do
   change do
     create_table(:careers) do
@@ -7,20 +5,16 @@ Sequel.migration do
       String :name, :text=>true, :null=>false
       String :sector, :text=>true, :null=>false
       String :description, :text=>true
-      Float :experienced_wage, :null=>false
       TrueClass :certification_required, :default=>false, :null=>false
       String :foundational_skills, :text=>true
       String :training, :text=>true
+      String :experienced_range, :text=>true
+      String :general_duties, :text=>true
+      String :entry_wage, :text=>true
     end
     
     create_table(:schema_info) do
       Integer :version, :default=>0, :null=>false
-    end
-    
-    create_table(:schema_migrations, :ignore_index_errors=>true) do
-      String :version, :null=>false
-      
-      index [:version], :name=>:unique_schema_migrations, :unique=>true
     end
     
     create_table(:schema_seeds) do
