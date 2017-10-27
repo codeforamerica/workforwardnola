@@ -3,19 +3,19 @@ module WorkForwardNola
     # logic for showing assessment images
     class Assessment < Layout
       attr_reader :title
-
-      #reverse_trait is an optional feature, used for a 'not me' result
+      
       def images
         [
           { trait: 'Problem solver', # must match name of trait, 'me' result
             reverse_trait: 'Following instructions', # optional, 'not me' result
             title: 'Solving problems', # text to display with image
-            alt: 'Person is looking at a recipe on a computer before they begin chopping vegetables', # text describing image, for accessibility
-            file: 'instructions.jpg' }, # file name of image in /assets/images/assessment or /assets/images/careers
+            alt: 'Person is sitting in a chair looking at a computer', # text describing image, for accessibility
+            file: 'help_desk.jpg' }, # file name of image in /assets/images/assessment or /assets/images/careers
           { trait: 'Working with your hands',
             reverse_trait: 'Work on ground',
-            title: 'Working with your hands?',
-            alt: 'Person has a screwdriver and wrench in their hands and is working on mechanical parts',
+            title: 'Working with your hands',
+            alt: 'Person has a screwdriver and wrench in their 
+                hands and is working on mechanical parts',
             file: 'withhands.jpg' },
           { trait: 'Teamwork',
             reverse_trait: 'Helpful',
@@ -30,18 +30,20 @@ module WorkForwardNola
           { trait: 'Following instructions',
             reverse_trait: 'Open-minded',
             title: 'Following instructions',
-            alt: 'Person is sitting behind a desk helping a customer fill out paperwork',
+            alt: 'Person is sitting behind a desk helping 
+                  a customer fill out paperwork',
             file: 'customerservice.jpg' },
           { trait: 'Outgoing personality',
             reverse_trait: 'Individualistic',
             title: 'Outgoing personality',
-            alt: 'Person is loading on a patient on a wheelchair into the back of a van',
+            alt: 'Person is loading on a patient on a wheelchair 
+                 into the back of a van',
             file: 'patient_driver.jpg' },
-          { trait: 'Work outdoors', #needs to have a new picture to fit the assessment
+          { trait: 'Work outdoors',
             reverse_trait: 'Work on ground',
             title: 'Work outdoors',
-            alt: 'Picture of a well-organized closet', #need to change alt 
-            file: 'electrician.jpg' }, #need new file
+            alt: 'Person is holding a wrench tool and smiling',
+            file: 'plumber.jpg' },
           { trait: 'No fear of heights',
             reverse_trait: 'Work on ground',
             title: 'Comfortable with heights',
@@ -60,8 +62,8 @@ module WorkForwardNola
           { trait: 'Helping people',
             reverse_trait: 'Physical Strength',
             title: 'Helping people',
-            alt: 'Person is driving a person in a wheelchair',
-            file: 'patient_transport.jpg' }
+            alt: 'Person delivering food to a patient on a hospital bed',
+            file: 'food_delivery.jpg' }
         ]
       end
 
