@@ -3,19 +3,14 @@ module WorkForwardNola
     # logic for showing assessment images
     class Assessment < Layout
       attr_reader :title
-      
       def images
         [
-          { # must match name of trait, 'me' result
-            trait: 'Problem solver',
-            # optional, 'not me' result
-            reverse_trait: 'Following instructions',
-            # text to display with image
-            title: 'Solving problems',
+          { trait: 'Problem solver', # must match name of trait, 'me' result
+            reverse_trait: 'Following instructions', # optional, 'not me' result
+            title: 'Solving problems', # text to display with image
             # text describing image, for accessibility
             alt: 'Person is sitting in a chair looking at a computer',
-            # file name of image in /assets/images/assessment
-            file: 'help_desk.jpg' },
+            file: 'help_desk.jpg' }, # name ofimage in /assets/images/assessment
           { trait: 'Working with your hands',
             reverse_trait: 'Work on ground',
             title: 'Working with your hands',
@@ -68,27 +63,26 @@ module WorkForwardNola
             file: 'food_delivery.jpg' }
         ]
       end
-
       def compound_traits
         [
           { # name of trait
             trait: 'Open-minded', # name of trait
             # component traits are in the images list above
             components: ['Problem solver', 
-                        'Learner'] },
+                         'Learner'] },
           { trait: 'Physical Strength',
             components: ['Working with your hands', 
-                        'No fear of heights'] },
+                         'No fear of heights'] },
           { trait: 'Work on ground',
             components: ['Learner', 'Problem solver', 'Detail oriented', 
-                        'Outgoing personality', 'Following Instructions', 
-                        'Helping people'] },
+                         'Outgoing personality', 'Following Instructions', 
+                         'Helping people'] },
           { trait: 'Individualistic',
             components: ['Learner', 'Problem solver', 'Working outdoors', 
-                        'Working with your hands', 'No fear of heights'] },
+                         'Working with your hands', 'No fear of heights'] },
           { trait: 'Helpful',
             components: ['Outgoing personality', 'Following instructions', 
-                        'Helping people'] }
+                         'Helping people'] }
         ]
       end
     end
