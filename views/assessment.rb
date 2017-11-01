@@ -6,16 +6,20 @@ module WorkForwardNola
       
       def images
         [
-          { trait: 'Problem solver', # must match name of trait, 'me' result
-            reverse_trait: 'Following instructions', # optional, 'not me' result
-            title: 'Solving problems', # text to display with image
-            alt: 'Person is sitting in a chair looking at a computer', # text describing image, for accessibility
-            file: 'help_desk.jpg' }, # file name of image in /assets/images/assessment or /assets/images/careers
+          { # must match name of trait, 'me' result
+            trait: 'Problem solver',
+            # optional, 'not me' result
+            reverse_trait: 'Following instructions',
+            # text to display with image
+            title: 'Solving problems',
+            # text describing image, for accessibility
+            alt: 'Person is sitting in a chair looking at a computer',
+            # file name of image in /assets/images/assessment
+            file: 'help_desk.jpg' },
           { trait: 'Working with your hands',
             reverse_trait: 'Work on ground',
             title: 'Working with your hands',
-            alt: 'Person has a screwdriver and wrench in their 
-                hands and is working on mechanical parts',
+            alt: 'Person has tools in their hands working on mechanical parts',
             file: 'withhands.jpg' },
           { trait: 'Teamwork',
             reverse_trait: 'Helpful',
@@ -25,24 +29,22 @@ module WorkForwardNola
           { trait: 'Learner',
             reverse_trait: 'Helpful',
             title: 'Learning new things',
-            alt: 'A person sitting in a chair in front of a computer screen',
+            alt: 'Person sitting in a chair in front of a computer screen',
             file: 'service_desk.jpg' },
           { trait: 'Following instructions',
             reverse_trait: 'Open-minded',
             title: 'Following instructions',
-            alt: 'Person is sitting behind a desk helping 
-                  a customer fill out paperwork',
+            alt: 'Person is sitting at a desk helping a customer fill out paperwork',
             file: 'customerservice.jpg' },
           { trait: 'Outgoing personality',
             reverse_trait: 'Individualistic',
             title: 'Outgoing personality',
-            alt: 'Person is loading on a patient on a wheelchair 
-                 into the back of a van',
+            alt: 'Person is loading on a patient on a wheelchair into the back of a van',
             file: 'patient_driver.jpg' },
           { trait: 'Work outdoors',
             reverse_trait: 'Work on ground',
             title: 'Work outdoors',
-            alt: 'Person is holding a wrench tool and smiling',
+            alt: 'Person is holding a wrench and smiling',
             file: 'plumber.jpg' },
           { trait: 'No fear of heights',
             reverse_trait: 'Work on ground',
@@ -57,7 +59,7 @@ module WorkForwardNola
           { trait: 'Physical Strength',
             reverse_trait: 'Helping people',
             title: 'Physical strength',
-            alt: 'Person is smiling with construction gear on along with his co-workers',
+            alt: 'Person wearing construction gear along with co-workers',
             file: 'laborer.jpg' },
           { trait: 'Helping people',
             reverse_trait: 'Physical Strength',
@@ -67,17 +69,18 @@ module WorkForwardNola
         ]
       end
 
-
       def compound_traits
         [
           { trait: 'Open-minded', # name of trait
-            components: ['Problem solver', 'Learner'] }, # these traits are in the images list above
+            components: ['Problem solver', 'Learner'] }, # traits are in the images list above
           { trait: 'Physical Strength',
             components: ['Working with your hands', 'No fear of heights'] },
           { trait: 'Work on ground',
-            components: ['Learner', 'Problem solver', 'Detail oriented', 'Outgoing personality', 'Following Instructions', 'Helping people'] },
+            components: ['Learner', 'Problem solver', 'Detail oriented', 
+            'Outgoing personality', 'Following Instructions', 'Helping people'] },
           { trait: 'Individualistic',
-            components: ['Learner', 'Problem solver', 'Working outdoors', 'Working with your hands', 'No fear of heights'] },
+            components: ['Learner', 'Problem solver', 'Working outdoors', 
+            'Working with your hands', 'No fear of heights'] },
           { trait: 'Helpful',
             components: ['Outgoing personality', 'Following instructions', 'Helping people'] }
         ]
