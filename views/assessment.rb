@@ -63,12 +63,11 @@ module WorkForwardNola
             file: 'food_delivery.jpg' }
         ]
       end
+      
       def compound_traits
         [
-          { # name of trait
-            trait: 'Open-minded', # name of trait
-            # component traits are in the images list above
-            components: ['Problem solver', 
+          { trait: 'Open-minded', # name of trait
+            components: ['Problem solver', # component traits from above
                          'Learner'] },
           { trait: 'Physical Strength',
             components: ['Working with your hands', 
