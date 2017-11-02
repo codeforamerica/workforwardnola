@@ -8,7 +8,7 @@ module WorkForwardNola
           { trait: 'Problem solver', # must match name of trait, 'me' result
             reverse_trait: 'Following instructions', # optional, 'not me' result
             title: 'Solving problems', # text to display with image
-            # text describing image, for accessibility
+            # alt text describing image, for accessibility
             alt: 'Person is sitting in a chair looking at a computer',
             file: 'help_desk.jpg' }, # name ofimage in /assets/images/assessment
           { trait: 'Working with your hands',
@@ -67,11 +67,10 @@ module WorkForwardNola
       def compound_traits
         [
           { trait: 'Open-minded', # name of trait
-            components: ['Problem solver', # component traits from above
+            components: ['Problem solver', # component traits taken from above
                          'Learner'] },
           { trait: 'Physical Strength',
-            components: ['Working with your hands', 
-                         'No fear of heights'] },
+            components: ['Working with your hands', 'No fear of heights'] },
           { trait: 'Work on ground',
             components: ['Learner', 'Problem solver', 'Detail oriented', 
                          'Outgoing personality', 'Following Instructions', 
