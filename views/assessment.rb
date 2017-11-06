@@ -9,7 +9,7 @@ module WorkForwardNola
             reverse_trait: 'Following instructions', # optional, 'not me' result
             title: 'Solving problems', # text to display with image
             # alt text describing image, for accessibility
-            alt: 'Person is sitting in a chair looking at a computer',
+            alt: 'Person is wearing a headset and looking at a computer',
             file: 'help_desk.jpg' }, # name ofimage in /assets/images/assessment
           { trait: 'Working with your hands',
             reverse_trait: 'Work on ground',
@@ -24,8 +24,8 @@ module WorkForwardNola
           { trait: 'Learner',
             reverse_trait: 'Helpful',
             title: 'Learning new things',
-            alt: 'Person sitting in a chair in front of a computer screen',
-            file: 'service_desk.jpg' },
+            alt: 'Person sitting in front of a computer',
+            file: 'junior_programmer.jpg' },
           { trait: 'Following instructions',
             reverse_trait: 'Open-minded',
             title: 'Following instructions',
@@ -59,8 +59,8 @@ module WorkForwardNola
           { trait: 'Helping people',
             reverse_trait: 'Physical Strength',
             title: 'Helping people',
-            alt: 'Person delivering food to a patient on a hospital bed',
-            file: 'food_delivery.jpg' }
+            alt: 'Nurse is holding a clipboard and smiling',
+            file: 'housekeeping_aide.jpg' }
         ]
       end
       
