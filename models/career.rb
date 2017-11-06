@@ -14,6 +14,7 @@ module WorkForwardNola
           name: career['name'],
           sector: career['sector'],
           experienced_range: career['experienced_range'],
+          entry_wage: career['entry_wage'],
           foundational_skills: career['foundational_skills'],
           certification_required: career['certification_required'],
           description: career['description'],

@@ -26,6 +26,7 @@ module WorkForwardNola
             foundational_skills: career.foundational_skills,
             training: career.training,
             experienced_range: career.experienced_range,
+            entry_wage: career.entry_wage, 
             certification_required: career.certification_required,
             match_stats: trait_match_stats(it_me, career.traits)
           }
