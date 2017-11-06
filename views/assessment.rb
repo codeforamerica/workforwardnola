@@ -19,7 +19,7 @@ module WorkForwardNola
           { trait: 'Teamwork',
             reverse_trait: 'Helpful',
             title: 'Working on a team',
-            alt: 'Two people are looking at a computer screen together',
+            alt: 'Multiple hands are working on computers together',
             file: 'teamwork.jpg' },
           { trait: 'Learner',
             reverse_trait: 'Helpful',
