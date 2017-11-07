@@ -7,12 +7,10 @@ Sequel.migration do
       String :description, :text=>true
       TrueClass :certification_required, :default=>false, :null=>false
       String :foundational_skills, :text=>true
+      String :training, :text=>true
       String :experienced_range, :text=>true
       String :general_duties, :text=>true
       String :entry_wage, :text=>true
-      String :training, :text=>true
-      String :file_name, :text=>true
-      String :alt_title, :text=>true
     end
     
     create_table(:schema_info) do

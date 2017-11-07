@@ -23,7 +23,7 @@ module WorkForwardNola
             id: career.id,
             job_title: career.name,
             job_description: career.description,
-            foundational_skills: career.foundational_skills,
+            general_duties: career.general_duties,
             training: career.training,
             experienced_range: career.experienced_range,
             entry_wage: career.entry_wage, 
