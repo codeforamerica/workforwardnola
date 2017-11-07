@@ -14,6 +14,7 @@
 
   .assessment-image {
     max-width: 400px;
+    max-height: 250px;
     margin: 0 auto 1.5rem;
     display: block;
   }
@@ -145,7 +146,7 @@
     font-style: normal;
     @media print { font-size: inherit; }
   }
-  .foundational-skills { margin-bottom: 3rem; }
+  .general-duties { margin-bottom: 3rem; }
   li { margin: 0 0 2rem 0; }
   li:last-child { margin: 0; }
   @media print {
