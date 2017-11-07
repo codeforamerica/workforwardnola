@@ -1,4 +1,4 @@
-# workforwardnola
+# workforwardnola [![CodeFactor](https://www.codefactor.io/repository/github/loyno-mathcs/workforwardnola/badge)](https://www.codefactor.io/repository/github/loyno-mathcs/workforwardnola) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c6e79f4eeece4ae1a4d60cba9943f5ed)](https://www.codacy.com/app/nihonjinrxs/workforwardnola?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=loyno-mathcs/workforwardnola&amp;utm_campaign=Badge_Grade) [![codebeat badge](https://codebeat.co/badges/3384331f-ae8f-494f-a568-a1a23dc493a7)](https://codebeat.co/projects/github-com-loyno-mathcs-workforwardnola-master) [![Travis CI](https://travis-ci.org/loyno-mathcs/workforwardnola.svg?branch=master)](https://travis-ci.org/loyno-mathcs/workforwardnola)
 Job seeker focused website for NOLA. There is a version live at http://careerpathnola.com (hosted by the City of New Orleans).
 
 ## Dev setup
@@ -14,7 +14,7 @@ Make sure [Postgres is installed](https://devcenter.heroku.com/articles/heroku-p
 Run `rake db:migrate` and `rake db:seed` to set up the database structure and fill it with sample data. If the data doesn't show up, try running `rake db:reset` and `rake db:seed`. Career data can also be loaded via [http://localhost:9292/manage](http://localhost:9292/manage). and a spreadsheet.
 
 ### Running app & deployment
-Run the app by running `bin/start`, all it does is call `rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup`. The site will be available at [http://localhost:9292](http://localhost:9292). If there are errors when you try to refresh to see changes, try again - you may have been faster than the app regenerated.
+Run the app by running `bin/start`, with an optional command line argument `"$IP:$PORT"`, all it does is call `rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup`. The site will be available at [http://localhost:9292](http://localhost:9292). If there are errors when you try to refresh to see changes, try again - you may have been faster than the app regenerated.
 
 The Code for America NOLA fellows team is no longer actively developing this. We had set up a deployment pipeline via heroku, syncing the staging site with the master branch and enabling review apps for pull requests. It worked well!
 
