@@ -1,36 +1,45 @@
-
 {
     "$schema": "http://json-schema.org/schema#"
-    "id": "job_system_form"
+    "id": "job_system_form",
     "title": "Person",
     "type": "object",
     "properties": {
-        "firstName": {
+        "fName": {
             "description": "First Name",
-            "type": "string,"
+            "type": "string",
         },
-        "lastName": {
+        "lName": {
             "description": "Last Name",
             "type": "string",
         },
-        "age": {
-            "description": "Age in years",
-            "type": "integer",
-            "minimum": 0
-        },
+        
         "referal": {
-            "description": "How did you learn about us",
-            "type": "string",
-            "enum": ["Through an online search", "Midnight Basketball Website", "Friend", "Library", "Community Group", "Other" ],
             
-        }
+            type: "string",
+            "enum": [
+                  "Through an online Search",
+                  "Midnight Basketball Website",
+                  "Friend", 
+                  "Library", 
+                  "Community Group",
+                  "Other",
+             ],
+        
+            
+        },
         "neighborhood": {
             "description": "Which neighborhood are you closest to",
             "type": "string",
-            "enum": ["Upper Ninth Ward", "CBD-Downtown", "Mid-City", "Garden District", "None of the above"],
-        }
+            "enum": [
+                "Upper Ninth Ward",
+                "CBD-Downtown", 
+                "Mid-City", 
+                "Garden District",
+                "None of the above",
+                ],
+        },
         
-        }
+        },
         "email": {
             "description": "example@example.com",
             "type": "string",
@@ -40,13 +49,8 @@
             "type": "string",
             "pattern": "^[0-9()\\-\\.\\s]+$",
         },
-        "apply_to_you" {
         
-            "description": "Questions to identify oportunity center",
-            "type": "boolean",
-            
-        }
-        }
+        
     },
-    "required": ["firstName", "lastName", "age", "referal", "neighborhood"]
+    "required": ["firstName", "lastName", "age", "referal", "neighborhood"],
 }
