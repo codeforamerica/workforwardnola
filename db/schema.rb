@@ -6,10 +6,9 @@ Sequel.migration do
       String :sector, :text=>true, :null=>false
       String :description, :text=>true
       TrueClass :certification_required, :default=>false, :null=>false
-      String :foundational_skills, :text=>true
       String :training, :text=>true
-      String :experienced_range, :text=>true
       String :general_duties, :text=>true
+      String :experienced_range, :text=>true
       String :entry_wage, :text=>true
     end
     
