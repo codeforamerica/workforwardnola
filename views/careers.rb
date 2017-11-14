@@ -69,7 +69,7 @@ module WorkForwardNola
       end
 
       # expecting float
-     # def to_money(amount)
+      # def to_money(amount)
       #  sprintf '$%.2f', amount
         # if needed, for putting commas in money format:
         # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
