@@ -102,6 +102,12 @@ module WorkForwardNola
       @title = 'Job System'
       mustache :jobsystem
     end
+   
+    post '/contact' do
+      "My name is #{params[:fName]}, and I love #{params[:lName]}"
+    end
+
+
 
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
