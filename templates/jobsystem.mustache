@@ -8,7 +8,7 @@
         </footer>
    
     <h1>Job System Sign-up Form</h1>
-   <form>
+   <form method="post" action="/contact">
      <strong>Whats your name? *</strong>
      <div style="float: right">
       <strong> How did you learn about us? * </strong> 
@@ -65,13 +65,13 @@
      <h2>Now that you know where to go, add your contact information so that 
      we can follow up and answer any questions you may have.</h2> </br>
      <strong>What's the best way to contact you? *</strong></br>
-       <input type="checkbox" name="email" value="E-mail">E-mail</br>
-       <input type="checkbox" name="phone_call" value="Phone call">Phone Call</br>
-       <input type="checkbox" name="text" value="Text Message">Text Message</br></br>
+       <input type="radio" name="best_way" value="E-mail">E-mail</br>
+       <input type="radio" name="best_way" value="Phone call">Phone Call</br>
+       <input type="radio" name="best_way" value="Text Message">Text Message</br></br>
    <strong>If you have a resume, upload it here. </strong> </br>
     <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
     <div class="button-wrapper center">
-    <input type="submit" value="submit" class="basic-button">
+    <input type="submit" class="basic-button">
     </div>   
        <hr>
    </form>
