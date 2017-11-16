@@ -107,8 +107,6 @@ module WorkForwardNola
       "My name is #{params[:fName]}, and I love #{params[:lName]}"
     end
 
-
-
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
       mustache :opp_center_info
