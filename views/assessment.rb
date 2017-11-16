@@ -54,6 +54,7 @@ module WorkForwardNola
           { trait: 'Physical Strength',
             reverse_trait: 'Helping people',
             title: 'Physical strength',
+
             alt: 'Person wearing construction gear along with co-workers',
             file: 'laborer.jpg' },
           { trait: 'Helping people',
