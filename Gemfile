@@ -11,6 +11,7 @@ gem 'sass', '~> 3.4'
 gem 'uglifier', '~> 3.0'
 gem 'dotenv'
 gem 'pony'
+gem "google_drive"
 
 # database things
 gem 'pg'
