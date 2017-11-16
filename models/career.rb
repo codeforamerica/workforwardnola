@@ -16,6 +16,8 @@ module WorkForwardNola
           experienced_range: career['experienced_range'],
           entry_wage: career['entry_wage'],
           general_duties: career['general_duties'],
+          career_image: career['career_image'],
+          alt_title: career['alt_title'],
           certification_required: career['certification_required'],
           description: career['description'],
           training: career['training']
