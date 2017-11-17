@@ -112,7 +112,7 @@ module WorkForwardNola
   
    
     post '/contact' do
-      new_row = [params["first_name"], params["last_name"], params["referral"], params["neighborhood"], params["young_adult"], params["veteran"], params["no_transportation"],
+      new_row = [params["first_name"], params["last_name"],params["best_way"], params["referral"], params["neighborhood"], params["young_adult"], params["veteran"], params["no_transportation"],
       params["homeless"], params["no_drivers_license"], params["no_state_id"], params["disabled"], params["childcare"], params["criminal"], params["previously_incarcerated"], params["using_drugs"], params["none"]]
       begin
         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
