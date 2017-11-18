@@ -66,11 +66,11 @@
      we can follow up and answer any questions you may have.</h2> </br>
      <strong>What's the best way to contact you? *</strong></br>
        <input id="email" type="radio" name="best_way" value="E-mail" onclick="add_email()">E-mail</br>
-       <input id="email_submission_spot" name="email_submission" type="text" style="display:none;"></p>
+       <input id="email_submission_spot" name="email_submission" type="email" style="display:none;"></br>
        <input type="radio" name="best_way" value="Phone call" onclick="add_phone()">Phone Call</br>
-        <input id="phone_submission_spot" name="phone_submission" type="email" style="display:none;"></p>
+        <input id="phone_submission_spot" name="phone_submission" type="tel" style="display:none;"></br>
        <input type="radio" name="best_way" value="Text Message" onclick="add_text()">Text Message</br>
-        <input id="text_submission_spot" name="phone_submission" type="text" style="display:none;"></p>
+        <input id="text_submission_spot" name="phone_submission" type="tel" style="display:none;"></br>
    <strong>If you have a resume, upload it here. </strong> </br>
     <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
     <div class="button-wrapper center">
@@ -133,6 +133,8 @@
        document.getElementById("text_submission_spot").style = "display: inline;";
        document.getElementById("phone_submission_spot").style = "display: none;";
     }
+    
+    
     </script>
   </div>
 </section>
