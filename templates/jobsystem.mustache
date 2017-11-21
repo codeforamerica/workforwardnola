@@ -35,19 +35,20 @@
      <h2>We're going to ask a couple of questions to figure out which 
      Opportunity Center is the best match for you</h2>
      <strong>Which of these apply to you? *</strong> </br> </br>
-       <input type="checkbox" name="young_adult" value="true">I am between the ages of 18-24</br>
-       <input type="checkbox" name="veteran" value="true">I am a Veteran</br>
-       <input type="checkbox" name="no_transportation" value="true">I don't always have a way to get to and from work</br>
-       <input type="checkbox" name="homeless" value="true">I am homeless or staying with someone temporarily</br>
-       <input type="checkbox" name="no_drivers_license" value="true">I don't have a driver's license</br>
-       <input type="checkbox" name="no_state_id" value="true">I don't have a state-issued I.D.</br>
-       <input type="checkbox" name="disabled" value="true">I am disabled</br>
-       <input type="checkbox" name="childcare" value="true">I need childcare</br>
-       <input type="checkbox" name="criminal" value="true">I have an open criminal chargee</br>
-       <input type="checkbox" name="previously_incarcerated" value="true"> I have been previously incarcerated</br>
-       <input type="checkbox" name="using_drugs" value="true">I am using drugs and want to get help</br> 
-       <input type="checkbox" name="none" value="true">None of these apply to me</br> </br>
-       
+     <div id="attributes">
+       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter()">I am between the ages of 18-24</br>
+       <input type="checkbox" id="veteran" name="veteran" value="true">I am a Veteran</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="homeless" name="homeless" value="true">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true">I don't have a driver's license</br>
+       <input type="checkbox" id="no_state_id" name="no_state_id" value="true">I don't have a state-issued I.D.</br>
+       <input type="checkbox" id="disabled" name="disabled" value="true">I am disabled</br>
+       <input type="checkbox" id="childcare" name="childcare" value="true">I need childcare</br>
+       <input type="checkbox" id ="criminal" name="criminal" value="true">I have an open criminal chargee</br>
+       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true"> I have been previously incarcerated</br>
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="none"name="none" value="true">None of these apply to me</br> </br>
+     </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
      <select name="neighborhood" required>
        <option hidden dissabled></option>
@@ -60,17 +61,17 @@
      <hr>
      <h2>Visit one of the the following Opportunity Center(s) to find out 
      how they can help you work towards a career.</h2>
-     <p>Please answer the questions above to be matched with an Opportunity Center.</p>
+     <p id="opportunity_center">Please answer the questions above to be matched with an Opportunity Center.</p>
      <hr>
      <h2>Now that you know where to go, add your contact information so that 
      we can follow up and answer any questions you may have.</h2> </br>
      <strong>What's the best way to contact you? *</strong></br>
-       <input id="email" type="radio" name="best_way" value="E-mail" onclick="add_email()">E-mail</br>
+       <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
        <input id="email_submission_spot" name="email_submission" type="email" style="display:none;"></br>
-       <input type="radio" name="best_way" value="Phone call" onclick="add_phone()">Phone Call</br>
+       <input type="radio" name="best_way" value="Phone call" onclick="addPhone()">Phone Call</br>
         <input id="phone_submission_spot" name="phone_submission" type="tel" style="display:none;"></br>
-       <input type="radio" name="best_way" value="Text Message" onclick="add_text()">Text Message</br>
-        <input id="text_submission_spot" name="phone_submission" type="tel" style="display:none;"></br>
+       <input type="radio" name="best_way" value="Text Message" onclick="addText()">Text Message</br>
+        <input id="text_submission_spot" name="text_submission" type="tel" style="display:none;"></br>
    <strong>If you have a resume, upload it here. </strong> </br>
     <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
     <div class="button-wrapper center">
@@ -116,22 +117,55 @@
 
    
     <script >
-    function add_email() {
-      document.getElementById("email_submission_spot").style = "display: inline;";
+    
+  /*
+    var young = document.getElementById("young").checked;
+    var veteran = document.getElementById("veteran").checked;
+    var no_transportation = document.getElementById("no_transportation").checked;
+    var homeless = document.getElementById("homeless").checked;
+    var no_drivers_license = document.getElementById("no_drivers_license").checked;
+    var no_state_id = document.getElementById("no_state_id").checked;
+    var disabled = document.getElementById("disabled").checked;
+    var childcare = document.getElementById("childcare").checked;
+    var criminal = document.getElementById("criminal").checked;
+    var previously_incarcerated = document.getElementById("previously_incarcerated").checked;
+    var using_drugs = document.getElementById("using_drugs").checked;
+    var none = document.getElementById("none").checked;
+    
+    
+    var x = document.getElementById("attributes");
+    var y = x.getElementsByTagName('input');
+    
+    for (var i=0, len=y.length; i<len; i++) {
+    if ( y[i].type === 'checkbox' ) {
+        y[i].onclick = function() {
+           opportunityCenter();
+        }
+    }
+    */
+    function addEmail() {
       document.getElementById("phone_submission_spot").style = "display: none;";
-       document.getElementById("text_submission_spot").style = "display: none;";
+      document.getElementById("text_submission_spot").style = "display: none;";
+      document.getElementById("email_submission_spot").style = "display: inline;";
     }
     
-    function add_phone() {
-       document.getElementById("email_submission_spot").style = "display: none;";
-        document.getElementById("phone_submission_spot").style = "display: inline;";
-        document.getElementById("text_submission_spot").style = "display: none;";
+    function addPhone() {
+      document.getElementById("email_submission_spot").style = "display: none;";
+      document.getElementById("text_submission_spot").style = "display: none;";
+      document.getElementById("phone_submission_spot").style = "display: inline;";
     }
     
-    function add_text() {
-       document.getElementById("email_submission_spot").style = "display: none;";
-       document.getElementById("text_submission_spot").style = "display: inline;";
-       document.getElementById("phone_submission_spot").style = "display: none;";
+    function addText() {
+      document.getElementById("email_submission_spot").style = "display: none;";
+      document.getElementById("phone_submission_spot").style = "display: none;";
+      document.getElementById("text_submission_spot").style = "display: inline;";
+    }
+    
+    function opportunityCenter() {
+       
+     
+      document.getElementById("opportunity_center").innerHTML = "test";
+
     }
     
     
