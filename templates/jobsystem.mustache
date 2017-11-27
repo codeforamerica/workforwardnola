@@ -37,17 +37,17 @@
      <strong>Which of these apply to you? *</strong> </br> </br>
      <div id="attributes">
        <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter()">I am between the ages of 18-24</br>
-       <input type="checkbox" id="veteran" name="veteran" value="true">I am a Veteran</br>
-       <input type="checkbox" id="no_transportation" name="no_transportation" value="true">I don't always have a way to get to and from work</br>
-       <input type="checkbox" id="homeless" name="homeless" value="true">I am homeless or staying with someone temporarily</br>
-       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true">I don't have a driver's license</br>
-       <input type="checkbox" id="no_state_id" name="no_state_id" value="true">I don't have a state-issued I.D.</br>
-       <input type="checkbox" id="disabled" name="disabled" value="true">I am disabled</br>
-       <input type="checkbox" id="childcare" name="childcare" value="true">I need childcare</br>
-       <input type="checkbox" id ="criminal" name="criminal" value="true">I have an open criminal chargee</br>
-       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true"> I have been previously incarcerated</br>
-       <input type="checkbox" id="using_drugs" name="using_drugs" value="true">I am using drugs and want to get help</br> 
-       <input type="checkbox" id="none"name="none" value="true">None of these apply to me</br> </br>
+       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter()">I am a Veteran</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter()">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter()">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter()">I don't have a driver's license</br>
+       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter()">I don't have a state-issued I.D.</br>
+       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter()">I am disabled</br>
+       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter()">I need childcare</br>
+       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter()">I have an open criminal chargee</br>
+       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter()"> I have been previously incarcerated</br>
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter()">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="none" name="none" value="true">None of these apply to me</br> </br>
      </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
      <select name="neighborhood" required>
@@ -61,7 +61,10 @@
      <hr>
      <h2>Visit one of the the following Opportunity Center(s) to find out 
      how they can help you work towards a career.</h2>
-     <p id="opportunity_center">Please answer the questions above to be matched with an Opportunity Center.</p>
+     <div id="opportunity_center">
+       <p>Please answer the questions above to be 
+          matched with an Opportunity Center.</p>
+     </div>
      <hr>
      <h2>Now that you know where to go, add your contact information so that 
      we can follow up and answer any questions you may have.</h2> </br>
@@ -116,10 +119,9 @@
     <div id="map_canvas"></div>
 
    
-    <script >
+    <script>
     
-  /*
-    var young = document.getElementById("young").checked;
+    /*var young = document.getElementById("young").checked;
     var veteran = document.getElementById("veteran").checked;
     var no_transportation = document.getElementById("no_transportation").checked;
     var homeless = document.getElementById("homeless").checked;
@@ -134,15 +136,15 @@
     
     
     var x = document.getElementById("attributes");
-    var y = x.getElementsByTagName('input');
+    var y = x.getElementsByTagName("input");
     
     for (var i=0, len=y.length; i<len; i++) {
-    if ( y[i].type === 'checkbox' ) {
+    if ( y[i].type == "checkbox" ) {
         y[i].onclick = function() {
            opportunityCenter();
         }
-    }
-    */
+    }*/
+
     function addEmail() {
       document.getElementById("phone_submission_spot").style = "display: none;";
       document.getElementById("text_submission_spot").style = "display: none;";
@@ -162,10 +164,7 @@
     }
     
     function opportunityCenter() {
-       
-     
       document.getElementById("opportunity_center").innerHTML = "test";
-
     }
     
     
