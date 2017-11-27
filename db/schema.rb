@@ -10,6 +10,8 @@ Sequel.migration do
       String :general_duties, :text=>true
       String :experienced_range, :text=>true
       String :entry_wage, :text=>true
+      String :career_image, :text=>true
+      String :alt_title, :text=>true
     end
     
     create_table(:schema_info) do
