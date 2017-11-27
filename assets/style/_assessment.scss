@@ -141,11 +141,13 @@
   }
 }
 .career {
+
   .wage {
     font-weight: bold;
     font-style: normal;
     @media print { font-size: inherit; }
   }
+
   .general-duties { margin-bottom: 3rem; }
   li { margin: 0 0 2rem 0; }
   li:last-child { margin: 0; }
@@ -154,4 +156,9 @@
     a { border-bottom: 0; text-decoration: none;}
   }
 
+  .career-image {
+    width: 400px;
+    height: 240px;
+    overflow: hidden;
+  }
 }
