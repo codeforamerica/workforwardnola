@@ -121,7 +121,7 @@
    
     <script>
     
-    /*var young = document.getElementById("young").checked;
+    var young = document.getElementById("young").checked;
     var veteran = document.getElementById("veteran").checked;
     var no_transportation = document.getElementById("no_transportation").checked;
     var homeless = document.getElementById("homeless").checked;
@@ -138,12 +138,13 @@
     var x = document.getElementById("attributes");
     var y = x.getElementsByTagName("input");
     
-    for (var i=0, len=y.length; i<len; i++) {
-    if ( y[i].type == "checkbox" ) {
+    for (var i = 0, len = y.length; i < len; i++) {
+      if ( y[i].type == "checkbox" ) {
         y[i].onclick = function() {
-           opportunityCenter();
+          opportunityCenter();
         }
-    }*/
+      }
+    }
 
     function addEmail() {
       document.getElementById("phone_submission_spot").style = "display: none;";
