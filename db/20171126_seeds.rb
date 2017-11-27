@@ -34,7 +34,9 @@ module WorkForwardNola
         problems for clients, provide assistance with computer hardware and 
         software.',
         experienced_range: '$25,000 - $35,000',
-        entry_wage: '$14.42'
+        entry_wage: '$14.42',
+        career_image: 'help_desk.jpg',
+        alt_title: 'Person is wearing a headset and looking at a computer'
       ['Problem solver',
       ].each do |trait|
         help_desk.add_trait all_traits[trait]
