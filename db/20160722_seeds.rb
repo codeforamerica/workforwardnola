@@ -1,3 +1,4 @@
+=begin
 require './models/trait'
 require './models/career'
 
@@ -88,3 +89,4 @@ module WorkForwardNola
     end
   end
 end
+=end
