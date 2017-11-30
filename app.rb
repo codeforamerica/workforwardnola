@@ -108,7 +108,7 @@ module WorkForwardNola
       @title = 'Job System'
       mustache :jobsystem
     end
-    
+
     post '/contact' do
       new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
@@ -125,7 +125,7 @@ module WorkForwardNola
         mustache :jobsystem
       end
     end
-  
+
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
       mustache :opp_center_info

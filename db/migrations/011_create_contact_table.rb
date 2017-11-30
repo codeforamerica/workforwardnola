@@ -1,6 +1,5 @@
 Sequel.migration do
   change do
-
     create_table(:contact) do
       primary_key :id
       String :fname, null: false
@@ -22,4 +21,5 @@ Sequel.migration do
       TrueClass :none, default: false
     end
   end
+  
 end
