@@ -21,8 +21,5 @@ Sequel.migration do
       TrueClass :using_drugs, default: false
       TrueClass :none, default: false
     end
-
- 
-
-end
+  end
 end

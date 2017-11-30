@@ -56,8 +56,8 @@ module WorkForwardNola
     end
     
     def worksheet
-      @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
-      @spreadsheet ||= @session.spreadsheet_by_title("contact")
+      @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
+      @spreadsheet ||= @session.spreadsheet_by_title('contact')
       @worksheet ||= @spreadsheet.worksheets.first
     end
 
@@ -110,15 +110,15 @@ module WorkForwardNola
     end
     
     post '/contact' do
-      new_row = [params['first_name'], params['last_name'],params['best_way'], 
+      new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
-                 params['text_submission'],  params['referral'], 
-                 params['neighborhood'], params['young_adult'], 
+                 params['text_submission'],  params['referral'],
+                 params['neighborhood'], params['young_adult'],
                  params['veteran'], params['no_transportation'],
-                 params['homeless'], params['no_drivers_license'], 
-                 params['no_state_id'], params['disabled'], params['childcare'], 
-                 params['criminal'], params['previously_incarcerated'], 
-                 params['using_drugs'], params['none'],params['resume']]
+                 params['homeless'], params['no_drivers_license'],
+                 params['no_state_id'], params['disabled'], params['childcare'],
+                 params['criminal'], params['previously_incarcerated'],
+                 params['using_drugs'], params['none'], params['resume']]
       begin
         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
         worksheet.save
