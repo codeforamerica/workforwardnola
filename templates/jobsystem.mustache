@@ -76,9 +76,9 @@
        <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
        <input id="email_submission_spot" name="email_submission" type="email" style="display:none;"></br>
        <input type="radio" name="best_way" value="Phone call" onclick="addPhone()">Phone Call</br>
-        <input id="phone_submission_spot" name="phone_submission" type="tel" style="display:none;"></br>
+        <input id="phone_submission_spot" pattern="^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$" name="phone_submission" type="tel" style="display:none;"></br>
        <input type="radio" name="best_way" value="Text Message" onclick="addText()">Text Message</br>
-        <input id="text_submission_spot" name="text_submission" type="tel" style="display:none;"></br>
+        <input id="text_submission_spot" pattern="^^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$" name="text_submission" type="tel" style="display:none;"></br>
    <strong>If you have a resume, upload it here. </strong> </br>
     <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
     <div class="button-wrapper center">
