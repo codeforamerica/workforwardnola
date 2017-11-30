@@ -108,9 +108,16 @@ module WorkForwardNola
       @title = 'Job System'
       mustache :jobsystem
     end
-      
-  
-   
+    
+    post "/emailUpdate" do
+        new_row = [params["job_level"], params["barrier"], params["email"]]
+        begin
+          worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
+          worksheet.save
+          mustache :manage
+        end
+    end
+    
     post '/contact' do
 
       new_row = [params["first_name"], params["last_name"],params["best_way"],params["email_submission"], params["phone_submission"],params["text_submission"],  params["referral"], params["neighborhood"], params["young_adult"], params["veteran"], params["no_transportation"],

@@ -36,18 +36,18 @@
      Opportunity Center is the best match for you</h2>
      <strong>Which of these apply to you? *</strong> </br> </br>
      <div id="attributes">
-       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter()">I am between the ages of 18-24</br>
-       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter()">I am a Veteran</br>
-       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter()">I don't always have a way to get to and from work</br>
-       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter()">I am homeless or staying with someone temporarily</br>
-       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter()">I don't have a driver's license</br>
-       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter()">I don't have a state-issued I.D.</br>
-       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter()">I am disabled</br>
-       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter()">I need childcare</br>
-       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter()">I have an open criminal chargee</br>
-       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter()"> I have been previously incarcerated</br>
-       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter()">I am using drugs and want to get help</br> 
-       <input type="checkbox" id="none" name="none" value="true">None of these apply to me</br> </br>
+       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(young_adult)">I am between the ages of 18-24</br>
+       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter(veteran)">I am a Veteran</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter(no_transportation)">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter(homeless)">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter(no_drivers_license)">I don't have a driver's license</br>
+       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter(no_state_id)">I don't have a state-issued I.D.</br>
+       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter(disabled)">I am disabled</br>
+       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter(childcare)">I need childcare</br>
+       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter(criminal)">I have an open criminal charge</br>
+       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter(previously_incarcerated)">I have been previously incarcerated</br>
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(using_drugs)">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="none" name="none" value="true" onclick="opportunityCenter(none)">None of these apply to me</br> </br>
      </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
      <select name="neighborhood" required>
@@ -62,8 +62,7 @@
      <h2>Visit one of the the following Opportunity Center(s) to find out 
      how they can help you work towards a career.</h2>
      <div id="opportunity_center">
-       <p>Please answer the questions above to be 
-          matched with an Opportunity Center.</p>
+       
      </div>
      <hr>
      <h2>Now that you know where to go, add your contact information so that 
@@ -120,7 +119,7 @@
 
    
     <script>
-    
+   /* 
     var young = document.getElementById("young").checked;
     var veteran = document.getElementById("veteran").checked;
     var no_transportation = document.getElementById("no_transportation").checked;
@@ -136,15 +135,15 @@
     
     
     var x = document.getElementById("attributes");
-    var y = x.getElementsByTagName("input");
+    var checkBoxValue = x.getElementsByTagName("input");
     
-    for (var i = 0, len = y.length; i < len; i++) {
-      if ( y[i].type == "checkbox" ) {
-        y[i].onclick = function() {
-          opportunityCenter();
-        }
+    for (var i = 0, len = checkBoxValue.length; i < len; i++) {
+      if ( checkBoxValue[i].type == "checkbox") {
+              checkBoxValue[i].onclick =  function() {
+                   opportunityCenter(checkBoxValue[i].id);
+          }
       }
-    }
+    }*/
 
     function addEmail() {
       document.getElementById("phone_submission_spot").style = "display: none;";
@@ -164,8 +163,25 @@
       document.getElementById("text_submission_spot").style = "display: inline;";
     }
     
-    function opportunityCenter() {
-      document.getElementById("opportunity_center").innerHTML = "test";
+    function opportunityCenter(input) {
+        if(input.id == "homeless" || input.id == "disabled") {
+            if( document.getElementById("opportunity_center").innerHTML.indexOf('Carey') <= -1) {
+                document.getElementById("opportunity_center").innerHTML +=
+                    "<p>Total Community Action (TCA)</br>1420 South Jeff Davis Pkwy New Orleans, La 70125</br>(504) 872-0334</br>James Cary</br>Email: James.Carey@tca-NOLA.org</br>Sidney Monroe</br>Email: Sidney.Monroe@tca-nola.org</p>"
+            }
+        }
+        else if(input.id == "criminal" || input.id == "previously_incarcerated") {
+            if( document.getElementById("opportunity_center").innerHTML.indexOf('Boudoin') <= -1) {
+                document.getElementById("opportunity_center").innerHTML +=
+                    "<p>Goodwill Industries</br>3400 Tulane Avenue New Orleans</br>Jada Boudoin</br>Telephone: (504) 456-3933</br>Email: jboudoin@goodwillno.org</p>"      
+            }
+        }
+        else{
+            if( document.getElementById("opportunity_center").innerHTML.indexOf('Tucker') <= -1) {
+                document.getElementById("opportunity_center").innerHTML +=
+                    "<p>JOB1 Business and Career Solutions Center</br> Cassandra Tucker, Administrative Data Specialist </br>3400 Tulane Avenue, New Orleans</br>(504) 658-4500 – Main </br>(504) 658-4571 – Direct </br> crtucker@nola.gov</p>";
+            }
+        }
     }
     
     
