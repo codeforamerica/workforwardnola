@@ -2,6 +2,7 @@
 .jekyll-metadata
 .env
 .DS_Store
+client_secret.json
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

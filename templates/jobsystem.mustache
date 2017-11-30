@@ -1,66 +1,97 @@
 <section id="oc-form">
-  <div class="centered">
-    <div class="button-wrapper center">
-      <a href="/" data-event-category="JobSystem" data-event-action="Back to homepage" title="Return to home page" class="basic-button">Back to home page</a>
+  <footer role="contentinfo">
+    <div class="logos clearfix">
+      <a href="http://www.thenetworkneworleans.org/" title="The Network for Economic Opportunity Website" target="_blank" class="network-logo"><img alt="The Network for Economic Opportunity Logo" src="assets/network-logo.png"/></a>
+      <a href="http://www.nola.gov/" title="New Orleans City Government Website" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
     </div>
-    <iframe
-      id="JotFormIFrame-62695003498160"
-      onload="window.parent.scrollTo(0,0)"
-      allowtransparency="true"
-      src="https://form.jotform.com/62695003498160"
-      frameborder="0"
-      style="width:100%;
-      height:2903px;
-      border:none;"
-      scrolling="no">
-    </iframe>
-    <script type="text/javascript">
-      window.handleIFrameMessage = function(e) {
-        var args = e.data.split(":");
-        var iframe = false;
-        if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[2]); } else { iframe = document.getElementById("JotFormIFrame"); }
-        if (!iframe)
-          return;
-        switch (args[0]) {
-          case "scrollIntoView":
-            iframe.scrollIntoView();
-            break;
-          case "setHeight":
-            iframe.style.height = args[1] + "px";
-            break;
-          case "collapseErrorPage":
-            if (iframe.clientHeight > window.innerHeight) {
-              iframe.style.height = window.innerHeight + "px";
-            }
-            break;
-          case "reloadPage":
-            window.location.reload();
-            break;
-        }
-        var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
-        if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
-          var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
-          iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
-        }
-      };
-      if (window.addEventListener) {
-        window.addEventListener("message", handleIFrameMessage, false);
-      } else if (window.attachEvent) {
-        window.attachEvent("onmessage", handleIFrameMessage);
-      }
-      if(window.location.href && window.location.href.indexOf("?") > -1) {
-        var ifr = false;
-        if (args.length > 2) { ifr = document.getElementById("JotFormIFrame-" + args[2]); } else { ifr = document.getElementById("JotFormIFrame"); }
-        var get = window.location.href.substr(window.location.href.indexOf("?") + 1);
-        if(ifr && get.length > 0) {
-          var src = ifr.src;
-          src = src.indexOf("?") > -1 ? src + "&" + get : src  + "?" + get;
-          ifr.src = src;
-        }
-      }
-    </script>
+  </footer>
+
+  <section id="opp-form">
+    <section class="no-print">
+    <h1>Job System Sign-up Form</h1>
+   <form method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
+     <strong>Whats your name? *</strong>
+     <div style="float: right">
+      <strong> How did you learn about us? * </strong>
+      </div> </br>
+      <input type="text" name="first_name" required>
+     <input type="text" name="last_name" required>
+
+    <div style="float: right; padding-right:1cm">
+       <select name="referral" required>
+       <option hidden dissabled> </option>
+       <option value ="Through an online search">Through an online search</option>
+       <option value="Midnight Basketball Website">Midnight Basketball Website</option>
+       <option value"Friend">Friend</option>
+       <option value="Library">Library</option>
+       <option value="Community Group">Community Group</option>
+       <option value="other">Other</option>
+     </select>
+    </div> </br>
+    <span>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+     <span>Last Name</span>
+
+
+      <hr>
+     <h2>We're going to ask a couple of questions to figure out which
+     Opportunity Center is the best match for you</h2>
+     <strong>Which of these apply to you? *</strong> </br> </br>
+     <div id="attributes">
+       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(young_adult)">I am between the ages of 18-24</br>
+       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter(veteran)">I am a Veteran</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter(no_transportation);">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter(homeless)">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter(no_drivers_license)">I don't have a driver's license</br>
+       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter(no_state_id)">I don't have a state-issued I.D.</br>
+       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter(disabled)">I am disabled</br>
+       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter(childcare)">I need childcare</br>
+       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter(criminal)">I have an open criminal charge</br>
+       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter(previously_incarcerated)">I have been previously incarcerated</br>
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(using_drugs)">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="none" name="none" value="true" onclick="opportunityCenter(none)">None of these apply to me</br> </br>
+     </div>
+       <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
+     <select name="neighborhood" required>
+       <option hidden dissabled></option>
+       <option value="upper_ninth_ward">Upper Ninth Ward</option>
+       <option value="cbd">CBD-Downtown</option>
+       <option value="mid-city">Mid-City</option>
+       <option value="garden_district">Garden District</option>
+       <option value="none">None of the above</option>
+     </select>
+     <hr>
+   </section>
+     <h2>Visit one of the the following Opportunity Center(s) to find out
+     how they can help you work towards a career.</h2>
+     <div id="opportunity_center">
+         <!--Content added by the method opportunityCenter() -->
+     </div>
+     </section>
+     <section class="no-print">
+     <div id="print-oppurtunity-centers">
+      <p><a href="javascript:window.print()" data-event-category="Jobsystem" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print or Save as PDF</a></p>
+     </div>
+     <hr>
+     <h2>Now that you know where to go, add your contact information so that
+     we can follow up and answer any questions you may have.</h2> </br>
+     <strong>What's the best way to contact you? *</strong></br>
+       <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
+       <input id="email_submission_spot" name="email_submission" type="email" style="display:none;"></br>
+       <input type="radio" name="best_way" value="Phone call" onclick="addPhone()">Phone Call</br>
+        <input id="phone_submission_spot" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="phone_submission" type="tel" style="display:none;"></br>
+       <input type="radio" name="best_way" value="Text Message" onclick="addText()">Text Message</br>
+        <input id="text_submission_spot" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="text_submission" type="tel" style="display:none;"></br>
+   <strong>If you have a resume, upload it here. </strong> </br>
+    <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
+    <div class="button-wrapper center">
+    <input type="submit" class="basic-button">
+    </div>
+       <hr>
+   </form>
   </div>
 </section>
+</section>
+<section class="no-print">
 <section>
   <div class="centered">
     <h2>Take your next step</h2>
@@ -88,124 +119,84 @@
         </ul>
       </div>
     </section>
-<section>
+  </section>
+<section class="no-print">
   <div class="centered">
     <h2>Opportunity Center Map</h2>
     <p>Click on a pin below to see the open hours, address, phone number and website for each Opportunity Center.</p>
     <p><strong><span class="link"><a href="/opportunity-center-info" title="Text-only Opportunity Center information">You can also see a text-only version of this information.</a></span></strong></p>
     <div id="map_canvas"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>
+
     <script>
-    var bittersMap = (function() {
-      var locations = [
-        ['Goodwill and Job1', 29.94711, -90.09446,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>Goodwill</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>3400 Tulane Ave, 1st Floor, New Orleans, LA 70119</p>' +
-        '<p><a href="https://goo.gl/maps/U52rdrdnvaE2" target="_blank" title="Goodwill address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5044563933">(504) 456-3933</a></p>' +
-        '<p><a href="http://goodwillno.org/" target="_blank" title="Goodwill Website">Visit the website</a></p>' +
-        '</div>' +
-        '<br />' +
-        '<h2>Job1</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>3400 Tulane Ave, 2nd Floor, New Orleans, LA 70119</p>' +
-        '<p><a href="https://goo.gl/maps/U52rdrdnvaE2" target="_blank" title="Job1 address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5046584500">(504) 658-4500</a></p>' +
-        '<p><a href="http://www.nola.gov/economic-development/workforce-development/job1/" target="_blank" title="Job1 Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>'],
-        ['STRIVE', 29.95091, -90.07738,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>STRIVE</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>1340 Poydras St. Suite 100, New Orleans, LA 70112</p>' +
-        '<p><a href="https://goo.gl/maps/9mFVJg823aG2" target="_blank" title="STRIVE address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5046584201">(504) 658-4201</a></p>' +
-        '<p><a href="http://striveinternational.org/" target="_blank" title="STRIVE International Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>'],
-        ['TCA', 29.95602, -90.10512,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>Total Community Action</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>1424 S. Jefferson Davis Parkway, New Orleans, LA 70125</p>' +
-        '<p><a href="https://goo.gl/maps/eq5h2oCM2f12" target="_blank" title="TCA address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5048720334">(504) 872-0334</a></p>' +
-        '<p><a href="http://www.tca-nola.org/" target="_blank" title="TCA Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>'],
-        ['Urban League', 29.97723, -90.03875,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>Urban League</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>3232 North Galvez Street, New Orleans, LA 70117</p>' +
-        '<p><a href="https://goo.gl/maps/aWS8QZrKGYn" target="_blank" title="Urban League address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5043244444">(504) 324-4444</a></p>' +
-        '<p><a href="http://www.urbanleagueneworleans.org/ul/" target="_blank" title="Urban League Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>']
-      ],
-      mapCenter = new google.maps.LatLng(29.97036, -90.07493),
-      mapCanvas = document.getElementById('map_canvas'),
-      mapOptions = {
-        zoom: 13,
-        center: new google.maps.LatLng(0, 0),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      },
-      map = new google.maps.Map(mapCanvas, mapOptions),
-      infowindow = new google.maps.InfoWindow(),
-      bounds = new google.maps.LatLngBounds(),
-      marker, i;
-      for (i = 0; i < locations.length; i++) {
-        var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          map: map
-        });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(locations[i][3]);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
-        bounds.extend(myLatLng);
-      };
-      map.fitBounds(bounds);
-      return {
-        init: function() {
-          map.set('styles', [{
-            featureType: 'landscape',
-            elementType: 'geometry',
-            stylers: [{
-              hue: '#ffff00'
-            }, {
-              saturation: 30
-            }, {
-              lightness: 10
-            }]
-          }]);
 
+    function addEmail() {
+      document.getElementById("email_submission_spot").style = "display: inline;";
+      document.getElementById("text_submission_spot").style = "display: none;";
+      document.getElementById("phone_submission_spot").style = "display: none;";
+      document.getElementById("email_submission_spot").required = true;
+
+      if(document.getElementById("phone_submission_spot").hasAttribute("required")){
+        document.getElementById("phone_submission_spot").removeAttribute("required");
+    }
+
+      if(document.getElementById("text_submission_spot").hasAttribute("required")){
+        document.getElementById("text_submission_spot").removeAttribute("required");
+    }
+
+
+    }
+
+    function addPhone() {
+      document.getElementById("phone_submission_spot").style = "display: inline;";
+      document.getElementById("email_submission_spot").style = "display: none;";
+      document.getElementById("text_submission_spot").style = "display: none;";
+      document.getElementById("phone_submission_spot").required = true;
+
+        if(document.getElementById("email_submission_spot").hasAttribute("required")){
+          document.getElementById("email_submission_spot").removeAttribute("required");
         }
-      };
-    }());
+        if(document.getElementById("text_submission_spot").hasAttribute("required")){
+          document.getElementById("text_submission_spot").removeAttribute("required");
+        }
 
-    bittersMap.init();
+    }
+
+    function addText() {
+      document.getElementById("email_submission_spot").style = "display: none;";
+      document.getElementById("phone_submission_spot").style = "display: none;";
+      document.getElementById("text_submission_spot").style = "display: inline;";
+      document.getElementById("text_submission_spot").required = true;
+
+      if(document.getElementById("email_submission_spot").hasAttribute("required")){
+      document.getElementById("email_submission_spot").removeAttribute("required");
+    }
+
+    if(document.getElementById("phone_submission_spot").hasAttribute("required")){
+    document.getElementById("phone_submission_spot").removeAttribute("required");
+    }
+  }
+    
+    function opportunityCenter(input) {
+        if (input.id == "homeless" || input.id == "disabled") {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Carey') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>Total Community Action (TCA)</br>1420 South Jeff Davis Pkwy New Orleans, La 70125</br>(504) 872-0334</br>James Cary</br>Email: James.Carey@tca-NOLA.org</br>Sidney Monroe</br>Email: Sidney.Monroe@tca-nola.org</p>";
+          }
+        } else if (input.id == "criminal" || input.id == "previously_incarcerated") {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Boudoin') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>Goodwill Industries</br>3400 Tulane Avenue New Orleans</br>Jada Boudoin</br>Telephone: (504) 456-3933</br>Email: jboudoin@goodwillno.org</p>";      
+          }
+        } else {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Tucker') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>JOB1 Business and Career Solutions Center</br> Cassandra Tucker, Administrative Data Specialist </br>3400 Tulane Avenue, New Orleans</br>(504) 658-4500 – Main </br>(504) 658-4571 – Direct </br> crtucker@nola.gov</p>";
+          }
+        }
+      }
+      
+    
     </script>
   </div>
 </section>
