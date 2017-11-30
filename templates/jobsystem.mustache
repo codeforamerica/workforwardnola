@@ -39,7 +39,7 @@
      <div id="attributes">
        <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(young_adult)">I am between the ages of 18-24</br>
        <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter(veteran)">I am a Veteran</br>
-       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter(no_transportation)">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter(no_transportation);">I don't always have a way to get to and from work</br>
        <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter(homeless)">I am homeless or staying with someone temporarily</br>
        <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter(no_drivers_license)">I don't have a driver's license</br>
        <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter(no_state_id)">I don't have a state-issued I.D.</br>
@@ -175,29 +175,28 @@
     if(document.getElementById("phone_submission_spot").hasAttribute("required")){
     document.getElementById("phone_submission_spot").removeAttribute("required");
     }
+  }
     
     function opportunityCenter(input) {
-        if(input.id == "homeless" || input.id == "disabled") {
-            if( document.getElementById("opportunity_center").innerHTML.indexOf('Carey') <= -1) {
-                document.getElementById("opportunity_center").innerHTML +=
-                    "<p>Total Community Action (TCA)</br>1420 South Jeff Davis Pkwy New Orleans, La 70125</br>(504) 872-0334</br>James Cary</br>Email: James.Carey@tca-NOLA.org</br>Sidney Monroe</br>Email: Sidney.Monroe@tca-nola.org</p>";
-            }
+        if (input.id == "homeless" || input.id == "disabled") {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Carey') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>Total Community Action (TCA)</br>1420 South Jeff Davis Pkwy New Orleans, La 70125</br>(504) 872-0334</br>James Cary</br>Email: James.Carey@tca-NOLA.org</br>Sidney Monroe</br>Email: Sidney.Monroe@tca-nola.org</p>";
+          }
+        } else if (input.id == "criminal" || input.id == "previously_incarcerated") {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Boudoin') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>Goodwill Industries</br>3400 Tulane Avenue New Orleans</br>Jada Boudoin</br>Telephone: (504) 456-3933</br>Email: jboudoin@goodwillno.org</p>";      
+          }
+        } else {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Tucker') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>JOB1 Business and Career Solutions Center</br> Cassandra Tucker, Administrative Data Specialist </br>3400 Tulane Avenue, New Orleans</br>(504) 658-4500 – Main </br>(504) 658-4571 – Direct </br> crtucker@nola.gov</p>";
+          }
         }
-        else if(input.id == "criminal" || input.id == "previously_incarcerated") {
-            if( document.getElementById("opportunity_center").innerHTML.indexOf('Boudoin') <= -1) {
-                document.getElementById("opportunity_center").innerHTML +=
-                    "<p>Goodwill Industries</br>3400 Tulane Avenue New Orleans</br>Jada Boudoin</br>Telephone: (504) 456-3933</br>Email: jboudoin@goodwillno.org</p>";      
-            }
-        }
-        else{
-            if( document.getElementById("opportunity_center").innerHTML.indexOf('Tucker') <= -1) {
-                document.getElementById("opportunity_center").innerHTML +=
-                    "<p>JOB1 Business and Career Solutions Center</br> Cassandra Tucker, Administrative Data Specialist </br>3400 Tulane Avenue, New Orleans</br>(504) 658-4500 – Main </br>(504) 658-4571 – Direct </br> crtucker@nola.gov</p>";
-            }
-        }
-    }
-
-  }
+      }
+      
+    
     </script>
   </div>
 </section>
