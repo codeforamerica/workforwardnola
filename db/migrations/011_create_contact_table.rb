@@ -1,10 +1,12 @@
 Sequel.migration do
   change do
 
-    create_table(:contact) do
+
+    create_table :contact do
+
       primary_key :id
-      String :fname, null: false
-      String :lname, null: false
+      String :first_name, null: false
+      String :last_name, null: false
       String :referral, null: false
       String :neighborhood, null: false
       String :best_way, null: false
@@ -21,8 +23,6 @@ Sequel.migration do
       TrueClass :using_drugs, default: false
       TrueClass :none, default: false
     end
+  end
 
- 
-
-end
 end

@@ -13,7 +13,6 @@ gem 'dotenv'
 gem 'google_drive'
 gem 'pony'
 
-
 # database things
 gem 'pg'
 gem 'sequel'
