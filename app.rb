@@ -54,7 +54,7 @@ module WorkForwardNola
       require './models/trait'
       require './models/career'
     end
-    
+
     def worksheet
       @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
       @spreadsheet ||= @session.spreadsheet_by_title('contact')
@@ -109,7 +109,7 @@ module WorkForwardNola
       mustache :jobsystem
     end
 
-    post '/contact' do
+    post '/contact' do 
       new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
                  params['text_submission'],  params['referral'],

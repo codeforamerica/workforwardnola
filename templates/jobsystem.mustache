@@ -1,20 +1,20 @@
 <section id="oc-form">
-  <footer role="contentinfo">   
+  <footer role="contentinfo">
     <div class="logos clearfix">
       <a href="http://www.thenetworkneworleans.org/" title="The Network for Economic Opportunity Website" target="_blank" class="network-logo"><img alt="The Network for Economic Opportunity Logo" src="assets/network-logo.png"/></a>
       <a href="http://www.nola.gov/" title="New Orleans City Government Website" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
     </div>
   </footer>
-   
+
     <h1>Job System Sign-up Form</h1>
    <form method="post" action="/contact">
      <strong>Whats your name? *</strong>
      <div style="float: right">
-      <strong> How did you learn about us? * </strong> 
+      <strong> How did you learn about us? * </strong>
       </div> </br>
-      <input type="text" name="first_name" required> 
-     <input type="text" name="last_name" required> 
-     
+      <input type="text" name="first_name" required>
+     <input type="text" name="last_name" required>
+
     <div style="float: right; padding-right:1cm">
        <select name="referral" required>
        <option hidden dissabled> </option>
@@ -26,12 +26,12 @@
        <option value="other">Other</option>
      </select>
     </div> </br>
-    <span>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
-     <span>Last Name</span> 
-    
-     
+    <span>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+     <span>Last Name</span>
+
+
       <hr>
-     <h2>We're going to ask a couple of questions to figure out which 
+     <h2>We're going to ask a couple of questions to figure out which
      Opportunity Center is the best match for you</h2>
     <section id="opp-form">
      <strong>Which of these apply to you? *</strong> </br> </br>
@@ -46,7 +46,7 @@
        <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter()">I need childcare</br>
        <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter()">I have an open criminal chargee</br>
        <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter()"> I have been previously incarcerated</br>
-       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter()">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter()">I am using drugs and want to get help</br>
        <input type="checkbox" id="none" name="none" value="true">None of these apply to me</br> </br>
      </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
@@ -59,10 +59,10 @@
        <option value="none">None of the above</option>
      </select>
      <hr>
-     <h2>Visit one of the the following Opportunity Center(s) to find out 
+     <h2>Visit one of the the following Opportunity Center(s) to find out
      how they can help you work towards a career.</h2>
      <div id="opportunity_center">
-       <p>Please answer the questions above to be 
+       <p>Please answer the questions above to be
           matched with an Opportunity Center.</p>
      </div>
      </section>
@@ -70,7 +70,7 @@
       <p><strong><input type="submit" value="Print Opportunity Centers" onclick="printOpportunityCenter();"></strong></p>
      </div>
      <hr>
-     <h2>Now that you know where to go, add your contact information so that 
+     <h2>Now that you know where to go, add your contact information so that
      we can follow up and answer any questions you may have.</h2> </br>
      <strong>What's the best way to contact you? *</strong></br>
        <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
@@ -83,7 +83,7 @@
     <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br></br>
     <div class="button-wrapper center">
     <input type="submit" class="basic-button">
-    </div>   
+    </div>
        <hr>
    </form>
   </div>
@@ -122,26 +122,13 @@
     <p><strong><span class="link"><a href="/opportunity-center-info" title="Text-only Opportunity Center information">You can also see a text-only version of this information.</a></span></strong></p>
     <div id="map_canvas"></div>
 
-   
+
     <script>
-    
-    var young = document.getElementById("young").checked;
-    var veteran = document.getElementById("veteran").checked;
-    var no_transportation = document.getElementById("no_transportation").checked;
-    var homeless = document.getElementById("homeless").checked;
-    var no_drivers_license = document.getElementById("no_drivers_license").checked;
-    var no_state_id = document.getElementById("no_state_id").checked;
-    var disabled = document.getElementById("disabled").checked;
-    var childcare = document.getElementById("childcare").checked;
-    var criminal = document.getElementById("criminal").checked;
-    var previously_incarcerated = document.getElementById("previously_incarcerated").checked;
-    var using_drugs = document.getElementById("using_drugs").checked;
-    var none = document.getElementById("none").checked;
-    
-    
+
+
     var x = document.getElementById("attributes");
     var y = x.getElementsByTagName("input");
-    
+
     for (var i = 0, len = y.length; i < len; i++) {
       if ( y[i].type == "checkbox" ) {
         y[i].onclick = function() {
@@ -151,27 +138,58 @@
     }
 
     function addEmail() {
-      document.getElementById("phone_submission_spot").style = "display: none;";
-      document.getElementById("text_submission_spot").style = "display: none;";
       document.getElementById("email_submission_spot").style = "display: inline;";
+      document.getElementById("text_submission_spot").style = "display: none;";
+      document.getElementById("phone_submission_spot").style = "display: none;";
+      document.getElementById("email_submission_spot").required = true;
+
+      if(document.getElementById("phone_submission_spot").hasAttribute("required")){
+        document.getElementById("phone_submission_spot").removeAttribute("required");
     }
-    
+
+      if(document.getElementById("text_submission_spot").hasAttribute("required")){
+        document.getElementById("text_submission_spot").removeAttribute("required");
+    }
+
+
+    }
+
     function addPhone() {
+      document.getElementById("phone_submission_spot").style = "display: inline;";
       document.getElementById("email_submission_spot").style = "display: none;";
       document.getElementById("text_submission_spot").style = "display: none;";
-      document.getElementById("phone_submission_spot").style = "display: inline;";
+      document.getElementById("phone_submission_spot").required = true;
+
+        if(document.getElementById("email_submission_spot").hasAttribute("required")){
+          document.getElementById("email_submission_spot").removeAttribute("required");
+        }
+        if(document.getElementById("text_submission_spot").hasAttribute("required")){
+          document.getElementById("text_submission_spot").removeAttribute("required");
+        }
+
     }
-    
+
     function addText() {
       document.getElementById("email_submission_spot").style = "display: none;";
       document.getElementById("phone_submission_spot").style = "display: none;";
       document.getElementById("text_submission_spot").style = "display: inline;";
+      document.getElementById("text_submission_spot").required = true;
+
+      if(document.getElementById("email_submission_spot").hasAttribute("required")){
+      document.getElementById("email_submission_spot").removeAttribute("required");
     }
-    
+
+    if(document.getElementById("phone_submission_spot").hasAttribute("required")){
+    document.getElementById("phone_submission_spot").removeAttribute("required");
+    }
+
+
+    }
+
     function opportunityCenter() {
       document.getElementById("opportunity_center").innerHTML = "test";
     }
-    
+
     function printOpportunityCenter() {
       window.print();
     }
