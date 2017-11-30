@@ -4,8 +4,6 @@ require './models/career'
 module WorkForwardNola
   Sequel.seed do
     def run
-      Trait.set_allowed_columns :name
-
       [ 'Problem solver',
         'Working with your hands',
         'Teamwork',
