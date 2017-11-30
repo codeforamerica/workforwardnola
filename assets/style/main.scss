@@ -286,3 +286,9 @@ footer {
   p { margin-bottom: .5em; }
   @media print { display: none; }
 }
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}

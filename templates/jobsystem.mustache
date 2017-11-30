@@ -6,6 +6,7 @@
     </div>
   </footer>
 
+  <section id="opp-form">
     <h1>Job System Sign-up Form</h1>
    <form method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
      <strong>Whats your name? *</strong>
@@ -33,7 +34,6 @@
       <hr>
      <h2>We're going to ask a couple of questions to figure out which
      Opportunity Center is the best match for you</h2>
-    <section id="opp-form">
      <strong>Which of these apply to you? *</strong> </br> </br>
      <div id="attributes">
        <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(young_adult)">I am between the ages of 18-24</br>
@@ -65,6 +65,7 @@
          <!--Content added by the method opportunityCenter() -->
      </div>
      </section>
+     <section class="no-print">
      <div id="print-oppurtunity-centers">
       <p><a href="javascript:window.print()" data-event-category="Jobsystem" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Print or Save as PDF</a></p>
      </div>
@@ -87,6 +88,8 @@
    </form>
   </div>
 </section>
+</section>
+<section class="no-print">
 <section>
   <div class="centered">
     <h2>Take your next step</h2>
@@ -114,7 +117,8 @@
         </ul>
       </div>
     </section>
-<section>
+  </section>
+<section class="no-print">
   <div class="centered">
     <h2>Opportunity Center Map</h2>
     <p>Click on a pin below to see the open hours, address, phone number and website for each Opportunity Center.</p>
