@@ -127,7 +127,10 @@ module WorkForwardNola
         worksheet.save
         mustache :jobsystem
       end
-      send_job_form_email(params['email_submission'], 'email_here', params)
+      if params['email_submission'] != '' then
+        send_job_form_email(params['email_submission'], 'email_here', params)
+      end
+      redirect to ('/jobsystem')
     end
 
     get '/opportunity-center-info' do
@@ -183,7 +186,8 @@ module WorkForwardNola
         "<strong>
         Thank you for registering in the New Orleans job system.
         </strong>
-        <p>We are evaluating which opportunity center can best meet your needs or barriers.
+        <p>We are evaluating which opportunity center can best meet your
+        needs or barriers.
         You'll get a reply by email of who to contact.
         If you do not have email, someone will call you.</p>
         <br>Here are your submissions: </br>
@@ -214,9 +218,9 @@ module WorkForwardNola
   
       # The email body for recipients with non-HTML email clients.
       textbody =  "Thank you for registering in the New Orleans job system.
-                  We are evaluating which opportunity center can best meet your needs
-                  or barriers. You'll get a reply by email of who to contact.
-                  If you do not have email, someone will call you."
+                  We are evaluating which opportunity center can best meet your
+                  needs or barriers. You'll get a reply by email of who to
+                  contact. If you do not have email, someone will call you."
       emailer = EmailProvider.emailer
       sender = EmailProvider.sender
       owner = EmailProvider.owner

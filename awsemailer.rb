@@ -4,6 +4,7 @@ require './app.rb'
 require 'dotenv'
 
 module WorkForwardNola
+  # Class for sending out emails through AWS
   class AwsEmailer < Emailer
     
     Dotenv.load
@@ -21,7 +22,9 @@ module WorkForwardNola
       encoding = 'UTF-8'
       # Try to send the email.
       begin
-        # Verify the emails
+        # Verify the emails, this will add them to the verified emails
+        # if using sandboxes.
+        
         # check_emails sender
         # check_emails recipient
         # check_emails cc
@@ -40,7 +43,9 @@ module WorkForwardNola
           },
           source: ENV['SENDER_EMAIL']
         }
-       # if not cc.nil?
+        
+        # Email validation?
+        # if not cc.nil?
         #  email_config_data[:destination][:cc_addresses] = as_email_array(cc)
         # end
         # if not bcc.nil?

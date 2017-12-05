@@ -1,7 +1,8 @@
 require './awsemailer.rb'
 require './app.rb'
 
-module WorkForwardNola  
+module WorkForwardNola 
+  # Abstract class for emailing systems
   class Emailer
     def initialize
     end
