@@ -3,10 +3,13 @@ require 'sinatra/sequel'
 require 'mustache'
 require 'dotenv'
 require 'pony'
+require './emailprovider.rb'
 
 module WorkForwardNola
   # WFN app
   class App < Sinatra::Base
+    attr_reader :emailer
+    
     Dotenv.load
 
     register Sinatra::SequelExtension
@@ -124,6 +127,7 @@ module WorkForwardNola
         worksheet.save
         mustache :jobsystem
       end
+      send_job_form_email(params['email_submission'], 'email_here', params)
     end
 
     get '/opportunity-center-info' do
@@ -165,6 +169,60 @@ module WorkForwardNola
       protected!
       @title = 'Manage Content'
       mustache :manage
+    end
+    
+    private
+    
+    def send_job_form_email(recipient, oppCenter, params)
+      # Specify a configuration set. To use a configuration
+      # set, uncomment the next line and send it to the proper method
+      #   configsetname = "ConfigSet"
+      subject = 'New Submission: Opportunity Center Sign Up'
+  
+      htmlbody =
+        "<strong>
+        Thank you for registering in the New Orleans job system.
+        </strong>
+        <p>We are evaluating which opportunity center can best meet your needs or barriers.
+        You'll get a reply by email of who to contact.
+        If you do not have email, someone will call you.</p>
+        <br>Here are your submissions: </br>
+        <br>First Name: #{params['first_name']}</br>
+        <br>Last Name: #{params['last_name']}</br>
+        <br>Best way to contact: #{params['best_way']}</br>
+        <br>Email: #{params['email_submission']}</br>
+        <br>Phone: #{params['phone_submission']}</br>
+        <br>Text: #{params['text_submission']}</br>
+        <br>Referred by: #{params['referral']}</br>
+        <br>Which neighborhood:  #{params['neighborhood']}</br>
+        <br>Are you a young adult? #{params['young_adult']}</br>
+        <br>Are you a veteran?  #{params['veteran']}</br>
+        <br>Do you have little access to transportaion?  
+        #{params['no_transportation']}</br>
+        <br>Are you homeless or staying with someone temporarily?  
+        #{params['homeless']}</br>
+        <br>I dont have a drivers license. #{params['no_drivers_license']}</br>
+        <br>I dont have a state-issued I.D. #{params['no_state_id']}</br>
+        <br>I am disabled. #{params['disabled']}</br>
+        <br>I need childcare. #{params['childcare']}</br>
+        <br>I have an open criminal charge. #{params['criminal']}</br>
+        <br>I have been previously incarcerated.
+        #{params['previously_incarcerated']}</br>
+        <br>I am using drugs and want to get help. #{params['using_drugs']}</br>
+        <br>None of the above. #{params['none']}</br>"
+  
+  
+      # The email body for recipients with non-HTML email clients.
+      textbody =  "Thank you for registering in the New Orleans job system.
+                  We are evaluating which opportunity center can best meet your needs
+                  or barriers. You'll get a reply by email of who to contact.
+                  If you do not have email, someone will call you."
+      emailer = EmailProvider.emailer
+      sender = EmailProvider.sender
+      owner = EmailProvider.owner
+      puts self.emailer.inspect
+      emailer.send_email(sender, recipient, subject, textbody, htmlbody,
+                         oppCenter, owner)
     end
   end
 end

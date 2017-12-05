@@ -12,6 +12,7 @@ gem 'uglifier', '~> 3.0'
 gem 'dotenv'
 gem 'google_drive'
 gem 'pony'
+gem 'aws-sdk-ses'
 
 # database things
 gem 'pg'
