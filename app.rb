@@ -111,7 +111,7 @@ module WorkForwardNola
 
     post '/contact' do 
       
-    new_form = Contact.create(
+  new_form = Contact.create(
         
         first_name: params['first_name'],
         last_name: params['last_name'],
@@ -119,7 +119,7 @@ module WorkForwardNola
         neighborhood: params['neighborhood'],
         referral: params['referral'],
         young_adult: params['young_adult'],
-        veteran: paramas['veteran'],
+        veteran: params['veteran'],
         no_transportation: params['no_transportation'],
         homeless: params['homeless'],
         no_drivers_license: params['no_drivers_license'],
