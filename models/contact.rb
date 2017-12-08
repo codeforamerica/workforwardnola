@@ -1,4 +1,7 @@
 module WorkForwardNola
-  class Trait < Sequel::Model
+  class Contact < Sequel::Model
+    unrestrict_primary_key
+      
+  end
 
 end
