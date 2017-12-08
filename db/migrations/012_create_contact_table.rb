@@ -2,7 +2,7 @@ Sequel.migration do
   change do
 
 
-    create_table :contact do
+    create_table :contacts do
 
       primary_key :id
       String :first_name, null: false
