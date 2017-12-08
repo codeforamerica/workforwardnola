@@ -110,6 +110,30 @@ module WorkForwardNola
     end
 
     post '/contact' do 
+      
+    new_form = Contact.create(
+        
+        first_name: params['first_name'],
+        last_name: params['last_name'],
+        best_way: params["best_way"],
+        neighborhood: params['neighborhood'],
+        referral: params['referral'],
+        young_adult: params['young_adult'],
+        veteran: paramas['veteran'],
+        no_transportation: params['no_transportation'],
+        homeless: params['homeless'],
+        no_drivers_license: params['no_drivers_license'],
+        no_state_id: params['no_state_id'],
+        disabled: params['disabled'],
+        childcare: params['childcare'],
+        criminal: params['criminal'],
+        previously_incarcerated: params['previously_incarcerated'],
+        using_drugs: ['using_drugs'],
+        none_of_above: params['none']
+        
+      )
+      new_form.save
+      
       new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
                  params['text_submission'],  params['referral'],
