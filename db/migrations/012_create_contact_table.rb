@@ -21,7 +21,7 @@ Sequel.migration do
       TrueClass :criminal, default: false
       TrueClass :previously_incarcerated, default: false
       TrueClass :using_drugs, default: false
-      TrueClass :none, default: false
+      TrueClass :none_of_above, default: false
     end
   end
 
