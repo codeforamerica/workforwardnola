@@ -10,6 +10,8 @@ Sequel.migration do
       String :referral, null: false
       String :neighborhood, null: false
       String :best_way, null: false
+      String :email_submission, 
+      String :phone_submission,
       TrueClass :young_adult, null: false, default: false
       TrueClass :veteran, null: false, default: false
       TrueClass :no_transportation, null: false, default: false
