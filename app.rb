@@ -9,7 +9,7 @@ module WorkForwardNola
   # WFN app
   class App < Sinatra::Base
     attr_reader :emailer
-    
+
     Dotenv.load
 
     register Sinatra::SequelExtension
@@ -127,8 +127,8 @@ module WorkForwardNola
         worksheet.save
         mustache :jobsystem
       end
-      if params['email_submission'] != '' then
-        send_job_form_email(params['email_submission'], 'ccemail_here', params)
+      if params['email_submission'] != ''
+        send_job_form_email(params['email_submission'], 'oppcenter_email', params)
       end
       redirect to ('/') # where to redirect after submission?
     end
@@ -173,10 +173,10 @@ module WorkForwardNola
       @title = 'Manage Content'
       mustache :manage
     end
-    
+
     private
-    
-    def send_job_form_email(recipient, oppCenter, params)
+
+    def send_job_form_email(recipient, oppcenter, params)
       # Specify a configuration set. To use a configuration
       # set, uncomment the next line and send it to the proper method
       #   configsetname = "ConfigSet"
@@ -203,7 +203,7 @@ module WorkForwardNola
         <br>Are you a veteran?  #{params['veteran']}</br>
         <br>Do you have little access to transportaion?  
         #{params['no_transportation']}</br>
-        <br>Are you homeless or staying with someone temporarily?  
+        <br>Are you homeless or staying with someone temporarily?
         #{params['homeless']}</br>
         <br>I dont have a drivers license. #{params['no_drivers_license']}</br>
         <br>I dont have a state-issued I.D. #{params['no_state_id']}</br>
@@ -214,8 +214,8 @@ module WorkForwardNola
         #{params['previously_incarcerated']}</br>
         <br>I am using drugs and want to get help. #{params['using_drugs']}</br>
         <br>None of the above. #{params['none']}</br>"
-  
-  
+
+
       # The email body for recipients with non-HTML email clients.
       textbody =  "Thank you for registering in the New Orleans job system.
                   We are evaluating which opportunity center can best meet your
@@ -226,7 +226,7 @@ module WorkForwardNola
       owner = EmailProvider.owner
       puts self.emailer.inspect
       emailer.send_email(sender, recipient, subject, textbody, htmlbody,
-                         oppCenter, owner)
+                         oppcenter, owner)
     end
   end
 end
