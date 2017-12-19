@@ -128,9 +128,9 @@ module WorkForwardNola
         mustache :jobsystem
       end
       if params['email_submission'] != '' then
-        send_job_form_email(params['email_submission'], 'email_here', params)
+        send_job_form_email(params['email_submission'], 'ccemail_here', params)
       end
-      redirect to ('/jobsystem')
+      redirect to ('/') # where to redirect after submission?
     end
 
     get '/opportunity-center-info' do

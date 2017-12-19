@@ -41,9 +41,10 @@ We are not AWS experts, so if you have recommendations to improve the following,
   * For steps 5/6, select `Ruby` and `Ruby 2.2 (Puma)`
   * SSH login is optional, but convenient
 3. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
-4. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
-5. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
-6. Try deploying: `eb deploy`
+4. Setting up SES: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS_SECRET` must all be configured in .env for the SES to work through the job form.
+5. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
+6. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
+7. Try deploying: `eb deploy`
 
 Configuring the "email to yourself" feature requires extra configuration on EB.
 
