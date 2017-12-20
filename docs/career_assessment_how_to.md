@@ -14,7 +14,7 @@ Matching an image with a trait can happen three ways:
 The career info is managed via a google spreadsheet that is manually synced with the site's database. Updating existing career info or adding a new career doesn't involve any code updates, but adding a new trait or changing the assessment does.
 
 ### The google spreadsheet
-The current production version of this site uses [this spreadsheet](https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8) (current owners CfA NOLA Fellows).
+The current production version of this site uses [this spreadsheet](https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E/pubhtml) (current owners CfA NOLA Fellows).
 
 *When editing the content DO NOT change the column headers or the content will not update properly.* The columns `description`, `	foundational_skills`, and `training` accept HTML formatting. It's recommended to double check your HTML with a tool like https://jsfiddle.net/.
 
@@ -29,7 +29,7 @@ After filling in the info, go to 'File' > 'Publish to Web' and publish it as a w
 To update the information about a career: edit your spreadsheet, then go to the ["manage" page](http://workforwardnola.com/manage) & enter the username and password. Enter the PUBLIC link to the spreadsheet (it ends in `/pubhtml`) (Like https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8/pubhtml), wait for the link to be validated, then click "Update content". If an error message appears, double check the content format. When the content updates successfully, there will be a message indicating how many careers and traits were updated. You're done!
 
 ### Adding new career
-Add a new row to the google spreadsheet. The columns `name`, `sector`, and `experienced_wage` are required. The `traits` column is required to have the new career be included in assessment results. After filling in the new row in the spreadsheet, follow the instructions for the 'Updating Career info' step above to load and publish the new information.
+Add a new row to the google spreadsheet. The columns `name`, `sector`, and `experienced_range` are required. The `traits` column is required to have the new career be included in assessment results. After filling in the new row in the spreadsheet, follow the instructions for the 'Updating Career info' step above to load and publish the new information.
 
 ## Adding new trait
 Adding a new trait to the assessment cannot be done without additional coding work.

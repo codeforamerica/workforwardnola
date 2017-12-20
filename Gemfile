@@ -13,6 +13,7 @@ gem 'dotenv'
 gem 'google_drive'
 gem 'pony'
 gem 'aws-sdk-ses'
+gem 'aws-sdk-s3'
 
 # database things
 gem 'pg'

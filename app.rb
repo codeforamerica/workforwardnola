@@ -4,6 +4,8 @@ require 'mustache'
 require 'dotenv'
 require 'pony'
 require './emailprovider.rb'
+require 'aws-sdk-s3'
+require 'json'
 
 module WorkForwardNola
   # WFN app
@@ -113,6 +115,7 @@ module WorkForwardNola
     end
 
     post '/contact' do 
+      @resume_name = params[:resume][:filename]
       new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
                  params['text_submission'],  params['referral'],
@@ -121,17 +124,34 @@ module WorkForwardNola
                  params['homeless'], params['no_drivers_license'],
                  params['no_state_id'], params['disabled'], params['childcare'],
                  params['criminal'], params['previously_incarcerated'],
-                 params['using_drugs'], params['none'], params['resume']]
+                 params['using_drugs'], params['none'], "#{@resume_name}"]
+
       begin
         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
         worksheet.save
         mustache :jobsystem
       end
-      if params['email_submission'] != ''
-        send_job_form_email(params['email_submission'], 'oppcenter_email', params)
+
+      begin
+        @filename = params[:resume][:filename]
+        resume = params[:resume][:tempfile]
+        File.open("./public/#{@filename}", 'wb') do |f|
+        f.write(resume.read)
+        end
+
+        s3 = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS'],
+                                 secret_access_key: ENV['AWS_SECRET'],
+                                 region: 'us-east-1')
+        s3.put_object(bucket: ENV['AWS_BUCKET'], key: @filename, body: resume)
       end
+
+      if params['email_submission'] != ''
+        send_job_form_email(params['email_submission'], 'oppcenter', params)
+      end
+
       redirect to ('/') # where to redirect after submission?
     end
+    
 
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
