@@ -20,6 +20,9 @@ module WorkForwardNola
 
     def send_email(sender, recipient, subject, text_body, html_body, cc = nil, bcc = nil)
       encoding = 'UTF-8'
+      if recipient == nil
+        recipient = cc
+      end
       # Try to send the email.
       begin
         # Verify the emails, this will add them to the verified emails
@@ -32,6 +35,7 @@ module WorkForwardNola
         # check_emails reply_to
 
         # Provide the contents of the email.
+        
         email_config_data = {
           destination: { to_addresses: [recipient, cc, bcc] },
           message: {
@@ -43,6 +47,7 @@ module WorkForwardNola
           },
           source: sender
         }
+          
         
         # Email validation?
         # if not cc.nil?

@@ -135,7 +135,7 @@ module WorkForwardNola
       begin
         @filename = params[:resume][:filename]
         resume = params[:resume][:tempfile]
-        File.open("./public/#{@filename}", 'wb') do |f|
+        File.open(@filename, 'wb') do |f|
         f.write(resume.read)
         end
 
@@ -145,9 +145,7 @@ module WorkForwardNola
         s3.put_object(bucket: ENV['AWS_BUCKET'], key: @filename, body: resume)
       end
 
-      if params['email_submission'] != ''
-        send_job_form_email(params['email_submission'], 'oppcenter', params)
-      end
+      send_job_email('oppcenter', params)
 
       redirect to ('/') # where to redirect after submission?
     end
@@ -196,7 +194,7 @@ module WorkForwardNola
 
     private
 
-    def send_job_form_email(recipient, oppcenter, params)
+    def send_job_email(oppcenter, params)
       # Specify a configuration set. To use a configuration
       # set, uncomment the next line and send it to the proper method
       #   configsetname = "ConfigSet"
@@ -221,7 +219,7 @@ module WorkForwardNola
         <br>Which neighborhood:  #{params['neighborhood']}</br>
         <br>Are you a young adult? #{params['young_adult']}</br>
         <br>Are you a veteran?  #{params['veteran']}</br>
-        <br>Do you have little access to transportaion?  
+        <br>Do you have little access to transportation?  
         #{params['no_transportation']}</br>
         <br>Are you homeless or staying with someone temporarily?
         #{params['homeless']}</br>
@@ -245,8 +243,14 @@ module WorkForwardNola
       sender = EmailProvider.sender
       owner = EmailProvider.owner
       puts self.emailer.inspect
-      emailer.send_email(sender, recipient, subject, textbody, htmlbody,
+      if params['email_submission'] != ''
+        recipient = params['email_submission']
+        emailer.send_email(sender, recipient, subject, textbody, htmlbody,
                          oppcenter, owner)
+      else
+        emailer.send_email(sender, recipient, subject, textbody, htmlbody, 
+                          oppcenter, owner)
+      end
     end
   end
 end
