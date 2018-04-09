@@ -110,7 +110,8 @@ module WorkForwardNola
     end
 
     post '/contact' do 
-      
+=begin
+       ###Potential for db, commenting for now###
        new_form = Contact.create(
         
         first_name: params['first_name'],
@@ -143,6 +144,7 @@ module WorkForwardNola
                  params['no_state_id'], params['disabled'], params['childcare'],
                  params['criminal'], params['previously_incarcerated'],
                  params['using_drugs'], params['none'], params['resume']]
+=end
       begin
         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
         worksheet.save
