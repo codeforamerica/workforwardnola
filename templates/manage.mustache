@@ -1,8 +1,4 @@
-  <div class="centered spreadsheet">
-    <h1>Manage careers content</h1>
 
-    <label>Google Spreadsheet URL: </label>
-    <input name="Spreadsheet URL" placeholder="Paste spreadsheet link here!" type="text" onkeyup="checkSpreadsheetUrl()" />
   <div class="centered spreadsheet">
     <h1>Manage careers content</h1>
 
@@ -14,8 +10,8 @@
       <button class="basic-button" type="submit" onclick="updateFromSpreadsheet()" disabled>Update content</button>
     </div></br>
     
-    <label><strong>Update Opportunity Center Default Emails: </strong></label></br>
-    <p>
+    <h1>Update Opportunity Center Information: </h1></br>
+    <form method="post" action="/manage/update"></form>
     <label>JOB1 Business and Career Solutions Center Email: </label> <input name="JOB1" placeholder= "crtucker@nola.gov" type="text" onkeyup="" /></br>
     <label>Total Community Action Email: </label> <input name="TCA" placeholder= "james.carey@tca-nola.org" type="text" onkeyup="" /></br>
     <label>Goodwill Industries Email: </label> <input name="goodwill" placeholder= "jboudoin@goodwillno.org" type="text" onkeyup="" />
