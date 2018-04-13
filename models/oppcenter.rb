@@ -3,7 +3,7 @@ module WorkForwardNola
     #many_to_many :oppcenter
 
     #def self.bulk_create data
-      # clear traits table
+      # clear oppcenter table
      # OppCenter.db.run 'TRUNCATE oppcenter CASCADE'
       # iterate over data & insert for each one
       #data.each do |oppcenter|
