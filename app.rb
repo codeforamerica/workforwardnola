@@ -53,6 +53,7 @@ module WorkForwardNola
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
+     # require './models/oppcenter'
     end
     
       def worksheet
