@@ -1,3 +1,5 @@
+require './models/oppcenter.rb'
+
 module WorkForwardNola
   module Views
     class Manage < Layout
