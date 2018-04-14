@@ -1,5 +1,6 @@
   <div class="centered spreadsheet">
-    <h1>Manage careers content</h1>
+    <h1>Management Page</h1>
+    <h2>Manage careers content</h2>
 
     <label>Google Spreadsheet URL: </label>
     <input name="Spreadsheet URL" placeholder="Paste spreadsheet link here!" type="text" onkeyup="checkSpreadsheetUrl()" />
@@ -10,7 +11,7 @@
     </div></br>
     
     <h2>Update Opportunity Center Information: </h2>
-    <p>{{ opportunity.job2_name }}</p>
+    <p>{{ opportunity.job1_name }}</p>
     <form method="post" action="/manage/update"></form>
     <label>JOB1 Business and Career Solutions Center Email: </label> <input name="JOB1" placeholder= "crtucker@nola.gov" type="text" onkeyup="" /></br>
     <label>Total Community Action Email: </label> <input name="TCA" placeholder= "james.carey@tca-nola.org" type="text" onkeyup="" /></br>

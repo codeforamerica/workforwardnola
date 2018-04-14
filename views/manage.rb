@@ -5,7 +5,7 @@ module WorkForwardNola
       attr_reader :title
 
       def oppportunity
-      { job1_name: OppCenter.oppcenters.job1_name}
+      {job1_name: opp_centers['name']}
       end
 
     end

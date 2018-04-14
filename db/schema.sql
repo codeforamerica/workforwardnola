@@ -133,33 +133,26 @@ ALTER SEQUENCE contact_id_seq OWNED BY contact.id;
 
 
 --
--- Name: oppcenters; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+-- Name: opp_centers; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
 --
 
-CREATE TABLE oppcenters (
+CREATE TABLE opp_centers (
     id integer NOT NULL,
-    tca_name text NOT NULL,
-    tca_address text NOT NULL,
-    tca_phone text NOT NULL,
-    tca_email text NOT NULL,
-    goodwill_name text NOT NULL,
-    goodwill_address text NOT NULL,
-    goodwill_phone text NOT NULL,
-    goodwill_email text NOT NULL,
-    job1_name text NOT NULL,
-    job1_address text NOT NULL,
-    job1_phone text NOT NULL,
-    job1_email text NOT NULL
+    center text NOT NULL,
+    name text NOT NULL,
+    address text NOT NULL,
+    phone text NOT NULL,
+    email text NOT NULL
 );
 
 
-ALTER TABLE public.oppcenters OWNER TO todd;
+ALTER TABLE public.opp_centers OWNER TO todd;
 
 --
--- Name: oppcenters_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
+-- Name: opp_centers_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
 --
 
-CREATE SEQUENCE oppcenters_id_seq
+CREATE SEQUENCE opp_centers_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -167,13 +160,13 @@ CREATE SEQUENCE oppcenters_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.oppcenters_id_seq OWNER TO todd;
+ALTER TABLE public.opp_centers_id_seq OWNER TO todd;
 
 --
--- Name: oppcenters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
+-- Name: opp_centers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
 --
 
-ALTER SEQUENCE oppcenters_id_seq OWNED BY oppcenters.id;
+ALTER SEQUENCE opp_centers_id_seq OWNED BY opp_centers.id;
 
 
 --
@@ -239,7 +232,7 @@ ALTER TABLE ONLY contact ALTER COLUMN id SET DEFAULT nextval('contact_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: todd
 --
 
-ALTER TABLE ONLY oppcenters ALTER COLUMN id SET DEFAULT nextval('oppcenters_id_seq'::regclass);
+ALTER TABLE ONLY opp_centers ALTER COLUMN id SET DEFAULT nextval('opp_centers_id_seq'::regclass);
 
 
 --
@@ -274,11 +267,11 @@ ALTER TABLE ONLY contact
 
 
 --
--- Name: oppcenters_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+-- Name: opp_centers_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
 --
 
-ALTER TABLE ONLY oppcenters
-    ADD CONSTRAINT oppcenters_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY opp_centers
+    ADD CONSTRAINT opp_centers_pkey PRIMARY KEY (id);
 
 
 --

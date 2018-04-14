@@ -1,23 +1,18 @@
 module WorkForwardNola
   class OppCenter < Sequel::Model
-    many_to_many :oppcenters
+    many_to_many :opp_centers
 
     def self.bulk_create data
      #clear oppcenter table
      OppCenter.db.run 'TRUNCATE oppcenters CASCADE'
-     OppCenter.create(
-                tca_name: 'test',
-                tca_address: 'test',
-                tca_email: 'test',
-                tca_phone: 'test',
-                goodwill_name: 'test',
-                goodwill_address: 'test',
-                goodwill_email: 'test',
-                goodwill_phone: 'test',
-                job1_name: 'test',
-                job1_address: 'test',
-                job1_email: 'test',
-                job1_phone: 'nil')
+     data.each do |opp_centers|
+       opp_c = OppCenter.create(
+                  center: opp_centers['center'],
+                  name: opp_centers['name'],
+                  address: opp_centers['address'],
+                  email: opp_centers['email'],
+                  phone: opp_centers['phone'])
+      end
     end
   end
 end
