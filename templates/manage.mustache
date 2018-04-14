@@ -1,4 +1,3 @@
-
   <div class="centered spreadsheet">
     <h1>Manage careers content</h1>
 
@@ -10,7 +9,8 @@
       <button class="basic-button" type="submit" onclick="updateFromSpreadsheet()" disabled>Update content</button>
     </div></br>
     
-    <h1>Update Opportunity Center Information: </h1></br>
+    <h2>Update Opportunity Center Information: </h2>
+    <p>{{ opportunity.job2_name }}</p>
     <form method="post" action="/manage/update"></form>
     <label>JOB1 Business and Career Solutions Center Email: </label> <input name="JOB1" placeholder= "crtucker@nola.gov" type="text" onkeyup="" /></br>
     <label>Total Community Action Email: </label> <input name="TCA" placeholder= "james.carey@tca-nola.org" type="text" onkeyup="" /></br>

@@ -39,11 +39,12 @@ CREATE TABLE careers (
     sector text NOT NULL,
     description text,
     certification_required boolean DEFAULT false NOT NULL,
-    foundational_skills text,
     training text,
-    experienced_range text,
     general_duties text,
-    entry_wage text
+    experienced_range text,
+    entry_wage text,
+    career_image text,
+    alt_title text
 );
 
 
@@ -83,6 +84,99 @@ CREATE TABLE careers_traits (
 ALTER TABLE public.careers_traits OWNER TO todd;
 
 --
+-- Name: contact; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+--
+
+CREATE TABLE contact (
+    id integer NOT NULL,
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    referral text NOT NULL,
+    neighborhood text NOT NULL,
+    best_way text NOT NULL,
+    young_adult boolean DEFAULT false NOT NULL,
+    veteran boolean DEFAULT false NOT NULL,
+    no_transportation boolean DEFAULT false NOT NULL,
+    homeless boolean DEFAULT false NOT NULL,
+    no_drivers_license boolean DEFAULT false NOT NULL,
+    no_state_id boolean DEFAULT false NOT NULL,
+    disabled boolean DEFAULT false,
+    childcare boolean DEFAULT false,
+    criminal boolean DEFAULT false,
+    previously_incarcerated boolean DEFAULT false,
+    using_drugs boolean DEFAULT false,
+    "none" boolean DEFAULT false
+);
+
+
+ALTER TABLE public.contact OWNER TO todd;
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
+--
+
+CREATE SEQUENCE contact_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contact_id_seq OWNER TO todd;
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
+--
+
+ALTER SEQUENCE contact_id_seq OWNED BY contact.id;
+
+
+--
+-- Name: oppcenters; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+--
+
+CREATE TABLE oppcenters (
+    id integer NOT NULL,
+    tca_name text NOT NULL,
+    tca_address text NOT NULL,
+    tca_phone text NOT NULL,
+    tca_email text NOT NULL,
+    goodwill_name text NOT NULL,
+    goodwill_address text NOT NULL,
+    goodwill_phone text NOT NULL,
+    goodwill_email text NOT NULL,
+    job1_name text NOT NULL,
+    job1_address text NOT NULL,
+    job1_phone text NOT NULL,
+    job1_email text NOT NULL
+);
+
+
+ALTER TABLE public.oppcenters OWNER TO todd;
+
+--
+-- Name: oppcenters_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
+--
+
+CREATE SEQUENCE oppcenters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.oppcenters_id_seq OWNER TO todd;
+
+--
+-- Name: oppcenters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
+--
+
+ALTER SEQUENCE oppcenters_id_seq OWNED BY oppcenters.id;
+
+
+--
 -- Name: schema_info; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
 --
 
@@ -92,17 +186,6 @@ CREATE TABLE schema_info (
 
 
 ALTER TABLE public.schema_info OWNER TO todd;
-
---
--- Name: schema_seeds; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
---
-
-CREATE TABLE schema_seeds (
-    filename text NOT NULL
-);
-
-
-ALTER TABLE public.schema_seeds OWNER TO todd;
 
 --
 -- Name: traits; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
@@ -149,6 +232,20 @@ ALTER TABLE ONLY careers ALTER COLUMN id SET DEFAULT nextval('careers_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: todd
 --
 
+ALTER TABLE ONLY contact ALTER COLUMN id SET DEFAULT nextval('contact_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: todd
+--
+
+ALTER TABLE ONLY oppcenters ALTER COLUMN id SET DEFAULT nextval('oppcenters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: todd
+--
+
 ALTER TABLE ONLY traits ALTER COLUMN id SET DEFAULT nextval('traits_id_seq'::regclass);
 
 
@@ -169,11 +266,19 @@ ALTER TABLE ONLY careers_traits
 
 
 --
--- Name: schema_seeds_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+-- Name: contact_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
 --
 
-ALTER TABLE ONLY schema_seeds
-    ADD CONSTRAINT schema_seeds_pkey PRIMARY KEY (filename);
+ALTER TABLE ONLY contact
+    ADD CONSTRAINT contact_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: oppcenters_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+--
+
+ALTER TABLE ONLY oppcenters
+    ADD CONSTRAINT oppcenters_pkey PRIMARY KEY (id);
 
 
 --
