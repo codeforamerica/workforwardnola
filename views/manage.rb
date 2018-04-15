@@ -4,10 +4,17 @@ module WorkForwardNola
     class Manage < Layout
       attr_reader :title
 
-      def oppportunity
-      {job1_name: opp_centers['name']}
+      def opportunity
+          OppCenter.all.map do |oc|
+          {
+              center: oc.center,
+              name: oc.name,
+              address: oc.address,
+              email: oc.email,
+              phone: oc.phone
+          }
+        end
       end
-
     end
   end
 end
