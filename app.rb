@@ -53,6 +53,7 @@ module WorkForwardNola
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
+      require './models/contact'
     end
 
     def worksheet
@@ -112,13 +113,12 @@ module WorkForwardNola
     post '/contact' do 
       
   new_form = Contact.create(
-        
         first_name: params['first_name'],
         last_name: params['last_name'],
         best_way: params["best_way"],
-        email_submission_spot: params['email_submission'],
-        text_submission_spot: params['text_submission'],
-        phone_submission_spot: params['phone_submission'],
+        email_submission: params['email_submission'],
+        text_submission: params['text_submission'],
+        phone_submission: params['phone_submission'],
         neighborhood: params['neighborhood'],
         referral: params['referral'],
         young_adult: params['young_adult'],
@@ -133,7 +133,6 @@ module WorkForwardNola
         previously_incarcerated: params['previously_incarcerated'],
         using_drugs: ['using_drugs'],
         none_of_above: params['none']
-        
       )
       new_form.save
       

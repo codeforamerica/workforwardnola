@@ -39,11 +39,12 @@ CREATE TABLE careers (
     sector text NOT NULL,
     description text,
     certification_required boolean DEFAULT false NOT NULL,
-    foundational_skills text,
     training text,
-    experienced_range text,
     general_duties text,
-    entry_wage text
+    experienced_range text,
+    entry_wage text,
+    career_image text,
+    alt_title text
 );
 
 
@@ -81,6 +82,58 @@ CREATE TABLE careers_traits (
 
 
 ALTER TABLE public.careers_traits OWNER TO todd;
+
+--
+-- Name: contacts; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+--
+
+CREATE TABLE contacts (
+    id integer NOT NULL,
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    referral text NOT NULL,
+    neighborhood text NOT NULL,
+    best_way text NOT NULL,
+    email_submission text NOT NULL,
+    text_submission text NOT NULL,
+    phone_submission text NOT NULL,
+    young_adult boolean DEFAULT false NOT NULL,
+    veteran boolean DEFAULT false NOT NULL,
+    no_transportation boolean DEFAULT false NOT NULL,
+    homeless boolean DEFAULT false NOT NULL,
+    no_drivers_license boolean DEFAULT false NOT NULL,
+    no_state_id boolean DEFAULT false NOT NULL,
+    disabled boolean DEFAULT false,
+    childcare boolean DEFAULT false,
+    criminal boolean DEFAULT false,
+    previously_incarcerated boolean DEFAULT false,
+    using_drugs boolean DEFAULT false,
+    none_of_above boolean DEFAULT false
+);
+
+
+ALTER TABLE public.contacts OWNER TO todd;
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
+--
+
+CREATE SEQUENCE contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contacts_id_seq OWNER TO todd;
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
+--
+
+ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
+
 
 --
 -- Name: schema_info; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
@@ -149,6 +202,13 @@ ALTER TABLE ONLY careers ALTER COLUMN id SET DEFAULT nextval('careers_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: todd
 --
 
+ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: todd
+--
+
 ALTER TABLE ONLY traits ALTER COLUMN id SET DEFAULT nextval('traits_id_seq'::regclass);
 
 
@@ -166,6 +226,14 @@ ALTER TABLE ONLY careers
 
 ALTER TABLE ONLY careers_traits
     ADD CONSTRAINT careers_traits_pkey PRIMARY KEY (career_id, trait_id);
+
+
+--
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+--
+
+ALTER TABLE ONLY contacts
+    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
 
 
 --
