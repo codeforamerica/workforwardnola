@@ -77,8 +77,8 @@ module WorkForwardNola
         logger.error se.backtrace.join("\n")
         return {
           result: 'error',
-          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" +
-                'Please make sure your data is in the correct format or contact an administrator.'
+          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
+                   'Please make sure your data is in the correct format or contact an administrator.'
         }.to_json
       end
 
@@ -110,12 +110,11 @@ module WorkForwardNola
       mustache :jobsystem
     end
 
-    post '/contact' do 
-      
-  new_form = Contact.create(
+    post '/contact' do
+      new_form = Contact.create(
         first_name: params['first_name'],
         last_name: params['last_name'],
-        best_way: params["best_way"],
+        best_way: params['best_way'],
         email_submission: params['email_submission'],
         text_submission: params['text_submission'],
         phone_submission: params['phone_submission'],
@@ -135,7 +134,7 @@ module WorkForwardNola
         none_of_above: params['none']
       )
       new_form.save
-      
+
       new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
                  params['text_submission'],  params['referral'],
@@ -146,9 +145,9 @@ module WorkForwardNola
                  params['criminal'], params['previously_incarcerated'],
                  params['using_drugs'], params['none'], params['resume']]
       begin
-        worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
-        worksheet.save
-        mustache :jobsystem
+         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
+         worksheet.save
+         mustache :jobsystem
       end
     end
 
@@ -163,7 +162,7 @@ module WorkForwardNola
       @career_ids = body['career_ids']
       email_body = mustache :careers_email, layout: false
 
-      Pony.mail({
+      Pony.mail(
         to: body['recipient'],
         subject: 'Your NOLA Career Results',
         html_body: email_body,
@@ -177,7 +176,7 @@ module WorkForwardNola
           authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
           domain:               ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
         }
-      })
+      )
 
       status 200
       body.to_json # we have to return some JSON so that the callback gets executed in JS
