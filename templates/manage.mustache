@@ -11,14 +11,15 @@
     </div></br>
     
     <h2>Update Opportunity Center Information: </h2>
+    <form method="post" action="/manage/update">
     {{#opportunity}}
     <p>{{> partials/opportunity_center_field }}</p>
     {{/opportunity}}
-    <label>Total Community Action Email: </label> <input name="TCA" placeholder= "james.carey@tca-nola.org" type="text" onkeyup="" /></br>
-    <label>Goodwill Industries Email: </label> <input name="goodwill" placeholder= "jboudoin@goodwillno.org" type="text" onkeyup="" />
     <div class="button-wrapper">
-      <button class="basic-button" type="submit" onclick="updateEmail()" disabled>Update Opportunity Center Emails</button>
-    </div></br>
+      <button class="basic-button" value="Submit" name="submit" type="submit">Update Opportunity Center Emails</button>
+    </div>
+    </form>
+    </br>
     </p>
     
     <div class="flash" id="flash-results" style="display:none;">

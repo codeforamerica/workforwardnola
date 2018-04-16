@@ -167,6 +167,11 @@ module WorkForwardNola
     end
     
     post '/manage/update' do
+      x = 0
+      while x < params.length do
+        puts params['job1']
+        x += 1
+      end
     end
   end
 end
