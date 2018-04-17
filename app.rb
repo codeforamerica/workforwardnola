@@ -78,9 +78,8 @@ module WorkForwardNola
         errMessage = se.to_s.split('DETAIL').first
         return {
           result: 'error',
-          text: "There was an error saving the new data: #{errMessage}\n" +
-                   "Please make sure your data is in the correct format " +
-                   "or contact an administrator."
+          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
+                'Please make sure your data is in the correct format or contact an administrator.'
         }.to_json
       end
 
@@ -132,7 +131,7 @@ module WorkForwardNola
         childcare: params['childcare'],
         criminal: params['criminal'],
         previously_incarcerated: params['previously_incarcerated'],
-        using_drugs: params['using_drugs'],
+        using_drugs: pa['using_drugs'],
         none_of_above: params['none']
       )
       new_form.save
