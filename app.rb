@@ -75,10 +75,12 @@ module WorkForwardNola
       rescue Sequel::Error => se
         logger.error "Sequel::Error: #{se}"
         logger.error se.backtrace.join("\n")
+        errMessage = se.to_s.split('DETAIL').first
         return {
           result: 'error',
-          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
-                   'Please make sure your data is in the correct format or contact an administrator.'
+          text: "There was an error saving the new data: #{errMessage}\n" +
+                   "Please make sure your data is in the correct format " +
+                   "or contact an administrator."
         }.to_json
       end
 
@@ -135,19 +137,21 @@ module WorkForwardNola
       )
       new_form.save
 
-      new_row = [params['first_name'], params['last_name'], params['best_way'],
-                 params['email_submission'], params['phone_submission'],
-                 params['text_submission'],  params['referral'],
-                 params['neighborhood'], params['young_adult'],
-                 params['veteran'], params['no_transportation'],
-                 params['homeless'], params['no_drivers_license'],
-                 params['no_state_id'], params['disabled'], params['childcare'],
-                 params['criminal'], params['previously_incarcerated'],
-                 params['using_drugs'], params['none'], params['resume']]
+      new_row = [
+        params['first_name'], params['last_name'], params['best_way'],
+        params['email_submission'], params['phone_submission'],
+        params['text_submission'],  params['referral'],
+        params['neighborhood'], params['young_adult'],
+        params['veteran'], params['no_transportation'],
+        params['homeless'], params['no_drivers_license'],
+        params['no_state_id'], params['disabled'], params['childcare'],
+        params['criminal'], params['previously_incarcerated'],
+        params['using_drugs'], params['none'], params['resume']
+      ]
       begin
-         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
-         worksheet.save
-         mustache :jobsystem
+        worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
+        worksheet.save
+        mustache :jobsystem
       end
     end
 
