@@ -148,8 +148,8 @@ module WorkForwardNola
         params['using_drugs'], params['none'], params['resume']
       ]
       begin
-         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
-         worksheet.save
+        worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
+        worksheet.save
       end
       redirect to('/')
     end
