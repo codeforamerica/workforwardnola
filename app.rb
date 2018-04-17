@@ -131,11 +131,7 @@ module WorkForwardNola
         childcare: params['childcare'],
         criminal: params['criminal'],
         previously_incarcerated: params['previously_incarcerated'],
-<<<<<<< HEAD
-        using_drugs: pa['using_drugs'],
-=======
         using_drugs: params['using_drugs'],
->>>>>>> bba75ba903597c451bf1870fc50e53a9f97d296c
         none_of_above: params['none']
       )
       new_form.save
@@ -152,14 +148,8 @@ module WorkForwardNola
         params['using_drugs'], params['none'], params['resume']
       ]
       begin
-<<<<<<< HEAD
-        worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
-        worksheet.save
-        mustache :jobsystem
-=======
          worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
          worksheet.save
->>>>>>> bba75ba903597c451bf1870fc50e53a9f97d296c
       end
       redirect to('/')
     end
