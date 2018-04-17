@@ -130,7 +130,7 @@ module WorkForwardNola
         childcare: params['childcare'],
         criminal: params['criminal'],
         previously_incarcerated: params['previously_incarcerated'],
-        using_drugs: ['using_drugs'],
+        using_drugs: params['using_drugs'],
         none_of_above: params['none']
       )
       new_form.save
@@ -147,8 +147,8 @@ module WorkForwardNola
       begin
          worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
          worksheet.save
-         mustache :jobsystem
       end
+      redirect to('/')
     end
 
     get '/opportunity-center-info' do
