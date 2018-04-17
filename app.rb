@@ -130,7 +130,7 @@ module WorkForwardNola
         childcare: params['childcare'],
         criminal: params['criminal'],
         previously_incarcerated: params['previously_incarcerated'],
-        using_drugs: ['using_drugs'],
+        using_drugs: params['using_drugs'],
         none_of_above: params['none']
       )
       new_form.save
