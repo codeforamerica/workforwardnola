@@ -41,7 +41,7 @@ module WorkForwardNola
         address: '3400 Tulane Avenue, New Orleans, LA 70119',
         phone: '504.456.2662',
         email: 'Mail@goodwill.org'
-        
+
       OppCenter.create \
         center: 'tca',
         name: 'Total Community Action',
