@@ -169,12 +169,11 @@ module WorkForwardNola
     post '/manage/update_opp_centers' do
       protected!
       puts params
-      params.each do | key, value |
-        if key != 'submit' && value != ''
-          fieldname, center = key.split(':')
-          oc = OppCenter.where(center: center)
-          oc.update(fieldname.to_sym => value) unless oc.empty?
-        end
+      params.each do |key, value|
+        next if key == 'submit' || value == ''
+        fieldname, center = key.split(':')
+        oc = OppCenter.where(center: center)
+        oc.update(fieldname.to_sym => value) unless oc.empty?
       end
       redirect to('/manage')
     end

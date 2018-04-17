@@ -5,14 +5,14 @@ module WorkForwardNola
       attr_reader :title
 
       def opportunity
-          OppCenter.all.map do |oc|
+        OppCenter.all.map do |oc|
           {
-              center: oc.center,
-              name: oc.name,
-              contact: oc.contact,
-              address: oc.address,
-              email: oc.email,
-              phone: oc.phone
+            center: oc.center,
+            name: oc.name,
+            contact: oc.contact,
+            address: oc.address,
+            email: oc.email,
+            phone: oc.phone
           }
         end
       end

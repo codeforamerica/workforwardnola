@@ -33,7 +33,7 @@ module WorkForwardNola
         address: '3400 Tulane Avenue, New Orleans, LA 70118',
         phone: '504.658.4500',
         email: 'name@job1.org'
-        
+
       OppCenter.create \
         center: 'goodwill',
         name: 'Goodwill Industries',
