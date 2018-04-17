@@ -10,7 +10,8 @@ module WorkForwardNola
                       name: opp_c['name'],
                       address: opp_c['address'],
                       email: opp_c['email'],
-                      phone: opp_c['phone'])
+                      phone: opp_c['phone'],
+                      contact: opp_c['contact'])
             end
         end
     end

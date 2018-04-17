@@ -1,1 +1,25 @@
-<label>{{ center }} Email: </label> <input name="{{ id }}" id="{{id}}" placeholder="{{ email }}" type="text" value="{{id}}" onkeyup="" /> {{ name }} </br>
+<fieldset name="{{ center }}">
+    <legend>{{ name }}</legend>
+    <!-- strong>{{ name }}</strong -->
+    <br />
+    <label>Email: </label>
+    <input 
+        name="email:{{ center }}"
+        id="{{id}}"
+        placeholder="{{ email }}"
+        type="text"
+        value="{{id}}"
+        onkeyup="" 
+    /> 
+    <br />
+    <label>Contact: </label>
+    <input 
+        name="contact:{{ center }}"
+        id="{{id}}"
+        placeholder="{{ contact }}"
+        type="text"
+        value="{{id}}"
+        onkeyup="" 
+    /> 
+</fieldset>
+<br />

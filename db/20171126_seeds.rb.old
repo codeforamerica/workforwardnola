@@ -47,7 +47,6 @@ module WorkForwardNola
         phone: 'ze',
         email: 'ez'
 
-      
       help_desk = Career.create \
         name: 'Help Desk',
         sector: 'Tech',

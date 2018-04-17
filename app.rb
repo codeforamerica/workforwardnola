@@ -166,12 +166,17 @@ module WorkForwardNola
       mustache :manage
     end
     
-    post '/manage/update' do
-      x = 0
-      while x < params.length do
-        puts params['job1']
-        x += 1
+    post '/manage/update_opp_centers' do
+      protected!
+      puts params
+      params.each do | key, value |
+        if key != 'submit' && value != ''
+          fieldname, center = key.split(':')
+          oc = OppCenter.where(center: center)
+          oc.update(fieldname.to_sym => value) unless oc.empty?
+        end
       end
+      redirect to('/manage')
     end
   end
 end

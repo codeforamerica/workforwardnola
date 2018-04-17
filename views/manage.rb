@@ -9,6 +9,7 @@ module WorkForwardNola
           {
               center: oc.center,
               name: oc.name,
+              contact: oc.contact,
               address: oc.address,
               email: oc.email,
               phone: oc.phone
