@@ -5,7 +5,6 @@ require 'dotenv'
 require 'pony'
 require './emailprovider.rb'
 require 'aws-sdk-s3'
-require 'mime'
 require 'json'
 
 module WorkForwardNola

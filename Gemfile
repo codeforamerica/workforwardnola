@@ -15,7 +15,7 @@ gem 'pony'
 gem 'aws-sdk-ses'
 gem 'aws-sdk-s3'
 gem 'mime'
-gem 'aws-sdk'
+#gem 'aws-sdk'
 
 # database things
 gem 'pg'

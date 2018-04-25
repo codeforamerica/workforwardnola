@@ -1,7 +1,5 @@
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
-require 'aws-sdk'
 require './emailer.rb'
-require './app.rb'
 require 'dotenv'
 require 'mime'
 
@@ -21,7 +19,6 @@ module WorkForwardNola
     end
 
     def send_email(recipients, sender, subject, text_body, html_body, attachment_file = nil)
-      encoding = 'UTF-8'
       if recipients == nil
         recipients = cc
       end
