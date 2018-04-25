@@ -5,6 +5,7 @@ require 'dotenv'
 require 'pony'
 require './emailprovider.rb'
 require 'aws-sdk-s3'
+require 'mime'
 require 'json'
 
 module WorkForwardNola
@@ -115,7 +116,7 @@ module WorkForwardNola
     end
 
     post '/contact' do 
-      @resume_name = params[:resume][:filename]
+      @resume_name = if !params[:resume].nil? then params[:resume][:filename] else nil end
       new_row = [params['first_name'], params['last_name'], params['best_way'],
                  params['email_submission'], params['phone_submission'],
                  params['text_submission'],  params['referral'],
@@ -132,22 +133,21 @@ module WorkForwardNola
         mustache :jobsystem
       end
 
-      begin
-        @filename = params[:resume][:filename]
+      if @resume_name
         resume = params[:resume][:tempfile]
-        File.open(@filename, 'wb') do |f|
+        File.open(@resume_name, 'wb') do |f|
         f.write(resume.read)
-        end
-
         s3 = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS'],
                                  secret_access_key: ENV['AWS_SECRET'],
                                  region: 'us-east-1')
-        s3.put_object(bucket: ENV['AWS_BUCKET'], key: @filename, body: resume)
+        s3.put_object(bucket: ENV['AWS_BUCKET'], key: @resume_name, body: resume)
+        end
       end
-
-      send_job_email('oppcenter', params)
-
-      redirect to ('/') # where to redirect after submission?
+      
+      #TODO: send opportunity centers through
+      #use as string for testing until function works
+      send_job_email('oppcenters', params, resume)
+      redirect to '/' # where to redirect after submission?
     end
     
 
@@ -194,12 +194,13 @@ module WorkForwardNola
 
     private
 
-    def send_job_email(oppcenter, params)
+    def send_job_email(oppcenter, params, resume = nil)
       # Specify a configuration set. To use a configuration
       # set, uncomment the next line and send it to the proper method
       #   configsetname = "ConfigSet"
       subject = 'New Submission: Opportunity Center Sign Up'
-  
+      attachment = nil
+      attachment = resume.path() unless resume.nil?
       htmlbody =
         "<strong>
         Thank you for registering in the New Orleans job system.
@@ -242,15 +243,16 @@ module WorkForwardNola
       emailer = EmailProvider.emailer
       sender = EmailProvider.sender
       owner = EmailProvider.owner
-      puts self.emailer.inspect
-      if params['email_submission'] != ''
-        recipient = params['email_submission']
-        emailer.send_email(sender, recipient, subject, textbody, htmlbody,
-                         oppcenter, owner)
-      else
-        emailer.send_email(sender, recipient, subject, textbody, htmlbody, 
-                          oppcenter, owner)
-      end
+      #puts self.emailer.inspect
+      # TODO: wire up oppcenter function param
+      # TODO: get city manager email
+      city_manager_email = 'placeholder@mail.com'
+      # TODO: get opportunity center email based on function param
+      recipients = []
+      recipients.push params['email_submission'] if params['email_submission'] != ''
+      recipients.push city_manager_email
+      # recipients.push opp_center_email
+      emailer.send_email(recipients, sender, subject, textbody, htmlbody, attachment)
     end
   end
 end
