@@ -60,6 +60,7 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     memoist (0.16.0)
+    mime (0.4.4)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -129,6 +130,7 @@ DEPENDENCIES
   aws-sdk-ses
   dotenv
   google_drive
+  mime
   mustache-sinatra (~> 1)
   pg
   pony

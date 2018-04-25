@@ -1,7 +1,7 @@
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 require './emailer.rb'
-require './app.rb'
 require 'dotenv'
+require 'mime'
 
 module WorkForwardNola
   # Class for sending out emails through AWS
@@ -18,11 +18,23 @@ module WorkForwardNola
       end
     end
 
-    def send_email(sender, recipient, subject, text_body, html_body, cc = nil, bcc = nil)
-      encoding = 'UTF-8'
-      if recipient == nil
-        recipient = cc
+    def send_email(recipients, sender, subject, text_body, html_body, attachment_file = nil)
+      if recipients == nil
+        recipients = cc
       end
+      msg_mixed = MIME::Multipart::Mixed.new
+      unless attachment_file.nil?
+        attachment = MIME::Application.new(Base64::encode64(open(attachment_file,"rb").read))
+        attachment.transfer_encoding = 'base64'
+        attachment.disposition = 'attachment'
+        msg_mixed.attach(attachment, 'filename' => attachment_file)
+      end
+      msg_body = MIME::Multipart::Alternative.new
+      msg_body.add(MIME::Text.new(text_body,'plain'))
+      msg_body.add(MIME::Text.new(html_body,'html'))
+      msg_mixed.add(msg_body)
+      msg = MIME::Mail.new(msg_mixed)
+      msg.subject = subject
       # Try to send the email.
       begin
         # Verify the emails, this will add them to the verified emails
@@ -35,7 +47,16 @@ module WorkForwardNola
         # check_emails reply_to
 
         # Provide the contents of the email.
-        
+
+        resp = @ses.send_raw_email({
+          source: sender,
+          destinations: recipients,
+          raw_message: {
+          data: msg.to_s
+          }
+        })
+        #msg.headers.set('X-SES-CONFIGURATION-SET',configsetname)
+=begin
         email_config_data = {
           destination: { to_addresses: [recipient, cc, bcc] },
           message: {
@@ -47,8 +68,7 @@ module WorkForwardNola
           },
           source: sender
         }
-          
-        
+=end
         # Email validation?
         # if not cc.nil?
         #  email_config_data[:destination][:cc_addresses] = as_email_array(cc)
@@ -60,8 +80,8 @@ module WorkForwardNola
         #  email_config_data[:reply_to] = reply_to  
         #  not sure about the key on this one.
         # end
-        resp = @ses.send_email(email_config_data)
-        puts "Email sent to #{recipient.inspect}: #{resp.inspect}"
+        #resp = @ses.send_email(email_config_data)
+        puts "Email sent to #{recipients.inspect}: #{resp.inspect}"
       rescue Aws::SES::Errors::ServiceError => error
         # If something goes wrong, display an error message.
         throw error
