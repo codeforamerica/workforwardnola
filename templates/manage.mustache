@@ -11,7 +11,10 @@
     </div></br>
     
     <h2>Update Opportunity Center Information: </h2>
-    <form method="post" action="/manage/update_opp_centers">
+    <form method="post" action="/manage/update">
+    {{#opportunity}}
+    <p>{{> partials/opportunity_center_field }}</p>
+    {{/opportunity}}
     <div class="button-wrapper">
       <button class="basic-button" value="Submit" name="submit" type="submit">Update Opportunity Center Emails</button>
     </div>
@@ -32,5 +35,3 @@
     </ul>
     <p>For more info, see <a href="https://github.com/codeforamerica/workforwardnola/blob/master/docs/career_assessment_how_to.md#the-google-spreadsheet" target="_blank">documentation</a> about the spreadsheet.</p>
   </div>
-  <script>
-  </script>
