@@ -42,10 +42,17 @@ Sequel.migration do
       String :address, :text=>true, :null=>false
       String :phone, :text=>true, :null=>false
       String :email, :text=>true, :null=>false
+      String :contact, :text=>true, :null=>false
     end
     
     create_table(:schema_info) do
       Integer :version, :default=>0, :null=>false
+    end
+    
+    create_table(:schema_seeds) do
+      String :filename, :text=>true, :null=>false
+      
+      primary_key [:filename]
     end
     
     create_table(:traits) do

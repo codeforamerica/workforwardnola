@@ -15,6 +15,14 @@
     {{#opportunity}}
     <p>{{> partials/opportunity_center_field }}</p>
     {{/opportunity}}
+    
+    {{^ forExample}}
+      for example, on this page, the definition doesn't exist so this should display
+    {{/ forExample}}
+    
+    {{# forExample}}
+      this should not display
+    {{/forExample}}
     <div class="button-wrapper">
       <button class="basic-button" value="Submit" name="submit" type="submit">Update Opportunity Center Emails</button>
     </div>

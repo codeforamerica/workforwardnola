@@ -6,10 +6,10 @@
     </div>
   </footer>
 
+  <form id="opp-form-element" method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
   <section id="opp-form">
     <section class="no-print">
     <h1>Job System Sign-up Form</h1>
-   <form method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
      <strong>Whats your name? *</strong>
      <div style="float: right">
       <strong> How did you learn about us? * </strong>
@@ -37,18 +37,18 @@
      Opportunity Center is the best match for you</h2>
      <strong>Which of these apply to you? *</strong> </br> </br>
      <div id="attributes">
-       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(young_adult)">I am between the ages of 18-24</br>
-       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter(veteran)">I am a Veteran</br>
-       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter(no_transportation);">I don't always have a way to get to and from work</br>
-       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter(homeless)">I am homeless or staying with someone temporarily</br>
-       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter(no_drivers_license)">I don't have a driver's license</br>
-       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter(no_state_id)">I don't have a state-issued I.D.</br>
-       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter(disabled)">I am disabled</br>
-       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter(childcare)">I need childcare</br>
-       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter(criminal)">I have an open criminal charge</br>
-       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter(previously_incarcerated)">I have been previously incarcerated</br>
-       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(using_drugs)">I am using drugs and want to get help</br> 
-       <input type="checkbox" id="none" name="none" value="true" onclick="opportunityCenter(none)">None of these apply to me</br> </br>
+       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(event)">I am between the ages of 18-24</br>
+       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter(event)">I am a Veteran</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter();">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter(event)">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter(event)">I don't have a driver's license</br>
+       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter(event)">I don't have a state-issued I.D.</br>
+       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter(event)">I am disabled</br>
+       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter(event)">I need childcare</br>
+       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter(event)">I have an open criminal charge</br>
+       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter(event)">I have been previously incarcerated</br>
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(event)">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="none" name="none" value="true" onclick="opportunityCenter(event)">None of these apply to me</br> </br>
      </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
      <select name="neighborhood" required>
@@ -88,9 +88,9 @@
       <input type="submit" class="basic-button">
       </div>
       <hr>
-     </form>
     </div>
   </section>
+  </form>
 </section>
 
 <section class="no-print">
@@ -176,23 +176,57 @@
         }
       }
         
-      function opportunityCenter(input) {
-        if (input.id == "homeless" || input.id == "disabled") {
-          if (document.getElementById("opportunity_center").innerHTML.indexOf('Carey') <= -1) {
-              document.getElementById("opportunity_center").innerHTML +=
-                  "<p>Total Community Action (TCA)</br>1420 South Jeff Davis Pkwy New Orleans, La 70125</br>(504) 872-0334</br>James Cary</br>Email: James.Carey@tca-NOLA.org</br>Sidney Monroe</br>Email: Sidney.Monroe@tca-nola.org</p>";
-          }
-        } else if (input.id == "criminal" || input.id == "previously_incarcerated") {
-          if (document.getElementById("opportunity_center").innerHTML.indexOf('Boudoin') <= -1) {
-              document.getElementById("opportunity_center").innerHTML +=
-                  "<p>Goodwill Industries</br>3400 Tulane Avenue New Orleans</br>Jada Boudoin</br>Telephone: (504) 456-3933</br>Email: jboudoin@goodwillno.org</p>";      
-          }
-        } else {
-          if (document.getElementById("opportunity_center").innerHTML.indexOf('Tucker') <= -1) {
-              document.getElementById("opportunity_center").innerHTML +=
-                  "<p>JOB1 Business and Career Solutions Center</br> Cassandra Tucker, Administrative Data Specialist </br>3400 Tulane Avenue, New Orleans</br>(504) 658-4500 – Main </br>(504) 658-4571 – Direct </br> crtucker@nola.gov</p>";
+     function opportunityCenter(event) {
+        // event.preventDefault();
+        var checkboxes = Array.from(document.getElementById("attributes").children)
+          .filter((elt) => elt.type == 'checkbox');
+        console.log(checkboxes);
+        var opp_centers = [], input = undefined;
+        // Check all checkboxes, and add opp centers as needed.
+        for (k = 0; k < checkboxes.length; k++) {
+          if (checkboxes[k].checked) {
+            switch(checkboxes[k].id) {
+              case 'homeless':
+              case 'disabled':
+                opp_centers.push('tca');
+                break;
+              case 'criminal':
+              case 'previously_incarcerated':
+                opp_centers.push('goodwill');
+                break;
+              default:
+                opp_centers.push('job1');
+            }
           }
         }
+        // dedupe opp_centers array
+        opp_centers = Array.from(new Set(opp_centers));
+        // construct display strings
+        var display_content = "", form_inputs = "";
+        for (var j = 0; j < opp_centers.length; j++) {
+          switch (opp_centers[j]) {
+            case 'tca':
+              {{#opportunity.tca}}
+              display_content += "<p>{{name}}</br>{{address}}</br>{{phone}}</br>{{contact}}</br>{{email}}</p>";
+              form_inputs += "<input type='hidden' name='{{center}}' value='{{center}}'/>";
+              {{/opportunity.tca}}
+              break;
+            case 'goodwill':
+              {{#opportunity.goodwill}}
+              display_content += "<p>{{name}}</br>{{address}}</br>{{phone}}</br>{{contact}}</br>{{email}}</p>";
+              form_inputs += "<input type='hidden' name='{{center}}' value='{{center}}'/>";
+              {{/opportunity.goodwill}}
+              break;
+            case 'job1':
+              {{#opportunity.job1}}
+              display_content += "<p>{{name}}</br>{{address}}</br>{{phone}}</br>{{contact}}</br>{{email}}</p>";
+              form_inputs += "<input type='hidden' name='{{center}}' value='{{center}}'/>";
+              {{/opportunity.job1}}
+              break;
+          }
+        }
+        // update elements
+        document.getElementById("opportunity_center").innerHTML = display_content + form_inputs; 
       }
     </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>
