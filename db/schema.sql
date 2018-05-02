@@ -142,7 +142,8 @@ CREATE TABLE opp_centers (
     name text NOT NULL,
     address text NOT NULL,
     phone text NOT NULL,
-    email text NOT NULL
+    email text NOT NULL,
+    contact text NOT NULL
 );
 
 
@@ -179,6 +180,17 @@ CREATE TABLE schema_info (
 
 
 ALTER TABLE public.schema_info OWNER TO todd;
+
+--
+-- Name: schema_seeds; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+--
+
+CREATE TABLE schema_seeds (
+    filename text NOT NULL
+);
+
+
+ALTER TABLE public.schema_seeds OWNER TO todd;
 
 --
 -- Name: traits; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
@@ -272,6 +284,14 @@ ALTER TABLE ONLY contact
 
 ALTER TABLE ONLY opp_centers
     ADD CONSTRAINT opp_centers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_seeds_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+--
+
+ALTER TABLE ONLY schema_seeds
+    ADD CONSTRAINT schema_seeds_pkey PRIMARY KEY (filename);
 
 
 --
