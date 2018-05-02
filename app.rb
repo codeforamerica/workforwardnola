@@ -53,13 +53,14 @@ module WorkForwardNola
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
+      require './models/oppcenter'
     end
-
-    def worksheet
-      @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
-      @spreadsheet ||= @session.spreadsheet_by_title('contact')
-      @worksheet ||= @spreadsheet.worksheets.first
-    end
+    
+      def worksheet
+          @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
+          @spreadsheet ||= @session.spreadsheet_by_title("contact")
+          @worksheet ||= @spreadsheet.worksheets.first
+      end
 
     get '/' do
       @title = 'Work Forward NOLA'
@@ -108,49 +109,24 @@ module WorkForwardNola
       @title = 'Job System'
       mustache :jobsystem
     end
-
-    post '/contact' do 
-=begin
-       ###Potential for db, commenting for now###
-       new_form = Contact.create(
-        
-        first_name: params['first_name'],
-        last_name: params['last_name'],
-        best_way: params["best_way"],
-        neighborhood: params['neighborhood'],
-        referral: params['referral'],
-        young_adult: params['young_adult'],
-        veteran: params['veteran'],
-        no_transportation: params['no_transportation'],
-        homeless: params['homeless'],
-        no_drivers_license: params['no_drivers_license'],
-        no_state_id: params['no_state_id'],
-        disabled: params['disabled'],
-        childcare: params['childcare'],
-        criminal: params['criminal'],
-        previously_incarcerated: params['previously_incarcerated'],
-        using_drugs: ['using_drugs'],
-        none_of_above: params['none']
-        
-      )
-      new_form.save
       
-      new_row = [params['first_name'], params['last_name'], params['best_way'],
-                 params['email_submission'], params['phone_submission'],
-                 params['text_submission'],  params['referral'],
-                 params['neighborhood'], params['young_adult'],
-                 params['veteran'], params['no_transportation'],
-                 params['homeless'], params['no_drivers_license'],
-                 params['no_state_id'], params['disabled'], params['childcare'],
-                 params['criminal'], params['previously_incarcerated'],
-                 params['using_drugs'], params['none'], params['resume']]
-=end
+  
+   
+    post '/contact' do
+=begin
+#for the spreadsheet, disabling this for now
+
+  begin
+      new_row = [params["first_name"], params["last_name"],params["best_way"],params["email_submission"], params["phone_submission"],params["text_submission"],  params["referral"], params["neighborhood"], params["young_adult"], params["veteran"], params["no_transportation"],
+      params["homeless"], params["no_drivers_license"], params["no_state_id"], params["disabled"], params["childcare"], params["criminal"], params["previously_incarcerated"], params["using_drugs"], params["none"],params["resume"]]
       begin
         worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
         worksheet.save
-        mustache :jobsystem
       end
+  end
+=end
     end
+  
 
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
@@ -191,6 +167,18 @@ module WorkForwardNola
       protected!
       @title = 'Manage Content'
       mustache :manage
+    end
+    
+    post '/manage/update_opp_centers' do
+      protected!
+      puts params
+      params.each do |key, value|
+        next if key == 'submit' || value == ''
+        fieldname, center = key.split(':')
+        oc = OppCenter.where(center: center)
+        oc.update(fieldname.to_sym => value) unless oc.empty?
+      end
+      redirect to('/manage')
     end
   end
 end

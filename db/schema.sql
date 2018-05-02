@@ -39,11 +39,12 @@ CREATE TABLE careers (
     sector text NOT NULL,
     description text,
     certification_required boolean DEFAULT false NOT NULL,
-    foundational_skills text,
     training text,
-    experienced_range text,
     general_duties text,
-    entry_wage text
+    experienced_range text,
+    entry_wage text,
+    career_image text,
+    alt_title text
 );
 
 
@@ -81,6 +82,93 @@ CREATE TABLE careers_traits (
 
 
 ALTER TABLE public.careers_traits OWNER TO todd;
+
+--
+-- Name: contact; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+--
+
+CREATE TABLE contact (
+    id integer NOT NULL,
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    referral text NOT NULL,
+    neighborhood text NOT NULL,
+    best_way text NOT NULL,
+    young_adult boolean DEFAULT false NOT NULL,
+    veteran boolean DEFAULT false NOT NULL,
+    no_transportation boolean DEFAULT false NOT NULL,
+    homeless boolean DEFAULT false NOT NULL,
+    no_drivers_license boolean DEFAULT false NOT NULL,
+    no_state_id boolean DEFAULT false NOT NULL,
+    disabled boolean DEFAULT false,
+    childcare boolean DEFAULT false,
+    criminal boolean DEFAULT false,
+    previously_incarcerated boolean DEFAULT false,
+    using_drugs boolean DEFAULT false,
+    "none" boolean DEFAULT false
+);
+
+
+ALTER TABLE public.contact OWNER TO todd;
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
+--
+
+CREATE SEQUENCE contact_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contact_id_seq OWNER TO todd;
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
+--
+
+ALTER SEQUENCE contact_id_seq OWNED BY contact.id;
+
+
+--
+-- Name: opp_centers; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
+--
+
+CREATE TABLE opp_centers (
+    id integer NOT NULL,
+    center text NOT NULL,
+    name text NOT NULL,
+    address text NOT NULL,
+    phone text NOT NULL,
+    email text NOT NULL,
+    contact text NOT NULL
+);
+
+
+ALTER TABLE public.opp_centers OWNER TO todd;
+
+--
+-- Name: opp_centers_id_seq; Type: SEQUENCE; Schema: public; Owner: todd
+--
+
+CREATE SEQUENCE opp_centers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.opp_centers_id_seq OWNER TO todd;
+
+--
+-- Name: opp_centers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: todd
+--
+
+ALTER SEQUENCE opp_centers_id_seq OWNED BY opp_centers.id;
+
 
 --
 -- Name: schema_info; Type: TABLE; Schema: public; Owner: todd; Tablespace: 
@@ -149,6 +237,20 @@ ALTER TABLE ONLY careers ALTER COLUMN id SET DEFAULT nextval('careers_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: todd
 --
 
+ALTER TABLE ONLY contact ALTER COLUMN id SET DEFAULT nextval('contact_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: todd
+--
+
+ALTER TABLE ONLY opp_centers ALTER COLUMN id SET DEFAULT nextval('opp_centers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: todd
+--
+
 ALTER TABLE ONLY traits ALTER COLUMN id SET DEFAULT nextval('traits_id_seq'::regclass);
 
 
@@ -166,6 +268,22 @@ ALTER TABLE ONLY careers
 
 ALTER TABLE ONLY careers_traits
     ADD CONSTRAINT careers_traits_pkey PRIMARY KEY (career_id, trait_id);
+
+
+--
+-- Name: contact_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+--
+
+ALTER TABLE ONLY contact
+    ADD CONSTRAINT contact_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: opp_centers_pkey; Type: CONSTRAINT; Schema: public; Owner: todd; Tablespace: 
+--
+
+ALTER TABLE ONLY opp_centers
+    ADD CONSTRAINT opp_centers_pkey PRIMARY KEY (id);
 
 
 --
