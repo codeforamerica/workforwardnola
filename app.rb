@@ -54,13 +54,14 @@ module WorkForwardNola
       require './models/trait'
       require './models/career'
       require './models/contact'
+      require './models/oppcenter'
     end
-
-    def worksheet
-      @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
-      @spreadsheet ||= @session.spreadsheet_by_title('contact')
-      @worksheet ||= @spreadsheet.worksheets.first
-    end
+    
+      def worksheet
+          @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
+          @spreadsheet ||= @session.spreadsheet_by_title("contact")
+          @worksheet ||= @spreadsheet.worksheets.first
+      end
 
     get '/' do
       @title = 'Work Forward NOLA'
@@ -110,7 +111,9 @@ module WorkForwardNola
       @title = 'Job System'
       mustache :jobsystem
     end
-
+      
+  
+   
     post '/contact' do
       new_form = Contact.create(
         first_name: params['first_name'],
@@ -153,6 +156,7 @@ module WorkForwardNola
       end
       redirect to('/')
     end
+  
 
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
@@ -193,6 +197,18 @@ module WorkForwardNola
       protected!
       @title = 'Manage Content'
       mustache :manage
+    end
+    
+    post '/manage/update_opp_centers' do
+      protected!
+      puts params
+      params.each do |key, value|
+        next if key == 'submit' || value == ''
+        fieldname, center = key.split(':')
+        oc = OppCenter.where(center: center)
+        oc.update(fieldname.to_sym => value) unless oc.empty?
+      end
+      redirect to('/manage')
     end
   end
 end
