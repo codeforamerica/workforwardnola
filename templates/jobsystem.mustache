@@ -5,7 +5,12 @@
       <a href="http://www.nola.gov/" title="New Orleans City Government Website" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
     </div>
   </footer>
-
+  
+  <p></p>
+  <div class="button-wrapper center">
+      <a href="/" data-event-category="JobSystem" data-event-action="Back to homepage" title="Return to home page" class="basic-button">Back to home page</a>
+  </div>
+  
   <form id="opp-form-element" method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
   <section id="opp-form">
     <section class="no-print">
@@ -208,19 +213,19 @@
             case 'tca':
               {{#opportunity.tca}}
               display_content += "<p>{{name}}</br>{{address}}</br>{{phone}}</br>{{contact}}</br>{{email}}</p>";
-              form_inputs += "<input type='hidden' name='{{center}}' value='{{center}}'/>";
+              form_inputs += "<input type='hidden' name='{{center}}' value='{{email}}'/>";
               {{/opportunity.tca}}
               break;
             case 'goodwill':
               {{#opportunity.goodwill}}
               display_content += "<p>{{name}}</br>{{address}}</br>{{phone}}</br>{{contact}}</br>{{email}}</p>";
-              form_inputs += "<input type='hidden' name='{{center}}' value='{{center}}'/>";
+              form_inputs += "<input type='hidden' name='{{center}}' value='{{email}}'/>";
               {{/opportunity.goodwill}}
               break;
             case 'job1':
               {{#opportunity.job1}}
               display_content += "<p>{{name}}</br>{{address}}</br>{{phone}}</br>{{contact}}</br>{{email}}</p>";
-              form_inputs += "<input type='hidden' name='{{center}}' value='{{center}}'/>";
+              form_inputs += "<input type='hidden' name='{{center}}' value='{{email}}'/>";
               {{/opportunity.job1}}
               break;
           }
