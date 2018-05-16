@@ -53,14 +53,17 @@ module WorkForwardNola
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
+      require './models/contact'
       require './models/oppcenter'
     end
     
+    if File.exist?('./client_secret.json')
       def worksheet
-          @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
-          @spreadsheet ||= @session.spreadsheet_by_title("contact")
-          @worksheet ||= @spreadsheet.worksheets.first
+        @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
+        @spreadsheet ||= @session.spreadsheet_by_title("contact")
+        @worksheet ||= @spreadsheet.worksheets.first
       end
+    end
 
     get '/' do
       @title = 'Work Forward NOLA'
@@ -75,9 +78,10 @@ module WorkForwardNola
       rescue Sequel::Error => se
         logger.error "Sequel::Error: #{se}"
         logger.error se.backtrace.join("\n")
+        errMessage = se.to_s.split('DETAIL').first
         return {
           result: 'error',
-          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" +
+          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
                 'Please make sure your data is in the correct format or contact an administrator.'
         }.to_json
       end
@@ -113,18 +117,48 @@ module WorkForwardNola
   
    
     post '/contact' do
-=begin
-#for the spreadsheet, disabling this for now
+      new_form = Contact.create(
+        first_name: params['first_name'],
+        last_name: params['last_name'],
+        best_way: params['best_way'],
+        email_submission: params['email_submission'],
+        text_submission: params['text_submission'],
+        phone_submission: params['phone_submission'],
+        neighborhood: params['neighborhood'],
+        referral: params['referral'],
+        young_adult: params['young_adult'],
+        veteran: params['veteran'],
+        no_transportation: params['no_transportation'],
+        homeless: params['homeless'],
+        no_drivers_license: params['no_drivers_license'],
+        no_state_id: params['no_state_id'],
+        disabled: params['disabled'],
+        childcare: params['childcare'],
+        criminal: params['criminal'],
+        previously_incarcerated: params['previously_incarcerated'],
+        using_drugs: params['using_drugs'],
+        none_of_above: params['none']
+      )
+      new_form.save
 
-  begin
-      new_row = [params["first_name"], params["last_name"],params["best_way"],params["email_submission"], params["phone_submission"],params["text_submission"],  params["referral"], params["neighborhood"], params["young_adult"], params["veteran"], params["no_transportation"],
-      params["homeless"], params["no_drivers_license"], params["no_state_id"], params["disabled"], params["childcare"], params["criminal"], params["previously_incarcerated"], params["using_drugs"], params["none"],params["resume"]]
-      begin
-        worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
-        worksheet.save
+      if File.exist?('./client_secret.json')
+        new_row = [
+          params['first_name'], params['last_name'], params['best_way'],
+          params['email_submission'], params['phone_submission'],
+          params['text_submission'],  params['referral'],
+          params['neighborhood'], params['young_adult'],
+          params['veteran'], params['no_transportation'],
+          params['homeless'], params['no_drivers_license'],
+          params['no_state_id'], params['disabled'], params['childcare'],
+          params['criminal'], params['previously_incarcerated'],
+          params['using_drugs'], params['none'], params['resume']
+        ]
+        begin
+          worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
+          worksheet.save
+        end
       end
-  end
-=end
+      redirect to('/')
     end
   
 
@@ -139,7 +173,7 @@ module WorkForwardNola
       @career_ids = body['career_ids']
       email_body = mustache :careers_email, layout: false
 
-      Pony.mail({
+      Pony.mail(
         to: body['recipient'],
         subject: 'Your NOLA Career Results',
         html_body: email_body,
@@ -153,7 +187,7 @@ module WorkForwardNola
           authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
           domain:               ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
         }
-      })
+      )
 
       status 200
       body.to_json # we have to return some JSON so that the callback gets executed in JS
