@@ -20,6 +20,14 @@ The Code for America NOLA fellows team is no longer actively developing this. We
 
 The "Email to yourself" career assessment feature requires the `EMAIL_xxxx` config variables to be set. We use the [pony](https://github.com/benprew/pony) gem to send emails, please see their documentation for more details.
 
+Some changes have included various AWS services. In addition to SMTP from the pony gem, several config variables must be set for AWS services (S3 and SES). These are new additions added below the `EMAIL_xxxx` config variables.
+
+Setting up SES: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS_SECRET` must all be configured in `.env` for the SES to work through the job form.
+
+Setting up S3: Configure `AWS_BUCKET` in `.env`
+
+There is additionally an optional feature to write to google sheets using a file `client_secret.json`. An example is included in `client_secret.json.example`. If you do not wish to use this feature, do not create or use `client_secret.json`! You can find information on the [google-drive-ruby](https://github.com/gimite/google-drive-ruby) GitHub.
+
 ## Updating content
 For details on updating content see other files under the `docs/` folder. Details on updating career info via spreadsheet specifically is in [docs/career_assessment_how_to.md](docs/career_assessment_how_to.md).
 
@@ -37,14 +45,12 @@ We are not AWS experts, so if you have recommendations to improve the following,
 
 1. Create an IAM user (as recommended by Amazon) with appropriate permissions for deployment credentials. @antislice has no idea what specific permissions are needed for EB deployment, so we tested with admin.
 2. Install the Elastic Beanstalk client.
-2. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
+3. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
   * For steps 5/6, select `Ruby` and `Ruby 2.2 (Puma)`
   * SSH login is optional, but convenient
-3. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
-4. Setting up SES: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS_SECRET` must all be configured in .env for the SES to work through the job form.
-5. Setting up S3: Configure `AWS_BUCKET` in `.env`
-6. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
-7. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
+4. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
+5. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
+6. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
 7. Try deploying: `eb deploy`
 
 Configuring the "email to yourself" feature requires extra configuration on EB.

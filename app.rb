@@ -172,8 +172,8 @@ module WorkForwardNola
         end
       end
       
-      send_job_email('oppcenters', params, resume)
-      redirect to('/')
+      send_job_email(params, @resume_name, resume)
+      redirect to '/'
     end
 
     get '/opportunity-center-info' do
@@ -228,17 +228,16 @@ module WorkForwardNola
       end
       redirect to('/manage')
     end
-  end
-end
-
-private
-
-    def send_job_email(oppcenter, params, resume = nil)
+    
+    private
+    
+    def send_job_email(params, resume_name = nil, resume = nil)
       # Specify a configuration set. To use a configuration
       # set, uncomment the next line and send it to the proper method
       #   configsetname = "ConfigSet"
       subject = 'New Submission: Opportunity Center Sign Up'
       attachment = nil
+      attachment_name = resume_name
       attachment = resume.path() unless resume.nil?
       htmlbody =
         "<strong>
@@ -280,15 +279,22 @@ private
                   needs or barriers. You'll get a reply by email of who to
                   contact. If you do not have email, someone will call you."
       emailer = EmailProvider.emailer
-      sender = EmailProvider.sender
       owner = EmailProvider.owner
+      sender = EmailProvider.sender
       #puts self.emailer.inspect
       # TODO: wire up oppcenter function param
       # TODO: get city manager email
-      city_manager_email = 'placeholder@mail.com'
+      # city_manager_email = 'placeholder@mail.com'
       # TODO: get opportunity center email based on function param
       recipients = []
+      recipients.push owner
       recipients.push params['email_submission'] if params['email_submission'] != ''
-      recipients.push city_manager_email
+      recipients.push params['job1'] if params['job1']
+      recipients.push params['goodwill'] if params['goodwill']
+      recipients.push params['tca'] if params['tca']
       # recipients.push opp_center_email
-      emailer.send_email(recipients, sender, subject, textbody, htmlbody, attachment)
+      emailer.send_email(recipients, sender, subject, textbody, htmlbody, 
+                        attachment_name, attachment)
+    end
+  end
+end

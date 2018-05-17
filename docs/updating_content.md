@@ -11,9 +11,9 @@ The basic html for each page can be found in a `*.mustache` file in the `/templa
 * Text-only Opportunity Center information from map: `opp_center_info.mustache`
 
 ## Career assessment
-The careers are managed via a google spreadsheet (https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8, current owners CfA Fellows). 
+The careers are managed via a google spreadsheet (`https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E`, current owners Loyola University New Orleans Department of Computer Science). 
 
-To update the information about a career: edit that spreadsheet, then go to the ["manage" page](http://workforwardnola.com/manage) & enter the username and password. Enter the PUBLIC link to the spreadsheet (https://docs.google.com/spreadsheets/d/1lMeZZ_vu-xIVKLgo7obKlF0X4iJ3oHkLKl8uIrPsSt8/pubhtml), wait for the link to be validated, then click "Update content".
+To update the information about a career: edit that spreadsheet, then go to the ["manage" page](http://workforwardnola.com/manage) & enter the username and password. Enter the PUBLIC link to the spreadsheet (`https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E/pubhtml`), wait for the link to be validated, then click "Update content".
 
 When editing the content DO NOT change the column headers or the content will not update properly. The columns `description`, `general_duties`, `training`, `career_image`, and `alt_title` accept HTML formatting. It's recommended to double check your HTML with a tool like https://jsfiddle.net/. You will need to copy and paste your HTML in the tool, and run it to see the changes. 
 

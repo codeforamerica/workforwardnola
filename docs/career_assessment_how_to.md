@@ -14,7 +14,7 @@ Matching an image with a trait can happen three ways:
 The career info is managed via a google spreadsheet that is manually synced with the site's database. Updating existing career info or adding a new career doesn't involve any code updates, but adding a new trait or changing the assessment does.
 
 ### The google spreadsheet
-The current production version of this site uses [this spreadsheet](https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E/pubhtml) (current owners CfA NOLA Fellows).
+The current production version of this site uses [this spreadsheet](https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E/pubhtml) (current owners Loyola University New Orleans Department of Computer Science).
 
 *When editing the content DO NOT change the column headers or the content will not update properly.* The columns `description`, `	foundational_skills`, and `training` accept HTML formatting. It's recommended to double check your HTML with a tool like https://jsfiddle.net/.
 

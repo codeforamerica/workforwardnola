@@ -18,7 +18,8 @@ module WorkForwardNola
       end
     end
 
-    def send_email(recipients, sender, subject, text_body, html_body, attachment_file = nil)
+    def send_email(recipients, sender, subject, text_body, html_body, 
+                  attachment_name = nil, attachment_file = nil)
       if recipients == nil
         recipients = cc
       end
@@ -27,7 +28,7 @@ module WorkForwardNola
         attachment = MIME::Application.new(Base64::encode64(open(attachment_file,"rb").read))
         attachment.transfer_encoding = 'base64'
         attachment.disposition = 'attachment'
-        msg_mixed.attach(attachment, 'filename' => attachment_file)
+        msg_mixed.attach(attachment, 'filename' => attachment_name)
       end
       msg_body = MIME::Multipart::Alternative.new
       msg_body.add(MIME::Text.new(text_body,'plain'))
