@@ -1,28 +1,27 @@
 Sequel.migration do
   change do
-
-
-    create_table :contact do
-
+    create_table :contacts do
       primary_key :id
       String :first_name, null: false
       String :last_name, null: false
       String :referral, null: false
       String :neighborhood, null: false
       String :best_way, null: false
-      TrueClass :young_adult, null: false, default: false
-      TrueClass :veteran, null: false, default: false
-      TrueClass :no_transportation, null: false, default: false
-      TrueClass :homeless, null: false, default: false
-      TrueClass :no_drivers_license, null: false, default: false
-      TrueClass :no_state_id, null: false, default: false
-      TrueClass :disabled, default: false
-      TrueClass :childcare, default: false
-      TrueClass :criminal, default: false
-      TrueClass :previously_incarcerated, default: false
-      TrueClass :using_drugs, default: false
-      TrueClass :none, default: false
+      String :email_submission, null: false
+      String :text_submission, null: false
+      String :phone_submission, null: false
+      TrueClass :young_adult, blank: false
+      TrueClass :veteran, blank: false
+      TrueClass :no_transportation, blank: false
+      TrueClass :homeless, blank: false
+      TrueClass :no_drivers_license, blank: false
+      TrueClass :no_state_id, blank: false
+      TrueClass :disabled, blank: false
+      TrueClass :childcare, blank: false
+      TrueClass :criminal, blank: false
+      TrueClass :previously_incarcerated, blank: false
+      TrueClass :using_drugs, blank: false
+      TrueClass :none_of_above, blank: false
     end
   end
-
 end

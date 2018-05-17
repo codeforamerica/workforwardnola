@@ -1,47 +1,30 @@
   <div class="centered spreadsheet">
-    <h1>Manage careers content</h1>
+    <h1>Management Page</h1>
+    <h2>Manage careers content</h2>
 
     <label>Google Spreadsheet URL: </label>
     <input name="Spreadsheet URL" placeholder="Paste spreadsheet link here!" type="text" onkeyup="checkSpreadsheetUrl()" />
-
-    <div class="flash" id="flash-spreadsheet-link" style="display:none;"></div>
+    <div class="flash" id="flash-spreadsheet-link" style="display:none;">
+    </div>
     <div class="button-wrapper">
       <button class="basic-button" type="submit" onclick="updateFromSpreadsheet()" disabled>Update content</button>
+    </div></br>
+    
+    <h2>Update Opportunity Center Information: </h2>
+    <form method="post" action="/manage/update_opp_centers">
+    {{#opportunity}}
+    <p>{{> partials/opportunity_center_field }}</p>
+    {{/opportunity}}
+    <div class="button-wrapper">
+      <button class="basic-button" value="Submit" name="submit" type="submit">Update Opportunity Center Emails</button>
     </div>
+    </form>
+    </br>
+    </p>
+    
     <div class="flash" id="flash-results" style="display:none;">
     </div></br>
-   <label><strong>Update Opportunity Center Emails: </strong></label>
-   <form id = "manageForm" method="post" action="/emailUpdate"><p>  
-     <label>Transportation</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Childcare</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Open criminal charge</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Drug counseling and rehabilitation</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Need uniform</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Documentation</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Re-entry services or criminal background</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Homeless services</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Supportive services</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Diabled services</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Career and education support</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Mentoring</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Case management</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Career counseling</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Computer literacy training</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Resume building</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>HiSet or GED</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Foundational skills training</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Job placement assistance</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Career development</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Apprenticeship</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Vocational certification programs</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Re-entry services</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Pre-employment workshops</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Post-secondary education enrollment assistance</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-     <label>Financial literacy</label> <input name="Transportation " placeholder= "Update default email" type="text" onkeyup="" /></br>
-   </form>
-     <div class="button-wrapper">
-       <button class="basic-button" type="submit" onclick="updateFromSpreadsheet()" disabled>Update content</button>
-     </div></p>
+   
 
     <p>If you're starting from scratch, <a href="https://drive.google.com/previewtemplate?id=1vgqsoXLJ9FSDZamGv-SzDX_xCV3wHY0Lh142nhuZDQI&mode=public" target="_blank">use this template</a>. After all your data is in, publish it to the web ("File" > "Publish to Web") and use that url above.</p>
     <p>If you're working with Code for America, use <a href="https://docs.google.com/spreadsheets/d/1p6P_MlWz1EuNlE195nqF5_8p9AEmfgif6g1kp2n7cpY/pubhtml" target="_blank">this url</a>.</p>
@@ -53,3 +36,5 @@
     </ul>
     <p>For more info, see <a href="https://github.com/codeforamerica/workforwardnola/blob/master/docs/career_assessment_how_to.md#the-google-spreadsheet" target="_blank">documentation</a> about the spreadsheet.</p>
   </div>
+  <script>
+  </script>

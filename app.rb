@@ -58,12 +58,16 @@ module WorkForwardNola
       # this is convoluted, but I have to require this after setting up the DB
       require './models/trait'
       require './models/career'
+      require './models/contact'
+      require './models/oppcenter'
     end
-
-    def worksheet
-      @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
-      @spreadsheet ||= @session.spreadsheet_by_title('contact')
-      @worksheet ||= @spreadsheet.worksheets.first
+    
+    if File.exist?('./client_secret.json')
+      def worksheet
+        @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
+        @spreadsheet ||= @session.spreadsheet_by_title("contact")
+        @worksheet ||= @spreadsheet.worksheets.first
+      end
     end
 
     get '/' do
@@ -79,9 +83,10 @@ module WorkForwardNola
       rescue Sequel::Error => se
         logger.error "Sequel::Error: #{se}"
         logger.error se.backtrace.join("\n")
+        errMessage = se.to_s.split('DETAIL').first
         return {
           result: 'error',
-          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" +
+          text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
                 'Please make sure your data is in the correct format or contact an administrator.'
         }.to_json
       end
@@ -114,24 +119,48 @@ module WorkForwardNola
       mustache :jobsystem
     end
 
-    post '/contact' do 
+    post '/contact' do
       @resume_name = if !params[:resume].nil? then params[:resume][:filename] else nil end
-      new_row = [params['first_name'], params['last_name'], params['best_way'],
-                 params['email_submission'], params['phone_submission'],
-                 params['text_submission'],  params['referral'],
-                 params['neighborhood'], params['young_adult'],
-                 params['veteran'], params['no_transportation'],
-                 params['homeless'], params['no_drivers_license'],
-                 params['no_state_id'], params['disabled'], params['childcare'],
-                 params['criminal'], params['previously_incarcerated'],
-                 params['using_drugs'], params['none'], "#{@resume_name}"]
+      new_form = Contact.create(
+        first_name: params['first_name'],
+        last_name: params['last_name'],
+        best_way: params['best_way'],
+        email_submission: params['email_submission'],
+        text_submission: params['text_submission'],
+        phone_submission: params['phone_submission'],
+        neighborhood: params['neighborhood'],
+        referral: params['referral'],
+        young_adult: params['young_adult'],
+        veteran: params['veteran'],
+        no_transportation: params['no_transportation'],
+        homeless: params['homeless'],
+        no_drivers_license: params['no_drivers_license'],
+        no_state_id: params['no_state_id'],
+        disabled: params['disabled'],
+        childcare: params['childcare'],
+        criminal: params['criminal'],
+        previously_incarcerated: params['previously_incarcerated'],
+        using_drugs: params['using_drugs'],
+        none_of_above: params['none']
+      )
+      new_form.save
 
-      begin
-        worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
-        worksheet.save
-        mustache :jobsystem
+      if File.exist?('./client_secret.json')
+        new_row = [params['first_name'], params['last_name'], params['best_way'],
+                  params['email_submission'], params['phone_submission'],
+                  params['text_submission'],  params['referral'],
+                  params['neighborhood'], params['young_adult'],
+                  params['veteran'], params['no_transportation'],
+                  params['homeless'], params['no_drivers_license'],
+                  params['no_state_id'], params['disabled'], params['childcare'],
+                  params['criminal'], params['previously_incarcerated'],
+                  params['using_drugs'], params['none'], "#{@resume_name}"]
+        begin
+          worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
+          worksheet.save
+        end
       end
-
+      
       if @resume_name
         resume = params[:resume][:tempfile]
         File.open(@resume_name, 'wb') do |f|
@@ -143,12 +172,9 @@ module WorkForwardNola
         end
       end
       
-      #TODO: send opportunity centers through
-      #use as string for testing until function works
       send_job_email('oppcenters', params, resume)
-      redirect to '/' # where to redirect after submission?
+      redirect to('/')
     end
-    
 
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
@@ -161,7 +187,7 @@ module WorkForwardNola
       @career_ids = body['career_ids']
       email_body = mustache :careers_email, layout: false
 
-      Pony.mail({
+      Pony.mail(
         to: body['recipient'],
         subject: 'Your NOLA Career Results',
         html_body: email_body,
@@ -175,7 +201,7 @@ module WorkForwardNola
           authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
           domain:               ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
         }
-      })
+      )
 
       status 200
       body.to_json # we have to return some JSON so that the callback gets executed in JS
@@ -191,7 +217,21 @@ module WorkForwardNola
       mustache :manage
     end
 
-    private
+    post '/manage/update_opp_centers' do
+      protected!
+      puts params
+      params.each do |key, value|
+        next if key == 'submit' || value == ''
+        fieldname, center = key.split(':')
+        oc = OppCenter.where(center: center)
+        oc.update(fieldname.to_sym => value) unless oc.empty?
+      end
+      redirect to('/manage')
+    end
+  end
+end
+
+private
 
     def send_job_email(oppcenter, params, resume = nil)
       # Specify a configuration set. To use a configuration
@@ -252,6 +292,3 @@ module WorkForwardNola
       recipients.push city_manager_email
       # recipients.push opp_center_email
       emailer.send_email(recipients, sender, subject, textbody, htmlbody, attachment)
-    end
-  end
-end

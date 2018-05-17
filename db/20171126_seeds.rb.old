@@ -1,5 +1,6 @@
 require './models/trait'
 require './models/career'
+require './models/oppcenter'
 
 module WorkForwardNola
   Sequel.seed do
@@ -24,6 +25,27 @@ module WorkForwardNola
       end
 
       all_traits = Trait.map { |t| [t[:name], t[:id]] }.to_h
+
+      job1 = OppCenter.create \
+        center: 'job1',
+        name: '.',
+        address: 'z',
+        phone: 'ze',
+        email: 'ez'
+        
+      goodwill = OppCenter.create \
+        center: 'goodwill',
+        name: '.',
+        address: 'z',
+        phone: 'ze',
+        email: 'ez'
+        
+      tca = OppCenter.create \
+        center: 'tca',
+        name: '.',
+        address: 'z',
+        phone: 'ze',
+        email: 'ez'
 
       help_desk = Career.create \
         name: 'Help Desk',
