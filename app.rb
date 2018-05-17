@@ -61,11 +61,11 @@ module WorkForwardNola
       require './models/contact'
       require './models/oppcenter'
     end
-    
+
     if File.exist?('./client_secret.json')
       def worksheet
-        @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
-        @spreadsheet ||= @session.spreadsheet_by_title("contact")
+        @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
+        @spreadsheet ||= @session.spreadsheet_by_title('contact')
         @worksheet ||= @spreadsheet.worksheets.first
       end
     end
@@ -120,7 +120,7 @@ module WorkForwardNola
     end
 
     post '/contact' do
-      @resume_name = if !params[:resume].nil? then params[:resume][:filename] else nil end
+      @resume_name = !params[:resume].nil? ? params[:resume][:filename] : nil
       new_form = Contact.create(
         first_name: params['first_name'],
         last_name: params['last_name'],
@@ -147,31 +147,31 @@ module WorkForwardNola
 
       if File.exist?('./client_secret.json')
         new_row = [params['first_name'], params['last_name'], params['best_way'],
-                  params['email_submission'], params['phone_submission'],
-                  params['text_submission'],  params['referral'],
-                  params['neighborhood'], params['young_adult'],
-                  params['veteran'], params['no_transportation'],
-                  params['homeless'], params['no_drivers_license'],
-                  params['no_state_id'], params['disabled'], params['childcare'],
-                  params['criminal'], params['previously_incarcerated'],
-                  params['using_drugs'], params['none'], "#{@resume_name}"]
+                   params['email_submission'], params['phone_submission'],
+                   params['text_submission'],  params['referral'],
+                   params['neighborhood'], params['young_adult'],
+                   params['veteran'], params['no_transportation'],
+                   params['homeless'], params['no_drivers_license'],
+                   params['no_state_id'], params['disabled'], params['childcare'],
+                   params['criminal'], params['previously_incarcerated'],
+                   params['using_drugs'], params['none'], "#{@resume_name}"]
         begin
           worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
           worksheet.save
         end
       end
-      
+
       if @resume_name
         resume = params[:resume][:tempfile]
         File.open(@resume_name, 'wb') do |f|
-        f.write(resume.read)
-        s3 = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS'],
-                                 secret_access_key: ENV['AWS_SECRET'],
-                                 region: 'us-east-1')
-        s3.put_object(bucket: ENV['AWS_BUCKET'], key: @resume_name, body: resume)
+          f.write(resume.read)
+          s3 = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS'],
+                                   secret_access_key: ENV['AWS_SECRET'],
+                                   region: 'us-east-1')
+          s3.put_object(bucket: ENV['AWS_BUCKET'], key: @resume_name, body: resume)
         end
       end
-      
+
       send_job_email(params, @resume_name, resume)
       redirect to '/'
     end
@@ -228,9 +228,9 @@ module WorkForwardNola
       end
       redirect to('/manage')
     end
-    
+
     private
-    
+
     def send_job_email(params, resume_name = nil, resume = nil)
       # Specify a configuration set. To use a configuration
       # set, uncomment the next line and send it to the proper method
@@ -238,7 +238,7 @@ module WorkForwardNola
       subject = 'New Submission: Opportunity Center Sign Up'
       attachment = nil
       attachment_name = resume_name
-      attachment = resume.path() unless resume.nil?
+      attachment = resume.path unless resume.nil?
       htmlbody =
         "<strong>
         Thank you for registering in the New Orleans job system.
@@ -258,7 +258,7 @@ module WorkForwardNola
         <br>Which neighborhood:  #{params['neighborhood']}</br>
         <br>Are you a young adult? #{params['young_adult']}</br>
         <br>Are you a veteran?  #{params['veteran']}</br>
-        <br>Do you have little access to transportation?  
+        <br>Do you have little access to transportation?
         #{params['no_transportation']}</br>
         <br>Are you homeless or staying with someone temporarily?
         #{params['homeless']}</br>
@@ -272,7 +272,6 @@ module WorkForwardNola
         <br>I am using drugs and want to get help. #{params['using_drugs']}</br>
         <br>None of the above. #{params['none']}</br>"
 
-
       # The email body for recipients with non-HTML email clients.
       textbody =  "Thank you for registering in the New Orleans job system.
                   We are evaluating which opportunity center can best meet your
@@ -281,20 +280,15 @@ module WorkForwardNola
       emailer = EmailProvider.emailer
       owner = EmailProvider.owner
       sender = EmailProvider.sender
-      #puts self.emailer.inspect
-      # TODO: wire up oppcenter function param
-      # TODO: get city manager email
-      # city_manager_email = 'placeholder@mail.com'
-      # TODO: get opportunity center email based on function param
+      # puts self.emailer.inspect
       recipients = []
       recipients.push owner
       recipients.push params['email_submission'] if params['email_submission'] != ''
       recipients.push params['job1'] if params['job1']
       recipients.push params['goodwill'] if params['goodwill']
       recipients.push params['tca'] if params['tca']
-      # recipients.push opp_center_email
-      emailer.send_email(recipients, sender, subject, textbody, htmlbody, 
-                        attachment_name, attachment)
+      emailer.send_email(recipients, sender, subject, textbody, htmlbody,
+                         attachment_name, attachment)
     end
   end
 end
