@@ -3,7 +3,7 @@ module WorkForwardNola
   class OppCenter < Sequel::Model
     def self.bulk_create(data)
       # Clear oppcenter table
-      OppCenter.db.run 'TRUNCATE oppcenters CASCADE'
+      OppCenter.db.run 'TRUNCATE opp_centers CASCADE'
       data.each do |opp_c|
         OppCenter.create(
           center: opp_c['center'],

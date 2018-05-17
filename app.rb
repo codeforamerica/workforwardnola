@@ -3,10 +3,15 @@ require 'sinatra/sequel'
 require 'mustache'
 require 'dotenv'
 require 'pony'
+require './emailprovider.rb'
+require 'aws-sdk-s3'
+require 'json'
 
 module WorkForwardNola
   # WFN app
   class App < Sinatra::Base
+    attr_reader :emailer
+
     Dotenv.load
 
     register Sinatra::SequelExtension
@@ -56,11 +61,11 @@ module WorkForwardNola
       require './models/contact'
       require './models/oppcenter'
     end
-    
+
     if File.exist?('./client_secret.json')
       def worksheet
-        @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
-        @spreadsheet ||= @session.spreadsheet_by_title("contact")
+        @session ||= GoogleDrive::Session.from_service_account_key('client_secret.json')
+        @spreadsheet ||= @session.spreadsheet_by_title('contact')
         @worksheet ||= @spreadsheet.worksheets.first
       end
     end
@@ -113,10 +118,9 @@ module WorkForwardNola
       @title = 'Job System'
       mustache :jobsystem
     end
-      
-  
-   
+
     post '/contact' do
+      @resume_name = !params[:resume].nil? ? params[:resume][:filename] : nil
       new_form = Contact.create(
         first_name: params['first_name'],
         last_name: params['last_name'],
@@ -142,25 +146,35 @@ module WorkForwardNola
       new_form.save
 
       if File.exist?('./client_secret.json')
-        new_row = [
-          params['first_name'], params['last_name'], params['best_way'],
-          params['email_submission'], params['phone_submission'],
-          params['text_submission'],  params['referral'],
-          params['neighborhood'], params['young_adult'],
-          params['veteran'], params['no_transportation'],
-          params['homeless'], params['no_drivers_license'],
-          params['no_state_id'], params['disabled'], params['childcare'],
-          params['criminal'], params['previously_incarcerated'],
-          params['using_drugs'], params['none'], params['resume']
-        ]
+        new_row = [params['first_name'], params['last_name'], params['best_way'],
+                   params['email_submission'], params['phone_submission'],
+                   params['text_submission'],  params['referral'],
+                   params['neighborhood'], params['young_adult'],
+                   params['veteran'], params['no_transportation'],
+                   params['homeless'], params['no_drivers_license'],
+                   params['no_state_id'], params['disabled'], params['childcare'],
+                   params['criminal'], params['previously_incarcerated'],
+                   params['using_drugs'], params['none'], "#{@resume_name}"]
         begin
           worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
           worksheet.save
         end
       end
-      redirect to('/')
+
+      if @resume_name
+        resume = params[:resume][:tempfile]
+        File.open(@resume_name, 'wb') do |f|
+          f.write(resume.read)
+          s3 = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS'],
+                                   secret_access_key: ENV['AWS_SECRET'],
+                                   region: 'us-east-1')
+          s3.put_object(bucket: ENV['AWS_BUCKET'], key: @resume_name, body: resume)
+        end
+      end
+
+      send_job_email(params, @resume_name, resume)
+      redirect to '/'
     end
-  
 
     get '/opportunity-center-info' do
       @title = 'Opportunity Center Information'
@@ -202,7 +216,7 @@ module WorkForwardNola
       @title = 'Manage Content'
       mustache :manage
     end
-    
+
     post '/manage/update_opp_centers' do
       protected!
       puts params
@@ -213,6 +227,68 @@ module WorkForwardNola
         oc.update(fieldname.to_sym => value) unless oc.empty?
       end
       redirect to('/manage')
+    end
+
+    private
+
+    def send_job_email(params, resume_name = nil, resume = nil)
+      # Specify a configuration set. To use a configuration
+      # set, uncomment the next line and send it to the proper method
+      #   configsetname = "ConfigSet"
+      subject = 'New Submission: Opportunity Center Sign Up'
+      attachment = nil
+      attachment_name = resume_name
+      attachment = resume.path unless resume.nil?
+      htmlbody =
+        "<strong>
+        Thank you for registering in the New Orleans job system.
+        </strong>
+        <p>We are evaluating which opportunity center can best meet your
+        needs or barriers.
+        You'll get a reply by email of who to contact.
+        If you do not have email, someone will call you.</p>
+        <br>Here are your submissions: </br>
+        <br>First Name: #{params['first_name']}</br>
+        <br>Last Name: #{params['last_name']}</br>
+        <br>Best way to contact: #{params['best_way']}</br>
+        <br>Email: #{params['email_submission']}</br>
+        <br>Phone: #{params['phone_submission']}</br>
+        <br>Text: #{params['text_submission']}</br>
+        <br>Referred by: #{params['referral']}</br>
+        <br>Which neighborhood:  #{params['neighborhood']}</br>
+        <br>Are you a young adult? #{params['young_adult']}</br>
+        <br>Are you a veteran?  #{params['veteran']}</br>
+        <br>Do you have little access to transportation?
+        #{params['no_transportation']}</br>
+        <br>Are you homeless or staying with someone temporarily?
+        #{params['homeless']}</br>
+        <br>I dont have a drivers license. #{params['no_drivers_license']}</br>
+        <br>I dont have a state-issued I.D. #{params['no_state_id']}</br>
+        <br>I am disabled. #{params['disabled']}</br>
+        <br>I need childcare. #{params['childcare']}</br>
+        <br>I have an open criminal charge. #{params['criminal']}</br>
+        <br>I have been previously incarcerated.
+        #{params['previously_incarcerated']}</br>
+        <br>I am using drugs and want to get help. #{params['using_drugs']}</br>
+        <br>None of the above. #{params['none']}</br>"
+
+      # The email body for recipients with non-HTML email clients.
+      textbody =  "Thank you for registering in the New Orleans job system.
+                  We are evaluating which opportunity center can best meet your
+                  needs or barriers. You'll get a reply by email of who to
+                  contact. If you do not have email, someone will call you."
+      emailer = EmailProvider.emailer
+      owner = EmailProvider.owner
+      sender = EmailProvider.sender
+      # puts self.emailer.inspect
+      recipients = []
+      recipients.push owner
+      recipients.push params['email_submission'] if params['email_submission'] != ''
+      recipients.push params['job1'] if params['job1']
+      recipients.push params['goodwill'] if params['goodwill']
+      recipients.push params['tca'] if params['tca']
+      emailer.send_email(recipients, sender, subject, textbody, htmlbody,
+                         attachment_name, attachment)
     end
   end
 end

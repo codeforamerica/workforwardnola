@@ -11,35 +11,29 @@
       <a href="/" data-event-category="JobSystem" data-event-action="Back to homepage" title="Return to home page" class="basic-button">Back to home page</a>
   </div>
   
-  <form id="opp-form-element" method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
+  <form id="opp-form-element" method="post" action="/contact" enctype="multipart/form-data" onsubmit="alert('Thank you for submitting! You will shortly be redirected to the homepage.')">
   <section id="opp-form">
     <section class="no-print">
     <h1>Job System Sign-up Form</h1>
-     <strong>Whats your name? *</strong>
-     <div style="float: right">
-      <strong> How did you learn about us? * </strong>
-      </div> </br>
-      <input type="text" name="first_name" required>
-     <input type="text" name="last_name" required>
-
-    <div style="float: right; padding-right:1cm">
-       <select name="referral" required>
-       <option hidden dissabled> </option>
-       <option value ="Through an online search">Through an online search</option>
-       <option value="Midnight Basketball Website">Midnight Basketball Website</option>
-       <option value="Friend">Friend</option>
-       <option value="Library">Library</option>
-       <option value="Community Group">Community Group</option>
-       <option value="other">Other</option>
-     </select>
-        </div>
-        </br>
-        <span>First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span>Last Name</span>
-
-
-        <hr>
-        <h2>We're going to ask a couple of questions to figure out which
+    <strong>What's your name? *</strong>
+    <br>
+    First Name: <input type="text" placeholder="Please enter your first name." size="40" name="first_name" required> <br>
+    Last Name: <input type="text" placeholder="Please enter your last name." size="40" name="last_name" required>
+    <p></p>
+    <strong> How did you learn about us? *</strong>
+    <br>
+      <select name="referral" required>
+      <option hidden dissabled> </option>
+      <option value ="Through an online search">Through an online search</option>
+      <option value="Midnight Basketball Website">Midnight Basketball Website</option>
+      <option value="Friend">Friend</option>
+      <option value="Library">Library</option>
+      <option value="Community Group">Community Group</option>
+      <option value="other">Other</option>
+      </select>
+      
+      <hr>
+      <h2>We're going to ask a couple of questions to figure out which
      Opportunity Center is the best match for you</h2>
      <strong>Which of these apply to you? *</strong> </br> </br>
      <div id="attributes">
@@ -80,21 +74,18 @@
     </div>
     <hr>
     <h2>Now that you know where to go, add your contact information so that
-     we can follow up and answer any questions you may have.</h2> </br>
-    <strong>What's the best way to contact you? *</strong></br>
-    <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
-    <input id="email_submission_spot" name="email_submission" type="email" style="display:none;"></br>
-    <input type="radio" name="best_way" value="Phone call" onclick="addPhone()">Phone Call</br>
-    <input id="phone_submission_spot" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$"
-      name="phone_submission" type="tel" style="display:none;"></br>
-    <input type="radio" name="best_way" value="Text Message" onclick="addText()">Text Message</br>
-    <input id="text_submission_spot" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$"
-      name="text_submission" type="tel" style="display:none;"></br>
-    <strong>If you have a resume, upload it here. </strong> </br>
-    <input type="file" name="resume" accept="file_extension|audio/*|video/*|image/*|media_type"> </br>
-    </br>
-    <div class="button-wrapper center">
-      <input type="submit" class="basic-button">
+    we can follow up and answer any questions you may have.</h2></br>
+      <strong>What's the best way to contact you? *</strong></br>
+      <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
+      <input id="email_submission_spot" name="email_submission" placeholder="Please enter your email." size="80" type="email" style="display:none;"></br>
+      <input type="radio" name="best_way" value="Phone call" onclick="addPhone()">Phone Call</br>
+      <input id="phone_submission_spot" placeholder="Please enter your phone number using numbers only." size="80" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="phone_submission" type="tel" style="display:none;"></br>
+      <input type="radio" name="best_way" value="Text Message" onclick="addText()">Text Message</br>
+      <input id="text_submission_spot" placeholder="Please enter your phone number using numbers only." size="80" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="text_submission" type="tel" style="display:none;"></br>
+      <strong>If you have a resume, upload it here. </strong></br>
+      <input type="file" name="resume"> </br></br>
+      <div class="button-wrapper center">
+        <input type="submit" class="basic-button" value="Submit application">
       </div>
       <hr>
     </div>
