@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.2.5'
+ruby '2.3.7'
 
 gem 'sinatra', '1.4.7'
 gem 'puma'
 gem 'mustache-sinatra', '~> 1'
 gem 'rake'
 gem 'sprockets', '~> 3.6'
-gem 'sass', '~> 3.4'
+gem 'sass', '~> 3.6'
 gem 'uglifier', '~> 3.0'
 gem 'dotenv'
 gem 'google_drive'
