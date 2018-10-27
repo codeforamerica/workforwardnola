@@ -189,6 +189,7 @@ module WorkForwardNola
 
       Pony.mail(
         to: body['recipient'],
+        from: ENV['SENDER_EMAIL'], #AWS complains in a dev environment if you don't provide a from address.
         subject: 'Your NOLA Career Results',
         html_body: email_body,
         via: :smtp,
