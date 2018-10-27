@@ -44,16 +44,21 @@ Setting up a Heroku pipeline is relatively straightforward. We set up a pipeline
 We are not AWS experts, so if you have recommendations to improve the following, please make a PR! **We found that this requires at least a t2.micro instance to avoid out of memory errors during deployment.**
 
 1. Create an IAM user (as recommended by Amazon) with appropriate permissions for deployment credentials. @antislice has no idea what specific permissions are needed for EB deployment, so we tested with admin.
-2. Install the Elastic Beanstalk client.
+2. Install the Elastic Beanstalk client. This may only be necessary if you are deploying from the command line. You can do this from the AWS Elastic Beanstalk UI.
 3. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
-  * For steps 5/6, select `Ruby` and `Ruby 2.2 (Puma)`
+  * For steps 5/6, select `Ruby` and `Ruby 2.3 (Puma)`
+  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.3.7. 2.4.4 is another option to upgrade to.
   * SSH login is optional, but convenient
 4. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
+  * You will need to configure Amazon RDS. Create a database and use the information from the DB to connect (this is important to do first before you upload and deploy)
+  * An AWS RDS will typically follow the same Database URL as localhost.
 5. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
+6. Create a source bundle if uploading through the UI. `zip ../filename.zip -r * .[^.]*`
 6. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
-7. Try deploying: `eb deploy`
+7. Try deploying: `eb deploy` or use the Upload and Deploy feature integrated into EB.
 
-Configuring the "email to yourself" feature requires extra configuration on EB.
+~~Configuring the "email to yourself" feature requires extra configuration on EB.~~
+If you are using AWS SES SMTP service, this is no longer necessary as the emails will go through SES. We have set up an SMTP service, so all emails are going through a central location (AWS)
 
 Further notes on our initial test deployment and changes that were made:
 * [PR #108](https://github.com/codeforamerica/workforwardnola/pull/108) contains the code and configuration changes we made to the app to get it to work with AWS (Elastic Beanstalk)
