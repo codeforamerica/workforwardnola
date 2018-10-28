@@ -64,6 +64,7 @@ module WorkForwardNola
     # Used to verify emails for use in AWS sandbox environment
     def check_emails(emails)
       return if emails.nil?
+
       if emails.respond_to? :each
         emails.each { |e| @ses.verify_email_identity email_address: e }
       else
@@ -73,6 +74,7 @@ module WorkForwardNola
 
     def as_email_array(emails)
       return emails if emails.respond_to? :each
+
       [emails]
     end
   end

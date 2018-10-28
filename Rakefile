@@ -8,8 +8,8 @@ namespace :db do
 
   desc 'Run DB migrations'
   task :migrate => :app do
-   puts 'Running migrations'
-   Sequel::Migrator.apply(WorkForwardNola::App.database, 'db/migrations')
+    puts 'Running migrations'
+    Sequel::Migrator.apply(WorkForwardNola::App.database, 'db/migrations')
   end
 
   desc 'Rollback migration'

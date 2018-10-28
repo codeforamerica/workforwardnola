@@ -64,7 +64,7 @@ module WorkForwardNola
             file: 'housekeeping_aide.jpg' }
         ]
       end
-      
+
       def compound_traits
         [
           { trait: 'Open-minded', # name of trait
@@ -73,14 +73,14 @@ module WorkForwardNola
           { trait: 'Physical Strength',
             components: ['Working with your hands', 'No fear of heights'] },
           { trait: 'Work on ground',
-            components: ['Learner', 'Problem solver', 'Detail oriented', 
-                         'Outgoing personality', 'Following Instructions', 
+            components: ['Learner', 'Problem solver', 'Detail oriented',
+                         'Outgoing personality', 'Following Instructions',
                          'Helping people'] },
           { trait: 'Individualistic',
-            components: ['Learner', 'Problem solver', 'Working outdoors', 
+            components: ['Learner', 'Problem solver', 'Working outdoors',
                          'Working with your hands', 'No fear of heights'] },
           { trait: 'Helpful',
-            components: ['Outgoing personality', 'Following instructions', 
+            components: ['Outgoing personality', 'Following instructions',
                          'Helping people'] }
         ]
       end

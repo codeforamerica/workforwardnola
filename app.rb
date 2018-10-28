@@ -43,6 +43,7 @@ module WorkForwardNola
     helpers do
       def protected!
         return if authorized?
+
         headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
         halt 401, "Not authorized\n"
       end
@@ -190,18 +191,18 @@ module WorkForwardNola
 
       Pony.mail(
         to: body['recipient'],
-        from: ENV['SENDER_EMAIL'], #AWS complains in a dev environment if you don't provide a from address.
+        from: ENV['SENDER_EMAIL'], # AWS complains in a dev environment if you don't provide a from address.
         subject: 'Your NOLA Career Results',
         html_body: email_body,
         via: :smtp,
         via_options: {
-          address:              ENV['EMAIL_SERVER'],
-          port:                 ENV['EMAIL_PORT'],
+          address: ENV['EMAIL_SERVER'],
+          port: ENV['EMAIL_PORT'],
           enable_starttls_auto: true,
-          user_name:            ENV['EMAIL_USER'],
-          password:             ENV['EMAIL_PASSWORD'],
-          authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
-          domain:               ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
+          user_name: ENV['EMAIL_USER'],
+          password: ENV['EMAIL_PASSWORD'],
+          authentication: :plain, # :plain, :login, :cram_md5, no auth by default
+          domain: ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
         }
       )
 
@@ -224,6 +225,7 @@ module WorkForwardNola
       puts params
       params.each do |key, value|
         next if key == 'submit' || value == ''
+
         fieldname, center = key.split(':')
         oc = OppCenter.where(center: center)
         oc.update(fieldname.to_sym => value) unless oc.empty?

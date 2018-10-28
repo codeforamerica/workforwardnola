@@ -26,7 +26,7 @@ module WorkForwardNola
             general_duties: career.general_duties,
             training: career.training,
             experienced_range: career.experienced_range,
-            entry_wage: career.entry_wage, 
+            entry_wage: career.entry_wage,
             career_image: career.career_image,
             alt_title: career.alt_title,
             certification_required: career.certification_required,
@@ -73,9 +73,9 @@ module WorkForwardNola
       # expecting float
       # def to_money(amount)
       #  sprintf '$%.2f', amount
-        # if needed, for putting commas in money format:
-        # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
-      #end
+      # if needed, for putting commas in money format:
+      # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
+      # end
     end
   end
 end
