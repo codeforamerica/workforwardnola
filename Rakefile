@@ -45,7 +45,7 @@ namespace :db do
 
   desc 'Migrate & seed DB all in one'
   task :setup => [:migrate, :seed]
-
-  desc 'Default task: setup'
-  task :default => [:setup]
 end
+
+desc 'Default task: setup'
+task :default => ['db:setup']
