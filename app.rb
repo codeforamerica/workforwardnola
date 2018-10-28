@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/sequel'
 require 'mustache'
+require 'mustache/sinatra'
 require 'dotenv'
 require 'pony'
 require './emailprovider.rb'
@@ -189,6 +190,7 @@ module WorkForwardNola
 
       Pony.mail(
         to: body['recipient'],
+        from: ENV['SENDER_EMAIL'],
         subject: 'Your NOLA Career Results',
         html_body: email_body,
         via: :smtp,

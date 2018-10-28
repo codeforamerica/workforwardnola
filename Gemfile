@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.7'
+ruby '2.5.3'
 
-gem 'sinatra', '1.4.7'
+gem 'sinatra', '2.0.4'
 gem 'puma'
 gem 'mustache-sinatra', '~> 1'
 gem 'rake'

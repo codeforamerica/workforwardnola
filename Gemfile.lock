@@ -68,6 +68,7 @@ GEM
     mustache (0.99.8)
     mustache-sinatra (1.0.1)
       mustache (<= 0.99.8)
+    mustermann (1.0.3)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     os (1.0.0)
@@ -76,8 +77,8 @@ GEM
       mail (>= 2.0)
     public_suffix (3.0.3)
     puma (3.12.0)
-    rack (1.6.10)
-    rack-protection (1.5.5)
+    rack (2.0.5)
+    rack-protection (2.0.4)
       rack
     rake (12.3.1)
     rb-fsevent (0.10.3)
@@ -104,10 +105,11 @@ GEM
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
-    sinatra (1.4.7)
-      rack (~> 1.5)
-      rack-protection (~> 1.4)
-      tilt (>= 1.3, < 3)
+    sinatra (2.0.4)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.4)
+      tilt (~> 2.0)
     sinatra-sequel (0.9.0)
       sequel (>= 3.2.0)
       sinatra (>= 0.9.4)
@@ -137,13 +139,13 @@ DEPENDENCIES
   sass (~> 3.6)
   sequel
   sequel-seed
-  sinatra (= 1.4.7)
+  sinatra (= 2.0.4)
   sinatra-sequel
   sprockets (~> 3.6)
   uglifier (~> 3.0)
 
 RUBY VERSION
-   ruby 2.3.7p456
+   ruby 2.5.3p105
 
 BUNDLED WITH
    1.17.1
