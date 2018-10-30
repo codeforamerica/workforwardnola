@@ -3,6 +3,7 @@ module WorkForwardNola
     # logic for showing assessment images
     class Assessment < Layout
       attr_reader :title
+      # rubocop:disable Metrics/MethodLength
       def images
         [
           { trait: 'Problem solver', # must match name of trait, 'me' result
@@ -54,7 +55,6 @@ module WorkForwardNola
           { trait: 'Physical Strength',
             reverse_trait: 'Helping people',
             title: 'Physical strength',
-
             alt: 'Person wearing construction gear along with co-workers',
             file: 'laborer.jpg' },
           { trait: 'Helping people',
@@ -84,6 +84,7 @@ module WorkForwardNola
                          'Helping people'] }
         ]
       end
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end

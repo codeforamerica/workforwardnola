@@ -5,3 +5,5 @@ AllCops:
 
 Metrics/MethodLength:
   Max: 25
+Metrics/LineLength:
+  Max: 120

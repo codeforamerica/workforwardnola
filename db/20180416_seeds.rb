@@ -4,6 +4,7 @@ require './models/oppcenter'
 
 module WorkForwardNola
   Sequel.seed do
+    # rubocop:disable Metrics/MethodLength
     def run
       ['Problem solver',
        'Working with your hands',
@@ -59,9 +60,10 @@ module WorkForwardNola
         entry_wage: '$14.42',
         career_image: 'help_desk.jpg',
         alt_title: 'Person is wearing a headset and looking at a computer'
-      ['Problem solver',].each do |trait|
+      ['Problem solver'].each do |trait|
         help_desk.add_trait all_traits[trait]
       end
     end
+    # rubocop:enable Metrics/MethodLength
   end
 end
