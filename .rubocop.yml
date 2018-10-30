@@ -7,3 +7,7 @@ Metrics/MethodLength:
   Max: 25
 Metrics/LineLength:
   Max: 120
+Bundler/OrderedGems:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

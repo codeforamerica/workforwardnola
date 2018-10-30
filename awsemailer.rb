@@ -20,7 +20,7 @@ module WorkForwardNola
       recipients = cc if recipients.nil?
       msg_mixed = MIME::Multipart::Mixed.new
       unless attachment_file.nil?
-        attachment = MIME::Application.new(Base64.encode64(open(attachment_file, 'rb').read))
+        attachment = MIME::Application.new(Base64.encode64(File.open(attachment_file, 'rb').read))
         attachment.transfer_encoding = 'base64'
         attachment.disposition = 'attachment'
         msg_mixed.attach(attachment, 'filename' => attachment_name)
@@ -47,9 +47,7 @@ module WorkForwardNola
         resp = @ses.send_raw_email(
           source: sender,
           destinations: recipients,
-          raw_message: {
-            data: msg.to_s
-          }
+          raw_message: { data: msg.to_s }
         )
 
         puts "Email sent to #{recipients.inspect}: #{resp.inspect}"

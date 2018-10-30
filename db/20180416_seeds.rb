@@ -3,6 +3,7 @@ require './models/career'
 require './models/oppcenter'
 
 module WorkForwardNola
+  # rubocop:disable Metrics/BlockLength
   Sequel.seed do
     # rubocop:disable Metrics/MethodLength
     def run
@@ -66,4 +67,5 @@ module WorkForwardNola
     end
     # rubocop:enable Metrics/MethodLength
   end
+  # rubocop:enable Metrics/BlockLength
 end
