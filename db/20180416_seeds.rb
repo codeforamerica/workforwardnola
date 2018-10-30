@@ -2,6 +2,7 @@ require './models/trait'
 require './models/career'
 require './models/oppcenter'
 
+# App module
 module WorkForwardNola
   # rubocop:disable Metrics/BlockLength
   Sequel.seed do

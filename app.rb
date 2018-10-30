@@ -10,6 +10,7 @@ require 'json'
 
 module WorkForwardNola
   # WFN app
+  # rubocop:disable Metrics/ClassLength
   class App < Sinatra::Base
     attr_reader :emailer
 
@@ -17,10 +18,12 @@ module WorkForwardNola
 
     register Sinatra::SequelExtension
 
-    ENV['DATABASE_URL'] ||= "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
+    database_url = ENV['DATABASE_URL']
+    database_url ||= "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@" \
+      "#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
 
     configure do
-      set :database, ENV['DATABASE_URL']
+      set :database, database_url
       enable :logging
     end
 
@@ -50,7 +53,8 @@ module WorkForwardNola
 
       def authorized?
         @auth ||= Rack::Auth::Basic::Request.new(request.env)
-        @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['ADMIN_USER'], ENV['ADMIN_PASSWORD']]
+        @auth.provided? && @auth.basic? && @auth.credentials &&
+          @auth.credentials == [ENV['ADMIN_USER'], ENV['ADMIN_PASSWORD']]
       end
     end
 
@@ -85,7 +89,6 @@ module WorkForwardNola
       rescue Sequel::Error => se
         logger.error "Sequel::Error: #{se}"
         logger.error se.backtrace.join("\n")
-        errMessage = se.to_s.split('DETAIL').first
         return {
           result: 'error',
           text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
@@ -156,7 +159,7 @@ module WorkForwardNola
                    params['homeless'], params['no_drivers_license'],
                    params['no_state_id'], params['disabled'], params['childcare'],
                    params['criminal'], params['previously_incarcerated'],
-                   params['using_drugs'], params['none'], "#{@resume_name}"]
+                   params['using_drugs'], params['none'], @resume_name.to_s]
         begin
           worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
           worksheet.save
@@ -295,4 +298,5 @@ module WorkForwardNola
                          attachment_name, attachment)
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end
