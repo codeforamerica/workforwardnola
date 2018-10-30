@@ -37,9 +37,7 @@ module WorkForwardNola
         @career_matches = @career_matches.sort_by { |career| career[:match_stats][:score] }
                                          .reverse
                                          .first(3)
-        @career_matches.each.with_index(1) do |match, i|
-          match[:index] = i
-        end
+        @career_matches.each.with_index(1) { |match, i| match[:index] = i }
 
         @career_matches.first[:first] = true
         @career_matches.last[:last] = true
@@ -60,7 +58,7 @@ module WorkForwardNola
         career_traits.each do |trait|
           if user_trait_names.include?(trait.name)
             score += 1
-            traits.push({ name: trait.name })
+            traits.push(name: trait.name)
           end
         end
 
