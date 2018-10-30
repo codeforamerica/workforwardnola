@@ -4,13 +4,13 @@ ruby '2.5.1'
 
 # rubocop:disable Bundler/OrderedGems
 gem 'sinatra', '2.0.4'
+gem 'aws-sdk-s3'
 # rubocop:enable Bundler/OrderedGems
 gem 'aws-sdk-ses'
-gem 'aws-sdk-s3'
 gem 'dotenv'
 gem 'google_drive'
-gem 'mustache-sinatra', '~> 1'
 gem 'mime'
+gem 'mustache-sinatra', '~> 1'
 gem 'pg'
 gem 'pony'
 gem 'puma'
