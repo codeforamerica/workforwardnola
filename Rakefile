@@ -7,20 +7,20 @@ namespace :db do
   Sequel.extension :migration
 
   desc 'Run DB migrations'
-  task :migrate => :app do
+  task migrate: :app do
     puts 'Running migrations'
     Sequel::Migrator.apply(WorkForwardNola::App.database, 'db/migrations')
   end
 
   desc 'Rollback migration'
-  task :rollback => :app do
+  task rollback: :app do
     database = WorkForwardNola::App.database
     version  = (row = database[:schema_info].first) ? row[:version] : nil
     Sequel::Migrator.apply(database, 'db/migrations', version - 1)
   end
 
   desc 'Dump the database schema'
-  task :dump => :app do
+  task dump: :app do
     database = WorkForwardNola::App.database
 
     `sequel -d #{database.url} > db/schema.rb`
@@ -28,7 +28,7 @@ namespace :db do
   end
 
   desc 'Seed DB'
-  task :seed => :app do
+  task seed: :app do
     puts 'Running seed'
     require 'sequel/extensions/seed'
     Sequel.extension :seed
@@ -36,16 +36,16 @@ namespace :db do
   end
 
   desc 'Reset DB (delete all data)'
-  task :reset => :app do
+  task reset: :app do
     database = WorkForwardNola::App.database
-    Sequel::Migrator.run(database, 'db/migrations', :target => 0)
+    Sequel::Migrator.run(database, 'db/migrations', target: 0)
     Sequel::Migrator.run(database, 'db/migrations')
     database.run 'delete from schema_seeds'
   end
 
   desc 'Migrate & seed DB all in one'
-  task :setup => [:migrate, :seed]
+  task setup: %i[migrate seed]
 end
 
 desc 'Default task: setup'
-task :default => ['db:setup']
+task default: ['db:setup']
