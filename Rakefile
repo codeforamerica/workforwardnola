@@ -2,6 +2,7 @@ task :app do
   require './app'
 end
 
+# rubocop:disable Metrics/BlockLength
 namespace :db do
   require 'sequel'
   Sequel.extension :migration
@@ -46,6 +47,7 @@ namespace :db do
   desc 'Migrate & seed DB all in one'
   task setup: %i[migrate seed]
 end
+# rubocop:enable Metrics/BlockLength
 
 desc 'Default task: setup'
 task default: ['db:setup']
