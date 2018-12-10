@@ -21,6 +21,10 @@ GEM
       aws-sdk-core (~> 3, >= 3.26.0)
       aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.3)
+    codecov (0.1.14)
+      json
+      simplecov
+      url
     concurrent-ruby (1.0.5)
     declarative (0.0.10)
     declarative-option (0.1.0)
@@ -141,6 +145,7 @@ GEM
     uber (0.1.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    url (0.3.2)
 
 PLATFORMS
   ruby
@@ -148,6 +153,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   aws-sdk-ses
+  codecov
   dotenv
   google_drive
   mime

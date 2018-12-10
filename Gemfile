@@ -23,6 +23,7 @@ gem 'sprockets', '~> 3.6'
 gem 'uglifier', '~> 3.0'
 
 group :test do
+  gem 'codecov', require: false
   gem 'rspec'
   gem 'simplecov', require: false
 end
