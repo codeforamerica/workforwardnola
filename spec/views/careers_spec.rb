@@ -28,5 +28,4 @@ describe WorkForwardNola::Views::Careers do
       expect(result).not_to be_nil
     end
   end
-
 end

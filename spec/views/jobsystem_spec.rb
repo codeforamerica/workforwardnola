@@ -1,10 +1,7 @@
-# -*- encoding: utf-8 -*-
-
 require 'spec_helper'
 require './views/jobsystem'
 
 describe WorkForwardNola::Views::Jobsystem do
-
   # TODO: auto-generated
   describe '#opportunity' do
     it 'works' do
@@ -13,5 +10,4 @@ describe WorkForwardNola::Views::Jobsystem do
       expect(result).not_to be_nil
     end
   end
-
 end

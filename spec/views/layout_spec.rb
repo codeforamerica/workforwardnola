@@ -1,10 +1,7 @@
-# -*- encoding: utf-8 -*-
-
 require 'spec_helper'
 require './views/layout'
 
 describe WorkForwardNola::Views::Layout do
-
   # TODO: auto-generated
   describe '#title' do
     it 'works' do
@@ -13,5 +10,4 @@ describe WorkForwardNola::Views::Layout do
       expect(result).not_to be_nil
     end
   end
-
 end
