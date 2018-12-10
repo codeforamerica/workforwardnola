@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require 'spec_helper'
 require './app'
 
@@ -31,5 +29,4 @@ describe WorkForwardNola::App do
       expect(result).not_to be_nil
     end
   end
-
 end

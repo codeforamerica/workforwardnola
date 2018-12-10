@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require 'spec_helper'
 require './awsemailer'
 
@@ -28,9 +26,9 @@ describe WorkForwardNola::AwsEmailer do
       html_body = double('html_body')
       attachment_name = double('attachment_name')
       attachment_file = double('attachment_file')
-      result = aws_emailer.send_email(recipients, sender, subject, text_body, html_body, attachment_name, attachment_file)
+      result = aws_emailer.send_email(recipients, sender, subject,
+        text_body, html_body, attachment_name, attachment_file)
       expect(result).not_to be_nil
     end
   end
-
 end
