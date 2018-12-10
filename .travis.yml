@@ -6,4 +6,3 @@ services:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - export DATABASE_URL=postgres://postgres:@localhost:5432/travis_ci_test
-  
