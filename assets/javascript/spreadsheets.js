@@ -1,18 +1,23 @@
 'use strict';
 var spreadSheetKey;
-var messages = {'success': {
-                  'text': 'Successfully connected to Google Spreadsheet!',
-                  'class': 'success'},
-                'empty': {
-                  'text': 'Please paste in the spreadsheet link.',
-                  'class': 'alert'},
-                'bad-connection': {
-                  'text': 'Hmm, something happened with the connection. Try again.',
-                  'class': 'error'},
-                'bad-format': {
-                  'text': 'There\'s something wrong with the format of the link.',
-                  'class': 'error'}
-                };
+var messages = {
+  success: {
+    text: "Successfully connected to Google Spreadsheet!",
+    class: "success"
+  },
+  empty: {
+    text: "Please paste in the spreadsheet link.",
+    class: "alert"
+  },
+  "bad-connection": {
+    text: "Hmm, something happened with the connection. Try again.",
+    class: "error"
+  },
+  "bad-format": {
+    text: "There's something wrong with the format of the link.",
+    class: "error"
+  }
+};
 
 function checkSpreadsheetUrl() {
   var spreadSheetLink = $('[name="Spreadsheet URL"]').val();
@@ -20,7 +25,7 @@ function checkSpreadsheetUrl() {
   if(!spreadSheetLink){
     console.log('link is empty');
     setState({
-      linkStatus: 'empty',
+      linkStatus: "empty",
       updateButtonDisabled: true
     });
     return;

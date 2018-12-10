@@ -54,7 +54,7 @@ function enableSubmitWithRadioChanges() {
       radioChanged[this.name] = true;
       var allChanged = true;
       for (var key in radioChanged) {
-        if(radioChanged[key] == false) allChanged = false;
+        if (radioChanged[key] == false) { allChanged = false; }
       }
       if(allChanged) $('button[type="submit"]').prop('disabled', false);
       if(allChanged) $("#assessment .error").hide();
@@ -101,12 +101,12 @@ function emailAssessmentResults(id, careerIds) {
 // jQuery POST using JSON
 $.postJSON = function(url, data, callback) {
     return jQuery.ajax({
-        'type': 'POST',
-        'url': url,
-        'contentType': 'application/json; charset=utf-8',
-        'data': JSON.stringify(data),
-        'dataType': 'json',
-        'success': callback
+        type: "POST",
+        url: url,
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: "json",
+        success: callback
     });
 };
 
