@@ -5,138 +5,143 @@
 
 'use strict';
 
-function reverseTraitTrigger(trait, value) {
-  var $traitInput = $("input[name='"+trait+"']");
+function reverseTraitTrigger (trait, value) {
+  const $traitInput = $('input[name=\'' + trait + '\']');
   $traitInput.val(value);
   $traitInput.trigger('valueChange');
 }
 
-function checkTraitComponents(components) {
-  var allMe = true;
+function checkTraitComponents (components) {
+  let allMe = true;
 
-  components.forEach(function(component) {
-    var $componentInput = $("input[name='"+component+"']");
-    var componentValue = $componentInput.val();
-    var componentChecked = $componentInput.prop("checked") || $componentInput.attr("type") == 'hidden';
-    if(!componentChecked || componentValue != "me") allMe = false;
+  components.forEach(function (component) {
+    const $componentInput = $('input[name=\'' + component + '\']');
+    const componentValue = $componentInput.val();
+    const componentChecked =
+      $componentInput.prop('checked') ||
+      $componentInput.attr('type') == 'hidden';
+    if (!componentChecked || componentValue != 'me') allMe = false;
   });
 
   return allMe;
 }
 
-function setElementFromComponents(element, components) {
-  if(checkTraitComponents(components)) {
+function setElementFromComponents (element, components) {
+  if (checkTraitComponents(components)) {
     $(element).val('me');
   } else {
     $(element).val('not-me');
   }
 }
 
-function bindTraitToComponents(element, componentString) {
-  var components = JSON.parse(componentString);
+function bindTraitToComponents (element, componentString) {
+  let components = JSON.parse(componentString);
 
-  components.forEach(function(component) {
-    var $componentInput = $("input[name='"+component+"']");
+  components.forEach(function (component) {
+    let $componentInput = $('input[name=\'' + component + '\']');
 
-    if($componentInput.attr("type") == 'hidden') {
-      $componentInput.on('valueChange', function() { setElementFromComponents(element, components); });
+    if ($componentInput.attr('type') == 'hidden') {
+      $componentInput.on('valueChange', function () {
+        setElementFromComponents(element, components);
+      });
     } else {
-      $componentInput.change(function() { setElementFromComponents(element, components); });
+      $componentInput.change(function () {
+        setElementFromComponents(element, components);
+      });
     }
   });
 }
 
-function enableSubmitWithRadioChanges() {
-  var radioChanged = {};
-  $('input:radio').each(function() {
+function enableSubmitWithRadioChanges () {
+  let radioChanged = {};
+  $('input:radio').each(function () {
     radioChanged[this.name] = false;
-    $(this).change(function() {
+    $(this).change(function () {
       radioChanged[this.name] = true;
-      var allChanged = true;
-      for (var key in Object.getOwnPropertyNames(radioChanged)) {
-        if (false === radioChanged[key]) { allChanged = false; }
+      let allChanged = true;
+      for (let key in Object.getOwnPropertyNames(radioChanged)) {
+        if (false === radioChanged[key]) {
+          allChanged = false;
+        }
       }
       if (allChanged) {
-        $('button[type="submit"]').prop("disabled", false);
-        $("#assessment .error").hide();
+        $('button[type="submit"]').prop('disabled', false);
+        $('#assessment .error').hide();
       }
     });
   });
 }
 
 // when the page loads, look for hidden compound traits & set up submit validation
-$(document).ready(function() {
-  $('[data-trait-components]').each(function() {
+$(document).ready(function () {
+  $('[data-trait-components]').each(function () {
     bindTraitToComponents(this, $(this).attr('data-trait-components'));
   });
 
   enableSubmitWithRadioChanges();
 });
 
-function showEmailForm(id) {
-  $("#email-form-"+id).show();
+function showEmailForm (id) {
+  $('#email-form-' + id).show();
 }
 
-function emailAssessmentResults(id, careerIds) {
+function emailAssessmentResults (id, careerIds) {
+  let emailAddress = $('input[name=email-address-' + id + ']').val();
 
-  var emailAddress = $("input[name=email-address-"+id+"]").val();
-
-  if(emailAddress) {
-    var data = {
+  if (emailAddress) {
+    let data = {
       career_ids: careerIds,
       recipient: emailAddress
     };
 
-    $.postJSON('careers/email', data, function() {
+    $.postJSON('careers/email', data, function () {
       // response is too long for UI to wait for change
     });
 
-    $("input[name=email-address-"+id+"]").val(''); // clear email
-    $("#email-form-"+id).hide(); // hide email form
-    $("#email-success-message-"+id).fadeIn();
-    $("#email-success-message-"+id).fadeOut("slow");
+    $('input[name=email-address-' + id + ']').val(''); // clear email
+    $('#email-form-' + id).hide(); // hide email form
+    $('#email-success-message-' + id).fadeIn();
+    $('#email-success-message-' + id).fadeOut('slow');
   }
 }
 
-
-
 // jQuery POST using JSON
-$.postJSON = function(url, data, callback) {
-    return jQuery.ajax({
-        type: "POST",
-        url: url,
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(data),
-        dataType: "json",
-        success: callback
-    });
+$.postJSON = function (url, data, callback) {
+  return jQuery.ajax({
+    type: 'POST',
+    url: url,
+    contentType: 'application/json; charset=utf-8',
+    data: JSON.stringify(data),
+    dataType: 'json',
+    success: callback
+  });
 };
 
-function showPrevCareer(currIndex) {
-  var newIndex = currIndex - 1;
+function showPrevCareer (currIndex) {
+  let newIndex = currIndex - 1;
   if (newIndex > 0) {
     toggleCareer(currIndex, newIndex);
   }
 }
 
-function showNextCareer(currIndex, count) {
-  var newIndex = currIndex + 1;
+function showNextCareer (currIndex, count) {
+  let newIndex = currIndex + 1;
   if (newIndex <= count) {
     toggleCareer(currIndex, newIndex);
   }
 }
 
-function toggleCareer(oldIndex, newIndex) {
-  $('[index='+oldIndex+']').hide();
-  $('[index='+newIndex+']').show();
+function toggleCareer (oldIndex, newIndex) {
+  $('[index=' + oldIndex + ']').hide();
+  $('[index=' + newIndex + ']').show();
 }
 
-function showCareerList() {
+function showCareerList () {
   $('.career').hide();
   $('#career-list').show();
 }
 
-function showCareer(index) {
+function showCareer (index) {
   $('#career-list').hide();
-  $('[index='+index+']').show();
+  $('[index=' + index + ']').show();
 }
