@@ -54,7 +54,7 @@ function enableSubmitWithRadioChanges() {
       radioChanged[this.name] = true;
       var allChanged = true;
       for (var key in Object.getOwnPropertyNames(radioChanged)) {
-        if (radioChanged[key] === false) { allChanged = false; }
+        if (false === radioChanged[key]) { allChanged = false; }
       }
       if (allChanged) {
         $('button[type="submit"]').prop("disabled", false);
