@@ -49,5 +49,11 @@ namespace :db do
 end
 # rubocop:enable Metrics/BlockLength
 
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
+
 desc 'Default task: setup'
-task default: ['db:setup']
+task default: ['db:setup', 'spec']
