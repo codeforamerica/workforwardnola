@@ -4,7 +4,6 @@ require 'spec_helper'
 require './views/careers'
 
 describe WorkForwardNola::Views::Careers do
-
   # TODO: auto-generated
   describe.skip '#career_count' do
     it 'works' do

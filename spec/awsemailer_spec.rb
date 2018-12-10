@@ -2,7 +2,6 @@ require 'spec_helper'
 require './awsemailer'
 
 describe WorkForwardNola::AwsEmailer do
-
   # TODO: auto-generated
   describe '#new' do
     it 'works' do

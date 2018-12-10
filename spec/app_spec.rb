@@ -2,7 +2,6 @@ require 'spec_helper'
 require './app'
 
 describe WorkForwardNola::App do
-
   # TODO: auto-generated
   describe.skip '#protected!' do
     it 'works' do

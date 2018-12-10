@@ -2,7 +2,6 @@ require 'spec_helper'
 require './emailprovider'
 
 describe WorkForwardNola::EmailProvider do
-
   # TODO: auto-generated
   describe '#sender' do
     it 'works' do

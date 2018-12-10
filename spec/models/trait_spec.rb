@@ -2,7 +2,6 @@ require 'spec_helper'
 require './models/trait'
 
 describe WorkForwardNola::Trait do
-
   # TODO: auto-generated
   describe.skip '#bulk_create' do
     it 'works' do
