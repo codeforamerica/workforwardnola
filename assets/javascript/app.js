@@ -53,11 +53,13 @@ function enableSubmitWithRadioChanges() {
     $(this).change(function() {
       radioChanged[this.name] = true;
       var allChanged = true;
-      for (var key in radioChanged) {
-        if (radioChanged[key] == false) { allChanged = false; }
+      for (var key in Object.getOwnPropertyNames(radioChanged)) {
+        if (radioChanged[key] === false) { allChanged = false; }
       }
-      if(allChanged) $('button[type="submit"]').prop('disabled', false);
-      if(allChanged) $("#assessment .error").hide();
+      if (allChanged) {
+        $('button[type="submit"]').prop('disabled', false);
+        $("#assessment .error").hide();
+      }
     });
   });
 }
