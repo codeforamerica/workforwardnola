@@ -2,7 +2,7 @@
 Job seeker focused website for NOLA. There is a version live at http://careerpathnola.com (hosted by the City of New Orleans).
 
 ## Dev setup
-Requires Ruby 2.2.5 and Postgres (9.5+ preferred).
+Requires Ruby 2.5.1 and Postgres (9.5+ preferred).
 
 After cloning the repository for the first time, run `bundle install` in the `workforwardnola` directory.
 
@@ -46,16 +46,17 @@ We are not AWS experts, so if you have recommendations to improve the following,
 1. Create an IAM user (as recommended by Amazon) with appropriate permissions for deployment credentials. @antislice has no idea what specific permissions are needed for EB deployment, so we tested with admin.
 2. Install the Elastic Beanstalk client. This may only be necessary if you are deploying from the command line. You can do this from the AWS Elastic Beanstalk UI.
 3. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
-  * For steps 5/6, select `Ruby` and `Ruby 2.3 (Puma)`
-  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.3.7. 2.4.4 is another option to upgrade to.
+  * For steps 5/6, select `Ruby` and `Ruby 2.5 (Puma)`
+  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.1
   * SSH login is optional, but convenient
 4. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
   * You will need to configure Amazon RDS. Create a database and use the information from the DB to connect (this is important to do first before you upload and deploy)
   * An AWS RDS will typically follow the same Database URL as localhost.
+  * When you are using AWS RDS, you might have to connect from outside to run migrations. To do this, go to your database instance, add a new inbound security rule for "Anywhere" IP, and then run your migrations locally/remotely, then get rid of the inbound security role.
 5. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
 6. Create a source bundle if uploading through the UI. `zip ../filename.zip -r * .[^.]*`
-6. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
-7. Try deploying: `eb deploy` or use the Upload and Deploy feature integrated into EB.
+7. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
+8. Try deploying: `eb deploy` or use the Upload and Deploy feature integrated into EB.
 
 ~~Configuring the "email to yourself" feature requires extra configuration on EB.~~
 If you are using AWS SES SMTP service, this is no longer necessary as the emails will go through SES. We have set up an SMTP service, so all emails are going through a central location (AWS)
