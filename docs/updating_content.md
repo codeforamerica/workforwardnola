@@ -1,6 +1,7 @@
 # Updating content
 
 ## HTML & page content
+
 The basic html for each page can be found in a `*.mustache` file in the `/templates` directory.
 
 * Homepage/front page: `index.mustache`
@@ -11,7 +12,8 @@ The basic html for each page can be found in a `*.mustache` file in the `/templa
 * Text-only Opportunity Center information from map: `opp_center_info.mustache`
 
 ## Career assessment
-The careers are managed via a google spreadsheet (`https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E`, current owners Loyola University New Orleans Department of Computer Science). 
+
+The careers are managed via a google spreadsheet (`https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E`, current owners Loyola University New Orleans Department of Computer Science).
 
 To update the information about a career: edit that spreadsheet, then go to the ["manage" page](http://workforwardnola.com/manage) & enter the username and password. Enter the PUBLIC link to the spreadsheet (`https://docs.google.com/spreadsheets/d/1cXQCnOpP_IcJS_N8VOPD1z9prYVUPGhtb7rlgvGnJ8E/pubhtml`), wait for the link to be validated, then click "Update content".
 

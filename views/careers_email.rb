@@ -4,7 +4,7 @@ require './models/trait'
 module WorkForwardNola
   module Views
     # logic for career results page
-    class CareersEmail  < Mustache
+    class CareersEmail < Mustache
       @career_matches = []
 
       def career_descriptions
@@ -29,11 +29,10 @@ module WorkForwardNola
 
       # expecting float
       # def to_money(amount)
-       # sprintf '$%.2f', amount
-        # if needed, for putting commas in money format:
-        # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
-        # end
-
+      # sprintf '$%.2f', amount
+      # if needed, for putting commas in money format:
+      # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
+      # end
     end
   end
 end
