@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/sequel'
 require 'mustache'
+require 'mustache/sinatra'
 require 'dotenv'
 require 'pony'
 require './emailprovider.rb'
@@ -9,6 +10,7 @@ require 'json'
 
 module WorkForwardNola
   # WFN app
+  # rubocop:disable Metrics/ClassLength
   class App < Sinatra::Base
     attr_reader :emailer
 
@@ -16,10 +18,12 @@ module WorkForwardNola
 
     register Sinatra::SequelExtension
 
-    ENV['DATABASE_URL'] ||= "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
+    database_url = ENV['DATABASE_URL']
+    database_url ||= "postgres://#{ENV['RDS_USERNAME']}:#{ENV['RDS_PASSWORD']}@" \
+      "#{ENV['RDS_HOSTNAME']}:#{ENV['RDS_PORT']}/#{ENV['RDS_DB_NAME']}"
 
     configure do
-      set :database, ENV['DATABASE_URL']
+      set :database, database_url
       enable :logging
     end
 
@@ -42,13 +46,15 @@ module WorkForwardNola
     helpers do
       def protected!
         return if authorized?
+
         headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
         halt 401, "Not authorized\n"
       end
 
       def authorized?
         @auth ||= Rack::Auth::Basic::Request.new(request.env)
-        @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['ADMIN_USER'], ENV['ADMIN_PASSWORD']]
+        @auth.provided? && @auth.basic? && @auth.credentials &&
+          @auth.credentials == [ENV['ADMIN_USER'], ENV['ADMIN_PASSWORD']]
       end
     end
 
@@ -83,7 +89,6 @@ module WorkForwardNola
       rescue Sequel::Error => se
         logger.error "Sequel::Error: #{se}"
         logger.error se.backtrace.join("\n")
-        errMessage = se.to_s.split('DETAIL').first
         return {
           result: 'error',
           text: "There was an error saving the new data: #{se.to_s.split('DETAIL').first}\n" \
@@ -154,7 +159,7 @@ module WorkForwardNola
                    params['homeless'], params['no_drivers_license'],
                    params['no_state_id'], params['disabled'], params['childcare'],
                    params['criminal'], params['previously_incarcerated'],
-                   params['using_drugs'], params['none'], "#{@resume_name}"]
+                   params['using_drugs'], params['none'], @resume_name.to_s]
         begin
           worksheet.insert_rows(worksheet.num_rows + 1, [new_row])
           worksheet.save
@@ -189,17 +194,18 @@ module WorkForwardNola
 
       Pony.mail(
         to: body['recipient'],
+        from: ENV['SENDER_EMAIL'], # AWS complains in a dev environment if you don't provide a from address.
         subject: 'Your NOLA Career Results',
         html_body: email_body,
         via: :smtp,
         via_options: {
-          address:              ENV['EMAIL_SERVER'],
-          port:                 ENV['EMAIL_PORT'],
+          address: ENV['EMAIL_SERVER'],
+          port: ENV['EMAIL_PORT'],
           enable_starttls_auto: true,
-          user_name:            ENV['EMAIL_USER'],
-          password:             ENV['EMAIL_PASSWORD'],
-          authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
-          domain:               ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
+          user_name: ENV['EMAIL_USER'],
+          password: ENV['EMAIL_PASSWORD'],
+          authentication: :plain, # :plain, :login, :cram_md5, no auth by default
+          domain: ENV['EMAIL_DOMAIN'] # the HELO domain provided by the client to the server
         }
       )
 
@@ -222,6 +228,7 @@ module WorkForwardNola
       puts params
       params.each do |key, value|
         next if key == 'submit' || value == ''
+
         fieldname, center = key.split(':')
         oc = OppCenter.where(center: center)
         oc.update(fieldname.to_sym => value) unless oc.empty?
@@ -291,4 +298,5 @@ module WorkForwardNola
                          attachment_name, attachment)
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end

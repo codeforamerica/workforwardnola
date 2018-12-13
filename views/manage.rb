@@ -1,6 +1,7 @@
 require './models/oppcenter'
 module WorkForwardNola
   module Views
+    # This provides the admin view for the app
     class Manage < Layout
       attr_reader :title
 
