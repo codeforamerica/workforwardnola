@@ -2,13 +2,10 @@
   "RSpec": {
     "coverage": {
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/app_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         0,
@@ -33,7 +30,6 @@
         0,
         0,
         0,
-        null,
         null,
         null,
         null
@@ -456,8 +452,12 @@
         1,
         null,
         1,
-        0,
+        1,
         null,
+        null,
+        null,
+        null,
+        1,
         null,
         null
       ],
@@ -474,13 +474,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/awsemailer_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         1,
@@ -505,21 +502,18 @@
         0,
         0,
         0,
-        0,
         null,
+        0,
         null,
         null,
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/emailer_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
-        null,
+        1,
         1,
         1,
         1,
@@ -527,25 +521,20 @@
         null,
         null,
         null,
-        null,
         1,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
         null,
         null,
         null,
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/emailprovider_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         1,
@@ -559,26 +548,21 @@
         1,
         1,
         1,
-        null,
         null,
         null,
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/models/career_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         0,
         0,
         0,
         0,
-        null,
         null,
         null,
         null
@@ -619,13 +603,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/models/contact_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/models/contact.rb": [
@@ -637,20 +618,16 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/models/oppcenter_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         0,
         0,
         0,
         0,
-        null,
         null,
         null,
         null
@@ -677,20 +654,16 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/models/trait_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         0,
         0,
         0,
         0,
-        null,
         null,
         null,
         null
@@ -713,13 +686,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/assessment_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         1,
@@ -735,7 +705,6 @@
         1,
         1,
         1,
-        null,
         null,
         null,
         null
@@ -833,20 +802,16 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/careers_email_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
         null,
-        null,
         1,
         1,
         1,
         1,
         1,
-        null,
         null,
         null,
         null
@@ -892,13 +857,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/careers_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null,
         1,
         0,
@@ -923,7 +885,6 @@
         0,
         0,
         0,
-        null,
         null,
         null,
         null
@@ -1010,13 +971,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/index_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/views/index.rb": [
@@ -1030,20 +988,16 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/jobsystem_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
         null,
-        null,
         1,
         1,
         1,
         1,
         1,
-        null,
         null,
         null,
         null
@@ -1074,32 +1028,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/layout_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/manage_spec.rb": [
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
         null,
         1,
         1,
@@ -1107,6 +1039,20 @@
         1,
         1,
         null,
+        null,
+        null
+      ],
+      "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/manage_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null
@@ -1136,13 +1082,10 @@
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/spec/views/opp_center_info_spec.rb": [
-        null,
-        null,
         1,
         1,
         null,
         1,
-        null,
         null
       ],
       "/home/harvey/code/loyno-mathcs/workforwardnola/views/opp_center_info.rb": [
@@ -1156,6 +1099,6 @@
         null
       ]
     },
-    "timestamp": 1544425900
+    "timestamp": 1544503741
   }
 }
