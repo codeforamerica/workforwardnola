@@ -7,7 +7,7 @@ if [ -n $argval ]; then
   echo "host var = $APP_HOST"
   APP_PORT=$(echo $argval | cut -d ':' -f 2)
   echo "port var = $APP_PORT"
-  rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" "rackup --host $APP_HOST --port $APP_PORT"
+  bundle exec rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" "rackup --host $APP_HOST --port $APP_PORT"
 else
-  rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup
+  bundle exec rerun -p "**/*.{rb,js,scss,mustache,ru,jpg,jpeg,png}" rackup
 fi

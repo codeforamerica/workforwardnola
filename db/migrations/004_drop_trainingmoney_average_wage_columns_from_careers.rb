@@ -3,7 +3,6 @@ Sequel.migration do
     alter_table(:careers) do
       drop_column :training_money_available
       drop_column :average_wage
-
     end
   end
 
