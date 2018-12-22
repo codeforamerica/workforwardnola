@@ -3,7 +3,7 @@
 Job seeker focused website for NOLA. There is a version live at http://careerpathnola.com (hosted by the City of New Orleans).
 
 ## Dev setup
-Requires Ruby 2.5.1 and Postgres (9.5+ preferred).
+Requires Ruby 2.5.3 and Postgres (9.5+ preferred). You may need to use a differing version of Ruby, depending on deploy method (see the AWS section below)
 
 After cloning the repository for the first time, run `bundle install` in the `workforwardnola` directory.
 
@@ -37,6 +37,7 @@ This feature requires setting up a Google Service Account. You can find more inf
 ## Updating content
 
 For details on updating content see other files under the `docs/` folder. Details on updating career info via spreadsheet specifically is in [docs/career_assessment_how_to.md](docs/career_assessment_how_to.md).
+Updating Opportunity Centers is now done through the Management page instead of changing through text.
 
 ## Deploying to production
 
@@ -59,17 +60,18 @@ We are not AWS experts, so if you have recommendations to improve the following,
   * NOTE: When setting up authentication for the CLI tools (so that you can later run `eb init` or `eb deploy`), you'll want a the user with deployment credentials -- more permissions than the service user that you'll use to run the service itself (which will only need access to the S3 bucket, elastic beanstalk components, and RDS instance).
 3. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
   * For steps 5/6, select `Ruby` and `Ruby 2.5 (Puma)`
-  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.3. If the app is not working, try using a different minor Ruby version (e.g. 2.5.1)
+  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.3. 
   * SSH login is optional, but convenient
 4. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
   * You will need to configure Amazon RDS. Create a database and use the information from the DB to connect (this is important to do first before you upload and deploy)
-  * An AWS RDS database will follow the same Database URL as if you were running postgres locally.
-  * When you are using AWS RDS, you might have to connect from outside to run migrations. To do this, go to your database instance, add a new inbound security rule for "Anywhere" IP, and then run your migrations locally/remotely, then get rid of the inbound security role.
-5. Create an S3 Bucket for use in storing uploaded Resume files. Copying bucket policies from the Elastic Beanstalk auto-generated bucket works fine, or you can set specific permissions as needed.
+  * An AWS RDS database will follow the same Database URL as the given format in `.ENV` as if you were running Postgres locally. You can find the necessary credentials in the RDS dashboard for your database instance.
+  * When you are using AWS RDS, you might have to connect from outside to run migrations. To do this, go to your database instance, add a new inbound security rule for "Anywhere" IP, and then run your migrations locally/remotely, then remove the inbound security role.
+5. Create an S3 Bucket for use in storing uploaded Resume files from the Job System form. Copying bucket policies from the Elastic Beanstalk auto-generated bucket works fine from what we've seen, or you can set specific permissions as needed.
 6. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
 7. Create a source bundle if uploading through the UI. `zip ../filename.zip -r * .[^.]*`
 8. ‼️ At this point, stop and check on the instance type. You may need to configure a VPC.
 9. Try deploying: `eb deploy` or use the Upload and Deploy feature integrated into EB.
+  * If the app is not working, try using a different Ruby version (e.g. 2.5.1). Note that this would mean testing to ensure all the Ruby gems work, especially if downgrading.
 
 ~~Configuring the "email to yourself" feature requires extra configuration on EB.~~
 If you are using AWS SES SMTP service, this is no longer necessary as the emails will go through SES. We have set up an SMTP service, so all emails are going through a central location (AWS)
