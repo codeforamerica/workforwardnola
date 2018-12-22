@@ -29,7 +29,10 @@ Setting up SES: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS_SECRET` must a
 
 Setting up S3: Configure `AWS_BUCKET` in `.env`
 
-There is additionally an optional feature to write to google sheets using a file `client_secret.json`. An example is included in `client_secret.json.example`. If you do not wish to use this feature, do not create or use `client_secret.json`! You can find information on the [google-drive-ruby](https://github.com/gimite/google-drive-ruby) GitHub.
+## Job System Results 
+
+There is additionally an optional feature to write to GoogleSsheets using a file `client_secret.json`. An example is included in `client_secret.json.example`. If you do not wish to use this feature, do not create or use `client_secret.json`! You can find information on the [google-drive-ruby](https://github.com/gimite/google-drive-ruby) GitHub.
+This feature requires setting up a Google Service Account. You can find more information in [Google's documentation](https://cloud.google.com/iam/docs/service-accounts)
 
 ## Updating content
 
@@ -52,15 +55,15 @@ Setting up a Heroku pipeline is relatively straightforward. We set up a pipeline
 We are not AWS experts, so if you have recommendations to improve the following, please make a PR! **We found that this requires at least a t2.micro instance to avoid out of memory errors during deployment.**
 
 1. Create an IAM user (as recommended by Amazon) with appropriate permissions for deployment credentials. @antislice has no idea what specific permissions are needed for EB deployment, so we tested with admin.
-2. Install the Elastic Beanstalk client. This may only be necessary if you are deploying from the command line. You can do this from the AWS Elastic Beanstalk UI.
+2. Install the Elastic Beanstalk client. This is only be necessary if you are deploying to AWS from the command line. You can do this from the AWS Elastic Beanstalk UI.
   * NOTE: When setting up authentication for the CLI tools (so that you can later run `eb init` or `eb deploy`), you'll want a the user with deployment credentials -- more permissions than the service user that you'll use to run the service itself (which will only need access to the S3 bucket, elastic beanstalk components, and RDS instance).
 3. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
   * For steps 5/6, select `Ruby` and `Ruby 2.5 (Puma)`
-  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.3
+  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.1.
   * SSH login is optional, but convenient
 4. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
   * You will need to configure Amazon RDS. Create a database and use the information from the DB to connect (this is important to do first before you upload and deploy)
-  * An AWS RDS will typically follow the same Database URL as localhost.
+  * An AWS RDS database will follow the same Database URL as if you were running postgres locally.
   * When you are using AWS RDS, you might have to connect from outside to run migrations. To do this, go to your database instance, add a new inbound security rule for "Anywhere" IP, and then run your migrations locally/remotely, then get rid of the inbound security role.
 5. Create an S3 Bucket for use in storing uploaded Resume files. Copying bucket policies from the Elastic Beanstalk auto-generated bucket works fine, or you can set specific permissions as needed.
 6. Walk through [Create an Environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_env)
