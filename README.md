@@ -25,7 +25,7 @@ The "Email to yourself" career assessment feature requires the `EMAIL_xxxx` conf
 
 Some changes have included various AWS services. In addition to SMTP from the pony gem, several config variables must be set for AWS services (S3 and SES). These are new additions added below the `EMAIL_xxxx` config variables.
 
-Setting up SES: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS_SECRET` must all be configured in `.env` for the SES to work through the job form.
+Setting up SES for Job System: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS_SECRET` must all be configured in `.env` for the SES to work through the job form.
 
 Setting up S3: Configure `AWS_BUCKET` in `.env`
 
@@ -73,8 +73,13 @@ We are not AWS experts, so if you have recommendations to improve the following,
 9. Try deploying: `eb deploy` or use the Upload and Deploy feature integrated into EB.
   * If the app is not working, try using a different Ruby version (e.g. 2.5.1). Note that this would mean testing to ensure all the Ruby gems work, especially if downgrading.
 
-~~Configuring the "email to yourself" feature requires extra configuration on EB.~~
-If you are using AWS SES SMTP service, this is no longer necessary as the emails will go through SES. We have set up an SMTP service, so all emails are going through a central location (AWS)
+### Configuring the "email to yourself" feature
+
+After someone completes the career assessment and sees potential careers, they can use a function through the Pony gem to email the results to themselves.
+We recommend setting up SES SMTP through AWS in addition to SES API for the Job System emails (a central hub for all email sending!). You can find more info on their [docs for SMTP](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-smtp.html)
+`EMAIL_SERVER`, `EMAIL_DOMAIN`, `EMAIL_PORT`, `EMAIL_USER`, and `EMAIL_PASSWORD` are all used for SMTP purposes for the Pony gem.
+A description of how the SMTP works can be found in `app.rb`, line 195, or a brief description in `.env.example`
+
 
 Further notes on our initial test deployment and changes that were made:
 * [PR #108](https://github.com/codeforamerica/workforwardnola/pull/108) contains the code and configuration changes we made to the app to get it to work with AWS (Elastic Beanstalk)
