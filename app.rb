@@ -290,10 +290,11 @@ module WorkForwardNola
       # puts self.emailer.inspect
       recipients = []
       recipients.push owner
-      recipients.push params['email_submission'] if params['email_submission'] != ''
-      recipients.push params['job1'] if params['job1']
-      recipients.push params['goodwill'] if params['goodwill']
-      recipients.push params['tca'] if params['tca']
+      ['email_submission', 'job1', 'goodwill', 'tca'].each do |recipient|
+        if params[recipient] and params[recipient] != '' then
+          recipients.push params[recipient]
+        end
+      end
       emailer.send_email(recipients, sender, subject, textbody, htmlbody,
                          attachment_name, attachment)
     end
