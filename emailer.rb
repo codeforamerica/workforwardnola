@@ -7,8 +7,8 @@ module WorkForwardNola
     def initialize; end
 
     def send_email
-      raise WorkForwardNola::AbstractMethodImplementationMissingError.new(
-        'Emailer is an abstract class. Please use an implementation class.')
+      raise WorkForwardNola::AbstractMethodImplementationMissingError,
+        'Emailer is an abstract class. Please use an implementation class.'
     end
   end
 
