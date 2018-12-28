@@ -13,8 +13,9 @@ describe WorkForwardNola::Emailer do
   describe '#send_email' do
     it 'errors (abstract class without implementation)' do
       emailer = WorkForwardNola::Emailer.new
-      expect(emailer.send_email).to raise_error(
-        WorkForwardNola::AbstractMethodImplementationMissingError)
+      expect{emailer.send_email}.to raise_error(
+        WorkForwardNola::AbstractMethodImplementationMissingError,
+        'Emailer is an abstract class. Please use an implementation class.')
     end
   end
 end
