@@ -1,5 +1,5 @@
-require './awsemailer.rb'
-require './app.rb'
+# require './awsemailer.rb'
+# require './app.rb'
 
 module WorkForwardNola
   # Abstract class for emailing systems
@@ -7,7 +7,11 @@ module WorkForwardNola
     def initialize; end
 
     def send_email
-      throw Error('Emailer is an abstract class. Please use an implementation class.')
+      raise WorkForwardNola::AbstractMethodImplementationMissingError,
+            'Emailer is an abstract class. Please use an implementation class.'
     end
+  end
+
+  class AbstractMethodImplementationMissingError < NoMethodError
   end
 end

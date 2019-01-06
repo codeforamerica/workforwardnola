@@ -6,3 +6,6 @@ services:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - export DATABASE_URL=postgres://postgres:@localhost:5432/travis_ci_test
+  - export SENDER_EMAIL=sendfrom@mynonprofit.org
+  - export OWNER_EMAIL=owner@mynonprofit.org
+  - export CODECOV_TOKEN="0caa47ce-4ba0-437a-827c-f42820c18b8f"
