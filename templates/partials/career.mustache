@@ -9,12 +9,18 @@
     <div class="clearfix"></div>
   </div>
   <h1 class="clearfix">{{ job_title }}</h1>
-  <h2>About <span class="wage">{{experienced_wage}}/hour</span> after training</h2>
+
+  <div class="career-image">
+    <img src="assets/assessment/{{career_image}}" title="{{job_title}}" alt="{{alt_title}}">
+  </div>
+
+  <h2><span class="wage">Salary range: {{experienced_range}}</span></h2>
+  <h2><span class="wage">Entry wage: </br>{{entry_wage}}</span></h2>
   <p>{{ job_description }}</p>
 
-  <h3>Foundational Skills</h3>
-  <div class="foundational-skills">
-    {{& foundational_skills }}
+  <h3>General Duties</h3>
+  <div class="general-duties">
+    {{& general_duties }}
   </div>
 
   <h3>Training</h3>
@@ -38,7 +44,7 @@
     <p><strong>An Opportunity Center can help you get started on one of these career paths.</strong></p>
     <p>Start by signing up for the Opportunity Center job system and receive a customized referral to a center.</p>
     <div class="button-wrapper">
-      <button class="basic-button" type="button"><a href="/jobsystem" data-event-category="Careers" data-event-action="Start job system form">Sign up for the job system</a></button>
+      <a class="basic-button" href="/jobsystem" data-event-category="Careers" data-event-action="Start job system form">Sign up for the job system</a>
     </div>
   </div>
 </div>

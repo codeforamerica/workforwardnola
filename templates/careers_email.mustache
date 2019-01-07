@@ -3,15 +3,16 @@
   {{#career_descriptions}}
     <div class="jobCard">
       <h2>{{job_title}}</h2>
-      <h3>About <span class="wage">{{experienced_wage}}/hour</span> after training</h3>
+      <h3><span class="wage">Salary range: {{experienced_range}}</span></h3>
+      <h3><span class="wage">Entry wage: {{entry_wage}}</span></h3>
       <p>{{job_description}}</p>
 
-      {{#foundational_skills}}
-      <h3>Foundational Skills</h3>
-      <div class="foundational-skills">
-        {{& foundational_skills }}
+      {{#general_duties}}
+      <h3>General Duties</h3>
+      <div class="general-duties">
+        {{& general_duties }}
       </div>
-      {{/foundational_skills}}
+      {{/general_duties}}
 
       {{#training}}
       <h3>Training</h3>

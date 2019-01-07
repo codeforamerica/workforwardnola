@@ -18,5 +18,4 @@ Sequel.migration do
 
     create_join_table(career_id: :careers, trait_id: :traits)
   end
-
 end

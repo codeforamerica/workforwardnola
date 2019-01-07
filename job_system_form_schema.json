@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "job_system_form",
+    "title": "Person",
+    "type": "object",
+    "properties": {
+        "fName": {
+            "description": "First Name",
+            "type": "string",
+        },
+        "lName": {
+            "description": "Last Name",
+            "type": "string",
+        },
+        
+        "referal": {
+            
+            type: "string",
+            "enum": [
+                  "Through an online Search",
+                  "Midnight Basketball Website",
+                  "Friend", 
+                  "Library", 
+                  "Community Group",
+                  "Other",
+             ],
+        
+            
+        },
+        "neighborhood": {
+            "description": "Which neighborhood are you closest to",
+            "type": "string",
+            "enum": [
+                "Upper Ninth Ward",
+                "CBD-Downtown", 
+                "Mid-City", 
+                "Garden District",
+                "None of the above",
+                ],
+        },
+        
+        },
+        "email": {
+            "description": "example@example.com",
+            "type": "string",
+            "format": "email",
+        },
+        "phone": {
+            "type": "string",
+            "pattern": "^[0-9()\\-\\.\\s]+$",
+        },
+        
+        
+    },
+    "required": ["firstName", "lastName", "age", "referal", "neighborhood"],
+}

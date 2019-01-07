@@ -23,9 +23,12 @@ module WorkForwardNola
             id: career.id,
             job_title: career.name,
             job_description: career.description,
-            foundational_skills: career.foundational_skills,
+            general_duties: career.general_duties,
             training: career.training,
-            experienced_wage: to_money(career.experienced_wage),
+            experienced_range: career.experienced_range,
+            entry_wage: career.entry_wage,
+            career_image: career.career_image,
+            alt_title: career.alt_title,
             certification_required: career.certification_required,
             match_stats: trait_match_stats(it_me, career.traits)
           }
@@ -34,9 +37,7 @@ module WorkForwardNola
         @career_matches = @career_matches.sort_by { |career| career[:match_stats][:score] }
                                          .reverse
                                          .first(3)
-        @career_matches.each.with_index(1) do |match, i|
-          match[:index] = i
-        end
+        @career_matches.each.with_index(1) { |match, i| match[:index] = i }
 
         @career_matches.first[:first] = true
         @career_matches.last[:last] = true
@@ -57,7 +58,7 @@ module WorkForwardNola
         career_traits.each do |trait|
           if user_trait_names.include?(trait.name)
             score += 1
-            traits.push({ name: trait.name })
+            traits.push(name: trait.name)
           end
         end
 
@@ -68,11 +69,11 @@ module WorkForwardNola
       end
 
       # expecting float
-      def to_money(amount)
-        sprintf '$%.2f', amount
-        # if needed, for putting commas in money format:
-        # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
-      end
+      # def to_money(amount)
+      #  sprintf '$%.2f', amount
+      # if needed, for putting commas in money format:
+      # "$#{amount.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, '\0,')}"
+      # end
     end
   end
 end

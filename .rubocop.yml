@@ -1,7 +1,11 @@
 AllCops:
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.5
   Exclude:
     - 'Gemfile.lock'
 
 Metrics/MethodLength:
-  Max: 25
+  Max: 30
+Metrics/LineLength:
+  Max: 120
+Style/FrozenStringLiteralComment:
+  Enabled: false
